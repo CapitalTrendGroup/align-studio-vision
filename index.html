@@ -1,0 +1,1531 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ALIGN. Studio — Vision, Pathways & Strategic Opportunities</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream: #F5F0E8;
+  --light-beige: #E8E2D0;
+  --sage: #8B9A6B;
+  --sage-light: #a8b48e;
+  --sage-dark: #6b7a4e;
+  --stone: #B5A48B;
+  --stone-light: #c9bba6;
+  --brown: #3D2B1F;
+  --brown-light: #5a4535;
+  --white: #FFFFFF;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', 'Helvetica Neue', sans-serif;
+  background: var(--cream);
+  color: var(--brown);
+  font-size: 16px;
+  line-height: 1.7;
+  font-weight: 400;
+}
+
+/* ========== NAV ========== */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--cream);
+  border-bottom: 1px solid var(--stone-light);
+  padding: 14px 0;
+  backdrop-filter: blur(10px);
+}
+nav ul {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  list-style: none;
+}
+nav a {
+  text-decoration: none;
+  color: var(--brown-light);
+  font-family: 'Playfair Display', serif;
+  font-size: 15px;
+  letter-spacing: 1px;
+  padding: 6px 16px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+nav a:hover, nav a.active {
+  color: var(--white);
+  background: var(--sage);
+}
+
+/* ========== HERO ========== */
+.hero {
+  background: var(--sage);
+  text-align: center;
+  padding: 100px 40px 80px;
+  position: relative;
+}
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 72px;
+  color: var(--white);
+  letter-spacing: 8px;
+  font-weight: 400;
+  margin-bottom: 24px;
+}
+.hero .subtitle {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  color: rgba(255,255,255,0.85);
+  font-weight: 400;
+  font-style: italic;
+  margin-bottom: 16px;
+}
+.hero .meta {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: rgba(255,255,255,0.65);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* ========== LAYOUT ========== */
+.container {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+section {
+  padding: 60px 0;
+}
+
+/* ========== TYPOGRAPHY ========== */
+h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 42px;
+  font-weight: 400;
+  color: var(--brown);
+  margin-bottom: 32px;
+  line-height: 1.2;
+}
+h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 400;
+  color: var(--brown);
+  margin: 40px 0 16px;
+  line-height: 1.3;
+}
+h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--sage-dark);
+  margin: 28px 0 12px;
+}
+p { margin-bottom: 16px; }
+strong { font-weight: 600; color: var(--brown); }
+
+/* ========== PART HEADERS ========== */
+.part-header {
+  background: var(--sage);
+  color: var(--white);
+  padding: 32px 40px;
+  margin: 60px -40px 40px;
+  border-radius: 0;
+}
+.part-header h2 {
+  color: var(--white);
+  font-size: 36px;
+  margin-bottom: 0;
+}
+.part-header.stone {
+  background: var(--stone);
+}
+
+/* ========== LETTER ========== */
+.letter {
+  border-left: 3px solid var(--sage);
+  padding: 24px 32px;
+  margin: 32px 0;
+  background: rgba(139,154,107,0.04);
+}
+.letter p { font-style: normal; }
+
+/* ========== BLOCKQUOTE ========== */
+blockquote {
+  border-left: 3px solid var(--sage);
+  padding: 16px 24px;
+  margin: 24px 0;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 18px;
+  color: var(--brown-light);
+  background: rgba(139,154,107,0.04);
+}
+
+/* ========== TABLES ========== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 24px 0;
+  font-size: 14px;
+}
+thead th {
+  text-align: left;
+  padding: 12px 16px;
+  border-bottom: 2px solid var(--sage);
+  font-weight: 600;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--sage-dark);
+}
+tbody td {
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--light-beige);
+  vertical-align: top;
+}
+tbody tr:hover { background: rgba(139,154,107,0.04); }
+
+/* ========== STAT HIGHLIGHT ========== */
+.stat {
+  display: inline-block;
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--sage-dark);
+}
+
+/* ========== PATHWAY CARDS ========== */
+.pathway {
+  background: var(--white);
+  border: 1px solid var(--light-beige);
+  border-radius: 8px;
+  padding: 40px;
+  margin: 32px 0;
+  box-shadow: 0 2px 12px rgba(61,43,31,0.04);
+}
+.pathway-header {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+.pathway-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 48px;
+  color: var(--sage);
+  font-weight: 400;
+  line-height: 1;
+}
+.pathway-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  color: var(--brown);
+}
+.pathway-subtitle {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  color: var(--stone);
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+.pathway-meta {
+  display: flex;
+  gap: 24px;
+  margin: 16px 0 24px;
+  flex-wrap: wrap;
+}
+.pathway-meta span {
+  font-size: 13px;
+  color: var(--brown-light);
+  padding: 4px 12px;
+  background: var(--light-beige);
+  border-radius: 20px;
+}
+
+/* ========== DIVIDER ========== */
+.divider {
+  border: none;
+  border-top: 1px solid var(--stone-light);
+  margin: 48px 0;
+}
+
+/* ========== GUS SECTION ========== */
+.gus-section {
+  background: linear-gradient(135deg, var(--stone-light) 0%, var(--light-beige) 100%);
+  border-radius: 8px;
+  padding: 40px;
+  margin: 32px 0;
+}
+.gus-section h3 { color: var(--brown); }
+
+/* ========== QUESTIONNAIRE ========== */
+.question {
+  margin: 28px 0;
+}
+.question-text {
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+textarea.answer-input {
+  background: var(--light-beige);
+  border: 1px solid var(--stone-light);
+  border-radius: 6px;
+  padding: 14px 18px;
+  min-height: 80px;
+  margin-top: 8px;
+  color: var(--brown);
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  width: 100%;
+  resize: vertical;
+  transition: border-color 0.3s;
+}
+textarea.answer-input:focus {
+  outline: none;
+  border-color: var(--sage);
+  box-shadow: 0 0 0 3px rgba(139,154,107,0.15);
+}
+textarea.answer-input.small { min-height: 44px; }
+textarea.answer-input::placeholder { color: var(--stone); font-style: italic; }
+.checkbox-group { margin: 12px 0; }
+.checkbox-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 8px 0;
+  font-size: 15px;
+  cursor: pointer;
+}
+.checkbox-item input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  min-width: 18px;
+  accent-color: var(--sage);
+  margin-top: 3px;
+  cursor: pointer;
+}
+.submit-section {
+  text-align: center;
+  padding: 48px 0;
+  margin: 32px 0;
+  border-top: 1px solid var(--stone-light);
+}
+.submit-btn {
+  display: inline-block;
+  background: var(--sage);
+  color: var(--white);
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  letter-spacing: 1px;
+  padding: 18px 48px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.submit-btn:hover { background: var(--sage-dark); transform: translateY(-1px); box-shadow: 0 4px 16px rgba(139,154,107,0.3); }
+.submit-note {
+  margin-top: 16px;
+  font-size: 14px;
+  color: var(--stone);
+  font-style: italic;
+}
+.q-section-header {
+  background: var(--sage);
+  color: var(--white);
+  padding: 20px 28px;
+  margin: 48px 0 28px;
+  border-radius: 6px;
+}
+.q-section-header h3 {
+  color: var(--white);
+  margin: 0;
+  font-size: 22px;
+}
+
+/* ========== STEP CIRCLES ========== */
+.step {
+  display: flex;
+  gap: 24px;
+  margin: 32px 0;
+  align-items: flex-start;
+}
+.step-number {
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  background: var(--sage);
+  color: var(--white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+}
+
+/* ========== LISTS ========== */
+ul, ol { margin: 12px 0 12px 24px; }
+li { margin: 6px 0; }
+
+/* ========== CHECKLIST ========== */
+.checklist { list-style: none; margin-left: 0; }
+.checklist li {
+  padding: 4px 0 4px 28px;
+  position: relative;
+}
+.checklist li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--sage);
+  border-radius: 3px;
+}
+
+/* ========== CODE BLOCK (for chain diagram) ========== */
+.chain {
+  background: var(--brown);
+  color: var(--sage-light);
+  padding: 24px 32px;
+  border-radius: 8px;
+  font-family: 'Inter', monospace;
+  font-size: 14px;
+  line-height: 2;
+  margin: 24px 0;
+}
+
+/* ========== FOOTER ========== */
+footer {
+  background: var(--stone);
+  color: var(--white);
+  text-align: center;
+  padding: 48px 40px;
+  font-size: 14px;
+}
+footer .logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  letter-spacing: 4px;
+  margin-bottom: 12px;
+}
+
+/* ========== PRINT ========== */
+@media print {
+  nav { display: none; }
+  .hero { padding: 40px; }
+  .part-header { margin: 30px 0; }
+  .pathway { box-shadow: none; border: 1px solid #ccc; }
+  body { font-size: 11pt; }
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+  .hero h1 { font-size: 42px; letter-spacing: 4px; }
+  .hero .subtitle { font-size: 18px; }
+  h2 { font-size: 32px; }
+  h3 { font-size: 22px; }
+  .part-header { margin: 40px -16px 28px; padding: 24px; }
+  .part-header h2 { font-size: 26px; }
+  .pathway { padding: 24px; }
+  .container { padding: 0 20px; }
+  nav ul { gap: 12px; }
+  nav a { font-size: 13px; padding: 6px 10px; }
+  table { font-size: 12px; }
+  thead th, tbody td { padding: 8px; }
+  .pathway-meta { gap: 8px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ==================== HERO ==================== -->
+<div class="hero">
+  <h1>ALIGN.</h1>
+  <div class="subtitle">Vision, Pathways & Strategic Opportunities</div>
+  <div class="meta">Prepared for Katie Peckham & Gus &nbsp;&bull;&nbsp; March 2026</div>
+</div>
+
+<!-- ==================== NAV ==================== -->
+<nav>
+  <ul>
+    <li><a href="#vision" class="active">Vision &amp; Pathways</a></li>
+    <li><a href="#questionnaire">Questionnaire</a></li>
+    <li><a href="#nextsteps">Next Steps</a></li>
+  </ul>
+</nav>
+
+<!-- ==================== DOCUMENT 1: VISION ==================== -->
+<div id="vision">
+<section>
+<div class="container">
+
+<blockquote>"The best time to plant a tree was twenty years ago. The second best time is now."<br><span style="font-size:14px; font-style:normal;">— Chinese Proverb</span></blockquote>
+
+<div class="letter">
+<h3 style="margin-top:0;">Dear Katie,</h3>
+<p>What follows is not a business plan. It is a map of possibilities.</p>
+<p>We have studied your brand guidelines, your vision, your mission, and the full conversation you had with Eduardo. We have also conducted extensive research into the global Pilates and wellness industry — what the most successful studios in the world are doing, where the market is heading, and what makes Monmouth a uniquely powerful location for something truly special.</p>
+<p>A few things struck us immediately. First, your instincts are remarkably good — the gender-neutral branding, the QR code on the door before opening, the rugby players content idea, the at-home workout series as a free content hook. These are not the ideas of someone who has merely trained in Pilates. These are the ideas of someone who understands how brands are built. Second, the frustration you described with TeamUp — "no personalisation, just a platform" — is not just a personal frustration. It is a market gap that thousands of studios feel. We will come back to this.</p>
+<p>Some of these ideas are practical and immediate. Others are deliberately ambitious — even audacious. We present them all because we believe that seeing the full landscape of what ALIGN. <em>could</em> become is the first step towards building something extraordinary.</p>
+<p>You do not need to pursue every path. But knowing they exist changes how you take your first steps.</p>
+</div>
+
+</div>
+</section>
+
+<!-- PART ONE -->
+<div class="part-header"><div class="container"><h2>Part One — The Market Opportunity</h2></div></div>
+<section><div class="container">
+
+<h3>1.1 The Pilates Industry in 2026 — A Golden Moment</h3>
+<p>The global Pilates and wellness studio market is experiencing unprecedented growth:</p>
+<ul>
+  <li><strong>UK market</strong>: Valued at <span class="stat">£1.1 billion</span> in 2026, growing at 5% CAGR, with <strong>5,011 registered businesses</strong></li>
+  <li><strong>Global market</strong>: On track to hit <span class="stat">$521 billion by 2035</span> (14.3% CAGR) — the fastest-growing segment in fitness</li>
+  <li><strong>Boutique fitness expansion</strong>: Over 1,000 independent boutique fitness studios have opened on UK high streets since 2019</li>
+  <li><strong>Tier-2 and Tier-3 cities</strong>: European boutique gym market reports highlight expansion into smaller cities as the next growth frontier — exactly where Monmouth sits</li>
+</ul>
+<p>This is not a saturated market. This is a market in its expansion phase, and small-town, high-quality studios are the next wave.</p>
+<p><strong>The franchise chains are coming — but not yet to Wales.</strong> Club Pilates signed a UK Master Franchise Agreement in July 2022, targeting 50–75 studios over 3–5 years. Studio Pilates International has opened in Exeter, Putney, and West Malling. Both are London-first. South Wales is not yet on their map. This means there is a genuine <strong>first-mover window of 2–4 years</strong> to establish ALIGN. as the dominant brand in the region before the chains arrive.</p>
+
+<h3>1.2 Why Monmouth Is Strategically Powerful</h3>
+<table>
+<thead><tr><th>Advantage</th><th>Detail</th></tr></thead>
+<tbody>
+<tr><td><strong>Affluent demographics</strong></td><td>Monmouthshire has the <strong>highest house prices in Wales</strong> (£329k–£350k average), median age of 49, and 51.7% of households with zero deprivation — the highest in Wales</td></tr>
+<tr><td><strong>Affluent commuter belt</strong></td><td>34.7% of residents born in England — professional households relocated from Bristol, Cardiff, and London, bringing urban wellness expectations and city-level salaries</td></tr>
+<tr><td><strong>Wye Valley AONB</strong></td><td><strong>2.29 million visitors annually</strong>, generating <strong>£329 million</strong> in tourism revenue. 35% of visits happen off-peak, reducing seasonality risk</td></tr>
+<tr><td><strong>Zero reformer competition</strong></td><td><strong>There is no dedicated boutique reformer Pilates studio in Monmouth.</strong> The closest reformer operator is in Ross-on-Wye, 9 miles away</td></tr>
+<tr><td><strong>NHS referral pipeline</strong></td><td>The Wales National Exercise Referral Scheme generated <strong>1,000+ referrals in Monmouthshire in 2024/25</strong>. Seven GP surgeries serve ~55,000 patients</td></tr>
+<tr><td><strong>Community density</strong></td><td>In a town of 10,500, word-of-mouth is extraordinarily powerful</td></tr>
+<tr><td><strong>Retreat destination</strong></td><td>Surrounding countryside is perfect for wellness retreats from London, Bristol, and Cardiff</td></tr>
+<tr><td><strong>Post-flood renewal</strong></td><td>The town is rebuilding — a new, beautiful wellness space becomes a symbol of renewal</td></tr>
+<tr><td><strong>Favourable business rates</strong></td><td>40% Retail, Leisure and Hospitality Rates Relief in Wales; Small Business Rates Relief can eliminate rates entirely</td></tr>
+</tbody>
+</table>
+
+<h3>1.3 The Competitive Landscape — Your Playing Field</h3>
+<p>We mapped every Pilates and wellness operator within 15–20 miles of Monmouth:</p>
+<table>
+<thead><tr><th>Business</th><th>Location</th><th>Format</th><th>Reformer?</th><th>Threat</th></tr></thead>
+<tbody>
+<tr><td>Hannah Modget Pilates</td><td>Monmouth</td><td>Solo instructor, mat</td><td>No</td><td>Low</td></tr>
+<tr><td>MyPilates Monmouth</td><td>Monmouth</td><td>Small studio</td><td>Unknown</td><td>Medium</td></tr>
+<tr><td>PhoenixFit</td><td>Monmouth/Abergavenny</td><td>Solo, mixed</td><td>No</td><td>Low</td></tr>
+<tr><td>Chepstow Yoga Space</td><td>Chepstow (14 mi)</td><td>Multi-teacher</td><td>Mat only</td><td>Low-Med</td></tr>
+<tr><td>Pilates Encounter</td><td>Chepstow (14 mi)</td><td>Classes + packages</td><td>Unknown</td><td>Medium</td></tr>
+<tr><td><strong>The Studio with Tasha</strong></td><td><strong>Ross-on-Wye (9 mi)</strong></td><td><strong>Dedicated studio</strong></td><td><strong>Yes</strong></td><td><strong>Med-High</strong></td></tr>
+<tr><td>MonLife Leisure</td><td>County-wide</td><td>Public leisure</td><td>No</td><td>Medium (price)</td></tr>
+</tbody>
+</table>
+<p><strong>The key finding: There is no dedicated boutique reformer Pilates studio in Monmouth or its immediate surroundings.</strong> The gap is real, confirmed by research, and ALIGN. will fill it.</p>
+
+<h3>1.4 UK Small-Town Success Stories — Proof It Works</h3>
+<ul>
+  <li><strong>Core &amp; Co</strong> (Nailsworth, Cotswolds, ~6,000 pop.) — Boutique reformer + barre. Beginner Series consistently sells out.</li>
+  <li><strong>Form Wellness Studio</strong> (Penistone, South Yorkshire, ~10,000 pop.) — 8 specialist reformer beds, 4 instructors.</li>
+  <li><strong>Core Reform</strong> (Holmfirth, ~7,000 pop.) — Converted old mill into reformer studio. Built loyal community from scratch.</li>
+  <li><strong>Stiwdio Glow</strong> (Barry, Vale of Glamorgan) — Most Wales-relevant example. Proving reformer model works beyond Welsh urban centres.</li>
+</ul>
+
+<h4>The Small-Town Advantage</h4>
+<p>What many people miss is that a small town is not a limitation — it is a <strong>strategic wedge</strong>. In London, you are one of a thousand studios competing for attention. In Monmouth, you can become <em>the</em> wellness destination. The studio that everyone knows, everyone recommends, and everyone belongs to. This kind of deep community integration is nearly impossible to achieve in a major city, and it is the foundation upon which empires are built.</p>
+
+</div></section>
+
+<!-- PART TWO -->
+<div class="part-header"><div class="container"><h2>Part Two — What the World's Best Are Doing</h2></div></div>
+<section><div class="container">
+
+<h3>2.1 Design-Led Immersive Studios</h3>
+<p><strong>Studio Anatomy</strong> (London) has been featured in Wallpaper Magazine: lime-plaster walls, bouclé couches, terracotta tiles, mother-of-pearl resin floors, and a private infrared sauna with chromotherapy LED.</p>
+<p><em>Why this matters for ALIGN.</em>: Your brand colours (Cream, Sage, Stone) already align perfectly with this direction. The Wye Valley setting gives you something Studio Anatomy cannot buy — authentic connection to a stunning natural landscape.</p>
+
+<h3>2.2 The Wellness Social Club Model</h3>
+<p><strong>MNTSTUDIO</strong> (San Francisco) launched a "Wellness Social Club" — Pilates plus coworking plus community. <strong>KARVE Club</strong> (London) adds a café and super-fast Wi-Fi workspace area.</p>
+<p><em>Why this matters for ALIGN.</em>: In a small town, the "third place" is enormously powerful. Your coffee shop collaboration already points in this direction.</p>
+
+<h3>2.3 The Hybrid Digital Pioneer</h3>
+<p><strong>Heartcore</strong> (London, 8 studios) built a global digital platform now serving Cape Town, Dubai, NYC, Paris, Sydney, and Tokyo — all from a London base.</p>
+<p><em>Why this matters for ALIGN.</em>: Proof that a boutique UK studio can build international digital reach.</p>
+
+<h3>2.4 The Franchise That Started Small</h3>
+<p><strong>Club Pilates</strong> started as a single studio in San Diego in 2007. Today: <span class="stat">900+ locations</span>. <strong>Solidcore</strong> was acquired for <span class="stat">$325 million</span>. Both began as a single founder with a vision.</p>
+
+<h3>2.5 The Sensory Revolution</h3>
+<ul>
+  <li><strong>Circadian lighting</strong>: Cool-white mornings; warm amber evenings</li>
+  <li><strong>Scent programming</strong>: Citrus/peppermint for energy; lavender/cedar for recovery</li>
+  <li><strong>Sound design</strong>: Curated soundscapes, not playlists</li>
+  <li><strong>Infrared integration</strong>: Gentle radiant heat for faster results</li>
+</ul>
+
+</div></section>
+
+<!-- PART THREE -->
+<div class="part-header"><div class="container"><h2>Part Three — Five Pathways for ALIGN.</h2></div></div>
+<section><div class="container">
+
+<p>We present five distinct strategic pathways. These are not mutually exclusive — they can be layered over time. Think of them as chapters in ALIGN.'s story.</p>
+
+<!-- Pathway 1 -->
+<div class="pathway">
+<div class="pathway-header"><span class="pathway-number">1</span><span class="pathway-title">The Destination Studio</span></div>
+<div class="pathway-subtitle">"The Best Studio in the Wye Valley"</div>
+<div class="pathway-meta">
+  <span>Launch (June 2026) → Year 1</span>
+  <span>£20k–£60k investment</span>
+  <span>£80k–£150k/year revenue</span>
+</div>
+<p>ALIGN. at its most immediate and powerful: a beautifully designed, sensory-rich Pilates studio that becomes the talk of Monmouth from day one.</p>
+<h4>The Space</h4>
+<p>Your brand aesthetic translates into a sanctuary: warm timber floors, large windows framing the Welsh hills, living plants, soft ambient lighting, and the subtle scent of cedar. Not a gym. Somewhere between a spa, a gallery, and a forest clearing.</p>
+<h4>The Classes</h4>
+<p>Your existing formats (Reformer Dynamic, Core/Beginners, Mat, Barre, S&amp;C) plus new premium offerings:</p>
+<ul>
+  <li><strong>Reformer + Breathwork Flow</strong> (75 min) — a premium mind-body offering</li>
+  <li><strong>Candlelight Pilates</strong> — evening sessions in low light with warm tones</li>
+  <li><strong>Outdoor Pilates in the Wye Valley</strong> — seasonal, and marketing gold</li>
+</ul>
+<h4>Pricing Structure</h4>
+<table>
+<thead><tr><th>Offering</th><th>Price</th></tr></thead>
+<tbody>
+<tr><td>Single reformer class</td><td>£20</td></tr>
+<tr><td>Single mat/barre class</td><td>£14</td></tr>
+<tr><td>10-class pack (reformer)</td><td>£180 (£18/class)</td></tr>
+<tr><td>Monthly unlimited</td><td>£99/month</td></tr>
+<tr><td>Monthly 8-class</td><td>£75/month</td></tr>
+<tr><td>Private 1-to-1</td><td>£55</td></tr>
+<tr><td>Intro offer (3 classes)</td><td>£45 (£15/class)</td></tr>
+</tbody>
+</table>
+</div>
+
+<!-- Pathway 2 -->
+<div class="pathway">
+<div class="pathway-header"><span class="pathway-number">2</span><span class="pathway-title">The Digital Brand</span></div>
+<div class="pathway-subtitle">"ALIGN. Beyond Monmouth"</div>
+<div class="pathway-meta">
+  <span>Month 3 → Year 2</span>
+  <span>£5k–£25k additional</span>
+  <span>+£30k–£80k/year</span>
+</div>
+<p>Transform ALIGN. from a local studio into a digital wellness brand with global reach.</p>
+<h4>Digital Membership Tiers</h4>
+<table>
+<thead><tr><th>Tier</th><th>Price</th><th>Includes</th></tr></thead>
+<tbody>
+<tr><td>Digital Basic</td><td>£15/month</td><td>Full on-demand library</td></tr>
+<tr><td>Digital Plus</td><td>£25/month</td><td>On-demand + 4 live classes/month</td></tr>
+<tr><td>Studio + Digital</td><td>£115/month</td><td>Unlimited in-studio + full digital</td></tr>
+</tbody>
+</table>
+<h4>Real-World Digital Economics</h4>
+<table>
+<thead><tr><th>Platform</th><th>Price</th><th>500 subs</th><th>2,000 subs</th><th>5,000 subs</th></tr></thead>
+<tbody>
+<tr><td>Creator-led (Lottie Murphy rate)</td><td>£25/mo</td><td>£12,500/mo</td><td>£50,000/mo</td><td>£125,000/mo</td></tr>
+<tr><td>Studio-prestige (Heartcore rate)</td><td>£60/mo</td><td>£30,000/mo</td><td>£120,000/mo</td><td>£300,000/mo</td></tr>
+</tbody>
+</table>
+<p>Monmouth's population limits your local base. Digital removes that ceiling entirely. A tourist takes a class, joins digital, and pays £15/month from Edinburgh indefinitely.</p>
+</div>
+
+<!-- Pathway 3 -->
+<div class="pathway">
+<div class="pathway-header"><span class="pathway-number">3</span><span class="pathway-title">The Wellness Ecosystem</span></div>
+<div class="pathway-subtitle">"More Than a Studio — A Way of Living"</div>
+<div class="pathway-meta">
+  <span>Year 1 → Year 3</span>
+  <span>£15k–£50k per element</span>
+  <span>+£100k–£300k/year</span>
+</div>
+
+<h4>Wye Valley Retreats</h4>
+<p>Weekend retreats: Pilates, guided forest walks, breathwork, local farm-to-table dining. Partner with local B&amp;Bs (no property investment). <strong>8 retreats × 10 participants × £500 = £40,000/year</strong> in high-margin revenue — plus extraordinary client acquisition.</p>
+
+<h4>NHS &amp; Social Prescribing Pipeline</h4>
+<p>Wales has the world's first national exercise referral scheme (NERS) — <strong>1,000+ referrals/year in Monmouthshire alone</strong>. Register as a social prescribing resource. <strong>Investment: zero. Revenue: referred clients become paying members.</strong></p>
+
+<h4>Corporate Wellness</h4>
+<p>Target Bristol/Cardiff commuter employers. On-site sessions + studio team days. <strong>4 clients × £500/month = £24,000/year.</strong></p>
+
+<h4>Contrast Therapy Suite</h4>
+<p>Private infrared sauna + cold plunge. Bookable standalone or post-class. <strong>Investment: £8k–£25k. Revenue: £25k–£60k/year.</strong></p>
+
+<h4>Curated Wellness Retail &amp; Monthly Box</h4>
+<p>Welsh artisan products, ALIGN. branded merchandise, subscription wellness boxes for digital members. <strong>Combined: £40k–£70k/year.</strong></p>
+</div>
+
+<!-- Pathway 4 -->
+<div class="pathway">
+<div class="pathway-header"><span class="pathway-number">4</span><span class="pathway-title">The Franchise Blueprint</span></div>
+<div class="pathway-subtitle">"ALIGN. Everywhere"</div>
+<div class="pathway-meta">
+  <span>Year 2 → Year 5+</span>
+  <span>£50k–£150k infrastructure</span>
+  <span>£500k–£2M+/year at scale</span>
+</div>
+
+<p>You are not franchising reformers. You are franchising:</p>
+<ol>
+  <li><strong>The ALIGN. Method</strong> — Codified inclusive, science-based instruction</li>
+  <li><strong>The ALIGN. Experience</strong> — Sensory design language (Sage/Cream/Stone, lighting, scent, sound)</li>
+  <li><strong>The ALIGN. Technology</strong> — The app, booking, client management, digital platform</li>
+  <li><strong>The ALIGN. Brand</strong> — Visual identity, voice, and community philosophy</li>
+  <li><strong>The ALIGN. Training</strong> — Instructor certification</li>
+</ol>
+
+<h4>Franchise Economics (Industry Benchmarks)</h4>
+<table>
+<thead><tr><th>Element</th><th>Typical Range</th></tr></thead>
+<tbody>
+<tr><td>Franchise fee</td><td>£15,000–£30,000</td></tr>
+<tr><td>Monthly royalty</td><td>6–8% of gross</td></tr>
+<tr><td>Marketing fund</td><td>1–2% of gross</td></tr>
+<tr><td>Break-even for franchisee</td><td>12–18 months</td></tr>
+</tbody>
+</table>
+
+<h4>Alternative: The Licensing Model (Lagree Approach)</h4>
+<p><strong>Lagree Fitness</strong> chose licensing over franchising — 600+ studios worldwide, flat annual fee of <strong>£3,000–£5,000/year</strong>, zero royalties, no Franchise Disclosure Document required.</p>
+<p>Applied to ALIGN.: <strong>50 licensees at £4,000/year = £200,000/year at near-100% gross margin.</strong> This is the highest-margin growth path available.</p>
+
+<h4>The ALIGN. Instructor Academy</h4>
+<p>A certificated ALIGN. Method programme: 200 hours, £2,500–£4,000 per participant. <strong>12 participants × 2 cohorts/year × £3,000 = £72,000/year.</strong> Graduates become the instructor pool for future locations.</p>
+</div>
+
+<!-- Pathway 5 -->
+<div class="pathway">
+<div class="pathway-header"><span class="pathway-number">5</span><span class="pathway-title">The Technology Play</span></div>
+<div class="pathway-subtitle">"ALIGN. as a Platform"</div>
+<div class="pathway-meta">
+  <span>Year 3 → Year 5+</span>
+  <span>£100k–£500k+</span>
+  <span>£1M+/year at scale</span>
+</div>
+
+<h4>The ALIGN. SaaS Platform</h4>
+<p>Katie, you described TeamUp perfectly: <em>"There's no personalisation. It's just a platform."</em> That frustration is shared by thousands of studio owners. No platform is built <strong>specifically for Pilates studios</strong> with the depth and elegance they deserve.</p>
+<p>The app you are building for ALIGN. — with its beautiful brand, PAR-Q medical intake, reformer-specific booking, content feed, community messaging, and Stripe payments — is not just your studio's app. <strong>It is the prototype for the platform every boutique Pilates studio wishes existed.</strong></p>
+
+<table>
+<thead><tr><th>SaaS Tier</th><th>Price</th><th>Features</th></tr></thead>
+<tbody>
+<tr><td>Starter</td><td>£49/month</td><td>Booking + payments + profiles</td></tr>
+<tr><td>Professional</td><td>£129/month</td><td>+ video hosting + community + analytics</td></tr>
+<tr><td>Enterprise</td><td>£299/month</td><td>+ white-label app + API + multi-location</td></tr>
+</tbody>
+</table>
+<p><strong>5,011 Pilates studios in the UK. Even 5% penetration at £129/month = £388,000/year.</strong></p>
+
+<h4>The Connected Studio</h4>
+<p>Clients wear an Oura Ring or Apple Watch. Their recovery score is read as they arrive. The class subtly adjusts. After class, they receive a personalised summary. <strong>Nobody in Wales is offering this.</strong></p>
+</div>
+
+</div></section>
+
+<!-- PART FOUR -->
+<div class="part-header"><div class="container"><h2>Part Four — The ALIGN. Brand: What You Already Have Right</h2></div></div>
+<section><div class="container">
+
+<p><strong>0. The Founding Team:</strong> What we see in Katie and Gus is a powerful combination — Katie brings the practitioner's expertise and instinctive understanding of clients. Gus brings the commercial vision, connections, and ambition. This founder-operator + business-builder dynamic is precisely how Heartcore, Solidcore, and KX Pilates were built.</p>
+
+<p><strong>1. The Name:</strong> "Align" works on three levels — physical alignment (Pilates), life alignment (wellness), and community alignment (belonging). The period adds quiet authority.</p>
+
+<p><strong>2. The Colour Palette:</strong> Cream, Light Beige, Sage, Stone — nature-inspired, gender-neutral, premium without pretension. Remarkably close to what Studio Anatomy and Forma Pilates use.</p>
+
+<p><strong>3. The Inclusive Mission:</strong> In an industry that skews feminine and intimidating, this positioning is both ethically right and commercially smart. The male Pilates market is the single largest untapped segment.</p>
+
+<p><strong>4. The Science-Based Identity:</strong> The credibility foundation for franchising, teacher training, and clinical partnerships.</p>
+
+<p><strong>5. The Voice:</strong> Motivational, Energetic, Inclusive, Friendly, Stylish, Authentic, Confident — a voice that scales from small town to global platform.</p>
+
+<h3>The Opportunity to Elevate</h3>
+<ul>
+  <li><strong>Photography style</strong>: Wye Valley as backdrop, natural light, real people, movement mid-flow</li>
+  <li><strong>Sonic identity</strong>: A signature sound when the app opens and clients arrive</li>
+  <li><strong>Scent identity</strong>: A signature ALIGN. scent (cedar and sage) available as a candle for home practice</li>
+</ul>
+
+</div></section>
+
+<!-- PART FIVE -->
+<div class="part-header"><div class="container"><h2>Part Five — Timeline: A Possible Journey</h2></div></div>
+<section><div class="container">
+
+<h3>Pre-Launch (Now → June 2026)</h3>
+<ul class="checklist">
+  <li>Finalise app development with Eduardo and João</li>
+  <li>Build social media presence (rugby content, renovation behind-the-scenes)</li>
+  <li>Launch app for pre-registration and buzz</li>
+  <li>Set up company registration, tax ID, business account</li>
+  <li>Begin filming at-home content series</li>
+  <li>Establish coffee shop partnership</li>
+  <li>Design and order merchandise</li>
+</ul>
+
+<h3>Phase 1: The Foundation (June → December 2026)</h3>
+<ul class="checklist">
+  <li>Grand opening with community event</li>
+  <li>Full class timetable running</li>
+  <li>Build to 80+ active members</li>
+  <li>Launch blog and weekly free content</li>
+  <li>Introduce private 1-to-1 sessions (month 2)</li>
+  <li>Begin recording classes for on-demand library</li>
+  <li>Establish physiotherapy partnership</li>
+</ul>
+
+<h3>Phase 2: Digital Expansion (Jan → June 2027)</h3>
+<ul class="checklist">
+  <li>Launch digital membership tier</li>
+  <li>First Wye Valley retreat weekend</li>
+  <li>Corporate wellness pilot</li>
+  <li>Introduce contrast therapy suite</li>
+  <li>Launch curated wellness retail</li>
+</ul>
+
+<h3>Phase 3: Brand Building (July → December 2027)</h3>
+<ul class="checklist">
+  <li>200+ active members (studio + digital)</li>
+  <li>Monthly retreats running profitably</li>
+  <li>Begin documenting operations manual</li>
+  <li>Explore second location feasibility</li>
+</ul>
+
+<h3>Phase 4: Scaling (2028 → 2029)</h3>
+<ul class="checklist">
+  <li>Open second company-owned studio</li>
+  <li>Launch ALIGN. Teacher Training Programme</li>
+  <li>Build franchise legal framework</li>
+  <li>First franchise/licence location</li>
+</ul>
+
+<h3>Phase 5: Empire (2030+)</h3>
+<ul class="checklist">
+  <li>National franchise/licence network</li>
+  <li>International digital community</li>
+  <li>ALIGN. as a recognised wellness lifestyle brand</li>
+  <li>£1M+ annual revenue across all streams</li>
+</ul>
+
+</div></section>
+
+<!-- PART SIX -->
+<div class="part-header"><div class="container"><h2>Part Six — Revenue Projections</h2></div></div>
+<section><div class="container">
+
+<h3>Scenario A: The Destination Studio (Pathway 1 only)</h3>
+<table>
+<thead><tr><th></th><th>Year 1</th><th>Year 2</th><th>Year 3</th></tr></thead>
+<tbody>
+<tr><td>Active members</td><td>80</td><td>120</td><td>150</td></tr>
+<tr><td>Avg revenue/member/month</td><td>£80</td><td>£85</td><td>£90</td></tr>
+<tr><td>Drop-in/class pack revenue</td><td>£15,000</td><td>£20,000</td><td>£25,000</td></tr>
+<tr><td>Private sessions</td><td>£8,000</td><td>£15,000</td><td>£20,000</td></tr>
+<tr><td><strong>Total revenue</strong></td><td><strong>£99,800</strong></td><td><strong>£157,400</strong></td><td><strong>£187,000</strong></td></tr>
+</tbody>
+</table>
+
+<h3>Scenario B: Studio + Digital + Ecosystem (Pathways 1–3)</h3>
+<table>
+<thead><tr><th></th><th>Year 1</th><th>Year 2</th><th>Year 3</th></tr></thead>
+<tbody>
+<tr><td>Studio revenue</td><td>£99,800</td><td>£157,400</td><td>£187,000</td></tr>
+<tr><td>Digital memberships</td><td>—</td><td>£18,000</td><td>£48,000</td></tr>
+<tr><td>Retreats</td><td>—</td><td>£25,000</td><td>£40,000</td></tr>
+<tr><td>Corporate wellness</td><td>—</td><td>£12,000</td><td>£24,000</td></tr>
+<tr><td>Retail + merchandise</td><td>£5,000</td><td>£15,000</td><td>£25,000</td></tr>
+<tr><td>Contrast therapy</td><td>—</td><td>£20,000</td><td>£35,000</td></tr>
+<tr><td>Wellness boxes</td><td>—</td><td>—</td><td>£25,000</td></tr>
+<tr><td><strong>Total revenue</strong></td><td><strong>£104,800</strong></td><td><strong>£247,400</strong></td><td><strong>£384,000</strong></td></tr>
+</tbody>
+</table>
+
+<h3>Scenario C: Full Ecosystem + Franchise (All Pathways)</h3>
+<table>
+<thead><tr><th></th><th>Year 3</th><th>Year 4</th><th>Year 5</th></tr></thead>
+<tbody>
+<tr><td>Studio + digital</td><td>£235,000</td><td>£280,000</td><td>£320,000</td></tr>
+<tr><td>Ecosystem</td><td>£124,000</td><td>£160,000</td><td>£200,000</td></tr>
+<tr><td>Teacher training</td><td>—</td><td>£36,000</td><td>£72,000</td></tr>
+<tr><td>Franchise fees + royalties</td><td>—</td><td>£30,000</td><td>£150,000</td></tr>
+<tr><td>SaaS platform</td><td>—</td><td>—</td><td>£50,000</td></tr>
+<tr><td><strong>Total revenue</strong></td><td><strong>£359,000</strong></td><td><strong>£506,000</strong></td><td><strong>£792,000</strong></td></tr>
+</tbody>
+</table>
+
+</div></section>
+
+<!-- PART SEVEN -->
+<div class="part-header"><div class="container"><h2>Part Seven — Your Moat</h2></div></div>
+<section><div class="container">
+<ol>
+  <li><strong>Community moat</strong> — The first studio to build deep relationships creates a bond no newcomer can replicate</li>
+  <li><strong>Brand moat</strong> — ALIGN. becomes synonymous with Pilates in the region</li>
+  <li><strong>Technology moat</strong> — A proprietary app with client data creates switching costs</li>
+  <li><strong>Content moat</strong> — A growing on-demand library accumulates value over time</li>
+  <li><strong>Network moat</strong> — Each franchise location strengthens the brand</li>
+  <li><strong>Katie moat</strong> — Your personal brand as founder is authentic and unreplicable</li>
+</ol>
+</div></section>
+
+<!-- PART EIGHT -->
+<div class="part-header"><div class="container"><h2>Part Eight — Case Studies</h2></div></div>
+<section><div class="container">
+
+<h3>Heartcore (London → Global)</h3>
+<p><strong>Started</strong>: 2007, single studio. <strong>Now</strong>: 8 studios, global digital platform (Cape Town to Tokyo), launching franchise. <strong>Lesson</strong>: A single UK studio can become a global brand. Digital is the bridge.</p>
+
+<h3>Club Pilates (San Diego → 900+ locations)</h3>
+<p><strong>Started</strong>: 2007, one studio. <strong>Now</strong>: 900+ franchise locations, publicly traded. <strong>Lesson</strong>: Codify everything from day one as if someone else will replicate it — because someday, they will.</p>
+
+<h3>Solidcore ($325M acquisition)</h3>
+<p><strong>Started</strong>: 2013, one studio. <strong>Now</strong>: 250+ planned studios, acquired by L Catterton for $325 million. <strong>Lesson</strong>: Quality obsession pays. The refusal to compromise is what made it worth $325M.</p>
+
+<h3>Lottie Murphy (UK → £25/month global community)</h3>
+<p><strong>Started</strong>: YouTube channel. <strong>Now</strong>: 380K subscribers, £25/month paid platform. <strong>Lesson</strong>: Free content is not a cost — it is the acquisition engine for paid memberships.</p>
+
+</div></section>
+
+<!-- PART NINE -->
+<div class="part-header"><div class="container"><h2>Part Nine — UK Regulatory Essentials</h2></div></div>
+<section><div class="container">
+<table>
+<thead><tr><th>Requirement</th><th>Detail</th></tr></thead>
+<tbody>
+<tr><td>Fitness qualifications</td><td>CIMSPA registration recommended; Level 3 Diploma (Katie has completed)</td></tr>
+<tr><td>Public liability insurance</td><td>Mandatory; requires professional qualifications</td></tr>
+<tr><td>Medical forms/waivers</td><td>PAR-Q required before participation (planned in app)</td></tr>
+<tr><td>Physiotherapy services</td><td>Staff must be HCPC-registered</td></tr>
+<tr><td>Food &amp; beverage</td><td>Food Business Registration with Monmouthshire Council (free, 28 days notice)</td></tr>
+<tr><td>Planning permission</td><td>Change of use may be required — consult Monmouthshire planning</td></tr>
+<tr><td>Business rates</td><td>Small Business Rates Relief in Wales: 100% for rateable value under £6,000</td></tr>
+<tr><td>Data protection</td><td>ICO registration required (£40/year for small businesses)</td></tr>
+</tbody>
+</table>
+</div></section>
+
+<!-- PART TEN -->
+<div class="part-header"><div class="container"><h2>Part Ten — Studios Worth Studying</h2></div></div>
+<section><div class="container">
+<table>
+<thead><tr><th>Studio</th><th>Where</th><th>Why Study It</th></tr></thead>
+<tbody>
+<tr><td><strong>Studio Anatomy</strong></td><td>London</td><td>Design-led biophilic aesthetic, infrared sauna</td></tr>
+<tr><td><strong>KARVE Club</strong></td><td>London + Jeddah</td><td>Café + workspace model, international expansion</td></tr>
+<tr><td><strong>Heartcore</strong></td><td>London</td><td>Digital platform, franchise model</td></tr>
+<tr><td><strong>Reform Studios</strong></td><td>Newcastle</td><td>Sauna, cold plunge, café, members-only garden</td></tr>
+<tr><td><strong>The Green Lab</strong></td><td>Manchester</td><td>Café + reformer combined, community-first</td></tr>
+<tr><td><strong>Rise Wellness</strong></td><td>Doncaster</td><td>In-house wellness store, small-town success</td></tr>
+<tr><td><strong>Forma Pilates</strong></td><td>LA + NYC</td><td>Ultra-premium micro-studio, 3–4 clients max</td></tr>
+<tr><td><strong>Solidcore</strong></td><td>USA (250+)</td><td>$325M acquisition, quality obsession</td></tr>
+<tr><td><strong>Lottie Murphy</strong></td><td>Online (UK)</td><td>Digital-only success from UK base</td></tr>
+</tbody>
+</table>
+</div></section>
+
+<!-- PART ELEVEN -->
+<div class="part-header"><div class="container"><h2>Part Eleven — Local Partnerships: Ready-Made Opportunities</h2></div></div>
+<section><div class="container">
+
+<h3>Physiotherapy &amp; Health</h3>
+<ul>
+  <li><strong>Monmouth Physiotherapy</strong> — Monmouth School Sports Club, 25+ years. Natural cross-referral partner.</li>
+  <li><strong>Artemis Integrative Physio</strong> (Monmouth) — Holistic musculoskeletal physiotherapy.</li>
+  <li><strong>Acuphysio</strong> (Llancayo Court, near Usk) — Physiotherapy and acupuncture.</li>
+  <li><strong>Step Forward Physiotherapy</strong> (Abergavenny) — Full practice with sports physio.</li>
+</ul>
+
+<h3>Retail &amp; Lifestyle</h3>
+<ul>
+  <li><strong>Wyedean Healthfoods</strong> (113 Monnow Street) — Independent health food store. Joint promotions, wellness events.</li>
+  <li><strong>Marches Delicatessen</strong> — Fine food, professional demographic.</li>
+  <li><strong>Salt and Pepper</strong> (31–33 Monnow Street) — Lifestyle retail with shared audience.</li>
+  <li><strong>Estero Lounge</strong> — All-day café with vegan/GF menus. Natural post-class spot.</li>
+</ul>
+
+<h3>Hotels &amp; Retreats</h3>
+<ul>
+  <li><strong>The Whitebrook</strong> — Michelin-starred restaurant with rooms. Wellness weekend packages.</li>
+  <li><strong>The Abergavenny Hotel</strong> — Boutique hotel. Day retreats and corporate events.</li>
+  <li><strong>Forest Retreats, Tintern</strong> — Already offering yoga retreats. Co-programming partner.</li>
+</ul>
+
+<h3>Tourism &amp; Events</h3>
+<ul>
+  <li><strong>Visit Monmouthshire</strong> — Get listed in their "Spa &amp; Wellbeing" section for 2.29M annual visitors.</li>
+  <li><strong>Abergavenny Food Festival</strong> (September) — Pop-up ALIGN. class at Wales's largest food festival.</li>
+</ul>
+
+</div></section>
+
+<!-- PART TWELVE - GUS SECTION -->
+<div class="part-header stone"><div class="container"><h2>Part Twelve — The Business Case for Thinking Big</h2></div></div>
+<section><div class="container">
+
+<div class="gus-section">
+<h3 style="margin-top:0;">For Katie &amp; Gus</h3>
+<p>We know you both think big — Katie with the brand instincts and creative vision, Gus with the commercial ambition and network. That combination is rare, and it is precisely how the most valuable wellness brands in the world were built. Here is why your shared instinct to build ALIGN. as something scalable is not merely ambitious. It is strategically correct.</p>
+</div>
+
+<h3>The Acquisition Landscape</h3>
+<p>Private equity and strategic acquirers are actively buying boutique fitness brands:</p>
+<table>
+<thead><tr><th>Acquisition</th><th>Buyer</th><th>Price</th></tr></thead>
+<tbody>
+<tr><td>Solidcore</td><td>L Catterton (LVMH-linked)</td><td><span class="stat">$325 million</span></td></tr>
+<tr><td>Club Pilates (Xponential)</td><td>Public markets (NYSE)</td><td><span class="stat">$2.2B market cap</span></td></tr>
+<tr><td>Sweaty Betty</td><td>Wolverine World Wide</td><td><span class="stat">£300 million</span></td></tr>
+<tr><td>Glofox (studio SaaS)</td><td>ABC Fitness Solutions</td><td><span class="stat">€200 million+</span></td></tr>
+</tbody>
+</table>
+<p>These are not tech startups. These are <strong>Pilates studios and fitness brands</strong> acquired for hundreds of millions. Every one started as a single studio with a single founder.</p>
+
+<h3>Unit Economics That Excite Investors</h3>
+<table>
+<thead><tr><th>Metric</th><th>Benchmark</th></tr></thead>
+<tbody>
+<tr><td>Average Unit Volume (Club Pilates)</td><td><span class="stat">$969,000/year per studio</span></td></tr>
+<tr><td>EBITDA margin (Solidcore)</td><td><span class="stat">~33%</span></td></tr>
+<tr><td>Client retention (boutique vs. gym)</td><td>2–3x higher</td></tr>
+<tr><td>Revenue per sq ft</td><td>£80–£120/month (vs. £15–£30 for a gym)</td></tr>
+<tr><td>Payback period</td><td>12–18 months</td></tr>
+<tr><td>Recurring revenue %</td><td>70–85% (membership model)</td></tr>
+</tbody>
+</table>
+
+<h3>The Timing Window</h3>
+<ol>
+  <li>Club Pilates signed UK Master Franchise for 50–75 studios. Opened 3 — all London. <strong>South Wales is years away.</strong></li>
+  <li>Studio Pilates International entered UK: Exeter, Putney, West Malling. <strong>Nowhere near Wales.</strong></li>
+  <li>Reformer Pilates searches in the UK grew <span class="stat">948% year-on-year</span>.</li>
+  <li><strong>There is no branded franchise presence in all of South Wales.</strong></li>
+</ol>
+<p>The window to establish dominance is <strong>2–4 years</strong>. Every month ALIGN. operates makes it harder for chains to displace.</p>
+
+<h3>"Built to Sell" — ALIGN. in 5 Years</h3>
+<p>If ALIGN. executes across Pathways 1–4, an acquirer would see in 2031:</p>
+<ul>
+  <li>3–5 company-owned studios (Monmouth, Cardiff, Bristol, Abergavenny)</li>
+  <li>10–20 licensed studios using the ALIGN. Method</li>
+  <li>2,000+ digital subscribers (£50,000+/month recurring)</li>
+  <li>Instructor academy producing 40–60 certified instructors/year</li>
+  <li>Proprietary app platform with white-label licensing</li>
+  <li>Combined annual revenue: <span class="stat">£1.5M–£3M</span> with 25–35% EBITDA</li>
+</ul>
+<p>At a conservative 6–8x EBITDA multiple: a business valued at <span class="stat">£2.5M–£8M+</span>.</p>
+
+<h3>The Eduardo Ecosystem Chain</h3>
+<div class="chain">
+Social Media → drives downloads to → The App<br>
+The App → delivers free content → builds community around Katie<br>
+The Community → converts to → Studio sessions + Digital memberships<br>
+The Brand → enables → Franchise / Licensing / SaaS
+</div>
+<p>This is not just a marketing funnel. It is an <strong>equity-building machine</strong>. Every piece of content adds to the enterprise value of ALIGN.</p>
+
+<h3>Three Exit Paths</h3>
+<ol>
+  <li><strong>Trade sale</strong> to a franchise aggregator (Xponential Fitness, L Catterton)</li>
+  <li><strong>Management buyout</strong> by the franchise/licence network</li>
+  <li><strong>Continued ownership</strong> — £1.5M–£3M revenue at 30% margins = £450K–£900K annual profit</li>
+</ol>
+<p>You do not need to decide now. But building with optionality from day one means the choice remains yours.</p>
+
+</div></section>
+
+</div><!-- end #vision -->
+
+<hr class="divider">
+
+<!-- ==================== DOCUMENT 2: QUESTIONNAIRE ==================== -->
+<div id="questionnaire">
+
+<div class="part-header"><div class="container"><h2>ALIGN. Vision Questionnaire</h2></div></div>
+
+<section><div class="container">
+
+<div class="letter">
+<p>Katie, thank you for sharing your brand guidelines and for the conversation with Eduardo. This questionnaire will help us understand what is in your head and your heart, so we can tailor the next steps to YOUR vision. There are no wrong answers. Take your time.</p>
+</div>
+
+<!-- Section 1 -->
+<div class="q-section-header"><h3>Section 1: You — The Founder</h3></div>
+
+<div class="question"><p class="question-text"><strong>1.1</strong> Tell us about your Pilates journey. When did you first discover Pilates, and what made you fall in love with it?</p><textarea class="answer-input" name="q1" placeholder="Your answer:"></textarea></div>
+
+<div class="question"><p class="question-text"><strong>1.2</strong> You recently completed your fitness qualifications (congratulations!). What qualifications do you hold, and are there additional certifications you are planning to pursue?</p><textarea class="answer-input" name="q2" placeholder="Your answer:"></textarea></div>
+
+<div class="question"><p class="question-text"><strong>1.3</strong> Before Pilates, what was your professional background?</p><textarea class="answer-input" name="q3" placeholder="Your answer:"></textarea></div>
+
+<div class="question"><p class="question-text"><strong>1.4</strong> What does a successful ALIGN. look like to you in <strong>one year</strong>?</p><textarea class="answer-input" name="q4" placeholder="Your answer:"></textarea></div>
+
+<div class="question"><p class="question-text"><strong>1.5</strong> Now dream bigger — what does a successful ALIGN. look like in <strong>five years</strong>?</p><textarea class="answer-input" name="q5" placeholder="Your answer:"></textarea></div>
+
+<div class="question"><p class="question-text"><strong>1.6</strong> On a scale of 1–10, how comfortable are you being the public face of the brand?</p><textarea class="answer-input small" name="q6" placeholder="Your answer: ___/10"></textarea></div>
+
+<div class="question"><p class="question-text"><strong>1.7</strong> Tell us about Gus's role in ALIGN. How do you see the division of responsibilities between you and Gus as the business grows?</p><textarea class="answer-input" name="q7" placeholder="Your answer:"></textarea></div>
+
+<div class="question"><p class="question-text"><strong>1.8</strong> You live on a farm near Monmouth. How does the rural lifestyle connect to your wellness philosophy?</p><textarea class="answer-input" name="q8" placeholder="Your answer:"></textarea></div>
+
+<!-- Section 2 -->
+<div class="q-section-header"><h3>Section 2: Your Studio Vision</h3></div>
+
+<div class="question"><p class="question-text"><strong>2.1</strong> Describe your ideal studio space. Close your eyes and walk through it — what do you see, hear, smell, feel?</p><textarea class="answer-input" name="q9" placeholder="Your answer:"></textarea></div>
+
+<div class="question"><p class="question-text"><strong>2.2</strong> Have you secured a property? If so, describe it (size, location, condition).</p><textarea class="answer-input" name="q10" placeholder="Your answer:"></textarea></div>
+
+<div class="question"><p class="question-text"><strong>2.3</strong> Is the June 2026 opening timeline still on track?</p><textarea class="answer-input" name="q11" placeholder="Your answer:"></textarea></div>
+
+<div class="question"><p class="question-text"><strong>2.4</strong> How many reformers are you planning? What brand/model?</p><textarea class="answer-input" name="q12" placeholder="Your answer:"></textarea></div>
+
+<div class="question"><p class="question-text"><strong>2.5</strong> Which class formats excite you most? (Tick all that apply)</p>
+<div class="checkbox-group">
+  <label class="checkbox-item"><input type="checkbox" name="cb1" value="Reformer Dynamic">Reformer Dynamic</label>
+  <label class="checkbox-item"><input type="checkbox" name="cb2" value="Reformer Core/Beginners">Reformer Core/Beginners</label>
+  <label class="checkbox-item"><input type="checkbox" name="cb3" value="Mat Pilates">Mat Pilates</label>
+  <label class="checkbox-item"><input type="checkbox" name="cb4" value="Barre">Barre</label>
+  <label class="checkbox-item"><input type="checkbox" name="cb5" value="Strength &amp; Conditioning">Strength &amp; Conditioning</label>
+  <label class="checkbox-item"><input type="checkbox" name="cb6" value="Reformer + Breathwork">Reformer + Breathwork</label>
+  <label class="checkbox-item"><input type="checkbox" name="cb7" value="Candlelight/Evening Pilates">Candlelight/Evening Pilates</label>
+  <label class="checkbox-item"><input type="checkbox" name="cb8" value="Outdoor Pilates">Outdoor Pilates</label>
+  <label class="checkbox-item"><input type="checkbox" name="cb9" value="Prenatal/Postnatal Pilates">Prenatal/Postnatal Pilates</label>
+  <label class="checkbox-item"><input type="checkbox" name="cb10" value="Pilates for Rehabilitation">Pilates for Rehabilitation</label>
+</div></div>
+
+<div class="question"><p class="question-text"><strong>2.6</strong> Will you be the sole instructor at launch, or do you have others joining?</p><textarea class="answer-input" name="q13" placeholder="Your answer:"></textarea></div>
+
+<div class="question"><p class="question-text"><strong>2.7</strong> How many classes per day initially?</p>
+<div class="checkbox-group">
+  <label class="checkbox-item"><input type="checkbox" name="cb11" value="2–3 classes per day">2–3 classes per day</label>
+  <label class="checkbox-item"><input type="checkbox" name="cb12" value="4–5 classes per day">4–5 classes per day</label>
+  <label class="checkbox-item"><input type="checkbox" name="cb13" value="6+ classes per day">6+ classes per day</label>
+</div></div>
+
+<!-- Section 3 -->
+<div class="q-section-header"><h3>Section 3: Your Clients</h3></div>
+
+<div class="question"><p class="question-text"><strong>3.1</strong> Describe your ideal client. Who do you most want to help?</p><textarea class="answer-input" name="q14" placeholder="Your answer:"></textarea></div>
+
+<div class="question"><p class="question-text"><strong>3.2</strong> What percentage of your client base do you hope will be male?</p>
+<div class="checkbox-group">
+  <label class="checkbox-item"><input type="checkbox" name="cb14" value="10–20%">10–20%</label>
+  <label class="checkbox-item"><input type="checkbox" name="cb15" value="20–30%">20–30%</label>
+  <label class="checkbox-item"><input type="checkbox" name="cb16" value="30–40%">30–40%</label>
+  <label class="checkbox-item"><input type="checkbox" name="cb17" value="40%+ (true gender parity)">40%+ (true gender parity)</label>
+</div></div>
+
+<div class="question"><p class="question-text"><strong>3.3</strong> Which populations are you most passionate about serving? (Tick all)</p>
+<div class="checkbox-group">
+  <label class="checkbox-item"><input type="checkbox" name="cb18" value="Complete beginners">Complete beginners</label>
+  <label class="checkbox-item"><input type="checkbox" name="cb19" value="Athletes and sports people (rugby, runners)">Athletes and sports people (rugby, runners)</label>
+  <label class="checkbox-item"><input type="checkbox" name="cb20" value="People recovering from injury">People recovering from injury</label>
+  <label class="checkbox-item"><input type="checkbox" name="cb21" value="Prenatal and postnatal women">Prenatal and postnatal women</label>
+  <label class="checkbox-item"><input type="checkbox" name="cb22" value="Older adults / mobility maintenance">Older adults / mobility maintenance</label>
+  <label class="checkbox-item"><input type="checkbox" name="cb23" value="People with chronic pain">People with chronic pain</label>
+  <label class="checkbox-item"><input type="checkbox" name="cb24" value="Corporate professionals / stress management">Corporate professionals / stress management</label>
+</div></div>
+
+<div class="question"><p class="question-text"><strong>3.4</strong> What do you want clients to say when they recommend ALIGN.? (One sentence.)</p><textarea class="answer-input" name="q15" placeholder="Your answer:"></textarea></div>
+
+<!-- Section 4 -->
+<div class="q-section-header"><h3>Section 4: Pricing &amp; Business Model</h3></div>
+
+<div class="question"><p class="question-text"><strong>4.1</strong> Where do you want ALIGN. to sit on the pricing spectrum?</p>
+<div class="checkbox-group">
+  <label class="checkbox-item"><input type="checkbox" name="cb25" value="Affordable / accessible to everyone">Affordable / accessible to everyone</label>
+  <label class="checkbox-item"><input type="checkbox" name="cb26" value="Mid-range / good value for quality">Mid-range / good value for quality</label>
+  <label class="checkbox-item"><input type="checkbox" name="cb27" value="Premium / best-in-class experience">Premium / best-in-class experience</label>
+  <label class="checkbox-item"><input type="checkbox" name="cb28" value="Ultra-premium / exclusive">Ultra-premium / exclusive</label>
+</div></div>
+
+<div class="question"><p class="question-text"><strong>4.2</strong> Initial investment budget for studio setup?</p>
+<div class="checkbox-group">
+  <label class="checkbox-item"><input type="checkbox" name="cb29" value="Under £20,000">Under £20,000</label>
+  <label class="checkbox-item"><input type="checkbox" name="cb30" value="£20,000–£40,000">£20,000–£40,000</label>
+  <label class="checkbox-item"><input type="checkbox" name="cb31" value="£40,000–£70,000">£40,000–£70,000</label>
+  <label class="checkbox-item"><input type="checkbox" name="cb32" value="£70,000–£100,000">£70,000–£100,000</label>
+  <label class="checkbox-item"><input type="checkbox" name="cb33" value="Over £100,000">Over £100,000</label>
+</div></div>
+
+<div class="question"><p class="question-text"><strong>4.3</strong> What monthly revenue would make you feel the studio is successful in Year 1?</p><textarea class="answer-input small" name="q16" placeholder="£_________/month"></textarea></div>
+
+<!-- Section 5 -->
+<div class="q-section-header"><h3>Section 5: Digital &amp; Technology</h3></div>
+
+<div class="question"><p class="question-text"><strong>5.1</strong> How important is the app to your launch strategy? (1–10)</p><textarea class="answer-input small" name="q17" placeholder="___/10"></textarea></div>
+
+<div class="question"><p class="question-text"><strong>5.2</strong> You described TeamUp as having "no personalisation — just a platform." If you could wave a magic wand, what would the perfect studio app look and feel like?</p><textarea class="answer-input" name="q18" placeholder="Your answer:"></textarea></div>
+
+<div class="question"><p class="question-text"><strong>5.3</strong> Beyond core features (calendar, profiles, payments, messaging), which excite you most? (Rank top 3)</p>
+<div class="checkbox-group">
+  <label class="checkbox-item"><input type="checkbox" name="cb34" value="On-demand video library">On-demand video library</label>
+  <label class="checkbox-item"><input type="checkbox" name="cb35" value="Live-streamed classes">Live-streamed classes</label>
+  <label class="checkbox-item"><input type="checkbox" name="cb36" value="Client progress tracking">Client progress tracking</label>
+  <label class="checkbox-item"><input type="checkbox" name="cb37" value="Community forum / group messaging">Community forum / group messaging</label>
+  <label class="checkbox-item"><input type="checkbox" name="cb38" value="Merchandise shop">Merchandise shop</label>
+  <label class="checkbox-item"><input type="checkbox" name="cb39" value="Workout logging">Workout logging</label>
+  <label class="checkbox-item"><input type="checkbox" name="cb40" value="AI-powered class recommendations">AI-powered class recommendations</label>
+  <label class="checkbox-item"><input type="checkbox" name="cb41" value="Wearable integration (Apple Watch, Oura)">Wearable integration (Apple Watch, Oura)</label>
+</div></div>
+
+<div class="question"><p class="question-text"><strong>5.4</strong> Would you be comfortable filming classes for an on-demand library?</p>
+<div class="checkbox-group">
+  <label class="checkbox-item"><input type="checkbox" name="cb42" value="Yes, I would love that">Yes, I would love that</label>
+  <label class="checkbox-item"><input type="checkbox" name="cb43" value="Yes, but I need guidance on production quality">Yes, but I need guidance on production quality</label>
+  <label class="checkbox-item"><input type="checkbox" name="cb44" value="Maybe, once established">Maybe, once established</label>
+  <label class="checkbox-item"><input type="checkbox" name="cb45" value="No, I prefer in-person only">No, I prefer in-person only</label>
+</div></div>
+
+<!-- Section 6 -->
+<div class="q-section-header"><h3>Section 6: The Big Dream — Ambition Level</h3></div>
+
+<div class="question"><p class="question-text"><strong>6.1</strong> Which statement resonates most?</p>
+<div class="checkbox-group">
+  <label class="checkbox-item"><input type="checkbox" name="cb46" value="<strong>A.</strong> "I want the best Pilates studio in South Wales — a local treasure.""><strong>A.</strong> "I want the best Pilates studio in South Wales — a local treasure."</label>
+  <label class="checkbox-item"><input type="checkbox" name="cb47" value="<strong>B.</strong> "I want ALIGN. to become a recognised UK wellness brand — multiple studios and digital.""><strong>B.</strong> "I want ALIGN. to become a recognised UK wellness brand — multiple studios and digital."</label>
+  <label class="checkbox-item"><input type="checkbox" name="cb48" value="<strong>C.</strong> "I want something that could genuinely scale — franchise, platform, everywhere.""><strong>C.</strong> "I want something that could genuinely scale — franchise, platform, everywhere."</label>
+  <label class="checkbox-item"><input type="checkbox" name="cb49" value="<strong>D.</strong> "I don't know yet — I want to start and see where it takes me.""><strong>D.</strong> "I don't know yet — I want to start and see where it takes me."</label>
+</div></div>
+
+<div class="question"><p class="question-text"><strong>6.2</strong> How do you feel about franchising ALIGN. one day?</p>
+<div class="checkbox-group">
+  <label class="checkbox-item"><input type="checkbox" name="cb50" value="Exactly what I want to build towards">Exactly what I want to build towards</label>
+  <label class="checkbox-item"><input type="checkbox" name="cb51" value="Interesting — I would consider it">Interesting — I would consider it</label>
+  <label class="checkbox-item"><input type="checkbox" name="cb52" value="Too far away to think about">Too far away to think about</label>
+  <label class="checkbox-item"><input type="checkbox" name="cb53" value="Not for me">Not for me</label>
+</div></div>
+
+<div class="question"><p class="question-text"><strong>6.3</strong> How do you feel about wellness retreats in the Wye Valley?</p>
+<div class="checkbox-group">
+  <label class="checkbox-item"><input type="checkbox" name="cb54" value="I absolutely love this idea">I absolutely love this idea</label>
+  <label class="checkbox-item"><input type="checkbox" name="cb55" value="Interesting — once established">Interesting — once established</label>
+  <label class="checkbox-item"><input type="checkbox" name="cb56" value="Maybe eventually">Maybe eventually</label>
+  <label class="checkbox-item"><input type="checkbox" name="cb57" value="Not for me">Not for me</label>
+</div></div>
+
+<div class="question"><p class="question-text"><strong>6.4</strong> Which complementary services interest you? (Tick all)</p>
+<div class="checkbox-group">
+  <label class="checkbox-item"><input type="checkbox" name="cb58" value="Wellness café / tea &amp; juice bar">Wellness café / tea &amp; juice bar</label>
+  <label class="checkbox-item"><input type="checkbox" name="cb59" value="Infrared sauna">Infrared sauna</label>
+  <label class="checkbox-item"><input type="checkbox" name="cb60" value="Cold plunge / contrast therapy">Cold plunge / contrast therapy</label>
+  <label class="checkbox-item"><input type="checkbox" name="cb61" value="Physiotherapy partnership">Physiotherapy partnership</label>
+  <label class="checkbox-item"><input type="checkbox" name="cb62" value="Mindfulness and meditation">Mindfulness and meditation</label>
+  <label class="checkbox-item"><input type="checkbox" name="cb63" value="Breathwork workshops">Breathwork workshops</label>
+  <label class="checkbox-item"><input type="checkbox" name="cb64" value="Curated wellness retail">Curated wellness retail</label>
+  <label class="checkbox-item"><input type="checkbox" name="cb65" value="None — focus purely on Pilates">None — focus purely on Pilates</label>
+</div></div>
+
+<div class="question"><p class="question-text"><strong>6.5</strong> If ALIGN. could be known for ONE thing, what would it be?</p><textarea class="answer-input" name="q19" placeholder="Your answer:"></textarea></div>
+
+<!-- Section 7 -->
+<div class="q-section-header"><h3>Section 7: Partnerships &amp; Community</h3></div>
+
+<div class="question"><p class="question-text"><strong>7.1</strong> Beyond the coffee shop, which local businesses would you like to partner with?</p><textarea class="answer-input" name="q20" placeholder="Your answer:"></textarea></div>
+
+<div class="question"><p class="question-text"><strong>7.2</strong> Interested in corporate wellness programmes?</p>
+<div class="checkbox-group">
+  <label class="checkbox-item"><input type="checkbox" name="cb66" value="Yes, I would actively pursue this">Yes, I would actively pursue this</label>
+  <label class="checkbox-item"><input type="checkbox" name="cb67" value="Possibly, if approached">Possibly, if approached</label>
+  <label class="checkbox-item"><input type="checkbox" name="cb68" value="Not a priority">Not a priority</label>
+</div></div>
+
+<div class="question"><p class="question-text"><strong>7.3</strong> Interested in working with GP surgeries / NHS exercise referral?</p>
+<div class="checkbox-group">
+  <label class="checkbox-item"><input type="checkbox" name="cb69" value="Yes — clinical credibility matters to me">Yes — clinical credibility matters to me</label>
+  <label class="checkbox-item"><input type="checkbox" name="cb70" value="Perhaps in the future">Perhaps in the future</label>
+  <label class="checkbox-item"><input type="checkbox" name="cb71" value="Not something I have considered">Not something I have considered</label>
+</div></div>
+
+<!-- Section 8 -->
+<div class="q-section-header"><h3>Section 8: Practical Matters</h3></div>
+
+<div class="question"><p class="question-text"><strong>8.1</strong> Hours per week you are prepared to dedicate in Year 1?</p>
+<div class="checkbox-group">
+  <label class="checkbox-item"><input type="checkbox" name="cb72" value="20–30 hours (part-time)">20–30 hours (part-time)</label>
+  <label class="checkbox-item"><input type="checkbox" name="cb73" value="30–40 hours (full-time)">30–40 hours (full-time)</label>
+  <label class="checkbox-item"><input type="checkbox" name="cb74" value="40–50 hours (full-time plus evenings/weekends)">40–50 hours (full-time plus evenings/weekends)</label>
+  <label class="checkbox-item"><input type="checkbox" name="cb75" value="50+ hours (all in)">50+ hours (all in)</label>
+</div></div>
+
+<div class="question"><p class="question-text"><strong>8.2</strong> Any constraints or concerns we should know about?</p><textarea class="answer-input" name="q21" placeholder="Your answer:"></textarea></div>
+
+<div class="question"><p class="question-text"><strong>8.3</strong> Anything in the Vision Document that surprised, excited, or concerned you?</p><textarea class="answer-input" name="q22" placeholder="Your answer:"></textarea></div>
+
+<!-- Section 9 - GUS -->
+<div class="q-section-header" style="background: var(--stone);"><h3>Section 9: For Katie &amp; Gus — The Business Vision</h3></div>
+
+<p><em>These questions are about the strategic direction of ALIGN. — the big-picture decisions that will shape everything. We need both of your perspectives here, because the best decisions will come from combining Katie's deep understanding of the craft and the client experience with Gus's commercial instincts and network.</em></p>
+
+<div class="question"><p class="question-text"><strong>9.1</strong> When you both imagine ALIGN. at its most successful, what does the business look like? (Revenue, locations, team, brand recognition.)</p><textarea class="answer-input" name="q23" placeholder="Your answer:"></textarea></div>
+
+<div class="question"><p class="question-text"><strong>9.2</strong> Have either of you studied any specific franchise or brand models that inspire you? (From any industry, not just fitness.)</p><textarea class="answer-input" name="q24" placeholder="Your answer:"></textarea></div>
+
+<div class="question"><p class="question-text"><strong>9.3</strong> How do you each see your roles evolving as ALIGN. grows? Who leads what?</p><textarea class="answer-input" name="q25" placeholder="Your answer:"></textarea></div>
+
+<div class="question"><p class="question-text"><strong>9.4</strong> What is your shared risk tolerance for the initial investment?</p>
+<div class="checkbox-group">
+  <label class="checkbox-item"><input type="checkbox" name="cb76" value="Profitable from Year 1 — conservative, self-funding">Profitable from Year 1 — conservative, self-funding</label>
+  <label class="checkbox-item"><input type="checkbox" name="cb77" value="Willing to invest for 1–2 years for bigger outcome">Willing to invest for 1–2 years for bigger outcome</label>
+  <label class="checkbox-item"><input type="checkbox" name="cb78" value="Venture mindset — willing to raise external capital">Venture mindset — willing to raise external capital</label>
+</div></div>
+
+<div class="question"><p class="question-text"><strong>9.5</strong> We identified a 2–4 year window before major chains reach South Wales. How aggressively do you both want to move?</p>
+<div class="checkbox-group">
+  <label class="checkbox-item"><input type="checkbox" name="cb79" value="Steady and organic">Steady and organic</label>
+  <label class="checkbox-item"><input type="checkbox" name="cb80" value="Moderately aggressive — second location within 18 months">Moderately aggressive — second location within 18 months</label>
+  <label class="checkbox-item"><input type="checkbox" name="cb81" value="Very aggressive — multiple locations within 2 years">Very aggressive — multiple locations within 2 years</label>
+</div></div>
+
+<div class="question"><p class="question-text"><strong>9.6</strong> After reading Part Twelve of the Vision Document, what is your honest reaction?</p><textarea class="answer-input" name="q26" placeholder="Your answer:"></textarea></div>
+
+<!-- Section 10 -->
+<div class="q-section-header"><h3>Section 10: Final Thoughts</h3></div>
+
+<div class="question"><p class="question-text"><strong>10.1</strong> If you could have a conversation with any fitness/wellness founder, who and what would you ask?</p><textarea class="answer-input" name="q27" placeholder="Your answer:"></textarea></div>
+
+<div class="question"><p class="question-text"><strong>10.2</strong> The single biggest thing that keeps you up at night about launching ALIGN.?</p><textarea class="answer-input" name="q28" placeholder="Your answer:"></textarea></div>
+
+<div class="question"><p class="question-text"><strong>10.3</strong> The single thing you are most excited about?</p><textarea class="answer-input" name="q29" placeholder="Your answer:"></textarea></div>
+
+<div class="question"><p class="question-text"><strong>10.4</strong> Anything else you would like us to know?</p><textarea class="answer-input" name="q30" placeholder="Your answer:"></textarea></div>
+
+<div class="submit-section">
+  <button class="submit-btn" onclick="submitQuestionnaire()">Submit Questionnaire</button>
+  <p class="submit-note">This will open your email app with all your answers ready to send.</p>
+</div>
+
+</div></section>
+</div><!-- end #questionnaire -->
+
+<hr class="divider">
+
+<!-- ==================== DOCUMENT 3: NEXT STEPS ==================== -->
+<div id="nextsteps">
+
+<div class="part-header"><div class="container"><h2>What Happens Next</h2></div></div>
+
+<section><div class="container">
+
+<p>Katie and Gus, once we receive your completed questionnaire, here is exactly what we will do:</p>
+
+<div class="step">
+  <div class="step-number">1</div>
+  <div>
+    <h4 style="margin-top:0;">Analysis &amp; Pathway Refinement</h4>
+    <p>Cross-reference your answers with the five pathways. Identify what resonates, remove what doesn't, deepen what excites you, and refine projections based on your actual investment capacity and ambition.</p>
+  </div>
+</div>
+
+<div class="step">
+  <div class="step-number">2</div>
+  <div>
+    <h4 style="margin-top:0;">Focused Strategic Plan</h4>
+    <p>Rewrite the vision into a focused plan — no longer "all possibilities" but "the path you have chosen, and exactly how we build it." Includes detailed business model, final pricing, and concrete quarterly targets.</p>
+  </div>
+</div>
+
+<div class="step">
+  <div class="step-number">3</div>
+  <div>
+    <h4 style="margin-top:0;">Implementation Plan</h4>
+    <p>Four parallel workstreams, each with clear tasks, deadlines, and responsibilities:</p>
+    <table>
+    <thead><tr><th>Workstream</th><th>Covers</th></tr></thead>
+    <tbody>
+    <tr><td><strong>App</strong></td><td>Specification, wireframes, user flows, technical architecture</td></tr>
+    <tr><td><strong>Studio</strong></td><td>Fit-out, equipment, sensory elements, timeline to opening</td></tr>
+    <tr><td><strong>Marketing</strong></td><td>Social media, content calendar, pre-launch campaign, partnerships</td></tr>
+    <tr><td><strong>Operations</strong></td><td>Company registration, insurance, rates, NERS, recruitment</td></tr>
+    </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="step">
+  <div class="step-number">4</div>
+  <div>
+    <h4 style="margin-top:0;">App Specification (PRD)</h4>
+    <p>The full Product Requirements Document Eduardo needs to build: screen-by-screen wireframes, user journeys, payment integration, content delivery architecture. Eduardo mentioned a mockup in 2–3 days and full app in two weeks — the specification will make that timeline achievable.</p>
+  </div>
+</div>
+
+<div class="step">
+  <div class="step-number">5</div>
+  <div>
+    <h4 style="margin-top:0;">Brand &amp; Content Strategy</h4>
+    <p>If digital: content strategy, filming schedule, editorial calendar. If franchise: formal documentation of the "ALIGN. Method" as intellectual property.</p>
+  </div>
+</div>
+
+<hr class="divider">
+
+<p style="text-align:center; font-family: 'Playfair Display', serif; font-size: 20px; font-style: italic; color: var(--sage-dark); margin: 40px 0;">Your answers transform the map of possibilities into a concrete execution plan.</p>
+
+<p><strong>A note for you both</strong>: Part Twelve of the Vision Document and Section 9 of the Questionnaire are about the bigger commercial picture — the acquisition landscape, unit economics, and competitive timing window. We believe the opportunity is even larger than it might first appear, and we need both your perspectives to decide how far to take it.</p>
+
+<p>We are genuinely excited about ALIGN. and we are ready to move as fast as you are.</p>
+
+</div></section>
+</div><!-- end #nextsteps -->
+
+<!-- ==================== FALLBACK MODAL ==================== -->
+<div id="fallback-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(61,43,31,0.6); z-index:999; align-items:center; justify-content:center;">
+  <div style="background:var(--cream); border-radius:12px; padding:40px; max-width:480px; text-align:center; box-shadow:0 8px 32px rgba(0,0,0,0.2);">
+    <h3 style="font-family:'Playfair Display',serif; color:var(--brown); margin-bottom:16px;">Did your email app open?</h3>
+    <p style="color:var(--brown-light); margin-bottom:24px; font-size:15px;">If it did, you are all set — just press send! If not, you can copy your answers to the clipboard and paste them into any email.</p>
+    <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+      <button onclick="closeFallback()" style="background:var(--sage); color:white; border:none; padding:12px 28px; border-radius:6px; font-family:'Inter',sans-serif; font-size:15px; cursor:pointer;">Yes, it opened</button>
+      <button onclick="copyToClipboard()" style="background:var(--stone); color:white; border:none; padding:12px 28px; border-radius:6px; font-family:'Inter',sans-serif; font-size:15px; cursor:pointer;">Copy to clipboard</button>
+    </div>
+    <p style="margin-top:16px; font-size:13px; color:var(--stone);">Send to: joaohomem@capitaltrend.group</p>
+  </div>
+</div>
+
+<!-- ==================== FOOTER ==================== -->
+<footer>
+  <div class="logo">ALIGN.</div>
+  <p>Prepared by Jo&atilde;o's Product R&amp;D Team &mdash; March 2026</p>
+  <p style="margin-top:4px; opacity:0.7;">Monmouth, South Wales, United Kingdom</p>
+</footer>
+
+<script>
+/* ===== FIX 1: Active nav state on scroll ===== */
+(function() {
+  const sections = document.querySelectorAll('#vision, #questionnaire, #nextsteps');
+  const navLinks = document.querySelectorAll('nav a');
+
+  function updateActiveNav() {
+    let current = '';
+    sections.forEach(function(section) {
+      const rect = section.getBoundingClientRect();
+      if (rect.top <= 80) {
+        current = section.getAttribute('id');
+      }
+    });
+    navLinks.forEach(function(link) {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === '#' + current) {
+        link.classList.add('active');
+      }
+    });
+  }
+
+  window.addEventListener('scroll', updateActiveNav);
+  navLinks.forEach(function(link) {
+    link.addEventListener('click', function() {
+      navLinks.forEach(function(l) { l.classList.remove('active'); });
+      this.classList.add('active');
+    });
+  });
+})();
+
+/* ===== FIX 3: Collect answers grouped by question ===== */
+function collectAnswers() {
+  let body = 'ALIGN. STUDIO — QUESTIONNAIRE RESPONSES\n';
+  body += '==========================================\n\n';
+
+  // Walk through every .question div in order
+  const allQuestions = document.querySelectorAll('#questionnaire .question');
+  allQuestions.forEach(function(qDiv) {
+    // Get the question text
+    const qTextEl = qDiv.querySelector('.question-text');
+    if (!qTextEl) return;
+    const qText = qTextEl.textContent.trim();
+
+    // Collect textarea answer if present
+    const textarea = qDiv.querySelector('textarea');
+    const textAnswer = textarea && textarea.value.trim() ? textarea.value.trim() : '';
+
+    // Collect checked checkboxes if present
+    const checked = qDiv.querySelectorAll('input[type="checkbox"]:checked');
+    const selections = [];
+    checked.forEach(function(cb) { selections.push(cb.value); });
+
+    // Only include if there is an answer
+    if (textAnswer || selections.length > 0) {
+      body += qText + '\n';
+      if (textAnswer) {
+        body += textAnswer + '\n';
+      }
+      if (selections.length > 0) {
+        selections.forEach(function(s) { body += '  • ' + s + '\n'; });
+      }
+      body += '\n';
+    }
+  });
+
+  return body;
+}
+
+/* ===== FIX 2: Submit with mailto + clipboard fallback ===== */
+function submitQuestionnaire() {
+  const body = collectAnswers();
+  const recipient = 'joaohomem@capitaltrend.group';
+  const subject = 'ALIGN. Studio — Questionnaire Responses from Katie & Gus';
+
+  // Check if any answers exist
+  const allTextareas = document.querySelectorAll('#questionnaire textarea');
+  const filledAnswers = Array.from(allTextareas).filter(function(t) { return t.value.trim(); }).length;
+  const checkedBoxes = document.querySelectorAll('#questionnaire input[type="checkbox"]:checked').length;
+
+  if (filledAnswers === 0 && checkedBoxes === 0) {
+    alert('Please fill in at least some answers before submitting.');
+    return;
+  }
+
+  // Try mailto first
+  const mailto = 'mailto:' + recipient
+    + '?subject=' + encodeURIComponent(subject)
+    + '&body=' + encodeURIComponent(body);
+
+  window.location.href = mailto;
+
+  // Show fallback after a moment
+  setTimeout(function() {
+    var modal = document.getElementById('fallback-modal');
+    if (modal) modal.style.display = 'flex';
+  }, 2000);
+}
+
+function copyToClipboard() {
+  const body = collectAnswers();
+  const recipient = 'joaohomem@capitaltrend.group';
+
+  navigator.clipboard.writeText(body).then(function() {
+    alert('Answers copied to clipboard!\n\nPlease paste them into an email and send to:\n' + recipient);
+    document.getElementById('fallback-modal').style.display = 'none';
+  }).catch(function() {
+    // Fallback for older browsers
+    var ta = document.createElement('textarea');
+    ta.value = body;
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    alert('Answers copied to clipboard!\n\nPlease paste them into an email and send to:\n' + recipient);
+    document.getElementById('fallback-modal').style.display = 'none';
+  });
+}
+
+function closeFallback() {
+  document.getElementById('fallback-modal').style.display = 'none';
+}
+</script>
+</body>
+</html>

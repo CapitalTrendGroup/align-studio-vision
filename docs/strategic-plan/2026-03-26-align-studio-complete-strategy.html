@@ -1,0 +1,1324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ALIGN. Studio — Your Strategic Plan</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
+
+  :root {
+    --cream: #F5F0EB;
+    --cream-light: #FAF8F5;
+    --beige: #EDE5DA;
+    --sage: #8B9F82;
+    --sage-light: #A8B8A0;
+    --sage-dark: #6B7F62;
+    --stone: #8A8278;
+    --stone-light: #A69F95;
+    --stone-dark: #5C574F;
+    --charcoal: #2C2C2C;
+    --white: #FFFFFF;
+    --success: #4A7C59;
+    --warning: #C4883A;
+    --accent: #B8926A;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--cream-light);
+    color: var(--charcoal);
+    line-height: 1.7;
+    font-size: 16px;
+  }
+
+  /* Navigation */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    background: rgba(245, 240, 235, 0.95);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--beige);
+    padding: 0.8rem 2rem;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  nav .logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem; font-weight: 700;
+    color: var(--sage-dark);
+    letter-spacing: 2px;
+  }
+  nav .nav-links {
+    display: flex; gap: 1.5rem; list-style: none;
+    flex-wrap: wrap; justify-content: flex-end;
+  }
+  nav .nav-links a {
+    text-decoration: none; color: var(--stone);
+    font-size: 0.82rem; font-weight: 500;
+    transition: color 0.3s;
+    text-transform: uppercase; letter-spacing: 0.5px;
+  }
+  nav .nav-links a:hover { color: var(--sage-dark); }
+
+  /* Hero */
+  .hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center;
+    padding: 6rem 2rem 4rem;
+    background: linear-gradient(165deg, var(--cream) 0%, var(--cream-light) 40%, #E8E0D6 100%);
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+    background: radial-gradient(ellipse at 30% 50%, rgba(139,159,130,0.08) 0%, transparent 60%),
+                radial-gradient(ellipse at 70% 30%, rgba(184,146,106,0.06) 0%, transparent 50%);
+    animation: float 20s ease-in-out infinite;
+  }
+  @keyframes float {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    50% { transform: translate(-2%, 2%) rotate(1deg); }
+  }
+  .hero-content { position: relative; z-index: 1; max-width: 700px; }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 4.5rem; font-weight: 700;
+    color: var(--sage-dark);
+    letter-spacing: 8px;
+    margin-bottom: 0.3rem;
+  }
+  .hero .period {
+    display: inline-block; width: 12px; height: 12px;
+    background: var(--sage); border-radius: 50%;
+    margin-left: 4px; vertical-align: middle;
+    position: relative; top: -2px;
+  }
+  .hero .subtitle {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem; font-weight: 400;
+    color: var(--stone); letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+  }
+  .hero .tagline {
+    font-size: 1.1rem; color: var(--stone-light);
+    font-style: italic; margin-bottom: 3rem;
+    font-family: 'Playfair Display', serif;
+  }
+  .hero .meta {
+    font-size: 0.85rem; color: var(--stone-light);
+    letter-spacing: 1px; text-transform: uppercase;
+  }
+  .scroll-indicator {
+    position: absolute; bottom: 2rem;
+    animation: bounce 2s infinite;
+    color: var(--sage-light); font-size: 1.5rem;
+  }
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); opacity: 0.5; }
+    50% { transform: translateY(10px); opacity: 1; }
+  }
+
+  /* Sections */
+  section {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 5rem 2rem;
+  }
+  .section-full {
+    max-width: 100%;
+    padding: 5rem 2rem;
+  }
+
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.4rem; font-weight: 600;
+    color: var(--sage-dark);
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+  }
+  h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem; font-weight: 600;
+    color: var(--charcoal);
+    margin: 2rem 0 1rem;
+  }
+  h4 {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem; font-weight: 600;
+    color: var(--sage-dark);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin: 2rem 0 0.8rem;
+  }
+  p { margin-bottom: 1.2rem; color: var(--charcoal); }
+
+  /* Letter */
+  .letter {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 3.5rem;
+    box-shadow: 0 4px 30px rgba(0,0,0,0.04);
+    border: 1px solid var(--beige);
+    max-width: 760px;
+    margin: 0 auto;
+    position: relative;
+  }
+  .letter::before {
+    content: '"';
+    font-family: 'Playfair Display', serif;
+    font-size: 8rem; color: var(--beige);
+    position: absolute; top: -1rem; left: 1.5rem;
+    line-height: 1;
+  }
+  .letter p {
+    font-size: 1.05rem; line-height: 1.85;
+    color: var(--stone-dark);
+  }
+  .letter .signature {
+    margin-top: 2rem; padding-top: 1.5rem;
+    border-top: 1px solid var(--beige);
+    font-style: italic; color: var(--sage-dark);
+    font-family: 'Playfair Display', serif;
+  }
+
+  /* Cards */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+  .card {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.03);
+    border: 1px solid var(--beige);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+  }
+  .card .card-icon {
+    font-size: 2rem; margin-bottom: 1rem;
+  }
+  .card h3 {
+    font-size: 1.2rem; margin: 0 0 0.8rem;
+    color: var(--sage-dark);
+  }
+  .card p { font-size: 0.9rem; color: var(--stone); margin: 0; }
+
+  /* Dashboard */
+  .dashboard {
+    background: linear-gradient(135deg, var(--sage-dark) 0%, #5A7050 100%);
+    border-radius: 20px;
+    padding: 3rem;
+    color: var(--white);
+    margin: 2rem 0;
+  }
+  .dashboard h3 {
+    color: rgba(255,255,255,0.9);
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 0 0 2rem;
+  }
+  .metric-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+  }
+  .metric {
+    text-align: center;
+    padding: 1.2rem;
+    background: rgba(255,255,255,0.1);
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.15);
+  }
+  .metric .value {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem; font-weight: 700;
+    display: block; margin-bottom: 0.3rem;
+  }
+  .metric .label {
+    font-size: 0.78rem; text-transform: uppercase;
+    letter-spacing: 1px; opacity: 0.8;
+  }
+
+  /* Timeline */
+  .timeline {
+    position: relative;
+    padding: 2rem 0;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 24px; top: 0; bottom: 0;
+    width: 3px;
+    background: linear-gradient(to bottom, var(--sage), var(--sage-light), var(--beige));
+    border-radius: 2px;
+  }
+  .timeline-item {
+    position: relative;
+    padding-left: 60px;
+    margin-bottom: 2.5rem;
+  }
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: 16px; top: 6px;
+    width: 20px; height: 20px;
+    background: var(--sage);
+    border-radius: 50%;
+    border: 4px solid var(--cream-light);
+    box-shadow: 0 0 0 2px var(--sage-light);
+  }
+  .timeline-item.active::before {
+    background: var(--success);
+    box-shadow: 0 0 0 2px var(--success), 0 0 12px rgba(74,124,89,0.3);
+  }
+  .timeline-date {
+    font-size: 0.8rem; font-weight: 600;
+    color: var(--sage-dark);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.3rem;
+  }
+  .timeline-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem; color: var(--charcoal);
+    margin-bottom: 0.5rem;
+  }
+  .timeline-desc {
+    font-size: 0.9rem; color: var(--stone);
+    line-height: 1.6;
+  }
+
+  /* Tables */
+  .styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.9rem;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.03);
+  }
+  .styled-table thead {
+    background: var(--sage-dark);
+    color: var(--white);
+  }
+  .styled-table th {
+    padding: 1rem 1.2rem;
+    text-align: left;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+  }
+  .styled-table td {
+    padding: 0.9rem 1.2rem;
+    border-bottom: 1px solid var(--beige);
+    background: var(--white);
+  }
+  .styled-table tr:last-child td { border-bottom: none; }
+  .styled-table tr:hover td { background: var(--cream-light); }
+  .styled-table .highlight { font-weight: 600; color: var(--sage-dark); }
+  .styled-table .total-row td {
+    background: var(--cream);
+    font-weight: 700;
+    color: var(--sage-dark);
+  }
+
+  /* Positioning Map */
+  .position-map {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 3rem;
+    text-align: center;
+    border: 1px solid var(--beige);
+    margin: 2rem 0;
+    position: relative;
+    min-height: 350px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .map-container {
+    position: relative; width: 320px; height: 320px;
+  }
+  .map-axis-v {
+    position: absolute; left: 50%; top: 0; bottom: 0;
+    width: 2px; background: var(--beige);
+    transform: translateX(-50%);
+  }
+  .map-axis-h {
+    position: absolute; top: 50%; left: 0; right: 0;
+    height: 2px; background: var(--beige);
+    transform: translateY(-50%);
+  }
+  .map-label {
+    position: absolute;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--stone-light);
+    font-weight: 600;
+  }
+  .map-label.top { top: -20px; left: 50%; transform: translateX(-50%); }
+  .map-label.bottom { bottom: -20px; left: 50%; transform: translateX(-50%); }
+  .map-label.left { left: -10px; top: 50%; transform: translateY(-50%) rotate(-90deg); }
+  .map-label.right { right: -10px; top: 50%; transform: translateY(-50%) rotate(90deg); }
+  .map-dot {
+    position: absolute;
+    width: 60px; height: 60px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.65rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.5px;
+    transform: translate(-50%, -50%);
+    transition: transform 0.3s;
+  }
+  .map-dot:hover { transform: translate(-50%, -50%) scale(1.15); }
+  .map-dot.align {
+    background: var(--sage);
+    color: var(--white);
+    top: 25%; left: 30%;
+    box-shadow: 0 4px 20px rgba(139,159,130,0.4);
+    width: 70px; height: 70px;
+    font-size: 0.75rem;
+  }
+  .map-dot.pt {
+    background: var(--stone-light);
+    color: var(--white);
+    top: 55%; left: 45%;
+    font-size: 0.55rem;
+  }
+  .map-dot.chains {
+    background: var(--beige);
+    color: var(--stone);
+    top: 40%; left: 75%;
+    font-size: 0.55rem;
+  }
+
+  /* Pricing cards */
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+  .price-card {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    border: 2px solid var(--beige);
+    transition: border-color 0.3s;
+  }
+  .price-card:hover { border-color: var(--sage-light); }
+  .price-card.featured {
+    border-color: var(--sage);
+    position: relative;
+  }
+  .price-card.featured::after {
+    content: 'MOST POPULAR';
+    position: absolute; top: -10px; left: 50%;
+    transform: translateX(-50%);
+    background: var(--sage);
+    color: var(--white);
+    font-size: 0.65rem;
+    padding: 2px 12px;
+    border-radius: 20px;
+    letter-spacing: 1px;
+    font-weight: 600;
+  }
+  .price-card .price {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem; font-weight: 700;
+    color: var(--sage-dark);
+    margin: 0.5rem 0;
+  }
+  .price-card .price span { font-size: 1rem; font-weight: 400; }
+  .price-card .name {
+    font-weight: 600; font-size: 0.85rem;
+    text-transform: uppercase; letter-spacing: 1px;
+    color: var(--stone);
+    margin-bottom: 0.5rem;
+  }
+  .price-card .detail {
+    font-size: 0.8rem; color: var(--stone-light);
+  }
+
+  /* Progress bar */
+  .progress-section { margin: 2rem 0; }
+  .progress-item { margin-bottom: 1.5rem; }
+  .progress-label {
+    display: flex; justify-content: space-between;
+    font-size: 0.85rem; font-weight: 500;
+    margin-bottom: 0.5rem;
+  }
+  .progress-bar {
+    height: 10px;
+    background: var(--beige);
+    border-radius: 5px;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    border-radius: 5px;
+    background: linear-gradient(90deg, var(--sage) 0%, var(--sage-light) 100%);
+    transition: width 1.5s ease;
+  }
+
+  /* Stats row */
+  .stats-row {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 2rem 0;
+  }
+  .stat {
+    text-align: center;
+    min-width: 120px;
+  }
+  .stat .number {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem; font-weight: 700;
+    color: var(--sage-dark);
+    line-height: 1;
+  }
+  .stat .unit {
+    font-size: 0.8rem; color: var(--stone);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 0.3rem;
+  }
+
+  /* Quote */
+  .quote {
+    background: var(--white);
+    border-left: 4px solid var(--sage);
+    padding: 1.5rem 2rem;
+    margin: 2rem 0;
+    border-radius: 0 12px 12px 0;
+    font-style: italic;
+    color: var(--stone-dark);
+    font-size: 1.05rem;
+  }
+  .quote cite {
+    display: block; margin-top: 0.8rem;
+    font-style: normal; font-weight: 600;
+    font-size: 0.85rem; color: var(--sage-dark);
+  }
+
+  /* Badge */
+  .badge {
+    display: inline-block;
+    padding: 0.25rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .badge.confirmed { background: rgba(74,124,89,0.1); color: var(--success); }
+  .badge.gradual { background: rgba(139,159,130,0.15); color: var(--sage-dark); }
+  .badge.deferred { background: rgba(138,130,120,0.1); color: var(--stone); }
+  .badge.primary { background: var(--sage); color: var(--white); }
+
+  /* Divider */
+  .divider {
+    text-align: center;
+    margin: 4rem 0;
+    position: relative;
+  }
+  .divider::before {
+    content: '';
+    position: absolute; left: 20%; right: 20%;
+    top: 50%; height: 1px;
+    background: var(--beige);
+  }
+  .divider span {
+    background: var(--cream-light);
+    padding: 0 1.5rem;
+    position: relative;
+    font-family: 'Playfair Display', serif;
+    color: var(--sage-light);
+    font-size: 1.5rem;
+  }
+
+  /* Clients funnel */
+  .funnel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 2rem 0;
+  }
+  .funnel-step {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: var(--white);
+    text-align: center;
+    transition: transform 0.3s;
+  }
+  .funnel-step:hover { transform: scale(1.03); }
+  .funnel-arrow {
+    font-size: 1.2rem; color: var(--sage-light);
+  }
+
+  /* Section backgrounds */
+  .bg-white { background: var(--white); }
+  .bg-cream { background: var(--cream); }
+  .bg-sage-light { background: rgba(139,159,130,0.06); }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .hero h1 { font-size: 3rem; letter-spacing: 4px; }
+    .hero .subtitle { font-size: 1rem; }
+    nav .nav-links { display: none; }
+    section { padding: 3rem 1.5rem; }
+    .letter { padding: 2rem; }
+    .dashboard { padding: 2rem; }
+    .metric .value { font-size: 1.6rem; }
+    .metric-grid { grid-template-columns: repeat(2, 1fr); }
+    .map-container { width: 260px; height: 260px; }
+  }
+
+  /* Print */
+  @media print {
+    nav { display: none; }
+    .hero { min-height: auto; padding: 2rem; }
+    section { padding: 2rem 0; page-break-inside: avoid; }
+  }
+
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 3rem 2rem;
+    background: var(--charcoal);
+    color: rgba(255,255,255,0.5);
+    font-size: 0.8rem;
+  }
+  footer .brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: rgba(255,255,255,0.8);
+    letter-spacing: 3px;
+    margin-bottom: 0.5rem;
+  }
+</style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav>
+  <div class="logo">ALIGN.</div>
+  <ul class="nav-links">
+    <li><a href="#letter">Letter</a></li>
+    <li><a href="#strategy">Strategy</a></li>
+    <li><a href="#financials">Financials</a></li>
+    <li><a href="#timeline">Timeline</a></li>
+    <li><a href="#positioning">Positioning</a></li>
+    <li><a href="#clients">100 Clients</a></li>
+    <li><a href="#app">The App</a></li>
+    <li><a href="#retreats">Retreats</a></li>
+    <li><a href="#next">Next Steps</a></li>
+  </ul>
+</nav>
+
+<!-- Hero -->
+<div class="hero">
+  <div class="hero-content">
+    <h1>ALIGN<span class="period"></span></h1>
+    <div class="subtitle">Your Strategic Plan</div>
+    <div class="tagline">"Not just a Pilates studio &mdash; a community, committed to wellness and education."</div>
+    <div class="meta">Prepared for Katie Peckham &bull; March 2026</div>
+  </div>
+  <div class="scroll-indicator">&darr;</div>
+</div>
+
+<!-- Letter to Katie -->
+<section id="letter">
+  <div class="letter">
+    <h2 style="margin-bottom: 1.5rem; font-size: 1.8rem;">Dear Katie,</h2>
+    <p>We read every word of your questionnaire. Not as a form &mdash; as a portrait of someone about to do something brave.</p>
+    <p>When you told us your biggest fear is <em>"getting clients,"</em> we want you to know something: that fear is universal among founders, and it is almost always unfounded for people who think the way you do.</p>
+    <p>You are not someone who trained in Pilates and decided to open a studio. You are someone with a <strong>first-class degree in Business Management and Marketing</strong> who fell in love with Pilates and recognised a gap in the market. That is a fundamentally different starting position.</p>
+    <p>Your instinct to build a walk and talk club. Your vision of Pilates and coffee mornings. Your insistence on education and the science behind Pilates. Your gender-neutral branding designed to welcome men. Your idea to film local rugby players trying reformer Pilates. <strong>These are not the ideas of someone who will struggle to find clients.</strong></p>
+    <p>You described your ideal studio as <em>"calm and serene &mdash; a place for workout but also to take a second to close your eyes and reconnect with your breath."</em> You want clients to leave feeling <em>"refreshed, yet challenged."</em> You want to be known as <em>"a community, committed to wellness and education."</em></p>
+    <p>These are not vague aspirations. They are a brand positioning so clear that a strategy consultant would charge thousands to arrive at the same conclusion. You already know, intuitively, what needs to be built.</p>
+    <p>The evidence says you are going to need a waitlist. Let us show you how.</p>
+    <div class="signature">
+      The Product R&amp;D Team<br>
+      <span style="font-size: 0.85rem; opacity: 0.7;">March 2026</span>
+    </div>
+  </div>
+</section>
+
+<!-- Strategy Overview -->
+<section id="strategy">
+  <h4>The Plan</h4>
+  <h2>Katie's Chosen Path</h2>
+  <p>Based on your questionnaire responses, here is the specific sequence &mdash; not a menu of possibilities, but your roadmap.</p>
+
+  <table class="styled-table">
+    <thead>
+      <tr>
+        <th>Phase</th>
+        <th>Pathway</th>
+        <th>Timeline</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="highlight">Phase 1</td>
+        <td>Community-First Micro-Studio</td>
+        <td>June &ndash; Dec 2026</td>
+        <td><span class="badge primary">Primary Focus</span></td>
+      </tr>
+      <tr>
+        <td class="highlight">Phase 2</td>
+        <td>Wellness Ecosystem (Farm Retreats, Physio)</td>
+        <td>Jan &ndash; Dec 2027</td>
+        <td><span class="badge confirmed">Confirmed</span></td>
+      </tr>
+      <tr>
+        <td class="highlight">Phase 3</td>
+        <td>Multi-Location Expansion</td>
+        <td>Mid 2027 &ndash; 2028</td>
+        <td><span class="badge confirmed">2nd location &lt;18 months</span></td>
+      </tr>
+      <tr>
+        <td class="highlight">Phase 4</td>
+        <td>Digital Brand</td>
+        <td>Gradual, Y1&ndash;Y3</td>
+        <td><span class="badge gradual">Gradual Build</span></td>
+      </tr>
+      <tr>
+        <td class="highlight">Phase 5</td>
+        <td>Franchise / Licensing Exploration</td>
+        <td>2029+</td>
+        <td><span class="badge deferred">Deferred</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="quote">
+    The strategy is community-first. ALIGN. will not compete on price or scale. It will compete on <strong>intimacy, personalisation, education, and community</strong> &mdash; building a loyal base that no competitor can replicate.
+  </div>
+
+  <h3>ALIGN. = Movement + Knowledge + Community</h3>
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-icon">&#9672;</div>
+      <h3>Movement</h3>
+      <p>Beautiful, intimate, science-based Pilates. Every class limited to 4 reformers &mdash; every client gets real attention.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">&#9734;</div>
+      <h3>Knowledge</h3>
+      <p>Education that empowers. Clients understand <em>why</em> Pilates works &mdash; the anatomy, the science, the benefits for their body.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">&#9829;</div>
+      <h3>Community</h3>
+      <p>Walk &amp; Talk club. Coffee mornings. Farm retreats. Friendships built through movement. A place you belong to.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Financial Dashboard -->
+<section id="financials">
+  <h4>The Numbers</h4>
+  <h2>Financial Dashboard</h2>
+  <p>Your studio is financially robust. Here are the key headlines.</p>
+
+  <div class="dashboard">
+    <h3>Key Financial Metrics</h3>
+    <div class="metric-grid">
+      <div class="metric">
+        <span class="value">&pound;17.4K</span>
+        <span class="label">Setup Investment</span>
+      </div>
+      <div class="metric">
+        <span class="value">&pound;2.1K</span>
+        <span class="label">Monthly Break-Even</span>
+      </div>
+      <div class="metric">
+        <span class="value">M4&ndash;5</span>
+        <span class="label">Month to Hit &pound;6K</span>
+      </div>
+      <div class="metric">
+        <span class="value">&pound;62&ndash;72K</span>
+        <span class="label">Year 1 Revenue</span>
+      </div>
+      <div class="metric">
+        <span class="value">&pound;22&ndash;32K</span>
+        <span class="label">Year 1 Net Profit</span>
+      </div>
+      <div class="metric">
+        <span class="value">M7&ndash;9</span>
+        <span class="label">2nd Instructor Hire</span>
+      </div>
+    </div>
+  </div>
+
+  <h3>Revenue Ramp &mdash; Base Case</h3>
+  <p>Your &pound;6&ndash;7K target is realistic. Here is how revenue builds month by month:</p>
+
+  <div class="progress-section">
+    <div class="progress-item">
+      <div class="progress-label"><span>Month 1 (Opening)</span><span>&pound;2,200</span></div>
+      <div class="progress-bar"><div class="progress-fill" style="width: 28%"></div></div>
+    </div>
+    <div class="progress-item">
+      <div class="progress-label"><span>Month 3</span><span>&pound;4,200</span></div>
+      <div class="progress-bar"><div class="progress-fill" style="width: 53%"></div></div>
+    </div>
+    <div class="progress-item">
+      <div class="progress-label"><span>Month 5</span><span>&pound;6,100</span></div>
+      <div class="progress-bar"><div class="progress-fill" style="width: 76%"></div></div>
+    </div>
+    <div class="progress-item">
+      <div class="progress-label"><span>Month 8</span><span>&pound;6,800</span></div>
+      <div class="progress-bar"><div class="progress-fill" style="width: 85%"></div></div>
+    </div>
+    <div class="progress-item">
+      <div class="progress-label"><span>Month 12</span><span>&pound;7,300+</span></div>
+      <div class="progress-bar"><div class="progress-fill" style="width: 92%"></div></div>
+    </div>
+  </div>
+
+  <div class="quote">
+    <strong>The key insight:</strong> Your break-even is just &pound;2,100/month. Even at 40% occupancy in Month 1, you cover all costs. The first three months will be below the &pound;6&ndash;7K target &mdash; this is normal. The numbers work.
+  </div>
+
+  <h3>Recommended Pricing</h3>
+  <div class="pricing-grid">
+    <div class="price-card">
+      <div class="name">Single Class</div>
+      <div class="price">&pound;18</div>
+      <div class="detail">Reformer group</div>
+    </div>
+    <div class="price-card">
+      <div class="name">Intro Offer</div>
+      <div class="price">&pound;39 <span>/3 classes</span></div>
+      <div class="detail">&pound;13/class &mdash; low barrier</div>
+    </div>
+    <div class="price-card featured">
+      <div class="name">Monthly 8-Class</div>
+      <div class="price">&pound;65 <span>/mo</span></div>
+      <div class="detail">Core membership</div>
+    </div>
+    <div class="price-card">
+      <div class="name">Unlimited</div>
+      <div class="price">&pound;89 <span>/mo</span></div>
+      <div class="detail">Premium tier</div>
+    </div>
+    <div class="price-card">
+      <div class="name">Private 1-to-1</div>
+      <div class="price">&pound;45</div>
+      <div class="detail">Highest margin</div>
+    </div>
+    <div class="price-card">
+      <div class="name">Mat Class</div>
+      <div class="price">&pound;12</div>
+      <div class="detail">6 spots per session</div>
+    </div>
+  </div>
+
+  <h3>Setup Investment Breakdown</h3>
+  <table class="styled-table">
+    <thead>
+      <tr><th>Category</th><th>Estimated Cost</th><th>Notes</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>4x Align Pilates Reformers (A8-Pro)</td><td class="highlight">&pound;9,800</td><td>Bulk discount possible (10&ndash;15% off)</td></tr>
+      <tr><td>Mats, Props, Sound System</td><td>&pound;530</td><td>Starter set</td></tr>
+      <tr><td>Studio Fit-Out (flooring, electrics, painting, lighting)</td><td>&pound;3,100&ndash;4,800</td><td>DIY painting saves &pound;200&ndash;400</td></tr>
+      <tr><td>Branding &amp; Marketing</td><td>&pound;1,250&ndash;2,300</td><td>Signage, window, flyers, photography</td></tr>
+      <tr><td>Technology &amp; Admin</td><td>&pound;530&ndash;1,100</td><td>App contribution, card reader</td></tr>
+      <tr><td>Working Capital Reserve</td><td>&pound;1,500&ndash;2,000</td><td>First 2 months buffer</td></tr>
+      <tr class="total-row"><td>Total</td><td>&pound;16,710&ndash;20,530</td><td>Within budget</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- Positioning -->
+<section id="positioning" class="bg-sage-light section-full">
+  <div style="max-width: 960px; margin: 0 auto;">
+    <h4>Differentiation</h4>
+    <h2>How ALIGN. Wins</h2>
+    <p>ALIGN. does not need to take clients from PT Pilates. The market is underserved, not oversaturated. Your job is to grow the market.</p>
+
+    <div class="position-map">
+      <div class="map-container">
+        <div class="map-axis-v"></div>
+        <div class="map-axis-h"></div>
+        <div class="map-label top">Premium Experience</div>
+        <div class="map-label bottom">Basic Experience</div>
+        <div class="map-label left">Community</div>
+        <div class="map-label right">Transactional</div>
+        <div class="map-dot align">ALIGN.</div>
+        <div class="map-dot pt">PT Pilates</div>
+        <div class="map-dot chains">Future<br>Chains</div>
+      </div>
+    </div>
+
+    <p style="text-align: center; color: var(--stone); font-size: 0.9rem;">ALIGN. occupies the upper-left quadrant: premium experience + community focus. Nobody else in Monmouth is there.</p>
+
+    <table class="styled-table" style="margin-top: 2rem;">
+      <thead>
+        <tr><th>Dimension</th><th>PT Pilates</th><th>ALIGN.</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Brand Experience</td><td>Established, functional</td><td class="highlight">Design-led sanctuary</td></tr>
+        <tr><td>Technology</td><td>Standard booking</td><td class="highlight">Custom app with tracking &amp; community</td></tr>
+        <tr><td>Community</td><td>Class-based relationships</td><td class="highlight">Walk club, coffee mornings, events</td></tr>
+        <tr><td>Male Inclusion</td><td>General</td><td class="highlight">Deliberate 20&ndash;30% male target</td></tr>
+        <tr><td>Education</td><td>Classes only</td><td class="highlight">Blog, science content, workshops</td></tr>
+        <tr><td>Digital Presence</td><td>Standard</td><td class="highlight">Lifestyle brand &amp; content</td></tr>
+      </tbody>
+    </table>
+
+    <div class="quote" style="margin-top: 2rem;">
+      <strong>The key insight:</strong> PT Pilates is a Pilates studio. ALIGN. is a wellness community with a Pilates studio at its centre. That is a fundamentally different proposition.
+      <cite>Rules of engagement: Never disparage. Focus on what ALIGN. is, never on what others are not. Compete on experience, community, and brand &mdash; not on price.</cite>
+    </div>
+  </div>
+</section>
+
+<!-- First 100 Clients -->
+<section id="clients">
+  <h4>Addressing Your Biggest Fear</h4>
+  <h2>The First 100 Clients</h2>
+  <p>Getting clients is your biggest concern. Here is the specific, channel-by-channel plan to reach 100 active clients within 3 months of opening.</p>
+
+  <div class="stats-row">
+    <div class="stat">
+      <div class="number">40</div>
+      <div class="unit">Pre-Launch</div>
+    </div>
+    <div class="stat">
+      <div class="number">20</div>
+      <div class="unit">Opening Events</div>
+    </div>
+    <div class="stat">
+      <div class="number">15</div>
+      <div class="unit">Referrals</div>
+    </div>
+    <div class="stat">
+      <div class="number">10</div>
+      <div class="unit">Community Events</div>
+    </div>
+    <div class="stat">
+      <div class="number">15</div>
+      <div class="unit">Organic Discovery</div>
+    </div>
+  </div>
+
+  <h3>Pre-Launch (Now &rarr; June 2026)</h3>
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-icon">&#128421;</div>
+      <h3>"Coming Soon" Window</h3>
+      <p>Your shop-front window is seen by hundreds daily. A beautiful "Coming Soon" graphic with QR code starts building awareness immediately.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">&#9749;</div>
+      <h3>Coffi Lab Partnership</h3>
+      <p>You are literally one door away from Monmouth's most popular coffee shop. Flyers on tables, verbal mentions, joint events.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">&#127944;</div>
+      <h3>Rugby Club Taster</h3>
+      <p>Gus's connection. Free session for the team, filmed for social media. "Rugby players try reformer Pilates" &mdash; this will go viral locally.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">&#127775;</div>
+      <h3>Founding Members</h3>
+      <p>First 20 sign-ups get a special founding member rate. Creates urgency and a core community before you even open the doors.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">&#128240;</div>
+      <h3>Local Press</h3>
+      <p>Monmouth Beacon, South Wales Argus. "Local woman opens boutique Pilates studio on flood-hit high street" &mdash; it's a great story.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">&#128241;</div>
+      <h3>Instagram Launch</h3>
+      <p>Behind-the-scenes renovation content. No face required at first &mdash; show the space transforming. Build anticipation.</p>
+    </div>
+  </div>
+
+  <h3>Opening Month</h3>
+  <div class="card-grid">
+    <div class="card">
+      <h3>Grand Opening Event</h3>
+      <p>Free taster session + Coffi Lab collaboration. Local community invited. Photography for social media. First impressions matter.</p>
+    </div>
+    <div class="card">
+      <h3>"Bring a Friend" Week</h3>
+      <p>Every client brings someone free during opening week. Doubles your exposure at zero cost.</p>
+    </div>
+    <div class="card">
+      <h3>3-for-&pound;39 Intro Offer</h3>
+      <p>Low barrier to entry. Once someone tries reformer Pilates with you, the experience sells itself.</p>
+    </div>
+  </div>
+
+  <div class="quote">
+    In a town of 10,500 affluent residents with zero dedicated reformer studios, your biggest challenge is not getting clients &mdash; it is managing the waitlist.
+  </div>
+</section>
+
+<!-- Timeline -->
+<section id="timeline" class="bg-cream section-full">
+  <div style="max-width: 960px; margin: 0 auto;">
+    <h4>Implementation</h4>
+    <h2>Your Roadmap</h2>
+    <p>Four parallel workstreams running from today to opening day and beyond. Recommended opening: <strong>Saturday 14 June 2026</strong>.</p>
+
+    <div class="timeline">
+      <div class="timeline-item active">
+        <div class="timeline-date">Now &mdash; April 2026</div>
+        <div class="timeline-title">Foundation</div>
+        <div class="timeline-desc">Company registration. Bank account. Insurance. Logo finalisation. Instagram launch. "Coming Soon" window. Electrical work begins. App PRD to Eduardo.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">May 2026</div>
+        <div class="timeline-title">Building Buzz</div>
+        <div class="timeline-desc">Flooring installed. Equipment arrives. Founding member campaign. Pre-registration opens. App mockup review. Rugby club taster session. Local press outreach.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">Early June 2026</div>
+        <div class="timeline-title">Final Countdown</div>
+        <div class="timeline-desc">Painting complete. Signage installed. App Store submission. Final testing. Photography shoot. Opening week content prepared. Coffi Lab partnership finalised.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">14 June 2026</div>
+        <div class="timeline-title">Grand Opening</div>
+        <div class="timeline-desc">Soft launch weekend + Grand Opening Saturday. Free taster classes. Coffi Lab collaboration event. Photography. Press attendance. App goes live.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">Jul &ndash; Sep 2026</div>
+        <div class="timeline-title">Prove the Model</div>
+        <div class="timeline-desc">Build to 60%+ occupancy. Launch Walk &amp; Talk club and Coffee Mornings. Outdoor summer Pilates. Reach 60+ active clients. Google Reviews campaign.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">Oct &ndash; Dec 2026</div>
+        <div class="timeline-title">Establish &amp; Grow</div>
+        <div class="timeline-desc">Hire 2nd instructor. Reach 80%+ occupancy. 100+ clients. Begin physio conversations. First filmed content. Pilot farm retreat (autumn).</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">Jan &ndash; Jun 2027</div>
+        <div class="timeline-title">Year 2: Expand</div>
+        <div class="timeline-desc">Farm retreats quarterly. NHS/NERS awareness. Digital content growing. 4+ classes/day. Begin scouting 2nd location (Abergavenny recommended).</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">Jul &ndash; Dec 2027</div>
+        <div class="timeline-title">Multi-Location</div>
+        <div class="timeline-desc">2nd location decision triggered by financial milestones. Pre/postnatal qualification complete. Monthly retreats. &pound;8&ndash;10K/month revenue. Brand recognition growing.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- App -->
+<section id="app">
+  <h4>Technology</h4>
+  <h2>The ALIGN. App</h2>
+  <p>Importance: <strong>8/10</strong>. Your app is not just a booking tool &mdash; it is the digital expression of the ALIGN. brand.</p>
+
+  <div class="quote">
+    "An app that shows Align isn't just a studio, it's also a community, and a brand committed to bringing you knowledgeable information and guidance from beyond the studio."
+    <cite>&mdash; Katie, on what the perfect app looks like</cite>
+  </div>
+
+  <h3>MVP for Launch</h3>
+  <p>Eduardo builds this in 2 weeks. Everything Katie needs to open the doors:</p>
+
+  <div class="card-grid">
+    <div class="card">
+      <h3>Booking Calendar</h3>
+      <p>3-month view. Reformer spot selection (pick your bed). Mat class booking. Waitlist. Recurring bookings. Cancellation policy enforcement.</p>
+    </div>
+    <div class="card">
+      <h3>Client Profiles</h3>
+      <p>Sign-up with medical form (PAR-Q). Emergency contact. Fitness level. Personal goals. iPad mode for walk-in clients.</p>
+    </div>
+    <div class="card">
+      <h3>Stripe Payments</h3>
+      <p>Single class, class packs, memberships. 2&ndash;3% fees (not Apple/Google's 30%). Receipts. Refunds. Founding member pricing.</p>
+    </div>
+    <div class="card">
+      <h3>Push Notifications</h3>
+      <p>Class reminders. Waitlist alerts. New content. Community events. "We miss you" re-engagement.</p>
+    </div>
+  </div>
+
+  <h3>Phase 2 (Month 2&ndash;6) &mdash; Katie's Top Priorities</h3>
+  <div class="card-grid">
+    <div class="card" style="border-color: var(--sage);">
+      <h3>Progress Tracking</h3>
+      <p>Attendance streaks. Instructor notes. Self-assessments. Monthly summaries. <em>Katie's #1 requested feature.</em></p>
+    </div>
+    <div class="card">
+      <h3>Community &amp; Content</h3>
+      <p>Messaging. Blog feed. Event RSVPs. Referral programme tracking. Education content.</p>
+    </div>
+    <div class="card">
+      <h3>Admin Dashboard</h3>
+      <p>Revenue overview. Attendance analytics. Popular times. Retention metrics. 2nd instructor scheduling.</p>
+    </div>
+  </div>
+
+  <h3>Phase 3 (Month 6&ndash;12)</h3>
+  <p>Merchandise shop. Wearable integration (Apple Watch, Oura Ring). On-demand video library (when Katie starts filming).</p>
+
+  <div class="quote">
+    <strong>Architecture note for Gus:</strong> Every data entity includes a <code>studio_id</code> field from day one. The app is franchise-ready from the first line of code. When Studio 2 opens, it plugs into the same system seamlessly.
+  </div>
+</section>
+
+<!-- Farm Retreats -->
+<section id="retreats" class="bg-sage-light section-full">
+  <div style="max-width: 960px; margin: 0 auto;">
+    <h4>Your Unique Asset</h4>
+    <h2>The Farm Retreat Opportunity</h2>
+    <p>You said you <em>"absolutely love this idea"</em> and want to use your own farm. Here is how this becomes reality.</p>
+
+    <div class="stats-row">
+      <div class="stat">
+        <div class="number">&pound;0</div>
+        <div class="unit">Venue Cost</div>
+      </div>
+      <div class="stat">
+        <div class="number">&pound;295&ndash;395</div>
+        <div class="unit">Per Person</div>
+      </div>
+      <div class="stat">
+        <div class="number">65&ndash;75%</div>
+        <div class="unit">Gross Margin</div>
+      </div>
+      <div class="stat">
+        <div class="number">&pound;8.4&ndash;14K</div>
+        <div class="unit">Year 1 Revenue</div>
+      </div>
+    </div>
+
+    <h3>Retreat Format</h3>
+    <table class="styled-table">
+      <thead>
+        <tr><th>Element</th><th>Detail</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Duration</td><td>Saturday morning to Sunday afternoon</td></tr>
+        <tr><td>Group size</td><td>6&ndash;8 participants</td></tr>
+        <tr><td>Location</td><td>Katie's farm + Wye Valley walking routes</td></tr>
+        <tr><td>Programme</td><td>Mat Pilates, guided walk, breathwork, mindfulness, farm-to-table lunch</td></tr>
+        <tr><td>Frequency</td><td>Pilot in Autumn 2026, then quarterly &rarr; monthly</td></tr>
+        <tr><td>Pricing</td><td>&pound;295 (day retreat) / &pound;395 (overnight with local B&amp;B partner)</td></tr>
+      </tbody>
+    </table>
+
+    <div class="quote">
+      A tourist discovers ALIGN. during a Wye Valley holiday, attends a retreat, joins the digital membership, and is still practising with you two years later from Edinburgh. The retreat is the ultimate client acquisition channel.
+    </div>
+  </div>
+</section>
+
+<!-- The Micro-Studio Advantage -->
+<section>
+  <h4>Reframing</h4>
+  <h2>The Micro-Studio Advantage</h2>
+  <p>Four reformers is not a limitation. It is your greatest brand asset.</p>
+
+  <div class="card-grid">
+    <div class="card">
+      <h3>Personalisation</h3>
+      <p>Katie knows every client by name. Their goals. Their injuries. Their lives. A 12-reformer studio cannot offer this.</p>
+    </div>
+    <div class="card">
+      <h3>Exclusivity</h3>
+      <p>"Only 4 spots per class" creates natural urgency. No hard selling needed &mdash; scarcity does the work.</p>
+    </div>
+    <div class="card">
+      <h3>Quality</h3>
+      <p>With 4 clients, every person gets attention. Form corrections happen in real time. Results come faster.</p>
+    </div>
+    <div class="card">
+      <h3>Premium Positioning</h3>
+      <p>Forma Pilates in LA charges $75+/session with 3&ndash;4 clients. Micro-studio is the luxury segment of Pilates.</p>
+    </div>
+  </div>
+
+  <div class="quote">
+    When ALIGN. has a waitlist (and it will), that waitlist becomes your most powerful marketing tool. "There's a 2-week wait for a spot at ALIGN." is a message money cannot buy.
+  </div>
+</section>
+
+<!-- Camera Comfort & Digital -->
+<section class="bg-cream section-full">
+  <div style="max-width: 960px; margin: 0 auto;">
+    <h4>At Your Pace</h4>
+    <h2>Digital Strategy &mdash; The Gradual Build</h2>
+    <p>Camera comfort: 5/10. That is honest and self-aware. Here is how we build gradually, never forcing it.</p>
+
+    <div class="timeline">
+      <div class="timeline-item active">
+        <div class="timeline-date">Month 1&ndash;2</div>
+        <div class="timeline-title">No Face Required</div>
+        <div class="timeline-desc">Space photos. Equipment close-ups. Text-over-image education posts. Boomerangs of hands on reformer. The studio is the star, not the camera.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">Month 3&ndash;4</div>
+        <div class="timeline-title">Gradual Introduction</div>
+        <div class="timeline-desc">Quick voice-over stories. Text Q&amp;As. Group photos at community events where Katie is one of many faces. Building comfort naturally.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">Month 5&ndash;6</div>
+        <div class="timeline-title">Growing Confidence</div>
+        <div class="timeline-desc">Talking to camera in stories (15&ndash;30 seconds). "Day in the life" content. Teaching tips with camera on hands, face occasionally.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">Month 7&ndash;12</div>
+        <div class="timeline-title">Established Presence</div>
+        <div class="timeline-desc">Reels with face. Live Q&amp;As. Filming classes for future on-demand library. Izzy Samuel-style community interactions.</div>
+      </div>
+    </div>
+
+    <div class="quote">
+      Izzy Samuel built 1.1M followers on TikTok and 378K on Instagram. She started small, too. The difference is consistency, not confidence. Confidence comes from doing.
+    </div>
+  </div>
+</section>
+
+<!-- Community Moat -->
+<section>
+  <h4>Your Defence</h4>
+  <h2>The Community Moat</h2>
+  <p>When Club Pilates arrives in South Wales (2028&ndash;2030), ALIGN. needs to be so deeply embedded that switching feels like leaving a family.</p>
+
+  <div class="card-grid">
+    <div class="card">
+      <h3>Walk &amp; Talk Club</h3>
+      <p>Monthly Saturday morning. 1-hour Wye Valley walk. Free. Friendships formed here cannot be replicated by a chain.</p>
+    </div>
+    <div class="card">
+      <h3>Pilates &amp; Coffee</h3>
+      <p>Monthly Saturday. 30-min mat session + coffee at Coffi Lab. Gets people into the studio. Low barrier. High conversion.</p>
+    </div>
+    <div class="card">
+      <h3>Education Events</h3>
+      <p>Quarterly workshops. "The Science of Pilates." "Pilates for Runners." Guest physio speakers. Establishes Katie as the authority.</p>
+    </div>
+    <div class="card">
+      <h3>Farm Retreats</h3>
+      <p>Shared transformative experiences on Katie's farm. Clients who retreat together bond at a level no class can match.</p>
+    </div>
+  </div>
+
+  <p style="text-align: center; margin-top: 2rem;"><strong>Chains can replicate equipment, pricing, and class formats. They cannot replicate belonging.</strong></p>
+</section>
+
+<!-- Next Steps -->
+<section id="next" class="bg-sage-light section-full">
+  <div style="max-width: 960px; margin: 0 auto;">
+    <h4>What Happens Now</h4>
+    <h2>Immediate Next Steps</h2>
+    <p>Decisions Katie needs to make this week, with our recommended answers:</p>
+
+    <table class="styled-table">
+      <thead>
+        <tr><th>#</th><th>Decision</th><th>Recommendation</th><th>Deadline</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>Opening date</td><td class="highlight">Saturday 14 June 2026</td><td>This week</td></tr>
+        <tr><td>2</td><td>Company registration</td><td>Register at Companies House online (&pound;12, 24hrs)</td><td>This week</td></tr>
+        <tr><td>3</td><td>Business bank account</td><td>Apply immediately (takes 2&ndash;4 weeks)</td><td>This week</td></tr>
+        <tr><td>4</td><td>Instagram account</td><td>Create @align.pilates.monmouth (or similar)</td><td>This week</td></tr>
+        <tr><td>5</td><td>Electrical contractor</td><td>Get 2&ndash;3 quotes, book for early April</td><td>Next week</td></tr>
+        <tr><td>6</td><td>Reformer order</td><td>Contact Align Pilates, negotiate bulk pricing</td><td>Next week</td></tr>
+        <tr><td>7</td><td>Final pricing structure</td><td>Review our recommendations, confirm</td><td>End of week 2</td></tr>
+        <tr><td>8</td><td>App PRD review</td><td>Review with Eduardo, confirm MVP scope</td><td>End of week 2</td></tr>
+        <tr><td>9</td><td>Welsh grant application</td><td>SWEF reopens 13 April &mdash; up to &pound;2,000</td><td>13 April</td></tr>
+        <tr><td>10</td><td>"Coming Soon" window</td><td>Design and install as soon as property allows</td><td>End of April</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- Documents -->
+<section>
+  <h4>Your Complete Pack</h4>
+  <h2>Documents Delivered</h2>
+  <p>Five detailed documents have been prepared alongside this presentation:</p>
+
+  <div class="card-grid">
+    <div class="card">
+      <h3>Strategic Plan</h3>
+      <p>Your chosen path. Competitive positioning. First 100 clients playbook. Community strategy. Risk register. Quarterly roadmap.</p>
+      <p style="font-size: 0.8rem; color: var(--sage);">~6,800 words &bull; 14 sections</p>
+    </div>
+    <div class="card">
+      <h3>Financial Model</h3>
+      <p>Setup budget. Operating costs. Month-by-month revenue projections. Scenario analysis. Break-even. Path to Studio #2.</p>
+      <p style="font-size: 0.8rem; color: var(--sage);">15 sections &bull; 3 scenarios</p>
+    </div>
+    <div class="card">
+      <h3>Implementation Plan</h3>
+      <p>4 parallel workstreams. Week-by-week pre-launch. Day-by-day opening week. RACI responsibility matrix. Risk &amp; contingency.</p>
+      <p style="font-size: 0.8rem; color: var(--sage);">10 sections &bull; 3 appendices</p>
+    </div>
+    <div class="card">
+      <h3>App PRD</h3>
+      <p>Full specification for Eduardo. User personas. Feature specs. Design guidelines. Data model. 14-day build plan.</p>
+      <p style="font-size: 0.8rem; color: var(--sage);">~6,500 words &bull; 15 sections</p>
+    </div>
+    <div class="card">
+      <h3>Brand &amp; Content Strategy</h3>
+      <p>First 100 clients playbook. Social media strategy. Camera comfort progression. Pre-launch content calendar. Marketing budget.</p>
+      <p style="font-size: 0.8rem; color: var(--sage);">~7,400 words &bull; 11 sections</p>
+    </div>
+  </div>
+</section>
+
+<!-- Closing -->
+<section style="text-align: center; padding-bottom: 2rem;">
+  <div class="divider"><span>&middot;</span></div>
+  <h2 style="margin-bottom: 1.5rem;">This Is Your Moment</h2>
+  <p style="max-width: 600px; margin: 0 auto 1rem; font-size: 1.1rem; color: var(--stone-dark);">
+    You have a secured property on Monmouth's high street. Four reformers arriving. A brand that is genuinely beautiful. An app in development. Gus in your corner. A town with zero reformer provision and the highest house prices in Wales.
+  </p>
+  <p style="max-width: 600px; margin: 0 auto 2rem; font-size: 1.1rem; color: var(--stone-dark);">
+    The question was never whether you <em>could</em> do this.<br>The question is how far you want to take it.
+  </p>
+  <p style="font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--sage-dark); font-style: italic;">
+    We are here to build whichever future you envision.
+  </p>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="brand">ALIGN.</div>
+  <p>Prepared by the Product R&amp;D Team &bull; March 2026</p>
+  <p>Monmouth, South Wales, United Kingdom</p>
+</footer>
+
+</body>
+</html>
