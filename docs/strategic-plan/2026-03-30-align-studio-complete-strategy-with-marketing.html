@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ALIGN. Studio — Strategic Plan & Marketing Strategy</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
+
+  :root {
+    --cream: #F5F0EB;
+    --cream-light: #FAF8F5;
+    --beige: #EDE5DA;
+    --sage: #8B9F82;
+    --sage-light: #A8B8A0;
+    --sage-dark: #6B7F62;
+    --stone: #8A8278;
+    --stone-light: #A69F95;
+    --stone-dark: #5C574F;
+    --charcoal: #2C2C2C;
+    --white: #FFFFFF;
+    --success: #4A7C59;
+    --warning: #C4883A;
+    --accent: #B8926A;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--cream-light);
+    color: var(--charcoal);
+    line-height: 1.7;
+    font-size: 16px;
+  }
+
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    background: rgba(245, 240, 235, 0.95);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--beige);
+    padding: 0.8rem 2rem;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  nav .logo { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: var(--sage-dark); letter-spacing: 2px; }
+  nav .nav-links { display: flex; gap: 1.5rem; list-style: none; flex-wrap: wrap; justify-content: flex-end; }
+  nav .nav-links a { text-decoration: none; color: var(--stone); font-size: 0.78rem; font-weight: 500; transition: color 0.3s; text-transform: uppercase; letter-spacing: 0.5px; }
+  nav .nav-links a:hover { color: var(--sage-dark); }
+
+  .hero {
+    min-height: 100vh; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; text-align: center;
+    padding: 6rem 2rem 4rem;
+    background: linear-gradient(165deg, var(--cream) 0%, var(--cream-light) 40%, #E8E0D6 100%);
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+    background: radial-gradient(ellipse at 30% 50%, rgba(139,159,130,0.08) 0%, transparent 60%),
+                radial-gradient(ellipse at 70% 30%, rgba(184,146,106,0.06) 0%, transparent 50%);
+    animation: float 20s ease-in-out infinite;
+  }
+  @keyframes float { 0%, 100% { transform: translate(0, 0) rotate(0deg); } 50% { transform: translate(-2%, 2%) rotate(1deg); } }
+  .hero-content { position: relative; z-index: 1; max-width: 700px; }
+  .hero h1 { font-family: 'Playfair Display', serif; font-size: 4.5rem; font-weight: 700; color: var(--sage-dark); letter-spacing: 8px; margin-bottom: 0.3rem; }
+  .hero .period { display: inline-block; width: 12px; height: 12px; background: var(--sage); border-radius: 50%; margin-left: 4px; vertical-align: middle; position: relative; top: -2px; }
+  .hero .subtitle { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 400; color: var(--stone); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 2rem; }
+  .hero .tagline { font-size: 1.1rem; color: var(--stone-light); font-style: italic; margin-bottom: 3rem; font-family: 'Playfair Display', serif; }
+  .hero .meta { font-size: 0.85rem; color: var(--stone-light); letter-spacing: 1px; text-transform: uppercase; }
+  .scroll-indicator { position: absolute; bottom: 2rem; animation: bounce 2s infinite; color: var(--sage-light); font-size: 1.5rem; }
+  @keyframes bounce { 0%, 100% { transform: translateY(0); opacity: 0.5; } 50% { transform: translateY(10px); opacity: 1; } }
+
+  section { max-width: 960px; margin: 0 auto; padding: 5rem 2rem; }
+  .section-full { max-width: 100%; padding: 5rem 2rem; }
+
+  h2 { font-family: 'Playfair Display', serif; font-size: 2.4rem; font-weight: 600; color: var(--sage-dark); margin-bottom: 1rem; letter-spacing: 1px; }
+  h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 600; color: var(--charcoal); margin: 2rem 0 1rem; }
+  h4 { font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 600; color: var(--sage-dark); text-transform: uppercase; letter-spacing: 1.5px; margin: 2rem 0 0.8rem; }
+  p { margin-bottom: 1.2rem; color: var(--charcoal); }
+
+  .letter { background: var(--white); border-radius: 16px; padding: 3.5rem; box-shadow: 0 4px 30px rgba(0,0,0,0.04); border: 1px solid var(--beige); max-width: 760px; margin: 0 auto; position: relative; }
+  .letter::before { content: '\201C'; font-family: 'Playfair Display', serif; font-size: 8rem; color: var(--beige); position: absolute; top: -1rem; left: 1.5rem; line-height: 1; }
+  .letter p { font-size: 1.05rem; line-height: 1.85; color: var(--stone-dark); }
+  .letter .signature { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--beige); font-style: italic; color: var(--sage-dark); font-family: 'Playfair Display', serif; }
+
+  .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin: 2rem 0; }
+  .card { background: var(--white); border-radius: 12px; padding: 2rem; box-shadow: 0 2px 20px rgba(0,0,0,0.03); border: 1px solid var(--beige); transition: transform 0.3s, box-shadow 0.3s; }
+  .card:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(0,0,0,0.06); }
+  .card .card-icon { font-size: 2rem; margin-bottom: 1rem; }
+  .card h3 { font-size: 1.2rem; margin: 0 0 0.8rem; color: var(--sage-dark); }
+  .card p { font-size: 0.9rem; color: var(--stone); margin: 0; }
+
+  .dashboard { background: linear-gradient(135deg, var(--sage-dark) 0%, #5A7050 100%); border-radius: 20px; padding: 3rem; color: var(--white); margin: 2rem 0; }
+  .dashboard h3 { color: rgba(255,255,255,0.9); font-size: 1.1rem; text-transform: uppercase; letter-spacing: 2px; margin: 0 0 2rem; }
+  .metric-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; }
+  .metric { text-align: center; padding: 1.2rem; background: rgba(255,255,255,0.1); border-radius: 12px; border: 1px solid rgba(255,255,255,0.15); }
+  .metric .value { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 700; display: block; margin-bottom: 0.3rem; }
+  .metric .label { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; }
+
+  .timeline { position: relative; padding: 2rem 0; }
+  .timeline::before { content: ''; position: absolute; left: 24px; top: 0; bottom: 0; width: 3px; background: linear-gradient(to bottom, var(--sage), var(--sage-light), var(--beige)); border-radius: 2px; }
+  .timeline-item { position: relative; padding-left: 60px; margin-bottom: 2.5rem; }
+  .timeline-item::before { content: ''; position: absolute; left: 16px; top: 6px; width: 20px; height: 20px; background: var(--sage); border-radius: 50%; border: 4px solid var(--cream-light); box-shadow: 0 0 0 2px var(--sage-light); }
+  .timeline-item.active::before { background: var(--success); box-shadow: 0 0 0 2px var(--success), 0 0 12px rgba(74,124,89,0.3); }
+  .timeline-date { font-size: 0.8rem; font-weight: 600; color: var(--sage-dark); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.3rem; }
+  .timeline-title { font-family: 'Playfair Display', serif; font-size: 1.25rem; color: var(--charcoal); margin-bottom: 0.5rem; }
+  .timeline-desc { font-size: 0.9rem; color: var(--stone); line-height: 1.6; }
+
+  .styled-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.9rem; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 15px rgba(0,0,0,0.03); }
+  .styled-table thead { background: var(--sage-dark); color: var(--white); }
+  .styled-table th { padding: 1rem 1.2rem; text-align: left; font-weight: 600; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 1px; }
+  .styled-table td { padding: 0.9rem 1.2rem; border-bottom: 1px solid var(--beige); background: var(--white); }
+  .styled-table tr:last-child td { border-bottom: none; }
+  .styled-table tr:hover td { background: var(--cream-light); }
+  .styled-table .highlight { font-weight: 600; color: var(--sage-dark); }
+  .styled-table .total-row td { background: var(--cream); font-weight: 700; color: var(--sage-dark); }
+
+  .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 2rem 0; }
+  .price-card { background: var(--white); border-radius: 12px; padding: 1.5rem; text-align: center; border: 2px solid var(--beige); transition: border-color 0.3s; }
+  .price-card:hover { border-color: var(--sage-light); }
+  .price-card.featured { border-color: var(--sage); position: relative; }
+  .price-card.featured::after { content: 'RECOMMENDED'; position: absolute; top: -10px; left: 50%; transform: translateX(-50%); background: var(--sage); color: var(--white); font-size: 0.65rem; padding: 2px 12px; border-radius: 20px; letter-spacing: 1px; font-weight: 600; }
+  .price-card .price { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; color: var(--sage-dark); margin: 0.5rem 0; }
+  .price-card .price span { font-size: 1rem; font-weight: 400; }
+  .price-card .name { font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; color: var(--stone); margin-bottom: 0.5rem; }
+  .price-card .detail { font-size: 0.8rem; color: var(--stone-light); }
+
+  .stats-row { display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; margin: 2rem 0; }
+  .stat { text-align: center; min-width: 120px; }
+  .stat .number { font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 700; color: var(--sage-dark); line-height: 1; }
+  .stat .unit { font-size: 0.8rem; color: var(--stone); text-transform: uppercase; letter-spacing: 1px; margin-top: 0.3rem; }
+
+  .quote { background: var(--white); border-left: 4px solid var(--sage); padding: 1.5rem 2rem; margin: 2rem 0; border-radius: 0 12px 12px 0; font-style: italic; color: var(--stone-dark); font-size: 1.05rem; }
+  .quote cite { display: block; margin-top: 0.8rem; font-style: normal; font-weight: 600; font-size: 0.85rem; color: var(--sage-dark); }
+
+  .badge { display: inline-block; padding: 0.25rem 0.8rem; border-radius: 20px; font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+  .badge.confirmed { background: rgba(74,124,89,0.1); color: var(--success); }
+  .badge.gradual { background: rgba(139,159,130,0.15); color: var(--sage-dark); }
+  .badge.deferred { background: rgba(138,130,120,0.1); color: var(--stone); }
+  .badge.primary { background: var(--sage); color: var(--white); }
+  .badge.high { background: rgba(196,136,58,0.15); color: var(--warning); }
+  .badge.tier1 { background: var(--sage); color: var(--white); }
+  .badge.tier2 { background: var(--sage-light); color: var(--white); }
+  .badge.tier3 { background: var(--stone-light); color: var(--white); }
+
+  .divider { text-align: center; margin: 4rem 0; position: relative; }
+  .divider::before { content: ''; position: absolute; left: 20%; right: 20%; top: 50%; height: 1px; background: var(--beige); }
+  .divider span { background: var(--cream-light); padding: 0 1.5rem; position: relative; font-family: 'Playfair Display', serif; color: var(--sage-light); font-size: 1.5rem; }
+
+  .position-map { background: var(--white); border-radius: 16px; padding: 3rem; text-align: center; border: 1px solid var(--beige); margin: 2rem 0; position: relative; min-height: 350px; display: flex; align-items: center; justify-content: center; }
+  .map-container { position: relative; width: 320px; height: 320px; }
+  .map-axis-v { position: absolute; left: 50%; top: 0; bottom: 0; width: 2px; background: var(--beige); transform: translateX(-50%); }
+  .map-axis-h { position: absolute; top: 50%; left: 0; right: 0; height: 2px; background: var(--beige); transform: translateY(-50%); }
+  .map-label { position: absolute; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: var(--stone-light); font-weight: 600; }
+  .map-label.top { top: -20px; left: 50%; transform: translateX(-50%); }
+  .map-label.bottom { bottom: -20px; left: 50%; transform: translateX(-50%); }
+  .map-label.left { left: -10px; top: 50%; transform: translateY(-50%) rotate(-90deg); }
+  .map-label.right { right: -10px; top: 50%; transform: translateY(-50%) rotate(90deg); }
+  .map-dot { position: absolute; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; transform: translate(-50%, -50%); transition: transform 0.3s; }
+  .map-dot:hover { transform: translate(-50%, -50%) scale(1.15); }
+  .map-dot.align { background: var(--sage); color: var(--white); top: 25%; left: 30%; box-shadow: 0 4px 20px rgba(139,159,130,0.4); width: 70px; height: 70px; font-size: 0.75rem; }
+  .map-dot.pt { background: var(--stone-light); color: var(--white); top: 55%; left: 45%; font-size: 0.55rem; }
+  .map-dot.chains { background: var(--beige); color: var(--stone); top: 40%; left: 75%; font-size: 0.55rem; }
+
+  .bg-white { background: var(--white); }
+  .bg-cream { background: var(--cream); }
+  .bg-sage-light { background: rgba(139,159,130,0.06); }
+
+  .channel-tier { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 0.8rem; padding: 0.8rem 1.2rem; background: var(--white); border-radius: 8px; border: 1px solid var(--beige); }
+  .channel-tier .channel-name { font-weight: 600; min-width: 140px; }
+  .channel-tier .channel-desc { font-size: 0.85rem; color: var(--stone); }
+
+  @media (max-width: 768px) {
+    .hero h1 { font-size: 3rem; letter-spacing: 4px; }
+    .hero .subtitle { font-size: 1rem; }
+    nav .nav-links { display: none; }
+    section { padding: 3rem 1.5rem; }
+    .letter { padding: 2rem; }
+    .dashboard { padding: 2rem; }
+    .metric .value { font-size: 1.6rem; }
+    .metric-grid { grid-template-columns: repeat(2, 1fr); }
+    .map-container { width: 260px; height: 260px; }
+  }
+  @media print {
+    nav { display: none; }
+    .hero { min-height: auto; padding: 2rem; }
+    section { padding: 2rem 0; page-break-inside: avoid; }
+  }
+
+  footer { text-align: center; padding: 3rem 2rem; background: var(--charcoal); color: rgba(255,255,255,0.5); font-size: 0.8rem; }
+  footer .brand { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: rgba(255,255,255,0.8); letter-spacing: 3px; margin-bottom: 0.5rem; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">ALIGN.</div>
+  <ul class="nav-links">
+    <li><a href="#letter">Letter</a></li>
+    <li><a href="#market">Market</a></li>
+    <li><a href="#positioning">Positioning</a></li>
+    <li><a href="#financials">Financials</a></li>
+    <li><a href="#channels">Channels</a></li>
+    <li><a href="#clients">100 Clients</a></li>
+    <li><a href="#retention">Retention</a></li>
+    <li><a href="#referrals">Referrals</a></li>
+    <li><a href="#timeline">Timeline</a></li>
+    <li><a href="#retreats">Retreats</a></li>
+  </ul>
+</nav>
+
+<div class="hero">
+  <div class="hero-content">
+    <h1>ALIGN<span class="period"></span></h1>
+    <div class="subtitle">Strategic Plan &amp; Marketing Strategy</div>
+    <div class="tagline">"Not just a Pilates studio &mdash; a community, committed to wellness and education."</div>
+    <div class="meta">Prepared for Katie Peckham &bull; March 2026</div>
+  </div>
+  <div class="scroll-indicator">&darr;</div>
+</div>
+
+<!-- Letter to Katie -->
+<section id="letter">
+  <div class="letter">
+    <h2 style="margin-bottom: 1.5rem; font-size: 1.8rem;">Dear Katie,</h2>
+    <p>We read every word of your questionnaire. Not as a form &mdash; as a portrait of someone about to do something brave.</p>
+    <p>When you told us your biggest fear is <em>"getting clients,"</em> we want you to know something: that fear is universal among founders, and it is almost always unfounded for people who think the way you do.</p>
+    <p>You are not someone who trained in Pilates and decided to open a studio. You are someone with a <strong>first-class degree in Business Management and Marketing</strong> who fell in love with Pilates and recognised a gap in the market. That is a fundamentally different starting position.</p>
+    <p>What follows is your complete plan &mdash; strategy and marketing unified. Every recommendation is grounded in your reality and in the work of nine industry experts whose frameworks have been validated across thousands of studios.</p>
+    <p>You have a secured property on Monmouth's high street. Four reformers arriving. A brand identity that is genuinely beautiful. An app in development. Gus in your corner. And a town of 10,500 affluent residents where no one has yet built the kind of dedicated, design-led reformer studio that ALIGN. will be.</p>
+    <p>The evidence says you are going to need a waitlist. Let us show you how.</p>
+    <div class="signature">The Product R&amp;D Team<br><span style="font-size: 0.85rem; opacity: 0.7;">March 2026</span></div>
+  </div>
+</section>
+
+<!-- Market Intelligence -->
+<section id="market">
+  <h4>The Data</h4>
+  <h2>Market Intelligence</h2>
+  <p>Every number here is sourced from verified UK and global data. This is not guesswork &mdash; it is the evidence behind the opportunity.</p>
+
+  <div class="dashboard">
+    <h3>The Pilates Boom &mdash; Global</h3>
+    <div class="metric-grid">
+      <div class="metric"><span class="value">$158B</span><span class="label">Global Pilates &amp; Yoga Market</span></div>
+      <div class="metric"><span class="value">+62%</span><span class="label">Pilates Reservations YoY</span></div>
+      <div class="metric"><span class="value">27%</span><span class="label">Of All New Studios Are Pilates</span></div>
+      <div class="metric"><span class="value">-9%</span><span class="label">Fewer Cancellations vs Other Modalities</span></div>
+    </div>
+  </div>
+
+  <h3>Monmouth &mdash; Your Local Market</h3>
+  <div class="dashboard" style="background: linear-gradient(135deg, var(--stone-dark) 0%, #4A4540 100%);">
+    <h3>Why Monmouth Is Near-Perfect</h3>
+    <div class="metric-grid">
+      <div class="metric"><span class="value">49</span><span class="label">Median Age (Pilates sweet spot)</span></div>
+      <div class="metric"><span class="value">30.1%</span><span class="label">AB Social Grade (UK avg 23.3%)</span></div>
+      <div class="metric"><span class="value">&pound;330K+</span><span class="label">Avg House Price (Highest in Wales)</span></div>
+      <div class="metric"><span class="value">&pound;26K</span><span class="label">GDHI Per Head (Highest in Wales)</span></div>
+      <div class="metric"><span class="value">2.28M</span><span class="label">Annual Visitors to Monmouthshire</span></div>
+      <div class="metric"><span class="value">4th</span><span class="label">Happiest Place in UK (Rightmove)</span></div>
+    </div>
+  </div>
+
+  <h3>Competitive Landscape</h3>
+  <p>Monmouth has established Pilates provision &mdash; which confirms genuine demand. The opportunity is in what does not yet exist locally.</p>
+  <table class="styled-table">
+    <thead><tr><th>Provider</th><th>Format</th><th>Group Reformer</th><th>Threat</th></tr></thead>
+    <tbody>
+      <tr><td class="highlight">PT Pilates</td><td>Reformer + mat across Usk and Monmouth. Multi-location, established reputation.</td><td>Yes</td><td><span class="badge high">High</span></td></tr>
+      <tr><td>Hannah Modget Pilates</td><td>Mat classes (community halls) + 2 reformers (private only)</td><td>No</td><td><span class="badge deferred">Low</span></td></tr>
+      <tr><td>PhoenixFit</td><td>Mat, Yoga, Qigong</td><td>No</td><td><span class="badge deferred">Low</span></td></tr>
+      <tr><td>STRONG Pilates (UK expansion)</td><td>High-intensity Rowformer franchise</td><td>Yes</td><td><span class="badge gradual">Medium &mdash; 2-3yr</span></td></tr>
+    </tbody>
+  </table>
+
+  <div class="quote">
+    ALIGN. does not need to take clients from existing providers. The market is underserved &mdash; the job is to grow it. A dedicated, design-led studio with its own app, community programme, and science-based education platform is a fundamentally different proposition.
+  </div>
+</section>
+
+<!-- Personas -->
+<section class="bg-sage-light section-full">
+  <div style="max-width: 960px; margin: 0 auto;">
+    <h4>Who You Serve</h4>
+    <h2>Target Personas</h2>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-icon">&#128105;</div>
+        <h3>The Monmouth Professional</h3>
+        <p><strong>Female, 42-58.</strong> Homeowner. Hybrid worker commuting to Bristol or Cardiff 2-3 days/week. Chose Monmouth for quality of life. Active in local Facebook groups. Curious about reformer Pilates but never had the opportunity locally. Seeking strength, flexibility, and stress relief.</p>
+        <p style="margin-top: 0.8rem;"><strong>Discovers ALIGN. via:</strong> Shop front, Facebook group, Google search, friend at Coffee Morning, Nextdoor.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">&#127944;</div>
+        <h3>The Reluctant Rugby Player</h3>
+        <p><strong>Male, 30-50.</strong> Connected to Monmouth RFC. Has never considered Pilates &mdash; associates it with women. May have a sports injury he dismisses as "getting older."</p>
+        <p style="margin-top: 0.8rem;"><strong>What brings him in:</strong> Rugby club content. Gender-neutral branding. The science angle: "core strength for injury prevention."</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">&#127748;</div>
+        <h3>The Wellness Tourist</h3>
+        <p><strong>Any age.</strong> Visiting the Wye Valley. Practises reformer at home. Searches "reformer Pilates near me" on Google Maps. Books the drop-in (&pound;22), writes a Google review. Passive revenue at zero acquisition cost.</p>
+        <p style="margin-top: 0.8rem;"><strong>Requires:</strong> Only a well-optimised Google Business Profile.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Positioning -->
+<section id="positioning">
+  <h4>Differentiation</h4>
+  <h2>How ALIGN. Wins</h2>
+
+  <h3>The Brand Equation</h3>
+  <p><strong>Purpose:</strong> To create a space that feels accommodating to everyone. Excellent teaching, tailored to individual needs.</p>
+  <p><strong>Pain:</strong> No dedicated, design-led boutique reformer studio with its own permanent high street space, branded app, and community programme exists locally.</p>
+  <p><strong>Positioning:</strong> ALIGN. is the intimate, science-led Pilates studio where everybody knows your name &mdash; refreshed, yet challenged.</p>
+
+  <div class="quote">
+    <strong>The Talking Logo</strong> &mdash; one sentence clients repeat without effort:<br><br>
+    <em>"It is this incredible Pilates studio on the high street &mdash; only four people per class, they know your name, and they explain the science behind every movement."</em>
+  </div>
+
+  <div class="position-map">
+    <div class="map-container">
+      <div class="map-axis-v"></div>
+      <div class="map-axis-h"></div>
+      <div class="map-label top">Premium Experience</div>
+      <div class="map-label bottom">Basic Experience</div>
+      <div class="map-label left">Community</div>
+      <div class="map-label right">Transactional</div>
+      <div class="map-dot align">ALIGN.</div>
+      <div class="map-dot pt">PT Pilates</div>
+      <div class="map-dot chains">Future<br>Chains</div>
+    </div>
+  </div>
+
+  <h3>ALIGN. = Movement + Knowledge + Community</h3>
+  <div class="card-grid">
+    <div class="card"><div class="card-icon">&#9672;</div><h3>Movement</h3><p>Beautiful, intimate, science-based Pilates. Every class limited to 4 reformers &mdash; every client gets real attention.</p></div>
+    <div class="card"><div class="card-icon">&#9734;</div><h3>Knowledge</h3><p>Clients understand <em>why</em> Pilates works &mdash; the anatomy, the science, the benefits for their specific body.</p></div>
+    <div class="card"><div class="card-icon">&#9829;</div><h3>Community</h3><p>Walk &amp; Talk club. Coffee mornings. Farm retreats. Friendships built through movement. A place you belong to.</p></div>
+  </div>
+</section>
+
+<!-- Financials -->
+<section id="financials">
+  <h4>The Numbers</h4>
+  <h2>Financial Dashboard</h2>
+  <div class="dashboard">
+    <h3>Key Metrics</h3>
+    <div class="metric-grid">
+      <div class="metric"><span class="value">&pound;17.4K</span><span class="label">Setup Investment</span></div>
+      <div class="metric"><span class="value">&pound;2.1K</span><span class="label">Monthly Break-Even</span></div>
+      <div class="metric"><span class="value">M4&ndash;5</span><span class="label">Month to Hit &pound;6K</span></div>
+      <div class="metric"><span class="value">&pound;62&ndash;72K</span><span class="label">Year 1 Revenue</span></div>
+      <div class="metric"><span class="value">&pound;22&ndash;32K</span><span class="label">Year 1 Net Profit</span></div>
+      <div class="metric"><span class="value">M7&ndash;9</span><span class="label">2nd Instructor Hire</span></div>
+    </div>
+  </div>
+
+  <h3>Simplified Pricing &mdash; Three Core Tiers</h3>
+  <p>Fewer visible options reduce decision fatigue and steer clients toward membership.</p>
+  <div class="pricing-grid">
+    <div class="price-card">
+      <div class="name">Intro Offer</div>
+      <div class="price">&pound;39 <span>/3 classes</span></div>
+      <div class="detail">Low barrier first experience. Target: 60%+ convert to membership.</div>
+    </div>
+    <div class="price-card featured">
+      <div class="name">Monthly 8-Class</div>
+      <div class="price">&pound;75 <span>/mo</span></div>
+      <div class="detail">Core membership. Enforces 2x/week for real results.</div>
+    </div>
+    <div class="price-card">
+      <div class="name">Unlimited</div>
+      <div class="price">&pound;99 <span>/mo</span></div>
+      <div class="detail">Premium tier for dedicated members.</div>
+    </div>
+  </div>
+  <p style="font-size: 0.85rem; color: var(--stone); text-align: center;">Also available: single class (&pound;20), drop-in (&pound;22), mat class (&pound;12), private 1-to-1 (&pound;50), duet (&pound;35/person).</p>
+</section>
+
+<!-- Marketing Channels -->
+<section id="channels" class="bg-sage-light section-full">
+  <div style="max-width: 960px; margin: 0 auto;">
+    <h4>UK-Specific</h4>
+    <h2>Marketing Channel Strategy</h2>
+    <p>Platform priorities based on UK data (Ofcom 2025, DataReportal, BrightLocal) &mdash; not assumptions from other markets.</p>
+
+    <h3><span class="badge tier1">Tier 1</span> Non-Negotiable Foundations</h3>
+    <div class="card-grid">
+      <div class="card" style="border-color: var(--sage);">
+        <h3>Google Business Profile</h3>
+        <p>91% of local intent searches. 80% of Maps searches lead to physical visit. 8 of 10 top ranking factors are GBP signals. This is the single highest-ROI digital asset.</p>
+      </div>
+      <div class="card" style="border-color: var(--sage);">
+        <h3>Word of Mouth &amp; Referral</h3>
+        <p>88% of UK consumers trust personal recommendations. Referred clients have 16% higher lifetime value. Every expert converges on this as #1.</p>
+      </div>
+      <div class="card" style="border-color: var(--sage);">
+        <h3>Email List</h3>
+        <p>37&ndash;48% open rate in UK health/fitness &mdash; highest of any industry. Algorithm-proof. The #1 revenue channel for boutique studios.</p>
+      </div>
+    </div>
+
+    <h3><span class="badge tier2">Tier 2</span> Core Social Channels</h3>
+    <div class="card-grid">
+      <div class="card">
+        <h3>Facebook</h3>
+        <p>38M+ UK users. <strong>35-54 are the heaviest users.</strong> Local Groups are the primary community hub in small UK towns. This is where "can anyone recommend..." posts happen.</p>
+      </div>
+      <div class="card">
+        <h3>Instagram</h3>
+        <p>33M+ UK users. 25-44 primary. Content appears in Google Search &mdash; dual social + SEO value. Best for the sage/cream brand aesthetic.</p>
+      </div>
+      <div class="card">
+        <h3>Nextdoor</h3>
+        <p>10M+ UK users. <strong>Primary demographic: 45-54</strong> &mdash; directly ALIGN.'s target. Free business pages. Completely underutilised by studios.</p>
+      </div>
+    </div>
+
+    <h3><span class="badge tier3">Tier 3</span> Supporting</h3>
+    <p style="font-size: 0.9rem; color: var(--stone);">YouTube (1 video/month &mdash; 74% of UK 45-64 use it), WhatsApp (members-only community group), Local press (Monmouthshire Beacon &mdash; trust signal).</p>
+    <p style="font-size: 0.9rem; color: var(--stone);"><strong>Not recommended Year 1:</strong> TikTok (83% under-35 in UK), X/Twitter (declining, 65.8% male), LinkedIn (Year 2 for corporate wellness only).</p>
+
+    <h3>Local SEO &mdash; The GBP Playbook</h3>
+    <table class="styled-table">
+      <thead><tr><th>Action</th><th>Why</th><th>When</th></tr></thead>
+      <tbody>
+        <tr><td>Primary category: "Pilates Studio"</td><td>Strongest single ranking signal</td><td>Week 1</td></tr>
+        <tr><td>Full address displayed</td><td>Hiding = confirmed negative factor</td><td>Week 1</td></tr>
+        <tr><td>Accurate hours (all operating times)</td><td>Being "open" at search time = 5th factor</td><td>Week 1</td></tr>
+        <tr><td>All predefined services added</td><td>Significant ranking boost</td><td>Week 1</td></tr>
+        <tr><td>Dedicated landing page (not homepage)</td><td>Google Diversity Update</td><td>Week 2</td></tr>
+        <tr><td>4-8 new reviews per month consistently</td><td>Rankings deteriorate within weeks without</td><td>Ongoing</td></tr>
+        <tr><td>Respond to ALL reviews within 24hrs</td><td>Trust signal + engagement factor</td><td>Ongoing</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- First 100 Clients -->
+<section id="clients">
+  <h4>Addressing Your Biggest Fear</h4>
+  <h2>The First 100 Clients</h2>
+  <div class="stats-row">
+    <div class="stat"><div class="number">40</div><div class="unit">Pre-Launch</div></div>
+    <div class="stat"><div class="number">20</div><div class="unit">Opening Events</div></div>
+    <div class="stat"><div class="number">15</div><div class="unit">Referrals</div></div>
+    <div class="stat"><div class="number">10</div><div class="unit">Community Events</div></div>
+    <div class="stat"><div class="number">15</div><div class="unit">Organic Discovery</div></div>
+  </div>
+  <div class="card-grid">
+    <div class="card"><div class="card-icon">&#128421;</div><h3>"Coming Soon" Window</h3><p>Hundreds walk past daily. QR code starts building awareness immediately. Zero cost.</p></div>
+    <div class="card"><div class="card-icon">&#9749;</div><h3>Coffi Lab Partnership</h3><p>One door away. Shared demographic. Flyers on tables, verbal mentions, joint events.</p></div>
+    <div class="card"><div class="card-icon">&#127944;</div><h3>Rugby Club Taster</h3><p>Free session for the team, filmed for social media. Local rugby players trying reformer = content gold.</p></div>
+    <div class="card"><div class="card-icon">&#127775;</div><h3>Founding Members</h3><p>First 20 sign-ups get 15% off for 12 months. Urgency + exclusivity + core community.</p></div>
+    <div class="card"><div class="card-icon">&#128240;</div><h3>Local Press</h3><p>Monmouthshire Beacon feature. "Local woman opens first dedicated Pilates studio on the high street." Free coverage.</p></div>
+    <div class="card"><div class="card-icon">&#128241;</div><h3>Facebook &amp; Nextdoor</h3><p>Post in Monmouth community groups. Claim Nextdoor business page. Engage authentically. Not ads &mdash; community participation.</p></div>
+  </div>
+</section>
+
+<!-- Retention Engine -->
+<section id="retention" class="bg-cream section-full">
+  <div style="max-width: 960px; margin: 0 auto;">
+    <h4>Keeping Every Client</h4>
+    <h2>The Retention Engine</h2>
+    <p>A 5% improvement in retention produces a 20-25% increase in profit. The goal: monthly retention above 90%, annual churn below 10%.</p>
+
+    <h3>The Touchpoint System</h3>
+    <div class="timeline">
+      <div class="timeline-item active">
+        <div class="timeline-date">Day 0</div>
+        <div class="timeline-title">Welcome</div>
+        <div class="timeline-desc">App push + email: "Welcome to ALIGN. Here is what to expect at your first class."</div>
+      </div>
+      <div class="timeline-item active">
+        <div class="timeline-date">Day 1</div>
+        <div class="timeline-title">Personal Check-In</div>
+        <div class="timeline-desc">Personal message from Katie: "Lovely to meet you today. How are you feeling?"</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">Day 7</div>
+        <div class="timeline-title">First Week Review</div>
+        <div class="timeline-desc">"How was your first week? Any questions we can help with?"</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">Day 14</div>
+        <div class="timeline-title">Community Invite</div>
+        <div class="timeline-desc">"Our next Walk &amp; Talk is this Saturday &mdash; you are welcome to join."</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">Day 30</div>
+        <div class="timeline-title">Goal Review</div>
+        <div class="timeline-desc">In-studio conversation: "How are you finding it? Let us plan your next phase."</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">Day 60</div>
+        <div class="timeline-title">Progress + Referral</div>
+        <div class="timeline-desc">"Two months in. Noticed changes?" + "Is there anyone you think would love ALIGN.?"</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">Day 90</div>
+        <div class="timeline-title">Renewal</div>
+        <div class="timeline-desc">Membership conversation &mdash; the natural next step toward their goals.</div>
+      </div>
+    </div>
+
+    <div class="quote">
+      <strong>The "Cancel to Reschedule" Policy:</strong> No session is cancelled &mdash; it is rescheduled. Respond with two specific alternative times. This creates accountability, drives attendance, and prevents the slow drift that precedes cancellation.
+    </div>
+  </div>
+</section>
+
+<!-- Referral Engine -->
+<section id="referrals">
+  <h4>Structured Growth</h4>
+  <h2>The Referral Engine</h2>
+  <p>Referrals are the highest quality, lowest cost source of new clients. But they must be engineered, not hoped for.</p>
+  <div class="card-grid">
+    <div class="card"><h3>1. Be Referable</h3><p>Deliver an experience so good that NOT talking about it would be strange. The feeling is the prerequisite.</p></div>
+    <div class="card"><h3>2. Give Them the Words</h3><p>The Talking Logo: "Only four per class, they know your name, the science behind every movement." Easy to repeat.</p></div>
+    <div class="card"><h3>3. Identify Champions</h3><p>Top 20% most enthusiastic members. Founding Member status. Early access. Direct line to Katie.</p></div>
+    <div class="card"><h3>4. Create Triggers</h3><p>Ask after milestones (10th class), after positive feedback, at the Day 60 check-in. Never cold-ask at every class.</p></div>
+    <div class="card"><h3>5. Reward Both Sides</h3><p>Referrer: free class credit. Friend: intro offer. Both must benefit for the system to sustain.</p></div>
+    <div class="card"><h3>6. Track Everything</h3><p>App referral codes. Monthly rate. "How did you hear about us?" on every intake form. Data drives decisions.</p></div>
+  </div>
+
+  <h3>Strategic Partners</h3>
+  <table class="styled-table">
+    <thead><tr><th>Partner</th><th>Value Exchange</th></tr></thead>
+    <tbody>
+      <tr><td class="highlight">Coffi Lab</td><td>Flyers, loyalty scheme, monthly joint Coffee Morning event</td></tr>
+      <tr><td class="highlight">Monmouth Physiotherapy</td><td>Endorsed mutual referral for rehab-adjacent clients</td></tr>
+      <tr><td class="highlight">Monmouth RFC</td><td>Content partnership + community connection via Gus</td></tr>
+      <tr><td>Local Schools / PTAs</td><td>Evening class promotion through newsletters</td></tr>
+      <tr><td>Monmouth Business Association</td><td>B2B networking, corporate wellness tasters</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- Seasonal Calendar -->
+<section class="bg-sage-light section-full">
+  <div style="max-width: 960px; margin: 0 auto;">
+    <h4>Year-Round Momentum</h4>
+    <h2>Seasonal Marketing Calendar</h2>
+    <table class="styled-table">
+      <thead><tr><th>Month</th><th>Campaign</th><th>Type</th></tr></thead>
+      <tbody>
+        <tr><td class="highlight">January</td><td>"New Year Reset" 4-week beginner course</td><td><span class="badge primary">Peak Acquisition</span></td></tr>
+        <tr><td>February</td><td>Valentine's Duet sessions</td><td><span class="badge gradual">Partner Acquisition</span></td></tr>
+        <tr><td>March</td><td>International Women's Day event</td><td><span class="badge gradual">Community</span></td></tr>
+        <tr><td class="highlight">June</td><td>Grand Opening</td><td><span class="badge primary">Launch</span></td></tr>
+        <tr><td>July</td><td>"Rugby Meets Reformer" content</td><td><span class="badge gradual">Male Demographic</span></td></tr>
+        <tr><td>August</td><td>Summer schedule + tourist drop-ins</td><td><span class="badge deferred">Tourism Capture</span></td></tr>
+        <tr><td class="highlight">September</td><td>"Back to It" intro offer refresh</td><td><span class="badge primary">2nd Peak Acquisition</span></td></tr>
+        <tr><td>October</td><td>Breathwork Workshop + Pilot Farm Retreat</td><td><span class="badge gradual">Revenue</span></td></tr>
+        <tr><td>November</td><td>"Bring Your Partner" + Candlelight Pilates</td><td><span class="badge gradual">Community</span></td></tr>
+        <tr><td class="highlight">December</td><td>Gift vouchers + Candlelight specials</td><td><span class="badge primary">Cash Flow</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- Timeline -->
+<section id="timeline" class="bg-cream section-full">
+  <div style="max-width: 960px; margin: 0 auto;">
+    <h4>Implementation</h4>
+    <h2>Your Roadmap</h2>
+    <div class="timeline">
+      <div class="timeline-item active">
+        <div class="timeline-date">Now &mdash; April 2026</div>
+        <div class="timeline-title">Foundation</div>
+        <div class="timeline-desc">Company registration. GBP claimed. Instagram + Facebook + Nextdoor launched. "Coming Soon" window. Coffi Lab partnership. Electrical work begins. App PRD to Eduardo.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">May 2026</div>
+        <div class="timeline-title">Building Buzz</div>
+        <div class="timeline-desc">Equipment arrives. Founding member campaign. App mockup review. Rugby taster. Press outreach. Email list building.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">14 June 2026</div>
+        <div class="timeline-title">Grand Opening</div>
+        <div class="timeline-desc">Soft launch weekend + Grand Opening Saturday. App goes live. First Coffee Morning. First Walk &amp; Talk. Target: 30-40 clients Month 1.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">Jul &ndash; Sep 2026</div>
+        <div class="timeline-title">Prove the Model</div>
+        <div class="timeline-desc">60-80 clients. 70%+ occupancy. Referral programme active. Meta ads testing (&pound;100/month). YouTube first video. Google reviews: 35+.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">Oct &ndash; Dec 2026</div>
+        <div class="timeline-title">Establish</div>
+        <div class="timeline-desc">80-100 clients. 2nd instructor hired. Pilot farm retreat. Candlelight series. Breathwork workshop. Katie on camera in Stories.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">Jan &ndash; May 2027</div>
+        <div class="timeline-title">Scale</div>
+        <div class="timeline-desc">"New Year Reset" (biggest month). 100-130 clients. &pound;7-8K/month. Farm retreats quarterly. Pre/postnatal qualification. Studio #2 scouting begins.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">Year 2</div>
+        <div class="timeline-title">Expand</div>
+        <div class="timeline-desc">Monthly retreats. Digital membership. 2nd instructor 40-60% of classes. Studio #2 (Abergavenny). Combined &pound;12-15K/month.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Retreats -->
+<section id="retreats">
+  <h4>Your Unique Asset</h4>
+  <h2>The Farm Retreat Opportunity</h2>
+  <div class="stats-row">
+    <div class="stat"><div class="number">&pound;0</div><div class="unit">Venue Cost</div></div>
+    <div class="stat"><div class="number">&pound;295</div><div class="unit">Per Person</div></div>
+    <div class="stat"><div class="number">65-75%</div><div class="unit">Gross Margin</div></div>
+    <div class="stat"><div class="number">&pound;8-14K</div><div class="unit">Year 1 Revenue</div></div>
+  </div>
+  <p>Katie's farm eliminates venue costs entirely. Pilot retreat: Autumn 2026 (8 founding members, &pound;150). Full-price retreats from Spring 2027. Monthly April through October by Summer 2027.</p>
+  <div class="quote">"From the Studio to the Valley" &mdash; retreat content becomes the most powerful marketing ALIGN. produces. Morning Pilates with valley mist, fireside conversations, farm-to-table meals. No amount of studio photography matches this.</div>
+</section>
+
+<!-- Marketing Budget -->
+<section class="bg-sage-light section-full">
+  <div style="max-width: 960px; margin: 0 auto;">
+    <h4>Investment</h4>
+    <h2>Marketing Budget &amp; Accountability</h2>
+    <table class="styled-table">
+      <thead><tr><th>Category</th><th>Annual Cost</th><th>Priority</th></tr></thead>
+      <tbody>
+        <tr><td>Window graphics / signage</td><td>&pound;300-500</td><td><span class="badge primary">Essential</span></td></tr>
+        <tr><td>Printed materials</td><td>&pound;150-250</td><td><span class="badge primary">Essential</span></td></tr>
+        <tr><td>Meta ads (from Month 3)</td><td>&pound;1,000-2,000</td><td><span class="badge gradual">Medium</span></td></tr>
+        <tr><td>Community events</td><td>&pound;400-600</td><td><span class="badge confirmed">High</span></td></tr>
+        <tr><td>GBP, Nextdoor, email, press</td><td>&pound;0</td><td><span class="badge primary">Essential</span></td></tr>
+        <tr class="total-row"><td>Total</td><td>&pound;1,850-3,550</td><td></td></tr>
+      </tbody>
+    </table>
+    <p style="text-align: center; font-size: 0.9rem; color: var(--stone);">The most powerful channels &mdash; word of mouth, Google reviews, Facebook Groups, community events, the shop front, Coffi Lab, the referral programme &mdash; are free.</p>
+
+    <div class="quote"><strong>Accountability:</strong> Unique QR codes per placement. App referral tracking. GBP Insights. "How did you hear about us?" on every sign-up. Review monthly. Double down on top 3 sources. Cut what does not produce measurable clients.</div>
+  </div>
+</section>
+
+<!-- KPIs -->
+<section>
+  <h4>Measurement</h4>
+  <h2>Success Metrics</h2>
+  <div class="dashboard">
+    <h3>90-Day Targets</h3>
+    <div class="metric-grid">
+      <div class="metric"><span class="value">100</span><span class="label">Active Clients</span></div>
+      <div class="metric"><span class="value">&pound;5-6K</span><span class="label">Monthly Revenue</span></div>
+      <div class="metric"><span class="value">75%+</span><span class="label">Occupancy Rate</span></div>
+      <div class="metric"><span class="value">35+</span><span class="label">Google Reviews</span></div>
+      <div class="metric"><span class="value">80%+</span><span class="label">Client Retention</span></div>
+      <div class="metric"><span class="value">15+</span><span class="label">Referral Conversions</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- Expert Sources -->
+<section class="bg-cream section-full">
+  <div style="max-width: 960px; margin: 0 auto;">
+    <h4>Methodology</h4>
+    <h2>Expert Framework Sources</h2>
+    <p>Every recommendation in this document is grounded in validated frameworks from practitioners with demonstrated track records:</p>
+    <table class="styled-table">
+      <thead><tr><th>Expert</th><th>Credentials</th><th>Framework Applied</th></tr></thead>
+      <tbody>
+        <tr><td class="highlight">Seran Glanfield</td><td>BSc (LSE), Pilates Business Podcast, coached hundreds of studios</td><td>Positioning-first, retention &gt; acquisition, minimum effective dose</td></tr>
+        <tr><td class="highlight">Chris Onslow</td><td>MBA (Warwick), 40+ years UK fitness, ex-STOTT UK distributor</td><td>Rule of Thirds, UK benchmarks, churn reduction</td></tr>
+        <tr><td class="highlight">Emma Barry</td><td>Les Mills founding team, ex-Equinox Director</td><td>10-Touch Framework, Yearn to Return</td></tr>
+        <tr><td class="highlight">Anthony Vennare</td><td>Fitt Insider (100K subscribers), Fitt Capital</td><td>Pilates boom data, studio economics</td></tr>
+        <tr><td class="highlight">John Jantsch</td><td>Duct Tape Marketing, 900+ podcast episodes</td><td>Marketing Hourglass, Referral Engine</td></tr>
+        <tr><td class="highlight">Dan Kennedy</td><td>Magnetic Marketing, influenced 1M+ business owners</td><td>Grassroots tactics, premium pricing</td></tr>
+        <tr><td class="highlight">Alex Hormozi</td><td>Gym Launch (5,000+ gyms, $650M sales)</td><td>Front-end offers, conversion, retention</td></tr>
+        <tr><td class="highlight">Joy Hawkins</td><td>Sterling Sky, Google Product Expert</td><td>GBP ranking factors, reviews (data-backed)</td></tr>
+        <tr><td class="highlight">Lesley Logan</td><td>Ex-Equinox Lead Trainer, Profitable Pilates</td><td>Pricing, scheduling, cancel-to-reschedule</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- Closing -->
+<section style="text-align: center; padding-bottom: 2rem;">
+  <div class="divider"><span>&middot;</span></div>
+  <h2 style="margin-bottom: 1.5rem;">This Is Your Moment</h2>
+  <p style="max-width: 600px; margin: 0 auto 1rem; font-size: 1.1rem; color: var(--stone-dark);">
+    A secured property on the high street. Four reformers arriving. A beautiful brand. An app in development. Gus in your corner. A town with the highest house prices in Wales, the highest disposable income, and genuine demand for what you are building.
+  </p>
+  <p style="max-width: 600px; margin: 0 auto 2rem; font-size: 1.1rem; color: var(--stone-dark);">
+    One hundred clients in ninety days. A second instructor by Year 1. Farm retreats by Spring 2027. A second studio by late 2027. And a brand that you, Gus, and your community are genuinely proud of.
+  </p>
+  <p style="font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--sage-dark); font-style: italic;">You have got this.</p>
+</section>
+
+<footer>
+  <div class="brand">ALIGN.</div>
+  <p>Strategic Plan &amp; Marketing Strategy &bull; March 2026</p>
+  <p>Prepared for Katie Peckham &bull; Monmouth, South Wales</p>
+</footer>
+
+</body>
+</html>
