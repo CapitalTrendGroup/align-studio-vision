@@ -1,0 +1,2946 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="ALIGN.">
+  <meta name="theme-color" content="#F5F0EB">
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'><rect fill='%238B9F82' width='180' height='180' rx='40'/><text x='90' y='115' text-anchor='middle' font-family='Georgia,serif' font-size='60' font-weight='700' fill='white' letter-spacing='3'>A.</text></svg>">
+  <title>ALIGN. Pilates</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --sage: #8B9F82;
+      --sage-light: #A8B8A0;
+      --sage-dark: #6B7F62;
+      --cream: #F5F0EB;
+      --cream-light: #FAF8F5;
+      --white: #FFFFFF;
+      --charcoal: #2C2C2C;
+      --stone: #A69F95;
+      --stone-dark: #5C574F;
+      --sand: #E8E0D8;
+      --success: #6B8F71;
+      --warning: #D4A574;
+      --error: #C47A7A;
+      --font-serif: 'Playfair Display', Georgia, serif;
+      --font-sans: 'Inter', -apple-system, sans-serif;
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --shadow-card: 0 2px 8px rgba(0,0,0,0.06);
+      --shadow-elevated: 0 8px 30px rgba(0,0,0,0.08);
+      --safe-top: env(safe-area-inset-top, 44px);
+      --safe-bottom: env(safe-area-inset-bottom, 34px);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body, #app {
+      height: 100%;
+      overflow: hidden;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--cream);
+      color: var(--charcoal);
+      font-size: 16px;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    #app {
+      position: relative;
+      max-width: 430px;
+      margin: 0 auto;
+      background: var(--cream);
+      overflow: hidden;
+    }
+
+    #screens {
+      position: relative;
+      height: calc(100% - 64px - var(--safe-bottom));
+      overflow: hidden;
+    }
+
+    .screen {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 250ms ease-out, transform 250ms ease-out;
+      transform: translateX(20px);
+      background: var(--cream);
+    }
+
+    .screen.active {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateX(0);
+    }
+
+    .screen.exit-left {
+      transform: translateX(-20px);
+      opacity: 0;
+    }
+
+    .screen-content {
+      padding: var(--safe-top) 20px 24px 20px;
+    }
+
+    /* Cards */
+    .card {
+      background: var(--white);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-card);
+      padding: 16px;
+      margin-bottom: 12px;
+    }
+
+    /* Buttons */
+    .btn-primary {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 48px;
+      background: var(--sage);
+      color: var(--white);
+      border: none;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-sans);
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 100ms ease;
+      -webkit-tap-highlight-color: transparent;
+      text-decoration: none;
+    }
+
+    .btn-primary:active {
+      transform: scale(0.97);
+    }
+
+    .btn-secondary {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 48px;
+      background: var(--white);
+      color: var(--sage);
+      border: 1.5px solid var(--sage);
+      border-radius: var(--radius-sm);
+      font-family: var(--font-sans);
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 100ms ease;
+      -webkit-tap-highlight-color: transparent;
+      text-decoration: none;
+    }
+
+    .btn-secondary:active {
+      transform: scale(0.97);
+    }
+
+    .btn-text {
+      background: none;
+      border: none;
+      color: var(--sage);
+      font-family: var(--font-sans);
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      padding: 8px;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /* Inputs */
+    .input-field {
+      width: 100%;
+      height: 48px;
+      padding: 0 16px;
+      background: var(--white);
+      border: 1.5px solid var(--sand);
+      border-radius: var(--radius-sm);
+      font-family: var(--font-sans);
+      font-size: 16px;
+      color: var(--charcoal);
+      transition: border-color 200ms;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    .input-field:focus {
+      outline: none;
+      border-color: var(--sage);
+      box-shadow: 0 0 0 3px rgba(139,159,130,0.15);
+    }
+
+    .input-field::placeholder {
+      color: var(--stone);
+    }
+
+    .input-group {
+      margin-bottom: 16px;
+    }
+
+    .input-label {
+      display: block;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--stone-dark);
+      margin-bottom: 6px;
+    }
+
+    /* Typography */
+    .heading-xl {
+      font-family: var(--font-serif);
+      font-size: 28px;
+      font-weight: 600;
+      color: var(--charcoal);
+      line-height: 1.2;
+    }
+
+    .heading-lg {
+      font-family: var(--font-serif);
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--charcoal);
+      line-height: 1.3;
+    }
+
+    .heading-md {
+      font-family: var(--font-sans);
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--charcoal);
+    }
+
+    .body-text {
+      font-size: 16px;
+      color: var(--charcoal);
+      line-height: 1.6;
+    }
+
+    .caption {
+      font-size: 13px;
+      color: var(--stone);
+      line-height: 1.4;
+    }
+
+    .label {
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--stone);
+    }
+
+    /* Badges */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .badge-sage {
+      background: rgba(139,159,130,0.15);
+      color: var(--sage-dark);
+    }
+
+    .badge-warning {
+      background: rgba(212,165,116,0.15);
+      color: var(--warning);
+    }
+
+    .badge-error {
+      background: rgba(196,122,122,0.15);
+      color: var(--error);
+    }
+
+    .badge-success {
+      background: rgba(107,143,113,0.15);
+      color: var(--success);
+    }
+
+    /* Section label */
+    .section-label {
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--stone);
+      margin-bottom: 12px;
+      margin-top: 28px;
+    }
+
+    /* Overlays */
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 50;
+      background: var(--white);
+      transform: translateY(100%);
+      transition: transform 400ms cubic-bezier(0.32, 0.72, 0, 1);
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      border-radius: 16px 16px 0 0;
+      max-width: 430px;
+      margin: 0 auto;
+    }
+
+    .overlay.active {
+      transform: translateY(0);
+    }
+
+    .overlay-backdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 49;
+      background: rgba(0,0,0,0.3);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 300ms;
+    }
+
+    .overlay-backdrop.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .overlay-handle {
+      width: 40px;
+      height: 4px;
+      background: var(--sand);
+      border-radius: 2px;
+      margin: 12px auto 0;
+    }
+
+    /* Tab Bar */
+    #tab-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: calc(64px + var(--safe-bottom));
+      padding-bottom: var(--safe-bottom);
+      background: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      border-top: 1px solid var(--sand);
+      z-index: 40;
+      transition: transform 300ms ease;
+      max-width: 430px;
+      margin: 0 auto;
+    }
+
+    #tab-bar.hidden {
+      transform: translateY(100%);
+    }
+
+    .tab-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2px;
+      padding: 6px 0;
+      min-width: 64px;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .tab-item svg {
+      width: 24px;
+      height: 24px;
+      stroke: var(--stone);
+      fill: none;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      transition: stroke 200ms;
+    }
+
+    .tab-item span {
+      font-size: 10px;
+      font-weight: 500;
+      color: var(--stone);
+      transition: color 200ms;
+    }
+
+    .tab-item.active svg {
+      stroke: var(--sage);
+    }
+
+    .tab-item.active span {
+      color: var(--sage);
+      font-weight: 600;
+    }
+
+    /* Scroll row (horizontal scroll, no scrollbar) */
+    .scroll-row { display: flex; gap: 12px; overflow-x: auto; padding-bottom: 4px; -ms-overflow-style: none; scrollbar-width: none; }
+    .scroll-row::-webkit-scrollbar { display: none; }
+    .scroll-card { min-width: 160px; flex-shrink: 0; }
+
+    /* Filter chips */
+    .filter-row { display: flex; gap: 8px; overflow-x: auto; padding: 0 0 12px; -ms-overflow-style: none; scrollbar-width: none; }
+    .filter-row::-webkit-scrollbar { display: none; }
+    .filter-chip {
+      padding: 8px 16px; border-radius: 20px; font-size: 13px; font-weight: 500;
+      white-space: nowrap; cursor: pointer; transition: all 200ms;
+      background: var(--sand); color: var(--stone); border: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .filter-chip.active { background: var(--sage); color: var(--white); }
+
+    /* Day selector */
+    .day-selector { display: flex; justify-content: space-between; padding: 12px 0; }
+    .day-btn {
+      display: flex; flex-direction: column; align-items: center; gap: 2px;
+      width: 44px; padding: 8px 0; border-radius: 22px; border: none; background: none;
+      cursor: pointer; transition: all 200ms; -webkit-tap-highlight-color: transparent;
+    }
+    .day-btn span:first-child { font-size: 10px; text-transform: uppercase; font-weight: 500; color: var(--stone); letter-spacing: 0.5px; }
+    .day-btn span:last-child { font-size: 16px; font-weight: 600; color: var(--charcoal); }
+    .day-btn.active { background: var(--sage); }
+    .day-btn.active span { color: var(--white) !important; }
+
+    /* Next class card */
+    .next-class-card {
+      background: var(--white);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-card);
+      padding: 16px;
+      border-left: 3px solid var(--sage);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .next-class-card:active { transform: scale(0.98); transition: transform 100ms; }
+
+    /* Community event */
+    .event-card {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      background: var(--white);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-card);
+      padding: 16px;
+    }
+    .date-block {
+      width: 48px; min-height: 52px;
+      background: var(--sage);
+      border-radius: 8px;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      color: var(--white);
+      flex-shrink: 0;
+    }
+    .date-block .day-num, .date-block .day { font-size: 20px; font-weight: 700; line-height: 1; }
+    .date-block .month { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; margin-top: 2px; }
+
+    .btn-rsvp {
+      height: 32px; padding: 0 16px; border-radius: 16px; font-size: 12px;
+      font-weight: 600; border: none; cursor: pointer;
+      background: var(--sage); color: var(--white);
+      transition: all 200ms; -webkit-tap-highlight-color: transparent;
+    }
+    .btn-rsvp.going { background: var(--success); }
+
+    /* Class card */
+    .class-card { cursor: pointer; -webkit-tap-highlight-color: transparent; }
+    .class-card:active { transform: scale(0.99); transition: transform 100ms; }
+
+    /* Splash Screen */
+    .splash-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      background: linear-gradient(165deg, var(--cream) 0%, var(--cream-light) 40%, #E8E0D6 100%);
+      animation: splashFadeIn 800ms ease-out;
+    }
+
+    .splash-logo {
+      font-family: var(--font-serif);
+      font-size: 52px;
+      font-weight: 700;
+      color: var(--sage-dark);
+      letter-spacing: 6px;
+    }
+
+    .splash-dot {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      background: var(--sage);
+      border-radius: 50%;
+      margin-left: 2px;
+      vertical-align: middle;
+      position: relative;
+      top: -2px;
+    }
+
+    .splash-tagline {
+      font-family: var(--font-sans);
+      font-size: 13px;
+      color: var(--stone);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-top: 16px;
+    }
+
+    @keyframes splashFadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Splash screen overrides - no tab bar offset */
+    [data-screen="splash"] {
+      background: linear-gradient(165deg, var(--cream) 0%, var(--cream-light) 40%, #E8E0D6 100%);
+    }
+
+    /* Overlay content padding */
+    .overlay-content {
+      padding: 20px 20px calc(var(--safe-bottom) + 20px) 20px;
+    }
+
+    /* Splash get started link */
+    .splash-get-started {
+      margin-top: 40px;
+      opacity: 0;
+      animation: splashGetStarted 500ms ease-out 1.5s forwards;
+    }
+
+    @keyframes splashGetStarted {
+      from { opacity: 0; transform: translateY(6px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .splash-get-started-btn {
+      background: none;
+      border: none;
+      font-family: var(--font-sans);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--sage-dark);
+      letter-spacing: 1px;
+      cursor: pointer;
+      padding: 10px 24px;
+      border-bottom: 1px solid var(--sage-dark);
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /* Onboarding */
+    .onboarding-container {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      padding: var(--safe-top) 24px calc(24px + var(--safe-bottom));
+    }
+
+    .onboarding-progress {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      padding: 16px 0;
+    }
+
+    .progress-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--sand);
+      transition: background 300ms, width 300ms;
+    }
+
+    .progress-dot.active {
+      background: var(--sage);
+      width: 24px;
+      border-radius: 4px;
+    }
+
+    .progress-dot.completed {
+      background: var(--sage);
+    }
+
+    .onboarding-step {
+      flex: 1;
+      display: none;
+      flex-direction: column;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .onboarding-step.active {
+      display: flex;
+    }
+
+    .onboarding-back {
+      background: none;
+      border: none;
+      padding: 8px;
+      cursor: pointer;
+      margin-bottom: 8px;
+      align-self: flex-start;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .onboarding-back svg {
+      width: 22px;
+      height: 22px;
+      stroke: var(--sage-dark);
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .onboarding-heading {
+      font-family: var(--font-serif);
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--sage-dark);
+      line-height: 1.2;
+      margin-bottom: 8px;
+    }
+
+    .onboarding-heading.sm {
+      font-size: 22px;
+    }
+
+    .onboarding-subtext {
+      font-family: var(--font-sans);
+      font-size: 15px;
+      color: var(--stone);
+      margin-bottom: 28px;
+      line-height: 1.5;
+    }
+
+    .onboarding-subtext.sm {
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    /* Toggle pills for PAR-Q */
+    .toggle-row {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--sand);
+    }
+
+    .toggle-question {
+      flex: 1;
+      font-size: 14px;
+      line-height: 1.4;
+      color: var(--charcoal);
+    }
+
+    .toggle-pill {
+      display: flex;
+      flex-shrink: 0;
+      background: var(--sand);
+      border-radius: 20px;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .toggle-option {
+      padding: 6px 14px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--stone);
+      transition: all 200ms;
+      border-radius: 20px;
+    }
+
+    .toggle-option.active-no {
+      background: var(--sage);
+      color: var(--white);
+    }
+
+    .toggle-option.active-yes {
+      background: var(--warning);
+      color: var(--white);
+    }
+
+    /* PAR-Q textareas */
+    .textarea-field {
+      width: 100%;
+      padding: 12px 16px;
+      background: var(--white);
+      border: 1.5px solid var(--sand);
+      border-radius: var(--radius-sm);
+      font-family: var(--font-sans);
+      font-size: 15px;
+      color: var(--charcoal);
+      resize: none;
+      transition: border-color 200ms;
+      -webkit-appearance: none;
+      appearance: none;
+      line-height: 1.5;
+    }
+
+    .textarea-field:focus {
+      outline: none;
+      border-color: var(--sage);
+      box-shadow: 0 0 0 3px rgba(139,159,130,0.15);
+    }
+
+    .textarea-field::placeholder {
+      color: var(--stone);
+    }
+
+    /* Waiver card */
+    .waiver-card {
+      background: var(--white);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-card);
+      padding: 20px;
+      max-height: 300px;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--stone-dark);
+      margin-bottom: 16px;
+    }
+
+    /* Waiver checkbox */
+    .checkbox-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 16px 0 24px;
+      cursor: pointer;
+    }
+
+    .custom-checkbox {
+      width: 22px;
+      height: 22px;
+      border: 2px solid var(--sand);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: all 200ms;
+    }
+
+    .custom-checkbox.checked {
+      background: var(--sage);
+      border-color: var(--sage);
+    }
+
+    .custom-checkbox.checked::after {
+      content: '✓';
+      color: white;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .btn-primary.disabled {
+      opacity: 0.5;
+      pointer-events: none;
+    }
+
+    /* Step 4 welcome */
+    .step4-centered {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0 16px 40px;
+    }
+
+    .step4-reformer {
+      margin-bottom: 32px;
+    }
+
+    .step4-title {
+      font-family: var(--font-serif);
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--sage-dark);
+      margin-bottom: 12px;
+    }
+
+    .step4-sub {
+      font-family: var(--font-sans);
+      font-size: 15px;
+      color: var(--stone);
+      max-width: 260px;
+      line-height: 1.6;
+      margin-bottom: 36px;
+    }
+
+    /* Sign-in link */
+    .signin-link {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 14px;
+      color: var(--stone);
+    }
+
+    .signin-link button {
+      background: none;
+      border: none;
+      color: var(--sage);
+      font-weight: 600;
+      font-family: var(--font-sans);
+      font-size: 14px;
+      cursor: pointer;
+      padding: 0 4px;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /* Spacer */
+    .spacer { flex: 1; }
+
+    /* ── Overlay close button ── */
+    .overlay-close {
+      position: absolute;
+      top: 16px; right: 16px;
+      width: 40px; height: 40px;
+      display: flex; align-items: center; justify-content: center;
+      background: var(--cream);
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      color: var(--stone-dark);
+      z-index: 2;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .overlay-close:active { transform: scale(0.9); }
+
+    /* Override the global .overlay-content for class-detail */
+    #class-detail-content.overlay-content {
+      padding: 32px 24px 120px;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .overlay-cta {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 16px 24px calc(16px + var(--safe-bottom));
+      background: var(--white);
+      border-top: 1px solid var(--sand);
+      z-index: 2;
+    }
+
+    /* ── Class info layout ── */
+    .class-header { margin-bottom: 24px; }
+    .class-name { font-family: var(--font-serif); font-size: 24px; font-weight: 600; color: var(--charcoal); margin-bottom: 8px; }
+    .class-meta-row { display: flex; gap: 16px; flex-wrap: wrap; margin: 12px 0; }
+    .class-meta-item { display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--stone); }
+    .class-meta-item svg { width: 16px; height: 16px; stroke: var(--stone); fill: none; stroke-width: 1.5; }
+
+    .class-description { font-size: 15px; line-height: 1.7; color: var(--stone-dark); margin: 20px 0; }
+
+    /* ── Instructor section ── */
+    .instructor-section { display: flex; align-items: center; gap: 12px; padding: 16px; background: var(--cream); border-radius: var(--radius-md); margin: 20px 0; }
+    .instructor-avatar { width: 44px; height: 44px; border-radius: 50%; background: var(--sage-light); display: flex; align-items: center; justify-content: center; color: var(--white); font-family: var(--font-serif); font-size: 16px; font-weight: 600; flex-shrink: 0; }
+    .instructor-name { font-size: 15px; font-weight: 600; color: var(--charcoal); }
+    .instructor-cred { font-size: 12px; color: var(--stone); margin-top: 2px; }
+
+    /* ── Reformer spot selection ── */
+    .spot-selection { margin: 24px 0; }
+    .spot-selection-label { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; color: var(--stone); margin-bottom: 16px; }
+
+    .studio-layout {
+      background: var(--cream);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      position: relative;
+    }
+    .studio-label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--stone);
+      text-align: center;
+      font-weight: 500;
+    }
+    .studio-label.top { margin-bottom: 20px; }
+    .studio-label.bottom { margin-top: 20px; }
+
+    .reformer-grid {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+    }
+    .reformer-spot {
+      width: 60px;
+      height: 60px;
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 200ms;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .reformer-spot.available {
+      background: var(--white);
+      border: 2px solid var(--sage);
+      color: var(--sage);
+    }
+    .reformer-spot.available:active { transform: scale(0.93); }
+    .reformer-spot.taken {
+      background: var(--stone);
+      border: 2px solid var(--stone);
+      color: var(--white);
+      cursor: default;
+      opacity: 0.6;
+    }
+    .reformer-spot.selected {
+      background: var(--sage);
+      border: 2px solid var(--sage);
+      color: var(--white);
+      box-shadow: 0 4px 12px rgba(139,159,130,0.3);
+    }
+
+    /* ── Cancellation policy ── */
+    .cancel-policy { font-size: 12px; color: var(--stone); line-height: 1.5; margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--sand); }
+
+    /* ── Shake animation ── */
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-6px); }
+      75% { transform: translateX(6px); }
+    }
+    .shake { animation: shake 300ms ease; }
+
+    /* ── Booking confirmation ── */
+    .booking-confirm-content {
+      text-align: center;
+      padding: 40px 32px;
+      max-width: 340px;
+    }
+
+    .checkmark-circle {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+      background: rgba(139,159,130,0.1);
+    }
+    .checkmark-svg {
+      width: 48px;
+      height: 48px;
+    }
+    .checkmark-svg circle {
+      fill: none;
+      stroke: var(--sage);
+      stroke-width: 2;
+      stroke-dasharray: 166;
+      stroke-dashoffset: 166;
+      animation: checkCircle 600ms ease forwards;
+    }
+    .checkmark-svg path {
+      fill: none;
+      stroke: var(--sage);
+      stroke-width: 3;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-dasharray: 50;
+      stroke-dashoffset: 50;
+      animation: checkMark 400ms 400ms ease forwards;
+    }
+
+    @keyframes checkCircle {
+      to { stroke-dashoffset: 0; }
+    }
+    @keyframes checkMark {
+      to { stroke-dashoffset: 0; }
+    }
+
+    .confirm-title {
+      font-family: var(--font-serif);
+      font-size: 24px;
+      font-weight: 600;
+      color: var(--sage-dark);
+      margin-bottom: 20px;
+    }
+
+    .confirm-details {
+      background: var(--white);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      margin-bottom: 24px;
+      text-align: left;
+      box-shadow: var(--shadow-card);
+    }
+    .confirm-detail-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 6px 0;
+    }
+    .confirm-detail-label { font-size: 13px; color: var(--stone); }
+    .confirm-detail-value { font-size: 13px; font-weight: 600; color: var(--charcoal); }
+
+    .confirm-weekly {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 20px;
+      background: var(--white);
+      border-radius: var(--radius-md);
+      margin-bottom: 24px;
+      box-shadow: var(--shadow-card);
+    }
+    .confirm-weekly-text { font-size: 14px; color: var(--charcoal); }
+
+    .toggle-switch {
+      width: 48px;
+      height: 28px;
+      background: var(--sand);
+      border-radius: 14px;
+      position: relative;
+      cursor: pointer;
+      transition: background 200ms;
+      flex-shrink: 0;
+    }
+    .toggle-switch.on { background: var(--sage); }
+    .toggle-switch::after {
+      content: '';
+      position: absolute;
+      width: 22px; height: 22px;
+      background: var(--white);
+      border-radius: 50%;
+      top: 3px; left: 3px;
+      transition: transform 200ms;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+    }
+    .toggle-switch.on::after { transform: translateX(20px); }
+
+    /* Segment toggle */
+    .segment-toggle {
+      display: flex;
+      background: var(--sand);
+      border-radius: var(--radius-sm);
+      padding: 3px;
+      margin-bottom: 20px;
+    }
+    .segment-btn {
+      flex: 1;
+      height: 36px;
+      border: none;
+      border-radius: 6px;
+      font-family: var(--font-sans);
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--stone);
+      background: transparent;
+      cursor: pointer;
+      transition: all 200ms;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .segment-btn.active {
+      background: var(--white);
+      color: var(--charcoal);
+      font-weight: 600;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    }
+
+    /* Bookings tabs */
+    .bookings-tab { display: none; }
+    .bookings-tab.active { display: block; }
+
+    /* Booking cards */
+    .booking-date-header {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--stone);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin: 16px 0 8px;
+    }
+    .booking-date-header:first-child { margin-top: 0; }
+
+    .btn-cancel {
+      background: none;
+      border: none;
+      color: var(--error);
+      font-family: var(--font-sans);
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      padding: 4px 8px;
+      border-radius: 4px;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .btn-cancel:active { background: rgba(196,122,122,0.1); }
+
+    /* Cancel confirmation inline */
+    .cancel-confirm {
+      display: flex;
+      gap: 8px;
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px solid var(--sand);
+    }
+    .cancel-confirm button {
+      flex: 1;
+      height: 36px;
+      border-radius: 6px;
+      font-family: var(--font-sans);
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .cancel-yes { background: var(--error); color: var(--white); }
+    .cancel-no { background: var(--cream); color: var(--charcoal); }
+
+    /* Past bookings */
+    .past-booking {
+      padding: 14px 0;
+      border-bottom: 1px solid var(--sand);
+    }
+    .past-booking:last-child { border-bottom: none; }
+
+    /* Content tabs */
+    .content-tabs {
+      display: flex;
+      gap: 0;
+      border-bottom: 1px solid var(--sand);
+      margin-bottom: 20px;
+    }
+    .content-tab {
+      flex: 1;
+      padding: 10px 0;
+      border: none;
+      background: none;
+      font-family: var(--font-sans);
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--stone);
+      cursor: pointer;
+      position: relative;
+      -webkit-tap-highlight-color: transparent;
+      transition: color 200ms;
+    }
+    .content-tab.active { color: var(--sage-dark); font-weight: 600; }
+    .content-tab.active::after {
+      content: '';
+      position: absolute;
+      bottom: -1px; left: 20%; right: 20%;
+      height: 2px;
+      background: var(--sage);
+      border-radius: 1px;
+    }
+
+    .content-panel { display: none; }
+    .content-panel.active { display: block; }
+
+    /* Play circle */
+    .play-circle {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: var(--sage-light);
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: background 200ms;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .play-circle.playing { background: var(--sage); }
+    .play-icon { color: var(--white); font-size: 14px; margin-left: 2px; }
+
+    /* Audio progress bar */
+    .audio-progress { margin-top: 12px; }
+    .progress-bar {
+      height: 4px;
+      background: var(--sand);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background: var(--sage);
+      border-radius: 2px;
+      transition: width 200ms;
+    }
+
+    /* Article cards */
+    .article-card { transition: transform 100ms; -webkit-tap-highlight-color: transparent; }
+    .article-card:active { transform: scale(0.98); }
+
+    /* Profile avatar */
+    .profile-avatar {
+      width: 72px; height: 72px;
+      border-radius: 50%;
+      background: var(--sage-light);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-serif);
+      font-size: 24px;
+      font-weight: 600;
+      color: var(--white);
+    }
+
+    /* Membership card */
+    .membership-card {
+      background: linear-gradient(135deg, var(--sage-dark) 0%, var(--sage) 100%);
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      color: var(--white);
+      margin-bottom: 20px;
+      position: relative;
+    }
+    .credits-circle {
+      position: relative;
+      width: 52px; height: 52px;
+    }
+    .credits-number {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--white);
+    }
+
+    /* Progress row */
+    .progress-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      background: var(--white);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      box-shadow: var(--shadow-card);
+      margin-bottom: 24px;
+    }
+    .progress-stat { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+    .progress-number { font-family: var(--font-serif); font-size: 22px; font-weight: 600; color: var(--sage-dark); }
+    .progress-label { font-size: 11px; color: var(--stone); text-transform: uppercase; letter-spacing: 0.5px; }
+    .progress-divider { width: 1px; height: 36px; background: var(--sand); }
+
+    /* Profile menu */
+    .profile-menu { margin-top: 4px; }
+    .menu-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 4px;
+      border-bottom: 1px solid var(--sand);
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+      font-size: 15px;
+      color: var(--charcoal);
+    }
+    .menu-item:active { background: var(--cream); }
+    .menu-item:last-child { border-bottom: none; }
+    .menu-chevron { color: var(--stone); font-size: 20px; font-weight: 300; }
+
+    /* Admin revenue card */
+    .admin-revenue-card {
+      background: var(--white);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      box-shadow: var(--shadow-card);
+      margin-bottom: 12px;
+    }
+
+    /* Admin alert card */
+    .admin-alert-card {
+      background: var(--white);
+      border-left: 3px solid var(--warning);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      box-shadow: var(--shadow-card);
+      margin-bottom: 12px;
+    }
+
+    /* Admin class card */
+    .admin-class-card {
+      background: var(--white);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      box-shadow: var(--shadow-card);
+      margin-bottom: 10px;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+      transition: background 100ms;
+    }
+    .admin-class-card:active { background: var(--cream-light); }
+
+    /* ── Bottom padding for scrollable screens ── */
+    .screen-content {
+      padding-bottom: calc(24px + 64px + var(--safe-bottom));
+    }
+
+    /* ── Micro-interactions ── */
+    button, [onclick] {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .card:active, .class-card:active {
+      transform: scale(0.98);
+      transition: transform 100ms ease;
+    }
+
+    #app {
+      -webkit-user-select: none;
+      user-select: none;
+    }
+
+    input, textarea {
+      -webkit-user-select: auto;
+      user-select: auto;
+    }
+
+    html {
+      overscroll-behavior: none;
+    }
+
+    .menu-item, .filter-chip, .day-btn, .tab-item, .segment-btn, .content-tab {
+      transition: all 200ms ease;
+    }
+
+    /* Spots badge */
+    .admin-spots-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px 10px;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: 700;
+      background: rgba(139,159,130,0.15);
+      color: var(--sage-dark);
+    }
+    .admin-spots-badge.full {
+      background: rgba(196,122,122,0.15);
+      color: var(--error);
+    }
+
+    /* Roster panel (expandable) */
+    .roster-panel {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 300ms ease, margin-top 300ms ease;
+      margin-top: 0;
+    }
+    .admin-class-card.expanded .roster-panel {
+      max-height: 300px;
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px solid var(--sand);
+    }
+
+    .roster-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 6px 0;
+      font-size: 14px;
+      color: var(--charcoal);
+    }
+    .roster-spot {
+      width: 24px; height: 24px;
+      border-radius: 6px;
+      background: var(--cream);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--sage-dark);
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <div id="screens">
+
+      <!-- Splash Screen -->
+      <div class="screen active" data-screen="splash">
+        <div class="splash-content">
+          <div class="splash-logo">ALIGN<span class="splash-dot"></span></div>
+          <div class="splash-tagline">Movement · Knowledge · Community</div>
+          <div class="splash-get-started">
+            <button class="splash-get-started-btn" onclick="App.startOnboarding()">Get Started</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Onboarding Screen -->
+      <div class="screen" data-screen="onboarding">
+        <div class="onboarding-container">
+
+          <!-- Progress dots -->
+          <div class="onboarding-progress">
+            <div class="progress-dot active" data-step="1"></div>
+            <div class="progress-dot" data-step="2"></div>
+            <div class="progress-dot" data-step="3"></div>
+            <div class="progress-dot" data-step="4"></div>
+          </div>
+
+          <!-- Step 1: Create Account -->
+          <div class="onboarding-step active" data-step="1">
+            <div class="onboarding-heading">Welcome to ALIGN.</div>
+            <div class="onboarding-subtext">Create your account to get started</div>
+
+            <div class="input-group">
+              <label class="input-label">First name</label>
+              <input class="input-field" type="text" placeholder="Sarah" autocomplete="given-name">
+            </div>
+            <div class="input-group">
+              <label class="input-label">Last name</label>
+              <input class="input-field" type="text" placeholder="Williams" autocomplete="family-name">
+            </div>
+            <div class="input-group">
+              <label class="input-label">Email</label>
+              <input class="input-field" type="email" placeholder="sarah@example.com" autocomplete="email">
+            </div>
+            <div class="input-group">
+              <label class="input-label">Password</label>
+              <input class="input-field" type="password" placeholder="Create a password" autocomplete="new-password">
+            </div>
+
+            <div class="spacer"></div>
+
+            <button class="btn-primary" onclick="App.nextOnboardingStep()">Continue</button>
+
+            <div class="signin-link">
+              Already have an account?
+              <button onclick="App.finishOnboarding()">Sign in</button>
+            </div>
+          </div>
+
+          <!-- Step 2: PAR-Q Medical Form -->
+          <div class="onboarding-step" data-step="2">
+            <button class="onboarding-back" onclick="App.prevOnboardingStep()">
+              <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+            <div class="onboarding-heading sm">A few health questions</div>
+            <div class="onboarding-subtext sm">This helps Katie keep you safe in class</div>
+
+            <div class="toggle-row">
+              <span class="toggle-question">Heart condition requiring medical supervision?</span>
+              <div class="toggle-pill" onclick="App.toggleParq(this)">
+                <div class="toggle-option active-no">No</div>
+                <div class="toggle-option">Yes</div>
+              </div>
+            </div>
+            <div class="toggle-row">
+              <span class="toggle-question">Chest pain during physical activity?</span>
+              <div class="toggle-pill" onclick="App.toggleParq(this)">
+                <div class="toggle-option active-no">No</div>
+                <div class="toggle-option">Yes</div>
+              </div>
+            </div>
+            <div class="toggle-row">
+              <span class="toggle-question">Chest pain at rest in the past month?</span>
+              <div class="toggle-pill" onclick="App.toggleParq(this)">
+                <div class="toggle-option active-no">No</div>
+                <div class="toggle-option">Yes</div>
+              </div>
+            </div>
+            <div class="toggle-row">
+              <span class="toggle-question">Dizziness or loss of consciousness?</span>
+              <div class="toggle-pill" onclick="App.toggleParq(this)">
+                <div class="toggle-option active-no">No</div>
+                <div class="toggle-option">Yes</div>
+              </div>
+            </div>
+            <div class="toggle-row">
+              <span class="toggle-question">Bone or joint problem affected by exercise?</span>
+              <div class="toggle-pill" onclick="App.toggleParq(this)">
+                <div class="toggle-option active-no">No</div>
+                <div class="toggle-option">Yes</div>
+              </div>
+            </div>
+            <div class="toggle-row">
+              <span class="toggle-question">Currently taking blood pressure medication?</span>
+              <div class="toggle-pill" onclick="App.toggleParq(this)">
+                <div class="toggle-option active-no">No</div>
+                <div class="toggle-option">Yes</div>
+              </div>
+            </div>
+            <div class="toggle-row" style="border-bottom: none;">
+              <span class="toggle-question">Any other reason to avoid physical activity?</span>
+              <div class="toggle-pill" onclick="App.toggleParq(this)">
+                <div class="toggle-option active-no">No</div>
+                <div class="toggle-option">Yes</div>
+              </div>
+            </div>
+
+            <div class="input-group" style="margin-top: 20px;">
+              <label class="input-label">Current injuries or conditions</label>
+              <textarea class="textarea-field" rows="3" placeholder="e.g., lower back pain, knee surgery 2024"></textarea>
+            </div>
+            <div class="input-group">
+              <label class="input-label">Medications</label>
+              <textarea class="textarea-field" rows="2" placeholder="List any current medications"></textarea>
+            </div>
+
+            <button class="btn-primary" onclick="App.nextOnboardingStep()" style="margin-bottom: 0;">Continue</button>
+          </div>
+
+          <!-- Step 3: Waiver -->
+          <div class="onboarding-step" data-step="3">
+            <button class="onboarding-back" onclick="App.prevOnboardingStep()">
+              <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+            <div class="onboarding-heading sm">Liability Waiver</div>
+
+            <div class="waiver-card">
+              By signing up to ALIGN. Studio, I acknowledge that I am voluntarily participating in physical exercise activities. I confirm that the information provided in my health questionnaire is accurate and complete. I understand that Pilates, while generally safe, involves physical exertion and carries inherent risks. I agree to inform my instructor of any changes to my health status. I release ALIGN. Studio and its instructors from liability for any injury sustained during classes, except in cases of negligence.
+            </div>
+
+            <div class="checkbox-row" onclick="App.toggleWaiverCheckbox()">
+              <div class="custom-checkbox" id="waiver-checkbox"></div>
+              <span style="font-size: 14px; color: var(--stone-dark); line-height: 1.4;">I have read and agree to the terms above</span>
+            </div>
+
+            <div class="spacer"></div>
+
+            <button class="btn-primary disabled" id="waiver-btn" onclick="App.nextOnboardingStep()">Accept &amp; Continue</button>
+          </div>
+
+          <!-- Step 4: Welcome -->
+          <div class="onboarding-step" data-step="4">
+            <div class="step4-centered">
+              <div class="step4-reformer">
+                <!-- Minimal reformer SVG -->
+                <svg width="140" height="60" viewBox="0 0 140 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <!-- Base frame -->
+                  <rect x="4" y="42" width="132" height="8" rx="4" stroke="#8B9F82" stroke-width="1.8"/>
+                  <!-- Legs -->
+                  <line x1="18" y1="50" x2="18" y2="58" stroke="#8B9F82" stroke-width="1.8" stroke-linecap="round"/>
+                  <line x1="122" y1="50" x2="122" y2="58" stroke="#8B9F82" stroke-width="1.8" stroke-linecap="round"/>
+                  <!-- Wheels -->
+                  <circle cx="18" cy="58" r="3" stroke="#8B9F82" stroke-width="1.8"/>
+                  <circle cx="122" cy="58" r="3" stroke="#8B9F82" stroke-width="1.8"/>
+                  <!-- Carriage -->
+                  <rect x="30" y="34" width="50" height="10" rx="3" stroke="#8B9F82" stroke-width="1.8"/>
+                  <!-- Head rest -->
+                  <rect x="86" y="36" width="22" height="6" rx="3" stroke="#8B9F82" stroke-width="1.4"/>
+                  <!-- Springs (lines) -->
+                  <line x1="82" y1="39" x2="86" y2="39" stroke="#8B9F82" stroke-width="1.4"/>
+                  <!-- Foot bar -->
+                  <line x1="8" y1="30" x2="8" y2="44" stroke="#8B9F82" stroke-width="1.8" stroke-linecap="round"/>
+                  <line x1="4" y1="30" x2="12" y2="30" stroke="#8B9F82" stroke-width="1.8" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div class="step4-title">You're ready.</div>
+              <div class="step4-sub">Welcome to ALIGN. Your next chapter starts here.</div>
+              <button class="btn-primary" onclick="App.finishOnboarding()">Book your first class</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Home Screen -->
+      <div class="screen" data-screen="home">
+        <div class="screen-content">
+
+          <!-- Greeting -->
+          <div style="padding-top: 4px;">
+            <h1 style="font-family: var(--font-serif); font-size: 22px; font-weight: 600; color: var(--charcoal); line-height: 1.3;">Good morning, Sarah</h1>
+            <p style="font-size: 13px; color: var(--stone); margin-top: 2px;">Monday, 31 March</p>
+          </div>
+
+          <!-- Next Class Card -->
+          <div style="margin-top: 20px;">
+            <div class="next-class-card" onclick="App.showHomeClassDetail()">
+              <div>
+                <div style="font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--sage); margin-bottom: 4px;">TODAY</div>
+                <div style="font-size: 16px; font-weight: 600; color: var(--charcoal); font-family: var(--font-sans);">07:00 — 07:50</div>
+              </div>
+              <div style="text-align: right; flex: 1; padding-left: 12px;">
+                <div style="font-size: 15px; font-weight: 600; color: var(--charcoal);">Reformer Dynamic</div>
+                <div class="caption">Reformer #3 · Katie</div>
+              </div>
+              <div style="font-size: 20px; color: var(--stone); margin-left: 12px; line-height: 1;">›</div>
+            </div>
+          </div>
+
+          <!-- Quick Actions -->
+          <div style="display: flex; gap: 12px; margin: 20px 0;">
+            <button class="btn-primary" style="flex: 1; font-size: 14px;" onclick="App.switchTab('schedule')">Book a Class</button>
+            <button class="btn-secondary" style="flex: 1; font-size: 14px;" onclick="App.switchTab('schedule')">View Schedule</button>
+          </div>
+
+          <!-- Katie's Corner -->
+          <div class="section-label">Katie's Corner</div>
+          <div class="card" style="padding: 0; overflow: hidden;">
+            <div style="height: 120px; background: var(--sage-light); display: flex; align-items: center; justify-content: center;">
+              <span style="font-size: 48px; color: var(--sage-dark); opacity: 0.3; line-height: 1;">&#10077;</span>
+            </div>
+            <div style="padding: 16px;">
+              <div style="font-family: var(--font-serif); font-size: 17px; color: var(--charcoal); line-height: 1.35; margin-bottom: 8px;">Why Your Core Is Not What You Think It Is</div>
+              <div class="caption" style="margin-bottom: 10px;">By Katie Peckham · 5 min read</div>
+              <div style="font-size: 14px; color: var(--stone-dark); line-height: 1.55; margin-bottom: 12px;">Most people think core strength means visible abs. The truth is far more interesting — and far more useful for your everyday life.</div>
+              <div style="text-align: right;">
+                <span style="font-size: 14px; font-weight: 600; color: var(--sage); cursor: pointer;">Read →</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Free This Week -->
+          <div class="section-label">Free This Week</div>
+          <div class="scroll-row">
+
+            <!-- Breathwork Audio -->
+            <div class="scroll-card card" style="margin-bottom: 0;">
+              <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                <div style="width: 40px; height: 40px; border-radius: 50%; background: var(--sage-light); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                  <span style="font-size: 14px; color: var(--sage);">&#9654;</span>
+                </div>
+                <div style="flex: 1; min-width: 0;">
+                  <div style="font-size: 13px; font-weight: 600; color: var(--charcoal); line-height: 1.3;">5-Min Morning Breathwork</div>
+                  <div class="caption">Audio · Free</div>
+                </div>
+              </div>
+              <span class="badge badge-sage" style="font-size: 10px; padding: 2px 8px;">NEW</span>
+            </div>
+
+            <!-- Home Workout -->
+            <div class="scroll-card card" style="margin-bottom: 0;">
+              <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                <div style="width: 40px; height: 40px; border-radius: 50%; background: var(--sand); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                  <span style="font-size: 16px; color: var(--stone-dark);">&#9670;</span>
+                </div>
+                <div style="flex: 1; min-width: 0;">
+                  <div style="font-size: 13px; font-weight: 600; color: var(--charcoal); line-height: 1.3;">20-Min Mat Flow</div>
+                  <div class="caption">Beginner · Free</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Mindfulness -->
+            <div class="scroll-card card" style="margin-bottom: 0;">
+              <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                <div style="width: 40px; height: 40px; border-radius: 50%; background: var(--sage-light); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                  <span style="font-size: 18px; color: var(--sage-dark);">&#9789;</span>
+                </div>
+                <div style="flex: 1; min-width: 0;">
+                  <div style="font-size: 13px; font-weight: 600; color: var(--charcoal); line-height: 1.3;">Evening Wind-Down</div>
+                  <div class="caption">10 min · Audio</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Community -->
+          <div class="section-label">Community</div>
+          <div class="event-card">
+            <div class="date-block">
+              <span class="day-num">5</span>
+              <span class="month">APR</span>
+            </div>
+            <div style="flex: 1;">
+              <div style="font-size: 15px; font-weight: 600; color: var(--charcoal); margin-bottom: 2px;">Walk &amp; Talk</div>
+              <div class="caption" style="margin-bottom: 10px;">Saturday 9:00 AM · Wye Valley Trail</div>
+              <button class="btn-rsvp" id="rsvp-btn" onclick="App.toggleRsvp()">RSVP</button>
+            </div>
+          </div>
+
+          <!-- Bottom spacing -->
+          <div style="height: 24px;"></div>
+
+        </div>
+      </div>
+
+      <!-- Schedule Screen -->
+      <div class="screen" data-screen="schedule">
+        <div class="screen-content">
+
+          <h1 style="font-family: var(--font-serif); font-size: 22px; font-weight: 600; color: var(--charcoal); margin-bottom: 16px;">Schedule</h1>
+
+          <!-- Filter chips -->
+          <div class="filter-row">
+            <button class="filter-chip active" onclick="App.selectFilter('all', this)">All</button>
+            <button class="filter-chip" onclick="App.selectFilter('reformer', this)">Reformer</button>
+            <button class="filter-chip" onclick="App.selectFilter('mat', this)">Mat</button>
+            <button class="filter-chip" onclick="App.selectFilter('sc', this)">S&amp;C</button>
+            <button class="filter-chip" onclick="App.selectFilter('breathwork', this)">Breathwork</button>
+          </div>
+
+          <!-- Week day selector -->
+          <div class="day-selector">
+            <button class="day-btn active" onclick="App.selectDay('mon-31', this)"><span>Mon</span><span>31</span></button>
+            <button class="day-btn" onclick="App.selectDay('tue-1', this)"><span>Tue</span><span>1</span></button>
+            <button class="day-btn" onclick="App.selectDay('wed-2', this)"><span>Wed</span><span>2</span></button>
+            <button class="day-btn" onclick="App.selectDay('thu-3', this)"><span>Thu</span><span>3</span></button>
+            <button class="day-btn" onclick="App.selectDay('fri-4', this)"><span>Fri</span><span>4</span></button>
+            <button class="day-btn" onclick="App.selectDay('sat-5', this)"><span>Sat</span><span>5</span></button>
+            <button class="day-btn" onclick="App.selectDay('sun-6', this)"><span>Sun</span><span>6</span></button>
+          </div>
+
+          <!-- Class list -->
+          <div id="class-list" style="padding-top: 4px;"></div>
+
+          <!-- Bottom spacing -->
+          <div style="height: 24px;"></div>
+
+        </div>
+      </div>
+
+      <!-- Bookings Screen -->
+      <div class="screen" data-screen="bookings">
+        <div class="screen-content">
+          <h1 class="heading-lg" style="margin-bottom: 20px;">My Classes</h1>
+
+          <!-- Segment toggle -->
+          <div class="segment-toggle">
+            <button class="segment-btn active" onclick="App.switchBookingTab('upcoming', this)">Upcoming</button>
+            <button class="segment-btn" onclick="App.switchBookingTab('past', this)">Past</button>
+          </div>
+
+          <!-- Upcoming bookings -->
+          <div id="bookings-upcoming" class="bookings-tab active">
+
+            <div class="booking-card">
+              <div class="booking-date-header">Monday, 31 March</div>
+              <div class="card" style="border-left: 3px solid var(--sage);">
+                <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+                  <div>
+                    <div style="font-size:15px; font-weight:600; color:var(--charcoal);">Reformer Dynamic</div>
+                    <div class="caption" style="margin-top:4px;">07:00 — 07:50 · Katie</div>
+                    <div class="caption">Reformer #3</div>
+                  </div>
+                  <button class="btn-cancel" onclick="App.cancelBooking(this)">Cancel</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="booking-card">
+              <div class="booking-date-header">Wednesday, 2 April</div>
+              <div class="card" style="border-left: 3px solid var(--sage);">
+                <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+                  <div>
+                    <div style="font-size:15px; font-weight:600; color:var(--charcoal);">Reformer Core</div>
+                    <div class="caption" style="margin-top:4px;">18:00 — 18:50 · Katie</div>
+                    <div class="caption">Reformer #1</div>
+                  </div>
+                  <button class="btn-cancel" onclick="App.cancelBooking(this)">Cancel</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="booking-card">
+              <div class="booking-date-header">Saturday, 5 April</div>
+              <div class="card" style="border-left: 3px solid var(--sage);">
+                <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+                  <div>
+                    <div style="font-size:15px; font-weight:600; color:var(--charcoal);">Outdoor Pilates</div>
+                    <div class="caption" style="margin-top:4px;">09:00 — 10:00 · Katie</div>
+                    <div class="caption">Wye Valley · Weather permitting</div>
+                  </div>
+                  <button class="btn-cancel" onclick="App.cancelBooking(this)">Cancel</button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Past bookings -->
+          <div id="bookings-past" class="bookings-tab">
+            <div class="past-booking">
+              <div style="display:flex; justify-content:space-between;">
+                <div>
+                  <div style="font-size:14px; font-weight:500; color:var(--stone-dark);">Reformer Dynamic</div>
+                  <div class="caption">Monday 24 March · 07:00 · Katie</div>
+                </div>
+                <div class="caption" style="text-align:right;">Reformer #3</div>
+              </div>
+            </div>
+            <div class="past-booking">
+              <div style="display:flex; justify-content:space-between;">
+                <div>
+                  <div style="font-size:14px; font-weight:500; color:var(--stone-dark);">Mat Pilates</div>
+                  <div class="caption">Saturday 22 March · 10:00 · Katie</div>
+                </div>
+              </div>
+            </div>
+            <div class="past-booking">
+              <div style="display:flex; justify-content:space-between;">
+                <div>
+                  <div style="font-size:14px; font-weight:500; color:var(--stone-dark);">Reformer + Breathwork</div>
+                  <div class="caption">Thursday 20 March · 19:30 · Katie</div>
+                </div>
+                <div class="caption" style="text-align:right;">Reformer #1</div>
+              </div>
+            </div>
+            <div class="past-booking">
+              <div style="display:flex; justify-content:space-between;">
+                <div>
+                  <div style="font-size:14px; font-weight:500; color:var(--stone-dark);">Reformer Dynamic</div>
+                  <div class="caption">Monday 17 March · 07:00 · Katie</div>
+                </div>
+                <div class="caption" style="text-align:right;">Reformer #3</div>
+              </div>
+            </div>
+            <div class="past-booking">
+              <div style="display:flex; justify-content:space-between;">
+                <div>
+                  <div style="font-size:14px; font-weight:500; color:var(--stone-dark);">Candlelight Pilates</div>
+                  <div class="caption">Wednesday 12 March · 18:00 · Katie</div>
+                </div>
+                <div class="caption" style="text-align:right;">Reformer #4</div>
+              </div>
+            </div>
+            <div class="past-booking">
+              <div style="display:flex; justify-content:space-between;">
+                <div>
+                  <div style="font-size:14px; font-weight:500; color:var(--stone-dark);">Reformer Dynamic</div>
+                  <div class="caption">Monday 10 March · 07:00 · Katie</div>
+                </div>
+                <div class="caption" style="text-align:right;">Reformer #2</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Content Screen -->
+      <div class="screen" data-screen="content">
+        <div class="screen-content">
+          <h1 class="heading-lg" style="margin-bottom: 20px;">Explore</h1>
+
+          <!-- Category tabs -->
+          <div class="content-tabs">
+            <button class="content-tab active" onclick="App.switchContentTab('blog', this)">Blog</button>
+            <button class="content-tab" onclick="App.switchContentTab('resources', this)">Free Resources</button>
+            <button class="content-tab" onclick="App.switchContentTab('events', this)">Events</button>
+          </div>
+
+          <!-- Blog tab -->
+          <div id="content-blog" class="content-panel active">
+            <!-- Featured article -->
+            <div class="card featured-article" style="padding: 0; overflow: hidden; margin-bottom: 16px;">
+              <div style="height: 160px; background: linear-gradient(135deg, var(--sage-light) 0%, var(--sage) 100%); display: flex; align-items: center; justify-content: center; position: relative;">
+                <span style="font-family: var(--font-serif); font-size: 72px; color: rgba(255,255,255,0.15); position: absolute;">&ldquo;</span>
+                <span style="font-family: var(--font-serif); font-size: 18px; color: var(--white); font-style: italic; padding: 0 32px; text-align: center; position: relative; z-index: 1; line-height: 1.5;">The science behind<br>every movement</span>
+              </div>
+              <div style="padding: 20px;">
+                <div class="badge badge-sage" style="margin-bottom: 8px;">Featured</div>
+                <div style="font-family: var(--font-serif); font-size: 18px; font-weight: 600; color: var(--charcoal); margin-bottom: 8px; line-height: 1.3;">Why Your Core Is Not What You Think It Is</div>
+                <div class="caption" style="margin-bottom: 8px;">By Katie Peckham · 5 min read</div>
+                <div style="font-size: 14px; color: var(--stone-dark); line-height: 1.6;">Most people think core strength means visible abs. The truth is far more interesting — and far more useful for your everyday life.</div>
+              </div>
+            </div>
+
+            <div class="card article-card" style="cursor: pointer;">
+              <div style="font-family: var(--font-serif); font-size: 16px; font-weight: 600; color: var(--charcoal); margin-bottom: 6px; line-height: 1.3;">The Science Behind Reformer Pilates</div>
+              <div class="caption">4 min read · Reformer</div>
+            </div>
+
+            <div class="card article-card" style="cursor: pointer;">
+              <div style="font-family: var(--font-serif); font-size: 16px; font-weight: 600; color: var(--charcoal); margin-bottom: 6px; line-height: 1.3;">Breathwork: Why 5 Minutes Changes Everything</div>
+              <div class="caption">3 min read · Wellness</div>
+            </div>
+
+            <div class="card article-card" style="cursor: pointer;">
+              <div style="font-family: var(--font-serif); font-size: 16px; font-weight: 600; color: var(--charcoal); margin-bottom: 6px; line-height: 1.3;">Pilates for Rugby Players — Yes, Really</div>
+              <div class="caption">6 min read · Athletes</div>
+            </div>
+
+            <div class="card article-card" style="cursor: pointer;">
+              <div style="font-family: var(--font-serif); font-size: 16px; font-weight: 600; color: var(--charcoal); margin-bottom: 6px; line-height: 1.3;">What to Expect at Your First Reformer Class</div>
+              <div class="caption">3 min read · Beginners</div>
+            </div>
+          </div>
+
+          <!-- Free Resources tab -->
+          <div id="content-resources" class="content-panel">
+            <div class="section-label" style="margin-top: 8px;">Mindfulness &amp; Breathwork</div>
+
+            <div class="card resource-card">
+              <div style="display: flex; gap: 14px; align-items: center;">
+                <div class="play-circle" onclick="App.togglePlay(this)">
+                  <span class="play-icon">&#9654;</span>
+                </div>
+                <div style="flex: 1;">
+                  <div style="font-size: 15px; font-weight: 600; color: var(--charcoal);">5-Min Morning Breathwork</div>
+                  <div class="caption">Audio · 5 min</div>
+                </div>
+                <div class="badge badge-sage">Free</div>
+              </div>
+              <div class="audio-progress" style="display: none;">
+                <div class="progress-bar"><div class="progress-fill"></div></div>
+                <div class="caption" style="margin-top: 4px;">0:00 / 5:00</div>
+              </div>
+            </div>
+
+            <div class="card resource-card">
+              <div style="display: flex; gap: 14px; align-items: center;">
+                <div class="play-circle" onclick="App.togglePlay(this)">
+                  <span class="play-icon">&#9654;</span>
+                </div>
+                <div style="flex: 1;">
+                  <div style="font-size: 15px; font-weight: 600; color: var(--charcoal);">Evening Wind-Down</div>
+                  <div class="caption">Audio · 10 min</div>
+                </div>
+                <div class="badge badge-sage">Free</div>
+              </div>
+              <div class="audio-progress" style="display: none;">
+                <div class="progress-bar"><div class="progress-fill"></div></div>
+                <div class="caption" style="margin-top: 4px;">0:00 / 10:00</div>
+              </div>
+            </div>
+
+            <div class="card resource-card">
+              <div style="display: flex; gap: 14px; align-items: center;">
+                <div class="play-circle" onclick="App.togglePlay(this)">
+                  <span class="play-icon">&#9654;</span>
+                </div>
+                <div style="flex: 1;">
+                  <div style="font-size: 15px; font-weight: 600; color: var(--charcoal);">Body Scan Meditation</div>
+                  <div class="caption">Audio · 8 min</div>
+                </div>
+                <div class="badge badge-sage">Free</div>
+              </div>
+              <div class="audio-progress" style="display: none;">
+                <div class="progress-bar"><div class="progress-fill"></div></div>
+                <div class="caption" style="margin-top: 4px;">0:00 / 8:00</div>
+              </div>
+            </div>
+
+            <div class="section-label">Home Workouts</div>
+
+            <div class="card resource-card" style="cursor: pointer;">
+              <div style="display: flex; gap: 14px; align-items: center;">
+                <div style="width: 44px; height: 44px; border-radius: 10px; background: var(--cream); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                  <span style="font-size: 20px;">&#9672;</span>
+                </div>
+                <div style="flex: 1;">
+                  <div style="font-size: 15px; font-weight: 600; color: var(--charcoal);">20-Min Mat Flow</div>
+                  <div class="caption">Beginner · Full body</div>
+                </div>
+                <div class="badge badge-sage">Free</div>
+              </div>
+            </div>
+
+            <div class="card resource-card" style="cursor: pointer;">
+              <div style="display: flex; gap: 14px; align-items: center;">
+                <div style="width: 44px; height: 44px; border-radius: 10px; background: var(--cream); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                  <span style="font-size: 20px;">&#9672;</span>
+                </div>
+                <div style="flex: 1;">
+                  <div style="font-size: 15px; font-weight: 600; color: var(--charcoal);">15-Min Core Blast</div>
+                  <div class="caption">Intermediate · Core focus</div>
+                </div>
+                <div class="badge badge-sage">Free</div>
+              </div>
+            </div>
+
+            <div class="card resource-card" style="cursor: pointer;">
+              <div style="display: flex; gap: 14px; align-items: center;">
+                <div style="width: 44px; height: 44px; border-radius: 10px; background: var(--cream); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                  <span style="font-size: 20px;">&#9672;</span>
+                </div>
+                <div style="flex: 1;">
+                  <div style="font-size: 15px; font-weight: 600; color: var(--charcoal);">10-Min Morning Stretch</div>
+                  <div class="caption">All levels · Flexibility</div>
+                </div>
+                <div class="badge badge-sage">Free</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Events tab -->
+          <div id="content-events" class="content-panel">
+
+            <div class="event-card" style="margin-bottom: 12px;">
+              <div class="date-block">
+                <div class="day">5</div>
+                <div class="month">Apr</div>
+              </div>
+              <div style="flex: 1;">
+                <div style="font-size: 15px; font-weight: 600; color: var(--charcoal);">Walk &amp; Talk</div>
+                <div class="caption" style="margin: 4px 0;">Saturday 9:00 AM · Wye Valley Trail</div>
+                <div class="caption">Free community walk with Katie. All welcome.</div>
+                <button class="btn-rsvp" style="margin-top: 8px;" onclick="App.toggleRsvp(this)">RSVP</button>
+              </div>
+            </div>
+
+            <div class="event-card" style="margin-bottom: 12px;">
+              <div class="date-block">
+                <div class="day">12</div>
+                <div class="month">Apr</div>
+              </div>
+              <div style="flex: 1;">
+                <div style="font-size: 15px; font-weight: 600; color: var(--charcoal);">Coffee Morning @ Coffi Lab</div>
+                <div class="caption" style="margin: 4px 0;">Saturday 10:30 AM · First Saturday monthly</div>
+                <div class="caption">Meet other ALIGN. members over great coffee.</div>
+                <button class="btn-rsvp" style="margin-top: 8px;" onclick="App.toggleRsvp(this)">RSVP</button>
+              </div>
+            </div>
+
+            <div class="event-card" style="margin-bottom: 12px;">
+              <div class="date-block" style="background: var(--stone);">
+                <div class="day">26</div>
+                <div class="month">Apr</div>
+              </div>
+              <div style="flex: 1;">
+                <div style="font-size: 15px; font-weight: 600; color: var(--charcoal);">Breathwork Workshop</div>
+                <div class="caption" style="margin: 4px 0;">Saturday 14:00 — 16:00 · ALIGN. Studio</div>
+                <div class="caption">Deep-dive into breathing techniques. Limited to 6 places.</div>
+                <div style="display: flex; gap: 8px; align-items: center; margin-top: 8px;">
+                  <button class="btn-rsvp" onclick="App.toggleRsvp(this)">Book · £25</button>
+                  <span class="caption" style="color: var(--warning);">2 spots left</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Farm retreat teaser -->
+            <div class="card" style="background: linear-gradient(135deg, var(--sage-light) 0%, var(--sage) 100%); color: var(--white); margin-top: 8px;">
+              <div style="font-family: var(--font-serif); font-size: 18px; margin-bottom: 8px;">Farm Retreat</div>
+              <div style="font-size: 13px; opacity: 0.85; line-height: 1.6; margin-bottom: 12px;">A full-day escape to the Wye Valley. Morning Pilates, guided walks, breathwork, and farm-to-table meals. Coming Autumn 2026.</div>
+              <button class="btn-secondary" style="border-color: rgba(255,255,255,0.6); color: var(--white); width: auto; height: 36px; padding: 0 16px; font-size: 13px;" onclick="this.textContent='Notified \u2713'; this.style.background='rgba(255,255,255,0.15)';">Notify Me</button>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Profile Screen -->
+      <div class="screen" data-screen="profile">
+        <div class="screen-content">
+
+          <!-- Profile header -->
+          <div style="display: flex; flex-direction: column; align-items: center; padding: 8px 0 24px;">
+            <div class="profile-avatar">SM</div>
+            <div style="font-family: var(--font-serif); font-size: 20px; font-weight: 600; color: var(--charcoal); margin-top: 12px;">Sarah Mitchell</div>
+            <div class="caption">sarah.mitchell@email.com</div>
+          </div>
+
+          <!-- Membership card -->
+          <div class="membership-card">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+              <div>
+                <div style="font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; opacity: 0.8; margin-bottom: 4px;">Current Plan</div>
+                <div style="font-size: 18px; font-weight: 600;">Monthly 8-Class</div>
+              </div>
+              <div class="credits-circle">
+                <svg width="52" height="52" viewBox="0 0 52 52">
+                  <circle cx="26" cy="26" r="22" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="4"/>
+                  <circle cx="26" cy="26" r="22" fill="none" stroke="var(--white)" stroke-width="4"
+                    stroke-dasharray="138" stroke-dashoffset="52" stroke-linecap="round"
+                    transform="rotate(-90 26 26)"/>
+                </svg>
+                <span class="credits-number">5</span>
+              </div>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-top: 12px; font-size: 13px; opacity: 0.85;">
+              <span>5 classes remaining</span>
+              <span>Renews 15 Apr</span>
+            </div>
+          </div>
+
+          <!-- Progress row -->
+          <div class="progress-row">
+            <div class="progress-stat">
+              <span class="progress-number">12</span>
+              <span class="progress-label">Classes attended</span>
+            </div>
+            <div class="progress-divider"></div>
+            <div class="progress-stat">
+              <span class="progress-number">3</span>
+              <span class="progress-label">Week streak</span>
+            </div>
+            <div class="progress-divider"></div>
+            <div class="progress-stat">
+              <span class="progress-number">2</span>
+              <span class="progress-label">Months active</span>
+            </div>
+          </div>
+
+          <!-- Menu sections -->
+          <div class="profile-menu">
+            <div class="menu-item" onclick="">
+              <div style="display: flex; align-items: center; gap: 12px;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--stone)" stroke-width="1.5" stroke-linecap="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                <span>Personal Details</span>
+              </div>
+              <span class="menu-chevron">›</span>
+            </div>
+
+            <div class="menu-item" onclick="">
+              <div style="display: flex; align-items: center; gap: 12px;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--stone)" stroke-width="1.5" stroke-linecap="round"><path d="M9 12h6m-3-3v6m-7 4h14a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2z"/></svg>
+                <span>Medical Form (PAR-Q)</span>
+              </div>
+              <span class="menu-chevron">›</span>
+            </div>
+
+            <div class="menu-item" onclick="">
+              <div style="display: flex; align-items: center; gap: 12px;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--stone)" stroke-width="1.5" stroke-linecap="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+                <span>Payment Methods</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <span class="caption">Visa ····4892</span>
+                <span class="menu-chevron">›</span>
+              </div>
+            </div>
+
+            <div class="menu-item" onclick="">
+              <div style="display: flex; align-items: center; gap: 12px;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--stone)" stroke-width="1.5" stroke-linecap="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                <span>Payment History</span>
+              </div>
+              <span class="menu-chevron">›</span>
+            </div>
+
+            <div class="menu-item" onclick="">
+              <div style="display: flex; align-items: center; gap: 12px;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--stone)" stroke-width="1.5" stroke-linecap="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+                <span>Notifications</span>
+              </div>
+              <span class="menu-chevron">›</span>
+            </div>
+
+            <div class="menu-item" onclick="">
+              <div style="display: flex; align-items: center; gap: 12px;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--stone)" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                <span>Settings</span>
+              </div>
+              <span class="menu-chevron">›</span>
+            </div>
+          </div>
+
+          <!-- Admin toggle -->
+          <div style="text-align: center; margin-top: 32px; padding-bottom: 24px;">
+            <button class="btn-text" style="font-size: 14px;" onclick="App.switchToAdmin()">Switch to Admin View →</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Admin Screen -->
+      <div class="screen" data-screen="admin">
+        <div class="screen-content">
+
+          <!-- Admin header -->
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+            <div>
+              <h1 class="heading-lg" style="margin-bottom: 2px;">Good morning, Katie</h1>
+              <div class="caption">Monday, 31 March 2026</div>
+            </div>
+            <span class="badge badge-sage" style="font-size: 12px; padding: 5px 12px;">Admin</span>
+          </div>
+
+          <!-- Revenue -->
+          <div class="admin-revenue-card">
+            <div style="font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--stone); margin-bottom: 4px;">Today's Revenue</div>
+            <div style="font-family: var(--font-serif); font-size: 36px; font-weight: 700; color: var(--sage-dark);">£160</div>
+            <div class="caption" style="margin-top: 4px;">14 bookings across 5 classes</div>
+          </div>
+
+          <!-- Alerts -->
+          <div class="admin-alert-card">
+            <div style="display: flex; gap: 10px; align-items: flex-start;">
+              <span style="font-size: 18px;">⚠</span>
+              <div>
+                <div style="font-size: 14px; font-weight: 600; color: var(--charcoal);">New signup: Helen Davies</div>
+                <div class="caption" style="margin-top: 2px;">PAR-Q flag: bone/joint problem</div>
+                <button class="btn-text" style="padding: 4px 0; font-size: 13px; margin-top: 4px;">Review Medical Form →</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Today's Classes -->
+          <div class="section-label" style="margin-top: 24px;">Today's Classes</div>
+
+          <div class="admin-class-card" onclick="App.toggleRoster(this)">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <div>
+                <div style="font-size: 15px; font-weight: 600; color: var(--charcoal);">07:00 — Reformer Dynamic</div>
+                <div class="caption" style="margin-top: 2px;">50 min · Katie</div>
+              </div>
+              <span class="admin-spots-badge full">4/4</span>
+            </div>
+            <div class="roster-panel">
+              <div class="roster-row">
+                <span class="roster-spot">1</span>
+                <span>Sarah Mitchell</span>
+              </div>
+              <div class="roster-row">
+                <span class="roster-spot">2</span>
+                <span>Tom Richards</span>
+              </div>
+              <div class="roster-row">
+                <span class="roster-spot">3</span>
+                <span style="display: flex; align-items: center; gap: 6px;">Helen Davies <span style="color: var(--warning); font-size: 14px;">⚠</span></span>
+              </div>
+              <div class="roster-row">
+                <span class="roster-spot">4</span>
+                <span>James Wright</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="admin-class-card" onclick="App.toggleRoster(this)">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <div>
+                <div style="font-size: 15px; font-weight: 600; color: var(--charcoal);">10:00 — Mat Pilates</div>
+                <div class="caption" style="margin-top: 2px;">50 min · Katie</div>
+              </div>
+              <span class="admin-spots-badge">4/6</span>
+            </div>
+            <div class="roster-panel">
+              <div class="roster-row"><span class="roster-spot">—</span><span>Emma Thompson</span></div>
+              <div class="roster-row"><span class="roster-spot">—</span><span>Lisa Morgan</span></div>
+              <div class="roster-row"><span class="roster-spot">—</span><span>Rachel Green</span></div>
+              <div class="roster-row"><span class="roster-spot">—</span><span>David Price</span></div>
+            </div>
+          </div>
+
+          <div class="admin-class-card" onclick="App.toggleRoster(this)">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <div>
+                <div style="font-size: 15px; font-weight: 600; color: var(--charcoal);">12:00 — Reformer Core</div>
+                <div class="caption" style="margin-top: 2px;">50 min · Katie</div>
+              </div>
+              <span class="admin-spots-badge">3/4</span>
+            </div>
+            <div class="roster-panel">
+              <div class="roster-row"><span class="roster-spot">1</span><span>Anne Williams</span></div>
+              <div class="roster-row"><span class="roster-spot">2</span><span>Mark Evans</span></div>
+              <div class="roster-row"><span class="roster-spot">4</span><span>Sophie Turner</span></div>
+            </div>
+          </div>
+
+          <div class="admin-class-card" onclick="App.toggleRoster(this)">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <div>
+                <div style="font-size: 15px; font-weight: 600; color: var(--charcoal);">18:00 — Candlelight Pilates</div>
+                <div class="caption" style="margin-top: 2px;">50 min · Katie</div>
+              </div>
+              <span class="admin-spots-badge">3/4</span>
+            </div>
+            <div class="roster-panel">
+              <div class="roster-row"><span class="roster-spot">1</span><span>Sarah Mitchell</span></div>
+              <div class="roster-row"><span class="roster-spot">2</span><span>Julia Hart</span></div>
+              <div class="roster-row"><span class="roster-spot">3</span><span>Nick Palmer</span></div>
+            </div>
+          </div>
+
+          <div class="admin-class-card" onclick="App.toggleRoster(this)">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <div>
+                <div style="font-size: 15px; font-weight: 600; color: var(--charcoal);">19:30 — Reformer + Breathwork</div>
+                <div class="caption" style="margin-top: 2px;">75 min · Katie</div>
+              </div>
+              <span class="admin-spots-badge">2/4</span>
+            </div>
+            <div class="roster-panel">
+              <div class="roster-row"><span class="roster-spot">1</span><span>Tom Richards</span></div>
+              <div class="roster-row"><span class="roster-spot">3</span><span>Emma Thompson</span></div>
+            </div>
+          </div>
+
+          <!-- Quick Actions -->
+          <div class="section-label" style="margin-top: 24px;">Quick Actions</div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 16px;">
+            <button class="btn-primary" style="font-size: 13px; height: 44px;">Client List</button>
+            <button class="btn-secondary" style="font-size: 13px; height: 44px;">Send Notification</button>
+          </div>
+
+          <!-- Switch back -->
+          <div style="text-align: center; padding: 16px 0 24px;">
+            <button class="btn-text" style="font-size: 14px;" onclick="App.switchToClient()">Switch to Client View →</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Overlay Backdrop -->
+    <div id="overlay-backdrop" class="overlay-backdrop"></div>
+
+    <!-- Class Detail Overlay -->
+    <div id="overlay-class-detail" class="overlay" style="overflow: hidden;">
+      <div class="overlay-handle"></div>
+
+      <!-- Close button -->
+      <button class="overlay-close" onclick="App.hideOverlay('overlay-class-detail')">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+
+      <div class="overlay-content" id="class-detail-content">
+        <!-- Will be populated by JavaScript -->
+      </div>
+
+      <!-- Fixed bottom CTA -->
+      <div class="overlay-cta">
+        <button class="btn-primary" id="book-btn" onclick="App.bookClass()">Book This Class — £20</button>
+      </div>
+    </div>
+
+    <!-- Booking Confirm Overlay -->
+    <div id="overlay-booking-confirm" class="overlay" style="background: var(--cream); display: flex; flex-direction: column; align-items: center; justify-content: center; border-radius: 0;">
+      <div class="booking-confirm-content" id="booking-confirm-content">
+        <!-- Populated by JS -->
+      </div>
+    </div>
+
+    <!-- Tab Bar -->
+    <nav id="tab-bar" class="hidden">
+
+      <div class="tab-item active" data-tab="home">
+        <svg viewBox="0 0 24 24">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+          <polyline points="9 22 9 12 15 12 15 22"/>
+        </svg>
+        <span>Home</span>
+      </div>
+
+      <div class="tab-item" data-tab="schedule">
+        <svg viewBox="0 0 24 24">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+          <line x1="16" y1="2" x2="16" y2="6"/>
+          <line x1="8" y1="2" x2="8" y2="6"/>
+          <line x1="3" y1="10" x2="21" y2="10"/>
+        </svg>
+        <span>Schedule</span>
+      </div>
+
+      <div class="tab-item" data-tab="bookings">
+        <svg viewBox="0 0 24 24">
+          <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
+        </svg>
+        <span>Bookings</span>
+      </div>
+
+      <div class="tab-item" data-tab="content">
+        <svg viewBox="0 0 24 24">
+          <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+          <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+        </svg>
+        <span>Explore</span>
+      </div>
+
+      <div class="tab-item" data-tab="profile">
+        <svg viewBox="0 0 24 24">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+          <circle cx="12" cy="7" r="4"/>
+        </svg>
+        <span>Profile</span>
+      </div>
+
+    </nav>
+  </div>
+
+  <script>
+    const App = {
+      currentScreen: 'splash',
+      currentTab: 'home',
+      tabOrder: ['home', 'schedule', 'bookings', 'content', 'profile'],
+      onboardingStep: 1,
+      splashTimer: null,
+
+      init() {
+        document.querySelectorAll('.tab-item').forEach(tab => {
+          tab.addEventListener('click', () => {
+            const screen = tab.dataset.tab;
+            this.switchTab(screen);
+          });
+        });
+
+        document.getElementById('tab-bar').classList.add('hidden');
+
+        this.splashTimer = setTimeout(() => {
+          this.showScreen('home');
+          document.getElementById('tab-bar').classList.remove('hidden');
+        }, 4000);
+
+        document.getElementById('overlay-backdrop').addEventListener('click', () => {
+          this.hideOverlay('overlay-class-detail');
+          this.hideOverlay('overlay-booking-confirm');
+        });
+
+        this.renderSchedule();
+      },
+
+      showScreen(name, direction) {
+        const current = document.querySelector('.screen.active');
+        const target = document.querySelector('[data-screen="' + name + '"]');
+        if (!target || current === target) return;
+
+        if (!direction) {
+          const currentIdx = this.tabOrder.indexOf(this.currentScreen);
+          const targetIdx = this.tabOrder.indexOf(name);
+          if (currentIdx === -1 || targetIdx === -1) {
+            direction = 'left';
+          } else {
+            direction = targetIdx > currentIdx ? 'left' : 'right';
+          }
+        }
+
+        current.style.transition = 'opacity 250ms ease-out, transform 250ms ease-out';
+        current.style.transform = direction === 'left' ? 'translateX(-20px)' : 'translateX(20px)';
+        current.style.opacity = '0';
+
+        target.style.transition = 'none';
+        target.style.transform = direction === 'left' ? 'translateX(20px)' : 'translateX(-20px)';
+        target.style.opacity = '0';
+        target.classList.add('active');
+        target.style.pointerEvents = 'auto';
+
+        target.offsetHeight;
+
+        requestAnimationFrame(() => {
+          target.style.transition = 'opacity 250ms ease-out, transform 250ms ease-out';
+          target.style.transform = 'translateX(0)';
+          target.style.opacity = '1';
+        });
+
+        setTimeout(() => {
+          current.classList.remove('active');
+          current.style.pointerEvents = 'none';
+          current.style.transition = '';
+          current.style.transform = '';
+          current.style.opacity = '';
+        }, 250);
+
+        this.currentScreen = name;
+      },
+
+      switchTab(name) {
+        if (name === this.currentTab && this.currentScreen !== 'admin') return;
+        this.showScreen(name);
+        this.currentTab = name;
+
+        document.querySelectorAll('.tab-item').forEach(t => t.classList.remove('active'));
+        const tabEl = document.querySelector('[data-tab="' + name + '"]');
+        if (tabEl) tabEl.classList.add('active');
+      },
+
+      showOverlay(id) {
+        document.getElementById('overlay-backdrop').classList.add('active');
+        document.getElementById(id).classList.add('active');
+      },
+
+      hideOverlay(id) {
+        document.getElementById('overlay-backdrop').classList.remove('active');
+        document.getElementById(id).classList.remove('active');
+      },
+
+      startOnboarding() {
+        if (this.splashTimer) {
+          clearTimeout(this.splashTimer);
+          this.splashTimer = null;
+        }
+        this.onboardingStep = 1;
+        // Reset all steps
+        document.querySelectorAll('.onboarding-step').forEach(s => s.classList.remove('active'));
+        document.querySelector('.onboarding-step[data-step="1"]').classList.add('active');
+        this.updateProgressDots();
+        this.showScreen('onboarding');
+        document.getElementById('tab-bar').classList.add('hidden');
+      },
+
+      showOnboarding() {
+        this.startOnboarding();
+      },
+
+      nextOnboardingStep() {
+        if (this.onboardingStep >= 4) return;
+        const current = document.querySelector(`.onboarding-step[data-step="${this.onboardingStep}"]`);
+        this.onboardingStep++;
+        const next = document.querySelector(`.onboarding-step[data-step="${this.onboardingStep}"]`);
+        current.classList.remove('active');
+        next.classList.add('active');
+        this.updateProgressDots();
+      },
+
+      prevOnboardingStep() {
+        if (this.onboardingStep <= 1) return;
+        const current = document.querySelector(`.onboarding-step[data-step="${this.onboardingStep}"]`);
+        this.onboardingStep--;
+        const prev = document.querySelector(`.onboarding-step[data-step="${this.onboardingStep}"]`);
+        current.classList.remove('active');
+        prev.classList.add('active');
+        this.updateProgressDots();
+      },
+
+      updateProgressDots() {
+        document.querySelectorAll('.progress-dot').forEach(dot => {
+          const step = parseInt(dot.dataset.step);
+          dot.classList.remove('active', 'completed');
+          if (step === this.onboardingStep) dot.classList.add('active');
+          else if (step < this.onboardingStep) dot.classList.add('completed');
+        });
+      },
+
+      toggleParq(pill) {
+        const opts = pill.querySelectorAll('.toggle-option');
+        const noOpt = opts[0];
+        const yesOpt = opts[1];
+        if (noOpt.classList.contains('active-no')) {
+          noOpt.classList.remove('active-no');
+          yesOpt.classList.add('active-yes');
+        } else {
+          yesOpt.classList.remove('active-yes');
+          noOpt.classList.add('active-no');
+        }
+      },
+
+      toggleWaiverCheckbox() {
+        const cb = document.getElementById('waiver-checkbox');
+        const btn = document.getElementById('waiver-btn');
+        cb.classList.toggle('checked');
+        if (cb.classList.contains('checked')) {
+          btn.classList.remove('disabled');
+        } else {
+          btn.classList.add('disabled');
+        }
+      },
+
+      finishOnboarding() {
+        this.showScreen('home');
+        document.getElementById('tab-bar').classList.remove('hidden');
+        this.currentTab = 'home';
+        document.querySelectorAll('.tab-item').forEach(t => t.classList.remove('active'));
+        document.querySelector('[data-tab="home"]').classList.add('active');
+      },
+
+      selectedDay: 'mon-31',
+      selectedFilter: 'all',
+
+      renderSchedule() {
+        const classes = SCHEDULE_DATA[this.selectedDay] || [];
+        const filtered = this.selectedFilter === 'all' ? classes : classes.filter(c => {
+          if (this.selectedFilter === 'reformer') return c.type === 'reformer';
+          if (this.selectedFilter === 'mat') return c.type === 'mat';
+          if (this.selectedFilter === 'sc') return c.type === 'sc';
+          if (this.selectedFilter === 'breathwork') return c.type === 'breathwork';
+          return true;
+        });
+
+        const container = document.getElementById('class-list');
+        if (!container) return;
+        if (filtered.length === 0) {
+          container.innerHTML = '<div style="text-align:center; padding:40px 0;"><p class="caption">No classes scheduled</p></div>';
+          return;
+        }
+
+        container.innerHTML = filtered.map((cls, i) => {
+          const spotsColor = cls.spots === 0 ? 'var(--error)' : cls.spots <= 2 ? 'var(--warning)' : 'var(--sage)';
+          const spotsText = cls.spots === 0 ? 'Full — Waitlist' : `${cls.spots} spot${cls.spots !== 1 ? 's' : ''} left`;
+          return `
+            <div class="card class-card" onclick="App.showClassDetail(${i})">
+              <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+                <div>
+                  <div style="font-size:16px; font-weight:600; color:var(--charcoal);">${cls.time}</div>
+                  <div class="caption">${cls.duration}</div>
+                </div>
+                <div style="text-align:right;">
+                  <div style="font-size:15px; font-weight:600; color:var(--charcoal);">${cls.name}</div>
+                  <div class="caption">${cls.instructor}</div>
+                  <div style="display:flex; align-items:center; justify-content:flex-end; gap:6px; margin-top:4px;">
+                    <span style="width:8px; height:8px; border-radius:50%; background:${spotsColor}; display:inline-block;"></span>
+                    <span style="font-size:12px; font-weight:500; color:${spotsColor};">${spotsText}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          `;
+        }).join('');
+      },
+
+      selectDay(dayKey, el) {
+        this.selectedDay = dayKey;
+        document.querySelectorAll('.day-btn').forEach(d => d.classList.remove('active'));
+        el.classList.add('active');
+        this.renderSchedule();
+      },
+
+      selectFilter(filter, el) {
+        this.selectedFilter = filter;
+        document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+        el.classList.add('active');
+        this.renderSchedule();
+      },
+
+      currentClass: null,
+      selectedSpot: null,
+
+      showClassDetail(index) {
+        const classes = SCHEDULE_DATA[this.selectedDay] || [];
+        const filtered = this.selectedFilter === 'all' ? classes : classes.filter(c => {
+          if (this.selectedFilter === 'reformer') return c.type === 'reformer';
+          if (this.selectedFilter === 'mat') return c.type === 'mat';
+          if (this.selectedFilter === 'sc') return c.type === 'sc';
+          if (this.selectedFilter === 'breathwork') return c.type === 'breathwork';
+          return true;
+        });
+
+        const cls = filtered[index];
+        if (!cls) return;
+        this.currentClass = cls;
+        this.selectedSpot = null;
+
+        const isReformer = cls.type === 'reformer' || cls.type === 'breathwork';
+        const takenSpot = 2;
+
+        const content = document.getElementById('class-detail-content');
+        content.innerHTML = `
+          <div class="class-header">
+            <div class="class-name">${cls.name}</div>
+            <span class="badge badge-sage">${cls.level}</span>
+          </div>
+
+          <div class="class-meta-row">
+            <div class="class-meta-item">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              ${cls.duration}
+            </div>
+            <div class="class-meta-item">
+              <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              Monday, 31 March
+            </div>
+            <div class="class-meta-item">
+              <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              ${cls.instructor}
+            </div>
+          </div>
+
+          <div class="class-description">${CLASS_DESCRIPTIONS[cls.name] || 'A premium Pilates experience at ALIGN. Studio.'}</div>
+
+          <div class="instructor-section">
+            <div class="instructor-avatar">KP</div>
+            <div>
+              <div class="instructor-name">Katie Peckham</div>
+              <div class="instructor-cred">YMCA Level 3 Mat &amp; Reformer Pilates</div>
+            </div>
+          </div>
+
+          ${isReformer ? `
+          <div class="spot-selection">
+            <div class="spot-selection-label">Choose Your Reformer</div>
+            <div class="studio-layout">
+              <div class="studio-label top">Instructor</div>
+              <div class="reformer-grid" id="reformer-grid">
+                ${[1,2,3,4].map(n => {
+                  const isTaken = n === takenSpot;
+                  const spotCls = isTaken ? 'taken' : 'available';
+                  return `<div class="reformer-spot ${spotCls}" data-spot="${n}" ${isTaken ? '' : `onclick="App.selectSpot(${n})"`}>${n}</div>`;
+                }).join('')}
+              </div>
+              <div class="studio-label bottom">Entrance &rarr;</div>
+            </div>
+          </div>
+          ` : ''}
+
+          <div class="cancel-policy">
+            <strong>Cancellation policy:</strong> Free cancellation up to 12 hours before class. 50% credit 2–12 hours before. No refund within 2 hours or no-show.
+          </div>
+        `;
+
+        const btn = document.getElementById('book-btn');
+        if (cls.spots === 0) {
+          btn.textContent = 'Join Waitlist';
+          btn.className = 'btn-secondary';
+          btn.style.width = '100%';
+          btn.style.height = '48px';
+        } else {
+          const price = cls.type === 'mat' || cls.type === 'sc' ? '£14' : '£20';
+          btn.textContent = `Book This Class — ${price}`;
+          btn.className = 'btn-primary';
+          btn.style.width = '';
+          btn.style.height = '';
+        }
+
+        this.showOverlay('overlay-class-detail');
+      },
+
+      selectSpot(num) {
+        this.selectedSpot = num;
+        document.querySelectorAll('.reformer-spot.available, .reformer-spot.selected').forEach(spot => {
+          const spotNum = parseInt(spot.dataset.spot);
+          spot.className = spotNum === num ? 'reformer-spot selected' : 'reformer-spot available';
+        });
+      },
+
+      bookClass() {
+        const cls = this.currentClass;
+        if (!cls) return;
+
+        const isReformer = cls.type === 'reformer' || cls.type === 'breathwork';
+
+        if (isReformer && !this.selectedSpot && cls.spots > 0) {
+          const grid = document.getElementById('reformer-grid');
+          if (grid) {
+            grid.classList.add('shake');
+            setTimeout(() => grid.classList.remove('shake'), 300);
+          }
+          return;
+        }
+
+        this.hideOverlay('overlay-class-detail');
+        setTimeout(() => {
+          this.showBookingConfirmation(cls);
+        }, 400);
+      },
+
+      showBookingConfirmation(cls) {
+        const isReformer = cls.type === 'reformer' || cls.type === 'breathwork';
+        const content = document.getElementById('booking-confirm-content');
+
+        content.innerHTML = `
+          <div class="checkmark-circle">
+            <svg class="checkmark-svg" viewBox="0 0 52 52">
+              <circle cx="26" cy="26" r="25"/>
+              <path d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+            </svg>
+          </div>
+
+          <div class="confirm-title">You're booked!</div>
+
+          <div class="confirm-details">
+            <div class="confirm-detail-row">
+              <span class="confirm-detail-label">Class</span>
+              <span class="confirm-detail-value">${cls.name}</span>
+            </div>
+            <div class="confirm-detail-row">
+              <span class="confirm-detail-label">Date</span>
+              <span class="confirm-detail-value">Monday, 31 March</span>
+            </div>
+            <div class="confirm-detail-row">
+              <span class="confirm-detail-label">Time</span>
+              <span class="confirm-detail-value">${cls.time}</span>
+            </div>
+            ${isReformer && this.selectedSpot ? `
+            <div class="confirm-detail-row">
+              <span class="confirm-detail-label">Reformer</span>
+              <span class="confirm-detail-value">#${this.selectedSpot}</span>
+            </div>
+            ` : ''}
+            <div class="confirm-detail-row">
+              <span class="confirm-detail-label">Instructor</span>
+              <span class="confirm-detail-value">${cls.instructor}</span>
+            </div>
+          </div>
+
+          <div class="confirm-weekly">
+            <span class="confirm-weekly-text">Book every week?</span>
+            <div class="toggle-switch" onclick="this.classList.toggle('on')"></div>
+          </div>
+
+          <button class="btn-secondary" style="width: 100%; margin-bottom: 12px;" onclick="App.addToCalendar(event)">Add to Calendar</button>
+          <button class="btn-primary" style="width: 100%;" onclick="App.closeBookingConfirmation()">Done</button>
+        `;
+
+        this.showOverlay('overlay-booking-confirm');
+      },
+
+      addToCalendar(e) {
+        const btn = e.target;
+        btn.textContent = 'Added \u2713';
+        btn.style.borderColor = 'var(--success)';
+        btn.style.color = 'var(--success)';
+      },
+
+      closeBookingConfirmation() {
+        this.hideOverlay('overlay-booking-confirm');
+        setTimeout(() => {
+          this.switchTab('home');
+        }, 400);
+      },
+
+      toggleRsvp(btn) {
+        if (!btn) {
+          btn = document.getElementById('rsvp-btn');
+          if (!btn) return;
+        }
+        if (btn.classList.contains('going')) {
+          btn.classList.remove('going');
+          btn.textContent = btn.textContent.includes('£') ? btn.dataset.original || 'Book · £25' : 'RSVP';
+        } else {
+          if (!btn.dataset.original) btn.dataset.original = btn.textContent;
+          btn.classList.add('going');
+          btn.textContent = 'Going \u2713';
+        }
+      },
+
+      switchBookingTab(tab, el) {
+        document.querySelectorAll('.segment-btn').forEach(b => b.classList.remove('active'));
+        el.classList.add('active');
+        document.querySelectorAll('.bookings-tab').forEach(t => t.classList.remove('active'));
+        document.getElementById(`bookings-${tab}`).classList.add('active');
+      },
+
+      cancelBooking(btn) {
+        const card = btn.closest('.card');
+        if (card.querySelector('.cancel-confirm')) return;
+        const confirm = document.createElement('div');
+        confirm.className = 'cancel-confirm';
+        confirm.innerHTML = `
+          <button class="cancel-yes" onclick="App.confirmCancel(this)">Yes, cancel</button>
+          <button class="cancel-no" onclick="this.parentElement.remove()">Keep</button>
+        `;
+        card.appendChild(confirm);
+      },
+
+      confirmCancel(btn) {
+        const bookingCard = btn.closest('.booking-card');
+        bookingCard.style.transition = 'opacity 300ms, transform 300ms';
+        bookingCard.style.opacity = '0';
+        bookingCard.style.transform = 'translateX(-20px)';
+        setTimeout(() => bookingCard.remove(), 300);
+      },
+
+      switchContentTab(tab, el) {
+        document.querySelectorAll('.content-tab').forEach(t => t.classList.remove('active'));
+        el.classList.add('active');
+        document.querySelectorAll('.content-panel').forEach(p => p.classList.remove('active'));
+        document.getElementById(`content-${tab}`).classList.add('active');
+      },
+
+      switchToAdmin() {
+        this.showScreen('admin');
+      },
+
+      switchToClient() {
+        this.showScreen('profile');
+        this.currentScreen = 'profile';
+      },
+
+      toggleRoster(card) {
+        card.classList.toggle('expanded');
+      },
+
+      showHomeClassDetail() {
+        this.selectedDay = 'mon-31';
+        this.selectedFilter = 'all';
+        this.renderSchedule();
+        this.showClassDetail(0);
+      },
+
+      togglePlay(el) {
+        const card = el.closest('.resource-card');
+        const progress = card.querySelector('.audio-progress');
+        const isPlaying = el.classList.contains('playing');
+
+        // Stop all other playing
+        document.querySelectorAll('.play-circle.playing').forEach(p => {
+          p.classList.remove('playing');
+          p.querySelector('.play-icon').innerHTML = '&#9654;';
+          p.closest('.resource-card').querySelector('.audio-progress').style.display = 'none';
+        });
+
+        if (!isPlaying) {
+          el.classList.add('playing');
+          el.querySelector('.play-icon').innerHTML = '&#10074;&#10074;';
+          progress.style.display = 'block';
+          const fill = progress.querySelector('.progress-fill');
+          fill.style.width = '0%';
+          setTimeout(() => { fill.style.transition = 'width 3s linear'; fill.style.width = '15%'; }, 100);
+        }
+      }
+    };
+
+    const CLASS_DESCRIPTIONS = {
+      'Reformer Dynamic': 'A full-body reformer workout focusing on strength, control, and flow. Expect to work hard, move with precision, and leave feeling powerful. Suitable for those with some Pilates experience.',
+      'Mat Pilates': 'Classical mat Pilates. Build core strength, flexibility, and body awareness using just your body and the mat. Perfect for all experience levels.',
+      'Reformer Core': 'A gentle, thorough introduction to the reformer machine. Perfect if you have never tried Pilates before. We go at your pace and explain every movement.',
+      'Candlelight Pilates': 'An evening reformer session in soft, low light. The same quality instruction with a calmer, more restorative atmosphere. Leave feeling completely at peace.',
+      'Reformer + Breathwork': 'Movement meets stillness. 50 minutes of reformer work followed by 25 minutes of guided breathwork. A full reset for body and mind.',
+      'Strength & Conditioning': 'Bodyweight and resistance training that complements your Pilates practice. Build functional strength, improve posture, and challenge yourself.',
+      'Outdoor Pilates': 'Mat Pilates in the beautiful Wye Valley. Seasonal and weather permitting. Connect with nature while building strength and flexibility.'
+    };
+
+    const SCHEDULE_DATA = {
+      'mon-31': [
+        { time: '07:00', duration: '50 min', name: 'Reformer Dynamic', type: 'reformer', instructor: 'Katie', spots: 1, capacity: 4, level: 'Intermediate' },
+        { time: '10:00', duration: '50 min', name: 'Mat Pilates', type: 'mat', instructor: 'Katie', spots: 4, capacity: 6, level: 'All Levels' },
+        { time: '12:00', duration: '50 min', name: 'Reformer Core', type: 'reformer', instructor: 'Katie', spots: 3, capacity: 4, level: 'Beginner' },
+        { time: '18:00', duration: '50 min', name: 'Candlelight Pilates', type: 'reformer', instructor: 'Katie', spots: 0, capacity: 4, level: 'All Levels' },
+        { time: '19:30', duration: '75 min', name: 'Reformer + Breathwork', type: 'breathwork', instructor: 'Katie', spots: 2, capacity: 4, level: 'All Levels' }
+      ],
+      'tue-1': [
+        { time: '07:00', duration: '50 min', name: 'Reformer Dynamic', type: 'reformer', instructor: 'Katie', spots: 3, capacity: 4, level: 'Intermediate' },
+        { time: '09:30', duration: '45 min', name: 'Strength & Conditioning', type: 'sc', instructor: 'Katie', spots: 5, capacity: 6, level: 'All Levels' },
+        { time: '17:30', duration: '50 min', name: 'Reformer Core', type: 'reformer', instructor: 'Katie', spots: 2, capacity: 4, level: 'Beginner' }
+      ],
+      'wed-2': [
+        { time: '07:00', duration: '50 min', name: 'Mat Pilates', type: 'mat', instructor: 'Katie', spots: 3, capacity: 6, level: 'All Levels' },
+        { time: '10:00', duration: '50 min', name: 'Reformer Dynamic', type: 'reformer', instructor: 'Katie', spots: 4, capacity: 4, level: 'Intermediate' },
+        { time: '18:00', duration: '50 min', name: 'Reformer Core', type: 'reformer', instructor: 'Katie', spots: 1, capacity: 4, level: 'Beginner' }
+      ],
+      'thu-3': [
+        { time: '07:00', duration: '50 min', name: 'Reformer Dynamic', type: 'reformer', instructor: 'Katie', spots: 2, capacity: 4, level: 'Intermediate' },
+        { time: '12:00', duration: '50 min', name: 'Mat Pilates', type: 'mat', instructor: 'Katie', spots: 6, capacity: 6, level: 'All Levels' },
+        { time: '19:00', duration: '50 min', name: 'Candlelight Pilates', type: 'reformer', instructor: 'Katie', spots: 3, capacity: 4, level: 'All Levels' }
+      ],
+      'fri-4': [
+        { time: '07:00', duration: '50 min', name: 'Reformer Core', type: 'reformer', instructor: 'Katie', spots: 4, capacity: 4, level: 'Beginner' },
+        { time: '09:30', duration: '45 min', name: 'Strength & Conditioning', type: 'sc', instructor: 'Katie', spots: 4, capacity: 6, level: 'All Levels' }
+      ],
+      'sat-5': [
+        { time: '09:00', duration: '60 min', name: 'Outdoor Pilates', type: 'mat', instructor: 'Katie', spots: 7, capacity: 10, level: 'All Levels' },
+        { time: '11:00', duration: '50 min', name: 'Reformer Dynamic', type: 'reformer', instructor: 'Katie', spots: 2, capacity: 4, level: 'Intermediate' }
+      ],
+      'sun-6': [
+        { time: '10:00', duration: '75 min', name: 'Reformer + Breathwork', type: 'breathwork', instructor: 'Katie', spots: 3, capacity: 4, level: 'All Levels' }
+      ]
+    };
+
+    document.addEventListener('DOMContentLoaded', () => App.init());
+  </script>
+</body>
+</html>
