@@ -5,34 +5,40 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1, user-scalable=no">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  <meta name="apple-mobile-web-app-title" content="ALIGN.">
-  <meta name="theme-color" content="#F5F0EB">
+  <meta name="apple-mobile-web-app-title" content="Alīgn Studio">
+  <meta name="theme-color" content="#F5F1E8">
   <meta name="mobile-web-app-capable" content="yes">
-  <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'><rect fill='%238B9F82' width='180' height='180' rx='40'/><text x='90' y='115' text-anchor='middle' font-family='Georgia,serif' font-size='60' font-weight='700' fill='white' letter-spacing='3'>A.</text></svg>">
-  <title>ALIGN. Pilates</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'><rect fill='%23F5F1E8' width='180' height='180' rx='40'/><rect x='60' y='75' width='60' height='8' rx='2' fill='%235A3029'/><circle cx='90' cy='115' r='10' fill='%235A3029'/></svg>">
+  <title>Alīgn Studio · Pilates</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Proza+Libre:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --sage: #8B9F82;
-      --sage-light: #A8B8A0;
-      --sage-dark: #6B7F62;
-      --cream: #F5F0EB;
-      --cream-light: #FAF8F5;
+      /* Brand */
+      --brown-deep: #5A3029;
+      --sage: #A4B49B;
+      --sage-soft: #C9D2C0;
+      --sage-muted: #6B7F62;
+      --cream: #F5F1E8;
+      --cream-soft: #FAF7F0;
       --white: #FFFFFF;
-      --charcoal: #2C2C2C;
-      --stone: #A69F95;
-      --stone-dark: #5C574F;
-      --sand: #E8E0D8;
-      --success: #6B8F71;
-      --warning: #D4A574;
-      --error: #C47A7A;
-      --font-serif: 'Playfair Display', Georgia, serif;
-      --font-sans: 'Inter', -apple-system, sans-serif;
+      --ink: #1A1A1A;
+
+      /* Typography */
+      --font-display: 'Proza Libre', Georgia, serif;
+      --font-body: 'Inter', -apple-system, sans-serif;
+
+      /* Radius */
       --radius-sm: 8px;
-      --radius-md: 12px;
-      --radius-lg: 16px;
-      --shadow-card: 0 2px 8px rgba(0,0,0,0.06);
-      --shadow-elevated: 0 8px 30px rgba(0,0,0,0.08);
+      --radius-md: 16px;
+      --radius-pill: 999px;
+
+      /* Shadow */
+      --shadow-card: 0 2px 12px rgba(90,48,41,0.06);
+      --shadow-elevated: 0 8px 30px rgba(90,48,41,0.08);
+
+      /* Safe area */
       --safe-top: env(safe-area-inset-top, 44px);
       --safe-bottom: env(safe-area-inset-bottom, 34px);
     }
@@ -49,11 +55,12 @@
     }
 
     body {
-      font-family: var(--font-sans);
+      font-family: var(--font-body);
       background: var(--cream);
-      color: var(--charcoal);
+      color: var(--brown-deep);
       font-size: 16px;
       line-height: 1.5;
+      letter-spacing: 0.005em;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
@@ -118,11 +125,11 @@
       justify-content: center;
       width: 100%;
       height: 48px;
-      background: var(--sage);
-      color: var(--white);
+      background: var(--brown-deep);
+      color: var(--cream);
       border: none;
       border-radius: var(--radius-sm);
-      font-family: var(--font-sans);
+      font-family: var(--font-body);
       font-size: 16px;
       font-weight: 600;
       cursor: pointer;
@@ -145,7 +152,7 @@
       color: var(--sage);
       border: 1.5px solid var(--sage);
       border-radius: var(--radius-sm);
-      font-family: var(--font-sans);
+      font-family: var(--font-body);
       font-size: 16px;
       font-weight: 600;
       cursor: pointer;
@@ -162,7 +169,7 @@
       background: none;
       border: none;
       color: var(--sage);
-      font-family: var(--font-sans);
+      font-family: var(--font-body);
       font-weight: 600;
       font-size: 14px;
       cursor: pointer;
@@ -176,11 +183,11 @@
       height: 48px;
       padding: 0 16px;
       background: var(--white);
-      border: 1.5px solid var(--sand);
+      border: 1.5px solid var(--sage-soft);
       border-radius: var(--radius-sm);
-      font-family: var(--font-sans);
+      font-family: var(--font-body);
       font-size: 16px;
-      color: var(--charcoal);
+      color: var(--brown-deep);
       transition: border-color 200ms;
       -webkit-appearance: none;
       appearance: none;
@@ -189,11 +196,11 @@
     .input-field:focus {
       outline: none;
       border-color: var(--sage);
-      box-shadow: 0 0 0 3px rgba(139,159,130,0.15);
+      box-shadow: 0 0 0 3px rgba(164,180,155,0.15);
     }
 
     .input-field::placeholder {
-      color: var(--stone);
+      color: var(--sage-muted);
     }
 
     .input-group {
@@ -204,52 +211,57 @@
       display: block;
       font-size: 13px;
       font-weight: 500;
-      color: var(--stone-dark);
+      color: var(--brown-deep);
       margin-bottom: 6px;
     }
 
     /* Typography */
     .heading-xl {
-      font-family: var(--font-serif);
+      font-family: var(--font-display);
       font-size: 28px;
       font-weight: 600;
-      color: var(--charcoal);
+      color: var(--brown-deep);
       line-height: 1.2;
     }
 
     .heading-lg {
-      font-family: var(--font-serif);
+      font-family: var(--font-display);
       font-size: 22px;
       font-weight: 600;
-      color: var(--charcoal);
+      color: var(--brown-deep);
       line-height: 1.3;
     }
 
     .heading-md {
-      font-family: var(--font-sans);
+      font-family: var(--font-body);
       font-size: 18px;
       font-weight: 600;
-      color: var(--charcoal);
+      color: var(--brown-deep);
     }
 
     .body-text {
+      font-family: var(--font-body);
       font-size: 16px;
-      color: var(--charcoal);
+      color: var(--brown-deep);
       line-height: 1.6;
+      letter-spacing: 0.01em;
     }
 
     .caption {
+      font-family: var(--font-body);
       font-size: 13px;
-      color: var(--stone);
+      color: var(--sage-muted);
       line-height: 1.4;
+      letter-spacing: 0.01em;
     }
 
     .label {
+      font-family: var(--font-body);
       font-size: 12px;
       font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: 1.5px;
-      color: var(--stone);
+      letter-spacing: 0.05em;
+      color: var(--sage-muted);
     }
 
     /* Badges */
@@ -265,23 +277,36 @@
     }
 
     .badge-sage {
-      background: rgba(139,159,130,0.15);
-      color: var(--sage-dark);
-    }
-
-    .badge-warning {
-      background: rgba(212,165,116,0.15);
-      color: var(--warning);
-    }
-
-    .badge-error {
-      background: rgba(196,122,122,0.15);
-      color: var(--error);
+      background: rgba(164,180,155,0.15);
+      color: var(--sage-muted);
     }
 
     .badge-success {
-      background: rgba(107,143,113,0.15);
-      color: var(--success);
+      background: rgba(90,48,41,0.15);
+      color: var(--brown-deep);
+    }
+
+    /* Capacity micro-dots */
+    .capacity-dots {
+      display: inline-flex;
+      gap: 3px;
+      align-items: center;
+      margin-left: 6px;
+    }
+    .capacity-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      border: 1px solid var(--sage);
+      background: transparent;
+    }
+    .capacity-dot.filled {
+      background: var(--sage);
+    }
+    .capacity-dot.full {
+      /* All 4 filled brown — class is fully booked */
+      background: var(--brown-deep);
+      border-color: var(--brown-deep);
     }
 
     /* Section label */
@@ -290,7 +315,7 @@
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 1.5px;
-      color: var(--stone);
+      color: var(--sage-muted);
       margin-bottom: 12px;
       margin-top: 28px;
     }
@@ -340,7 +365,7 @@
     .overlay-handle {
       width: 40px;
       height: 4px;
-      background: var(--sand);
+      background: var(--sage-soft);
       border-radius: 2px;
       margin: 12px auto 0;
     }
@@ -353,11 +378,11 @@
       right: 0;
       height: calc(64px + var(--safe-bottom));
       padding-bottom: var(--safe-bottom);
-      background: var(--white);
+      background: var(--cream-soft);
       display: flex;
       align-items: center;
       justify-content: space-around;
-      border-top: 1px solid var(--sand);
+      border-top: 1px solid var(--sage-soft);
       z-index: 40;
       transition: transform 300ms ease;
       max-width: 430px;
@@ -373,37 +398,46 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 2px;
+      gap: 6px;
       padding: 6px 0;
       min-width: 64px;
       cursor: pointer;
       -webkit-tap-highlight-color: transparent;
+      background: none;
+      border: none;
+      font: inherit;
+      color: inherit;
     }
-
-    .tab-item svg {
-      width: 24px;
-      height: 24px;
-      stroke: var(--stone);
-      fill: none;
-      stroke-width: 1.5;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      transition: stroke 200ms;
+    .tab-item:focus-visible {
+      outline: 2px solid var(--sage);
+      outline-offset: 4px;
+      border-radius: 8px;
     }
-
-    .tab-item span {
+    .tab-mark {
+      display: inline-block;
+      width: 16px;
+      height: 3px;
+      border-radius: 50%;
+      background: var(--sage-muted);
+      transform: scaleX(0.375) scaleY(2);
+      transform-origin: center center;
+      transition: background-color 220ms ease;
+    }
+    .tab-item.active .tab-mark {
+      background: var(--brown-deep);
+      transform: scaleX(1) scaleY(1);
+      transition: background-color 220ms ease, transform 220ms ease;
+    }
+    .tab-label {
+      font-family: var(--font-body);
       font-size: 10px;
       font-weight: 500;
-      color: var(--stone);
+      letter-spacing: 0.06em;
+      color: var(--sage-muted);
       transition: color 200ms;
     }
-
-    .tab-item.active svg {
-      stroke: var(--sage);
-    }
-
-    .tab-item.active span {
-      color: var(--sage);
+    .tab-item.active .tab-label {
+      color: var(--brown-deep);
       font-weight: 600;
     }
 
@@ -418,22 +452,112 @@
     .filter-chip {
       padding: 8px 16px; border-radius: 20px; font-size: 13px; font-weight: 500;
       white-space: nowrap; cursor: pointer; transition: all 200ms;
-      background: var(--sand); color: var(--stone); border: none;
+      background: var(--sage-soft); color: var(--sage-muted); border: none;
       -webkit-tap-highlight-color: transparent;
     }
     .filter-chip.active { background: var(--sage); color: var(--white); }
 
-    /* Day selector */
-    .day-selector { display: flex; justify-content: space-between; padding: 12px 0; }
-    .day-btn {
-      display: flex; flex-direction: column; align-items: center; gap: 2px;
-      width: 44px; padding: 8px 0; border-radius: 22px; border: none; background: none;
-      cursor: pointer; transition: all 200ms; -webkit-tap-highlight-color: transparent;
+    /* Day timeline — today's classes plotted on a horizontal line */
+    .day-timeline {
+      position: relative;
+      height: 48px;
+      margin: 8px 0 16px;
+      padding: 0 8px;
     }
-    .day-btn span:first-child { font-size: 10px; text-transform: uppercase; font-weight: 500; color: var(--stone); letter-spacing: 0.5px; }
-    .day-btn span:last-child { font-size: 16px; font-weight: 600; color: var(--charcoal); }
-    .day-btn.active { background: var(--sage); }
-    .day-btn.active span { color: var(--white) !important; }
+    .day-timeline-line {
+      position: absolute;
+      left: 8px;
+      right: 8px;
+      top: 50%;
+      height: 1px;
+      background: var(--sage);
+      transform: translateY(-50%);
+    }
+    .day-timeline-label {
+      position: absolute;
+      bottom: 0;
+      font-family: var(--font-body);
+      font-size: 10px;
+      letter-spacing: 0.05em;
+      color: var(--sage-muted);
+    }
+    .day-timeline-label.start { left: 8px; }
+    .day-timeline-label.end { right: 8px; }
+    .day-timeline-dot {
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--sage);
+      border: none;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+      padding: 0;
+    }
+    .day-timeline-dot.now {
+      width: 10px;
+      height: 10px;
+      background: var(--brown-deep);
+      z-index: 1;
+    }
+
+    /* Week selector — 7 days plotted on a line, active = brown macron-dash */
+    .week-selector {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      padding: 8px 4px 16px;
+      margin-bottom: 16px;
+    }
+    .week-selector-line {
+      position: absolute;
+      left: 4px;
+      right: 4px;
+      bottom: 12px;
+      height: 1px;
+      background: var(--sage);
+    }
+    .week-day-btn {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      background: none;
+      border: none;
+      padding: 0;
+      min-width: 44px;
+      min-height: 44px;
+      justify-content: center;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .week-day-btn:focus-visible {
+      outline: 2px solid var(--sage);
+      outline-offset: 4px;
+      border-radius: 8px;
+    }
+    .day-name {
+      font-family: var(--font-body);
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      color: var(--sage-muted);
+      text-transform: uppercase;
+      transition: color 200ms ease;
+    }
+    .day-mark {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 3px;
+      background: var(--sage-muted);
+      transition: width 220ms ease, height 220ms ease, background-color 220ms ease, border-radius 220ms ease;
+    }
+    .week-day-btn.active .day-name { color: var(--brown-deep); font-weight: 600; }
+    .week-day-btn.active .day-mark { width: 16px; height: 3px; border-radius: 1px; background: var(--brown-deep); }
 
     /* Next class card */
     .next-class-card {
@@ -449,6 +573,112 @@
       -webkit-tap-highlight-color: transparent;
     }
     .next-class-card:active { transform: scale(0.98); transition: transform 100ms; }
+
+    /* Home — 7-dot week strip (Line + Points motif as daily nav into Your Line) */
+    .week-strip {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      padding: 16px 4px;
+      margin: 16px 0;
+      background: none;
+      border: none;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+      font: inherit;
+      color: inherit;
+      text-align: left;
+    }
+    .week-strip:focus-visible {
+      outline: 2px solid var(--sage);
+      outline-offset: 4px;
+      border-radius: 8px;
+    }
+    .week-strip-line {
+      position: absolute;
+      left: 4px;
+      right: 4px;
+      top: 50%;
+      height: 1px;
+      background: var(--sage);
+      transform: translateY(-50%);
+    }
+    .week-day {
+      position: relative;
+      z-index: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 4px;
+    }
+    .week-day .dot {
+      display: block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--cream-soft);
+      border: 1.5px solid var(--sage-soft);
+      transition: background 200ms ease, border-color 200ms ease, transform 200ms ease;
+    }
+    .week-day.attended .dot {
+      background: var(--sage);
+      border-color: var(--sage);
+    }
+    .week-day.today .dot {
+      background: var(--brown-deep);
+      border-color: var(--brown-deep);
+      width: 10px;
+      height: 10px;
+    }
+
+    /* Home — hero editorial card */
+    .hero-editorial {
+      position: relative;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      margin-bottom: 24px;
+      aspect-ratio: 16 / 10;
+      background: var(--sage-soft);
+    }
+    .hero-image {
+      position: absolute;
+      inset: 0;
+      background-color: var(--sage-soft);
+      background-size: cover;
+      background-position: center;
+    }
+    .hero-editorial::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 50%, rgba(26,26,26,0.45) 100%);
+      pointer-events: none;
+    }
+    .hero-overlay {
+      position: absolute;
+      bottom: 16px;
+      left: 16px;
+      right: 16px;
+      color: var(--cream);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      z-index: 1;
+    }
+    .hero-tag {
+      font-family: var(--font-body);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.85;
+    }
+    .hero-class {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 600;
+    }
 
     /* Community event */
     .event-card {
@@ -478,7 +708,7 @@
       background: var(--sage); color: var(--white);
       transition: all 200ms; -webkit-tap-highlight-color: transparent;
     }
-    .btn-rsvp.going { background: var(--success); }
+    .btn-rsvp.going { background: var(--brown-deep); }
 
     /* Class card */
     .class-card { cursor: pointer; -webkit-tap-highlight-color: transparent; }
@@ -486,42 +716,70 @@
 
     /* Splash Screen */
     .splash-content {
+      position: relative;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       height: 100%;
-      background: linear-gradient(165deg, var(--cream) 0%, var(--cream-light) 40%, #E8E0D6 100%);
+      background: linear-gradient(165deg, var(--cream) 0%, var(--cream-soft) 60%, #EDE5D6 100%);
       animation: splashFadeIn 800ms ease-out;
+      overflow: hidden;
+    }
+
+    .splash-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(circle, var(--sage-muted) 1px, transparent 1px),
+        url('img/splash-backdrop.webp');
+      background-size:
+        24px 24px,
+        cover;
+      background-position:
+        center,
+        center;
+      background-repeat:
+        repeat,
+        no-repeat;
+      opacity: 0.55;
+      pointer-events: none;
     }
 
     .splash-logo {
-      font-family: var(--font-serif);
-      font-size: 52px;
-      font-weight: 700;
-      color: var(--sage-dark);
-      letter-spacing: 6px;
+      font-family: var(--font-display);
+      font-size: 44px;
+      font-weight: 600;
+      color: var(--brown-deep);
+      letter-spacing: 0.5px;
+      position: relative;
+      z-index: 1;
     }
 
-    .splash-dot {
-      display: inline-block;
-      width: 10px;
-      height: 10px;
-      background: var(--sage);
-      border-radius: 50%;
-      margin-left: 2px;
-      vertical-align: middle;
+    .splash-logo .logo-i-macron {
       position: relative;
-      top: -2px;
+    }
+
+    .splash-logo .logo-i-macron::before {
+      content: '';
+      position: absolute;
+      top: -0.18em;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0.5em;
+      height: 3px;
+      background: var(--brown-deep);
+      border-radius: 1px;
     }
 
     .splash-tagline {
-      font-family: var(--font-sans);
+      font-family: var(--font-body);
       font-size: 13px;
-      color: var(--stone);
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      margin-top: 16px;
+      color: var(--sage-muted);
+      letter-spacing: 1.5px;
+      margin-top: 18px;
+      position: relative;
+      z-index: 1;
     }
 
     @keyframes splashFadeIn {
@@ -537,7 +795,7 @@
 
     /* Splash screen overrides - no tab bar offset */
     [data-screen="splash"] {
-      background: linear-gradient(165deg, var(--cream) 0%, var(--cream-light) 40%, #E8E0D6 100%);
+      background: linear-gradient(165deg, var(--cream) 0%, var(--cream-soft) 60%, #EDE5D6 100%);
     }
 
     /* Overlay content padding */
@@ -557,17 +815,66 @@
       to   { opacity: 1; transform: translateY(0); }
     }
 
+    /* Splash animated dots */
+    .splash-dots {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 2;
+    }
+    .splash-dots .dot {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 8px;
+      height: 8px;
+      margin-left: -4px;
+      margin-top: -4px;
+      background: var(--brown-deep);
+      border-radius: 50%;
+      opacity: 0;
+    }
+
+    /* When GSAP is running, hide logo+tagline from frame 1 so GSAP reveals them */
+    .splash-content.is-animated .splash-logo,
+    .splash-content.is-animated .splash-tagline {
+      opacity: 0;
+    }
+
+    /* Reduced-motion: restore static visibility, hide animated dots */
+    @media (prefers-reduced-motion: reduce) {
+      .splash-content.is-animated .splash-logo,
+      .splash-content.is-animated .splash-tagline {
+        opacity: 1;
+      }
+      .splash-dots {
+        display: none;
+      }
+
+      /* Global: suppress all non-essential motion */
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+      /* Explicit: tab dash-morph transition (documents intent beyond the * rule) */
+      .tab-item.active .tab-mark {
+        transition: none;
+      }
+    }
+
     .splash-get-started-btn {
       background: none;
       border: none;
-      font-family: var(--font-sans);
+      font-family: var(--font-body);
       font-size: 14px;
       font-weight: 600;
-      color: var(--sage-dark);
+      color: var(--sage-muted);
       letter-spacing: 1px;
       cursor: pointer;
       padding: 10px 24px;
-      border-bottom: 1px solid var(--sage-dark);
+      border-bottom: 1px solid var(--sage-muted);
       -webkit-tap-highlight-color: transparent;
     }
 
@@ -580,28 +887,46 @@
     }
 
     .onboarding-progress {
+      position: relative;
       display: flex;
-      justify-content: center;
-      gap: 8px;
-      padding: 16px 0;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 32px;
+      max-width: 320px;
+      margin: 0 auto;
+    }
+
+    .onboarding-line {
+      position: absolute;
+      left: 32px;
+      right: 32px;
+      top: 50%;
+      height: 1px;
+      background: var(--sage);
+      transform: translateY(-50%);
     }
 
     .progress-dot {
+      position: relative;
+      z-index: 1;
       width: 8px;
       height: 8px;
       border-radius: 50%;
-      background: var(--sand);
-      transition: background 300ms, width 300ms;
-    }
-
-    .progress-dot.active {
-      background: var(--sage);
-      width: 24px;
-      border-radius: 4px;
+      background: var(--cream);
+      border: 1.5px solid var(--sage);
+      transition: width 300ms ease, height 300ms ease, background-color 300ms ease, border-color 300ms ease;
     }
 
     .progress-dot.completed {
-      background: var(--sage);
+      background: var(--brown-deep);
+      border-color: var(--brown-deep);
+    }
+
+    .progress-dot.active {
+      width: 10px;
+      height: 10px;
+      background: var(--brown-deep);
+      border-color: var(--brown-deep);
     }
 
     .onboarding-step {
@@ -629,7 +954,7 @@
     .onboarding-back svg {
       width: 22px;
       height: 22px;
-      stroke: var(--sage-dark);
+      stroke: var(--sage-muted);
       fill: none;
       stroke-width: 2;
       stroke-linecap: round;
@@ -637,10 +962,10 @@
     }
 
     .onboarding-heading {
-      font-family: var(--font-serif);
+      font-family: var(--font-display);
       font-size: 24px;
       font-weight: 700;
-      color: var(--sage-dark);
+      color: var(--sage-muted);
       line-height: 1.2;
       margin-bottom: 8px;
     }
@@ -650,9 +975,9 @@
     }
 
     .onboarding-subtext {
-      font-family: var(--font-sans);
+      font-family: var(--font-body);
       font-size: 15px;
-      color: var(--stone);
+      color: var(--sage-muted);
       margin-bottom: 28px;
       line-height: 1.5;
     }
@@ -669,20 +994,20 @@
       justify-content: space-between;
       gap: 12px;
       padding: 12px 0;
-      border-bottom: 1px solid var(--sand);
+      border-bottom: 1px solid var(--sage-soft);
     }
 
     .toggle-question {
       flex: 1;
       font-size: 14px;
       line-height: 1.4;
-      color: var(--charcoal);
+      color: var(--brown-deep);
     }
 
     .toggle-pill {
       display: flex;
       flex-shrink: 0;
-      background: var(--sand);
+      background: var(--sage-soft);
       border-radius: 20px;
       overflow: hidden;
       cursor: pointer;
@@ -692,7 +1017,7 @@
       padding: 6px 14px;
       font-size: 12px;
       font-weight: 600;
-      color: var(--stone);
+      color: var(--sage-muted);
       transition: all 200ms;
       border-radius: 20px;
     }
@@ -703,7 +1028,7 @@
     }
 
     .toggle-option.active-yes {
-      background: var(--warning);
+      background: var(--sage-muted);
       color: var(--white);
     }
 
@@ -712,11 +1037,11 @@
       width: 100%;
       padding: 12px 16px;
       background: var(--white);
-      border: 1.5px solid var(--sand);
+      border: 1.5px solid var(--sage-soft);
       border-radius: var(--radius-sm);
-      font-family: var(--font-sans);
+      font-family: var(--font-body);
       font-size: 15px;
-      color: var(--charcoal);
+      color: var(--brown-deep);
       resize: none;
       transition: border-color 200ms;
       -webkit-appearance: none;
@@ -727,11 +1052,11 @@
     .textarea-field:focus {
       outline: none;
       border-color: var(--sage);
-      box-shadow: 0 0 0 3px rgba(139,159,130,0.15);
+      box-shadow: 0 0 0 3px rgba(164,180,155,0.15);
     }
 
     .textarea-field::placeholder {
-      color: var(--stone);
+      color: var(--sage-muted);
     }
 
     /* Waiver card */
@@ -745,7 +1070,7 @@
       -webkit-overflow-scrolling: touch;
       font-size: 14px;
       line-height: 1.7;
-      color: var(--stone-dark);
+      color: var(--brown-deep);
       margin-bottom: 16px;
     }
 
@@ -761,7 +1086,7 @@
     .custom-checkbox {
       width: 22px;
       height: 22px;
-      border: 2px solid var(--sand);
+      border: 2px solid var(--sage-soft);
       border-radius: 4px;
       display: flex;
       align-items: center;
@@ -798,25 +1123,15 @@
       padding: 0 16px 40px;
     }
 
-    .step4-reformer {
+    .onboarding-citation {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 24px;
+      font-weight: 400;
+      color: var(--brown-deep);
+      text-align: center;
       margin-bottom: 32px;
-    }
-
-    .step4-title {
-      font-family: var(--font-serif);
-      font-size: 28px;
-      font-weight: 700;
-      color: var(--sage-dark);
-      margin-bottom: 12px;
-    }
-
-    .step4-sub {
-      font-family: var(--font-sans);
-      font-size: 15px;
-      color: var(--stone);
-      max-width: 260px;
-      line-height: 1.6;
-      margin-bottom: 36px;
+      line-height: 1.4;
     }
 
     /* Sign-in link */
@@ -824,7 +1139,7 @@
       text-align: center;
       margin-top: 20px;
       font-size: 14px;
-      color: var(--stone);
+      color: var(--sage-muted);
     }
 
     .signin-link button {
@@ -832,7 +1147,7 @@
       border: none;
       color: var(--sage);
       font-weight: 600;
-      font-family: var(--font-sans);
+      font-family: var(--font-body);
       font-size: 14px;
       cursor: pointer;
       padding: 0 4px;
@@ -852,7 +1167,7 @@
       border: none;
       border-radius: 50%;
       cursor: pointer;
-      color: var(--stone-dark);
+      color: var(--brown-deep);
       z-index: 2;
       -webkit-tap-highlight-color: transparent;
     }
@@ -870,86 +1185,157 @@
       bottom: 0; left: 0; right: 0;
       padding: 16px 24px calc(16px + var(--safe-bottom));
       background: var(--white);
-      border-top: 1px solid var(--sand);
+      border-top: 1px solid var(--sage-soft);
       z-index: 2;
     }
 
     /* ── Class info layout ── */
     .class-header { margin-bottom: 24px; }
-    .class-name { font-family: var(--font-serif); font-size: 24px; font-weight: 600; color: var(--charcoal); margin-bottom: 8px; }
-    .class-meta-row { display: flex; gap: 16px; flex-wrap: wrap; margin: 12px 0; }
-    .class-meta-item { display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--stone); }
-    .class-meta-item svg { width: 16px; height: 16px; stroke: var(--stone); fill: none; stroke-width: 1.5; }
+    .class-name { font-family: var(--font-display); font-size: 22px; font-weight: 600; line-height: 1.3; color: var(--brown-deep); margin-bottom: 8px; }
 
-    .class-description { font-size: 15px; line-height: 1.7; color: var(--stone-dark); margin: 20px 0; }
+    /* Level badge — sage-soft bg + brown text (no warning/error palette) */
+    .level-badge {
+      display: inline-flex;
+      padding: 3px 10px;
+      border-radius: var(--radius-pill);
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      background: var(--sage-soft);
+      color: var(--brown-deep);
+    }
+    .class-meta-row { display: flex; gap: 16px; flex-wrap: wrap; margin: 12px 0; }
+    .class-meta-item { display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--sage-muted); }
+    .class-meta-item svg { width: 16px; height: 16px; stroke: var(--sage-muted); fill: none; stroke-width: 1.5; }
+
+    .class-description { font-size: 15px; line-height: 1.7; color: var(--brown-deep); margin: 20px 0; }
 
     /* ── Instructor section ── */
     .instructor-section { display: flex; align-items: center; gap: 12px; padding: 16px; background: var(--cream); border-radius: var(--radius-md); margin: 20px 0; }
-    .instructor-avatar { width: 44px; height: 44px; border-radius: 50%; background: var(--sage-light); display: flex; align-items: center; justify-content: center; color: var(--white); font-family: var(--font-serif); font-size: 16px; font-weight: 600; flex-shrink: 0; }
-    .instructor-name { font-size: 15px; font-weight: 600; color: var(--charcoal); }
-    .instructor-cred { font-size: 12px; color: var(--stone); margin-top: 2px; }
+    .instructor-avatar { width: 44px; height: 44px; border-radius: 50%; background: var(--sage-soft); display: flex; align-items: center; justify-content: center; color: var(--white); font-family: var(--font-display); font-size: 16px; font-weight: 600; flex-shrink: 0; }
+    .instructor-name { font-size: 15px; font-weight: 600; color: var(--brown-deep); }
+    .instructor-cred { font-size: 12px; color: var(--sage-muted); margin-top: 2px; }
 
-    /* ── Reformer spot selection ── */
+    /* ── Reformer spot selection (Line + 4 Dots) ── */
     .spot-selection { margin: 24px 0; }
-    .spot-selection-label { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; color: var(--stone); margin-bottom: 16px; }
+    .spot-selection-label { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; color: var(--sage-muted); margin-bottom: 16px; }
 
-    .studio-layout {
+    .reformer-picker {
+      padding: 28px 16px;
+      text-align: center;
       background: var(--cream);
       border-radius: var(--radius-md);
-      padding: 24px;
-      position: relative;
     }
-    .studio-label {
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      color: var(--stone);
-      text-align: center;
-      font-weight: 500;
-    }
-    .studio-label.top { margin-bottom: 20px; }
-    .studio-label.bottom { margin-top: 20px; }
-
-    .reformer-grid {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-    }
-    .reformer-spot {
-      width: 60px;
-      height: 60px;
-      border-radius: var(--radius-sm);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 16px;
+    .reformer-label-top, .reformer-label-bottom {
+      font-family: var(--font-body);
+      font-size: 12px;
       font-weight: 600;
-      cursor: pointer;
-      transition: all 200ms;
-      -webkit-tap-highlight-color: transparent;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--sage-muted);
     }
-    .reformer-spot.available {
-      background: var(--white);
-      border: 2px solid var(--sage);
-      color: var(--sage);
+    .reformer-label-top { margin-bottom: 24px; }
+    .reformer-label-bottom { margin-top: 24px; }
+    .reformer-line {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 12px;
+      height: 32px;
+      margin: 0 auto;
+      max-width: 280px;
     }
-    .reformer-spot.available:active { transform: scale(0.93); }
-    .reformer-spot.taken {
-      background: var(--stone);
-      border: 2px solid var(--stone);
-      color: var(--white);
-      cursor: default;
-      opacity: 0.6;
-    }
-    .reformer-spot.selected {
+    .reformer-line::before {
+      content: '';
+      position: absolute;
+      left: 12px;
+      right: 12px;
+      top: 50%;
+      height: 1px;
       background: var(--sage);
-      border: 2px solid var(--sage);
-      color: var(--white);
-      box-shadow: 0 4px 12px rgba(139,159,130,0.3);
+      transform: translateY(-50%);
+    }
+    .reformer-dot {
+      position: relative;
+      z-index: 1;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--cream);
+      border: 1.5px solid var(--sage);
+      cursor: pointer;
+      transition: background-color 180ms ease, border-color 180ms ease, transform 180ms ease, box-shadow 180ms ease;
+      -webkit-tap-highlight-color: transparent;
+      padding: 0;
+    }
+    .reformer-dot:focus-visible {
+      outline: 2px solid var(--sage);
+      outline-offset: 4px;
+    }
+    .reformer-dot::before {
+      /* Invisible 44×44 tap target */
+      content: '';
+      position: absolute;
+      top: -14px;
+      left: -14px;
+      right: -14px;
+      bottom: -14px;
+    }
+    .reformer-dot.taken {
+      background: var(--sage-muted);
+      border-color: var(--sage-muted);
+      cursor: not-allowed;
+    }
+    .reformer-dot.selected {
+      background: var(--brown-deep);
+      border-color: var(--brown-deep);
+      box-shadow: 0 0 0 4px var(--sage-soft);
+    }
+
+    /* ── Streak / Progress line of N dots (used in Profile + Your Line) ── */
+    .streak-line {
+      position: relative;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 4px;
+      align-items: center;
+      padding: 12px 0;
+      max-width: 100%;
+    }
+    .streak-line::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 50%;
+      height: 1px;
+      background: var(--sage);
+      transform: translateY(-50%);
+      z-index: 0;
+    }
+    .streak-dot {
+      position: relative;
+      z-index: 1;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--sage);
+      border: 1.5px solid var(--sage);
+    }
+    .streak-dot.active {
+      background: var(--brown-deep);
+      border-color: var(--brown-deep);
+    }
+    .streak-dot.future {
+      background: var(--cream-soft);
+      border-color: var(--sage-soft);
     }
 
     /* ── Cancellation policy ── */
-    .cancel-policy { font-size: 12px; color: var(--stone); line-height: 1.5; margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--sand); }
+    .cancel-policy { font-size: 12px; color: var(--sage-muted); line-height: 1.5; margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--sage-soft); }
 
     /* ── Shake animation ── */
     @keyframes shake {
@@ -966,109 +1352,95 @@
       max-width: 340px;
     }
 
-    .checkmark-circle {
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 24px;
-      background: rgba(139,159,130,0.1);
+    .confirmation-content {
+      text-align: center;
+      padding: 40px 20px 20px;
     }
-    .checkmark-svg {
-      width: 48px;
-      height: 48px;
-    }
-    .checkmark-svg circle {
-      fill: none;
-      stroke: var(--sage);
-      stroke-width: 2;
-      stroke-dasharray: 166;
-      stroke-dashoffset: 166;
-      animation: checkCircle 600ms ease forwards;
-    }
-    .checkmark-svg path {
-      fill: none;
-      stroke: var(--sage);
-      stroke-width: 3;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      stroke-dasharray: 50;
-      stroke-dashoffset: 50;
-      animation: checkMark 400ms 400ms ease forwards;
-    }
-
-    @keyframes checkCircle {
-      to { stroke-dashoffset: 0; }
-    }
-    @keyframes checkMark {
-      to { stroke-dashoffset: 0; }
-    }
-
-    .confirm-title {
-      font-family: var(--font-serif);
-      font-size: 24px;
-      font-weight: 600;
-      color: var(--sage-dark);
-      margin-bottom: 20px;
-    }
-
-    .confirm-details {
-      background: var(--white);
-      border-radius: var(--radius-md);
-      padding: 20px;
-      margin-bottom: 24px;
-      text-align: left;
-      box-shadow: var(--shadow-card);
-    }
-    .confirm-detail-row {
-      display: flex;
-      justify-content: space-between;
-      padding: 6px 0;
-    }
-    .confirm-detail-label { font-size: 13px; color: var(--stone); }
-    .confirm-detail-value { font-size: 13px; font-weight: 600; color: var(--charcoal); }
-
-    .confirm-weekly {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 14px 20px;
-      background: var(--white);
-      border-radius: var(--radius-md);
-      margin-bottom: 24px;
-      box-shadow: var(--shadow-card);
-    }
-    .confirm-weekly-text { font-size: 14px; color: var(--charcoal); }
-
-    .toggle-switch {
-      width: 48px;
-      height: 28px;
-      background: var(--sand);
-      border-radius: 14px;
+    .confirmation-line {
       position: relative;
-      cursor: pointer;
-      transition: background 200ms;
-      flex-shrink: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 200px;
+      height: 32px;
+      margin: 0 auto 32px;
+      padding: 0 12px;
     }
-    .toggle-switch.on { background: var(--sage); }
-    .toggle-switch::after {
-      content: '';
+    .confirmation-line-track {
       position: absolute;
-      width: 22px; height: 22px;
-      background: var(--white);
-      border-radius: 50%;
-      top: 3px; left: 3px;
-      transition: transform 200ms;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+      left: 12px;
+      right: 12px;
+      top: 50%;
+      height: 1px;
+      background: var(--sage);
+      transform: translateY(-50%);
     }
-    .toggle-switch.on::after { transform: translateX(20px); }
+    .confirmation-dot {
+      position: relative;
+      z-index: 1;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--cream);
+      border: 1.5px solid var(--sage);
+    }
+    .confirmation-dot.taken {
+      background: var(--sage-muted);
+      border-color: var(--sage-muted);
+    }
+    .confirmation-dot.settled {
+      background: var(--brown-deep);
+      border-color: var(--brown-deep);
+      box-shadow: 0 0 0 4px var(--sage-soft);
+    }
+    .confirmation-flying-dot {
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--brown-deep);
+      pointer-events: none;
+      z-index: 2;
+      top: 50%;
+      left: 0;
+      margin-top: -6px;
+    }
+    .confirmation-settled-ring {
+      position: absolute;
+      inset: -8px;
+      border-radius: 50%;
+      border: 2px solid var(--sage-soft);
+      pointer-events: none;
+    }
+    .confirmation-heading {
+      font-family: var(--font-display);
+      font-size: 28px;
+      font-weight: 600;
+      color: var(--brown-deep);
+      margin-bottom: 12px;
+    }
+    .confirmation-details {
+      font-family: var(--font-body);
+      font-size: 15px;
+      color: var(--sage-muted);
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+    .confirmation-recurring {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      justify-content: center;
+      margin-bottom: 24px;
+      font-family: var(--font-body);
+      font-size: 14px;
+      color: var(--brown-deep);
+    }
 
     /* Segment toggle */
     .segment-toggle {
       display: flex;
-      background: var(--sand);
+      background: var(--sage-soft);
       border-radius: var(--radius-sm);
       padding: 3px;
       margin-bottom: 20px;
@@ -1078,10 +1450,10 @@
       height: 36px;
       border: none;
       border-radius: 6px;
-      font-family: var(--font-sans);
+      font-family: var(--font-body);
       font-size: 14px;
       font-weight: 500;
-      color: var(--stone);
+      color: var(--sage-muted);
       background: transparent;
       cursor: pointer;
       transition: all 200ms;
@@ -1089,7 +1461,7 @@
     }
     .segment-btn.active {
       background: var(--white);
-      color: var(--charcoal);
+      color: var(--brown-deep);
       font-weight: 600;
       box-shadow: 0 1px 3px rgba(0,0,0,0.08);
     }
@@ -1098,11 +1470,97 @@
     .bookings-tab { display: none; }
     .bookings-tab.active { display: block; }
 
+    /* Empty Bookings — dot-grid + citation */
+    .empty-bookings {
+      text-align: center;
+      padding: 48px 20px;
+    }
+    .empty-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 8px);
+      gap: 16px;
+      justify-content: center;
+      margin: 0 auto 32px;
+      width: max-content;
+    }
+    .empty-grid span {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--sage-soft);
+    }
+    .empty-grid span.solid {
+      background: var(--brown-deep);
+    }
+    .empty-citation {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 18px;
+      color: var(--sage-muted);
+      margin: 0 auto 32px;
+      max-width: 280px;
+      line-height: 1.5;
+    }
+    .empty-bookings .btn-primary {
+      max-width: 240px;
+      margin: 0 auto;
+    }
+
+    /* Booking card mini reformer-line (4 dots) */
+    .booking-mini-line {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 120px;
+      height: 16px;
+      padding: 0 6px;
+      margin-top: 8px;
+    }
+    .booking-mini-track {
+      position: absolute;
+      left: 6px;
+      right: 6px;
+      top: 50%;
+      height: 1px;
+      background: var(--sage);
+      transform: translateY(-50%);
+    }
+    .booking-mini-dot {
+      position: relative;
+      z-index: 1;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--cream);
+      border: 1px solid var(--sage);
+    }
+    .booking-mini-dot.selected {
+      background: var(--brown-deep);
+      border-color: var(--brown-deep);
+    }
+
+    /* Past booking — streak-dot prefix */
+    .past-booking-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .past-booking-row .streak-dot {
+      flex-shrink: 0;
+    }
+    .past-booking-row .past-booking-body {
+      flex: 1;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
     /* Booking cards */
     .booking-date-header {
       font-size: 13px;
       font-weight: 600;
-      color: var(--stone);
+      color: var(--sage-muted);
       text-transform: uppercase;
       letter-spacing: 0.5px;
       margin: 16px 0 8px;
@@ -1112,8 +1570,8 @@
     .btn-cancel {
       background: none;
       border: none;
-      color: var(--error);
-      font-family: var(--font-sans);
+      color: var(--brown-deep);
+      font-family: var(--font-body);
       font-size: 13px;
       font-weight: 600;
       cursor: pointer;
@@ -1121,7 +1579,7 @@
       border-radius: 4px;
       -webkit-tap-highlight-color: transparent;
     }
-    .btn-cancel:active { background: rgba(196,122,122,0.1); }
+    .btn-cancel:active { background: rgba(90,48,41,0.1); }
 
     /* Cancel confirmation inline */
     .cancel-confirm {
@@ -1129,26 +1587,26 @@
       gap: 8px;
       margin-top: 12px;
       padding-top: 12px;
-      border-top: 1px solid var(--sand);
+      border-top: 1px solid var(--sage-soft);
     }
     .cancel-confirm button {
       flex: 1;
       height: 36px;
       border-radius: 6px;
-      font-family: var(--font-sans);
+      font-family: var(--font-body);
       font-size: 13px;
       font-weight: 600;
       cursor: pointer;
       border: none;
       -webkit-tap-highlight-color: transparent;
     }
-    .cancel-yes { background: var(--error); color: var(--white); }
-    .cancel-no { background: var(--cream); color: var(--charcoal); }
+    .cancel-yes { background: var(--brown-deep); color: var(--white); }
+    .cancel-no { background: var(--cream); color: var(--brown-deep); }
 
     /* Past bookings */
     .past-booking {
       padding: 14px 0;
-      border-bottom: 1px solid var(--sand);
+      border-bottom: 1px solid var(--sage-soft);
     }
     .past-booking:last-child { border-bottom: none; }
 
@@ -1156,7 +1614,7 @@
     .content-tabs {
       display: flex;
       gap: 0;
-      border-bottom: 1px solid var(--sand);
+      border-bottom: 1px solid var(--sage-soft);
       margin-bottom: 20px;
     }
     .content-tab {
@@ -1164,16 +1622,16 @@
       padding: 10px 0;
       border: none;
       background: none;
-      font-family: var(--font-sans);
+      font-family: var(--font-body);
       font-size: 14px;
       font-weight: 500;
-      color: var(--stone);
+      color: var(--sage-muted);
       cursor: pointer;
       position: relative;
       -webkit-tap-highlight-color: transparent;
       transition: color 200ms;
     }
-    .content-tab.active { color: var(--sage-dark); font-weight: 600; }
+    .content-tab.active { color: var(--sage-muted); font-weight: 600; }
     .content-tab.active::after {
       content: '';
       position: absolute;
@@ -1186,11 +1644,199 @@
     .content-panel { display: none; }
     .content-panel.active { display: block; }
 
+    /* Featured article — large image-led card */
+    .featured-article {
+      position: relative;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      margin-bottom: 24px;
+      aspect-ratio: 4/3;
+      background: var(--sage-soft);
+    }
+    .featured-article-img {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, var(--sage-soft), var(--sage));
+    }
+    .featured-article-img::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0) 35%, rgba(40,28,24,0.55) 100%);
+    }
+    .featured-article-mark {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      font-family: var(--font-display);
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--cream);
+      opacity: 0.82;
+      z-index: 1;
+    }
+    .featured-article-overlay {
+      position: absolute;
+      bottom: 16px;
+      left: 16px;
+      right: 16px;
+      color: var(--cream);
+      z-index: 1;
+    }
+    .featured-article-title {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      line-height: 1.25;
+    }
+    .featured-article-meta {
+      font-family: var(--font-body);
+      font-size: 12px;
+      letter-spacing: 0.05em;
+      opacity: 0.85;
+    }
+
+    /* Audio cards — brown play-dot + title + duration */
+    .audio-card {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      width: 100%;
+      background: var(--cream-soft);
+      border: 1px solid var(--sage-soft);
+      border-radius: var(--radius-md);
+      padding: 14px 16px;
+      margin-bottom: 12px;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+      text-align: left;
+    }
+    .audio-play {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--brown-deep);
+      color: var(--cream);
+      font-size: 12px;
+      flex-shrink: 0;
+    }
+    .audio-text {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      flex: 1;
+    }
+    .audio-title {
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--brown-deep);
+    }
+    .audio-duration {
+      font-family: var(--font-body);
+      font-size: 12px;
+      color: var(--sage-muted);
+    }
+
+    /* Workout cards — thumbnail + title + level badge */
+    .workout-card {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      width: 100%;
+      background: var(--cream-soft);
+      border: 1px solid var(--sage-soft);
+      border-radius: var(--radius-md);
+      padding: 12px 14px;
+      margin-bottom: 12px;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+      text-align: left;
+    }
+    .workout-thumb {
+      width: 56px;
+      height: 56px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--sage-soft), var(--sage));
+      flex-shrink: 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .workout-thumb::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle, rgba(255,255,255,0.18) 1px, transparent 1px);
+      background-size: 8px 8px;
+    }
+    .workout-body {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      flex: 1;
+      min-width: 0;
+    }
+    .workout-title {
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--brown-deep);
+    }
+    .workout-meta {
+      font-family: var(--font-body);
+      font-size: 12px;
+      color: var(--sage-muted);
+    }
+    .workout-level {
+      flex-shrink: 0;
+      font-family: var(--font-body);
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--brown-deep);
+      border: 1px solid var(--brown-deep);
+      border-radius: 999px;
+      padding: 4px 10px;
+      background: transparent;
+    }
+
+    /* Category pill chips — content tabs override */
+    .content-tabs.pill-tabs {
+      display: flex;
+      gap: 8px;
+      border-bottom: none;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+    .content-tabs.pill-tabs .content-tab {
+      flex: 0 0 auto;
+      padding: 8px 16px;
+      border-radius: 999px;
+      background: var(--sage-soft);
+      color: var(--sage-muted);
+      font-weight: 500;
+      transition: background 200ms ease, color 200ms ease;
+    }
+    .content-tabs.pill-tabs .content-tab.active {
+      background: var(--brown-deep);
+      color: var(--cream);
+      font-weight: 600;
+    }
+    .content-tabs.pill-tabs .content-tab.active::after {
+      display: none;
+    }
+
     /* Play circle */
     .play-circle {
       width: 44px; height: 44px;
       border-radius: 50%;
-      background: var(--sage-light);
+      background: var(--sage-soft);
       display: flex; align-items: center; justify-content: center;
       cursor: pointer;
       flex-shrink: 0;
@@ -1204,7 +1850,7 @@
     .audio-progress { margin-top: 12px; }
     .progress-bar {
       height: 4px;
-      background: var(--sand);
+      background: var(--sage-soft);
       border-radius: 2px;
       overflow: hidden;
     }
@@ -1220,55 +1866,94 @@
     .article-card { transition: transform 100ms; -webkit-tap-highlight-color: transparent; }
     .article-card:active { transform: scale(0.98); }
 
-    /* Profile avatar */
+    /* Profile avatar — sage-soft circle, brown-deep initials */
     .profile-avatar {
-      width: 72px; height: 72px;
+      width: 80px; height: 80px;
       border-radius: 50%;
-      background: var(--sage-light);
+      background: var(--sage-soft);
+      color: var(--brown-deep);
       display: flex; align-items: center; justify-content: center;
-      font-family: var(--font-serif);
-      font-size: 24px;
+      font-family: var(--font-display);
+      font-size: 32px;
       font-weight: 600;
-      color: var(--white);
+      margin: 0 auto 16px;
     }
 
-    /* Membership card */
+    /* Membership card — sage bg, cream text, 8-dot credits line */
     .membership-card {
-      background: linear-gradient(135deg, var(--sage-dark) 0%, var(--sage) 100%);
-      border-radius: var(--radius-lg);
-      padding: 20px;
-      color: var(--white);
-      margin-bottom: 20px;
-      position: relative;
-    }
-    .credits-circle {
-      position: relative;
-      width: 52px; height: 52px;
-    }
-    .credits-number {
-      position: absolute;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 18px;
-      font-weight: 700;
-      color: var(--white);
-    }
-
-    /* Progress row */
-    .progress-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-around;
-      background: var(--white);
+      background: var(--sage);
+      color: var(--cream);
       border-radius: var(--radius-md);
-      padding: 16px;
-      box-shadow: var(--shadow-card);
+      padding: 24px 20px;
       margin-bottom: 24px;
     }
-    .progress-stat { display: flex; flex-direction: column; align-items: center; gap: 2px; }
-    .progress-number { font-family: var(--font-serif); font-size: 22px; font-weight: 600; color: var(--sage-dark); }
-    .progress-label { font-size: 11px; color: var(--stone); text-transform: uppercase; letter-spacing: 0.5px; }
-    .progress-divider { width: 1px; height: 36px; background: var(--sand); }
+    .membership-label {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.85;
+      margin-bottom: 8px;
+    }
+    .membership-name {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+    .membership-credits-line {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 0;
+      margin-bottom: 8px;
+    }
+    .membership-credits-line::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 50%;
+      height: 1px;
+      background: var(--cream);
+      opacity: 0.4;
+      transform: translateY(-50%);
+    }
+    .membership-credits-line .streak-dot {
+      background: var(--cream);
+      border-color: var(--cream);
+      position: relative;
+      z-index: 1;
+    }
+    .membership-credits-line .streak-dot.future {
+      background: transparent;
+      border-color: var(--cream);
+      opacity: 0.5;
+    }
+    .membership-meta {
+      font-family: var(--font-body);
+      font-size: 13px;
+      opacity: 0.85;
+    }
+
+    /* Profile progress card — taps through to Your Line */
+    .profile-progress-card {
+      display: block;
+      width: 100%;
+      background: var(--cream-soft);
+      border: 1px solid var(--sage-soft);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      margin-bottom: 24px;
+      text-align: left;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .profile-progress-label { font-family: var(--font-body); font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--sage-muted); margin-bottom: 6px; }
+    .profile-progress-stat { font-family: var(--font-display); font-size: 22px; font-weight: 600; color: var(--brown-deep); margin-bottom: 8px; }
+    .profile-progress-meta { font-family: var(--font-body); font-size: 13px; color: var(--sage-muted); margin-top: 12px; }
 
     /* Profile menu */
     .profile-menu { margin-top: 4px; }
@@ -1277,33 +1962,76 @@
       align-items: center;
       justify-content: space-between;
       padding: 16px 4px;
-      border-bottom: 1px solid var(--sand);
+      border-bottom: 1px solid var(--sage-soft);
       cursor: pointer;
       -webkit-tap-highlight-color: transparent;
       font-size: 15px;
-      color: var(--charcoal);
+      color: var(--brown-deep);
     }
     .menu-item:active { background: var(--cream); }
     .menu-item:last-child { border-bottom: none; }
-    .menu-chevron { color: var(--stone); font-size: 20px; font-weight: 300; }
+    .menu-chevron { color: var(--sage-muted); font-size: 20px; font-weight: 300; }
 
-    /* Admin revenue card */
+    /* Admin revenue — Proza Libre 40px brown-deep, the visual centerpiece */
     .admin-revenue-card {
-      background: var(--white);
+      background: var(--cream-soft);
+      border: 1px solid var(--sage-soft);
       border-radius: var(--radius-md);
-      padding: 20px;
-      box-shadow: var(--shadow-card);
-      margin-bottom: 12px;
+      padding: 24px 20px;
+      margin-bottom: 16px;
+    }
+    .admin-revenue {
+      font-family: var(--font-display);
+      font-size: 40px;
+      font-weight: 600;
+      color: var(--brown-deep);
+      line-height: 1;
+    }
+    .admin-revenue-label {
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--sage-muted);
+      margin-bottom: 10px;
+    }
+    .admin-revenue-meta {
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: var(--sage-muted);
+      margin-top: 8px;
     }
 
-    /* Admin alert card */
-    .admin-alert-card {
-      background: var(--white);
-      border-left: 3px solid var(--warning);
-      border-radius: var(--radius-md);
-      padding: 16px;
-      box-shadow: var(--shadow-card);
-      margin-bottom: 12px;
+    /* Admin alert — sage-soft bg, brown text, no warning color */
+    .admin-alert {
+      background: var(--sage-soft);
+      color: var(--brown-deep);
+      border-radius: var(--radius-sm);
+      padding: 12px 16px;
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+    .admin-alert-title { font-weight: 600; margin-bottom: 2px; }
+    .admin-alert-meta { font-size: 13px; color: var(--brown-deep); opacity: 0.75; }
+    .admin-alert-action { display: inline-block; margin-top: 6px; font-size: 13px; color: var(--brown-deep); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; background: transparent; border: 0; padding: 0; cursor: pointer; }
+
+    /* Admin class row — time + name + capacity dots */
+    .admin-class-row-meta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .admin-class-time {
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--brown-deep);
+    }
+    .admin-class-name {
+      font-size: 15px;
+      color: var(--brown-deep);
     }
 
     /* Admin class card */
@@ -1317,7 +2045,7 @@
       -webkit-tap-highlight-color: transparent;
       transition: background 100ms;
     }
-    .admin-class-card:active { background: var(--cream-light); }
+    .admin-class-card:active { background: var(--cream-soft); }
 
     /* ── Bottom padding for scrollable screens ── */
     .screen-content {
@@ -1348,8 +2076,8 @@
       overscroll-behavior: none;
     }
 
-    .menu-item, .filter-chip, .day-btn, .tab-item, .segment-btn, .content-tab {
-      transition: all 200ms ease;
+    .menu-item, .filter-chip, .week-day-btn, .tab-item, .segment-btn, .content-tab {
+      transition: color 200ms ease, background-color 200ms ease;
     }
 
     /* Spots badge */
@@ -1361,12 +2089,12 @@
       border-radius: 12px;
       font-size: 12px;
       font-weight: 700;
-      background: rgba(139,159,130,0.15);
-      color: var(--sage-dark);
+      background: rgba(164,180,155,0.15);
+      color: var(--sage-muted);
     }
     .admin-spots-badge.full {
-      background: rgba(196,122,122,0.15);
-      color: var(--error);
+      background: rgba(90,48,41,0.15);
+      color: var(--brown-deep);
     }
 
     /* Roster panel (expandable) */
@@ -1380,7 +2108,7 @@
       max-height: 300px;
       margin-top: 12px;
       padding-top: 12px;
-      border-top: 1px solid var(--sand);
+      border-top: 1px solid var(--sage-soft);
     }
 
     .roster-row {
@@ -1389,7 +2117,7 @@
       gap: 10px;
       padding: 6px 0;
       font-size: 14px;
-      color: var(--charcoal);
+      color: var(--brown-deep);
     }
     .roster-spot {
       width: 24px; height: 24px;
@@ -1398,8 +2126,337 @@
       display: flex; align-items: center; justify-content: center;
       font-size: 12px;
       font-weight: 600;
-      color: var(--sage-dark);
+      color: var(--sage-muted);
       flex-shrink: 0;
+    }
+
+    /* ── Your Line screen ── */
+    .your-line-content {
+      padding: var(--safe-top) 20px 24px 20px;
+    }
+    .back-btn {
+      background: none;
+      border: none;
+      font-size: 24px;
+      color: var(--brown-deep);
+      cursor: pointer;
+      margin-bottom: 12px;
+      padding: 4px 0;
+    }
+    .your-line-title {
+      font-family: var(--font-display);
+      font-size: 32px;
+      font-weight: 600;
+      color: var(--brown-deep);
+      margin-bottom: 16px;
+    }
+    .time-toggle {
+      display: inline-flex;
+      background: var(--sage-soft);
+      border-radius: var(--radius-pill);
+      padding: 3px;
+      margin-bottom: 24px;
+    }
+    .toggle-btn {
+      background: none;
+      border: none;
+      padding: 6px 14px;
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--sage-muted);
+      border-radius: var(--radius-pill);
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .toggle-btn.active {
+      background: var(--cream);
+      color: var(--brown-deep);
+      font-weight: 600;
+    }
+    /* ── Your Line: hero stat block ── */
+    .your-line-hero {
+      text-align: center;
+      margin: 24px 0 32px;
+    }
+    .hero-number {
+      font-family: var(--font-display);
+      font-size: 96px;
+      font-weight: 600;
+      color: var(--brown-deep);
+      line-height: 1;
+    }
+    .hero-label {
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: var(--sage-muted);
+      letter-spacing: 0.05em;
+      margin-top: 8px;
+    }
+    /* ── Your Line: the line component ── */
+    .your-line-line {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 8px 28px;
+      height: 60px;
+    }
+    .line-track {
+      position: absolute;
+      left: 8px;
+      right: 8px;
+      top: 32px;
+      height: 1px;
+      background: var(--sage);
+    }
+    .line-dot {
+      position: relative;
+      z-index: 1;
+      width: 8px;
+      height: 8px;
+      padding: 0;
+      border-radius: 50%;
+      background: var(--brown-deep);
+      border: none;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+      flex: 0 0 auto;
+    }
+    .line-dot.future {
+      background: var(--cream);
+      border: 1.5px solid var(--brown-deep);
+    }
+    .line-dot:focus-visible {
+      outline: 2px solid var(--sage);
+      outline-offset: 4px;
+    }
+    .line-now-label {
+      position: absolute;
+      bottom: 4px;
+      right: calc(8% + 16px);
+      font-family: var(--font-body);
+      font-size: 11px;
+      color: var(--sage-muted);
+      letter-spacing: 0.06em;
+    }
+    /* ── Your Line: streak callout + citation + divider ── */
+    .streak-callout {
+      font-family: var(--font-body);
+      font-size: 16px;
+      color: var(--brown-deep);
+      text-align: center;
+      margin: 8px 0 32px;
+    }
+    .line-citation {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 18px;
+      color: var(--sage-muted);
+      text-align: center;
+      margin-bottom: 32px;
+      line-height: 1.5;
+    }
+    .line-divider {
+      width: 24px;
+      height: 1px;
+      background: var(--sage);
+      margin: 0 auto 24px;
+    }
+
+    /* ── Patterns + Next Point ──────────────────────────────────────────── */
+    .patterns-label {
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--sage-muted);
+      margin-bottom: 12px;
+    }
+    .pattern-card {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: var(--cream-soft);
+      border-radius: var(--radius-md);
+      padding: 12px;
+      margin-bottom: 12px;
+    }
+    .pattern-thumb {
+      width: 96px;
+      height: 72px;
+      background: var(--sage-soft);
+      border-radius: 8px;
+      flex-shrink: 0;
+    }
+    .pattern-thumb-reformer { background-image: url('img/class-reformer.webp'); background-size: cover; background-position: center; }
+    .pattern-thumb-morning  { background-image: url('img/hero-morning.webp');   background-size: cover; background-position: center; }
+    .pattern-thumb-evening  { background-image: url('img/hero-evening.webp');   background-size: cover; background-position: center; }
+    .pattern-text {
+      min-width: 0;
+    }
+    .pattern-label-sm {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--sage-muted);
+    }
+    .pattern-value {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--brown-deep);
+      margin-top: 4px;
+      line-height: 1.2;
+    }
+    .pattern-meta {
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: var(--sage-muted);
+      margin-top: 2px;
+    }
+
+    .next-point {
+      margin-top: 8px;
+      margin-bottom: 32px;
+    }
+    .next-when {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--brown-deep);
+      line-height: 1.2;
+    }
+    .next-class {
+      font-family: var(--font-body);
+      font-size: 16px;
+      color: var(--brown-deep);
+      margin-top: 4px;
+    }
+    .next-position {
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: var(--sage-muted);
+      margin-top: 4px;
+    }
+    .next-mini-line {
+      position: relative;
+      width: 200px;
+      height: 24px;
+      margin-top: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 4px;
+    }
+    .line-track-mini {
+      position: absolute;
+      left: 4px;
+      right: 4px;
+      top: 50%;
+      height: 1px;
+      background: var(--sage);
+      transform: translateY(-50%);
+    }
+    .next-dot {
+      position: relative;
+      z-index: 1;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--cream);
+      border: 1.5px solid var(--sage-muted);
+    }
+    .next-dot.selected {
+      background: var(--brown-deep);
+      border-color: var(--brown-deep);
+      width: 10px;
+      height: 10px;
+    }
+
+    /* ── Empty state ────────────────────────────────────────────────────── */
+    .your-line-empty {
+      text-align: center;
+      padding: 60px 0 40px;
+    }
+    .empty-line-track {
+      position: relative;
+      height: 24px;
+      margin: 0 8px 32px;
+    }
+    .empty-line {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 50%;
+      height: 1px;
+      background: var(--sage);
+      transform: translateY(-50%);
+    }
+    .empty-dot-first {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--cream);
+      border: 1.5px solid var(--brown-deep);
+      transform: translateY(-50%);
+    }
+    .empty-citation {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 18px;
+      color: var(--sage-muted);
+      text-align: center;
+      margin-bottom: 32px;
+      line-height: 1.5;
+    }
+
+    /* ── Dot stagger entry animation ────────────────────────────────────── */
+    .screen[data-screen="your-line"].active .line-dot {
+      animation: lineDotEnter 400ms ease-out backwards;
+    }
+    .screen[data-screen="your-line"].active .line-dot:nth-of-type(1)  { animation-delay: 0ms; }
+    .screen[data-screen="your-line"].active .line-dot:nth-of-type(2)  { animation-delay: 30ms; }
+    .screen[data-screen="your-line"].active .line-dot:nth-of-type(3)  { animation-delay: 60ms; }
+    .screen[data-screen="your-line"].active .line-dot:nth-of-type(4)  { animation-delay: 90ms; }
+    .screen[data-screen="your-line"].active .line-dot:nth-of-type(5)  { animation-delay: 120ms; }
+    .screen[data-screen="your-line"].active .line-dot:nth-of-type(6)  { animation-delay: 150ms; }
+    .screen[data-screen="your-line"].active .line-dot:nth-of-type(7)  { animation-delay: 180ms; }
+    .screen[data-screen="your-line"].active .line-dot:nth-of-type(8)  { animation-delay: 210ms; }
+    .screen[data-screen="your-line"].active .line-dot:nth-of-type(9)  { animation-delay: 240ms; }
+    .screen[data-screen="your-line"].active .line-dot:nth-of-type(10) { animation-delay: 270ms; }
+    .screen[data-screen="your-line"].active .line-dot:nth-of-type(11) { animation-delay: 300ms; }
+    .screen[data-screen="your-line"].active .line-dot:nth-of-type(12) { animation-delay: 330ms; }
+    .screen[data-screen="your-line"].active .line-dot:nth-of-type(13) { animation-delay: 360ms; }
+
+    @keyframes lineDotEnter {
+      from { opacity: 0; transform: scale(0.8); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+
+    .screen[data-screen="your-line"].active .line-dot.last-solid {
+      position: relative;
+    }
+    .screen[data-screen="your-line"].active .line-dot.last-solid::after {
+      content: '';
+      position: absolute;
+      inset: -8px;
+      border-radius: 50%;
+      border: 2px solid var(--sage-soft);
+      animation: lineDotPulse 600ms ease-out 360ms forwards;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    @keyframes lineDotPulse {
+      0%   { transform: scale(0.6); opacity: 1; }
+      100% { transform: scale(1.6); opacity: 0; }
     }
   </style>
 </head>
@@ -1410,8 +2467,25 @@
       <!-- Splash Screen -->
       <div class="screen active" data-screen="splash">
         <div class="splash-content">
-          <div class="splash-logo">ALIGN<span class="splash-dot"></span></div>
-          <div class="splash-tagline">Movement · Knowledge · Community</div>
+          <div class="splash-dots" aria-hidden="true">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+          <div class="splash-grid" aria-hidden="true"></div>
+          <div class="splash-logo">
+            <span class="logo-al">Al</span><span class="logo-i-macron">i</span><span class="logo-gn">gn</span><span class="logo-studio"> Studio</span>
+          </div>
+          <div class="splash-tagline">Be with us &amp; Get aligned</div>
           <div class="splash-get-started">
             <button class="splash-get-started-btn" onclick="App.startOnboarding()">Get Started</button>
           </div>
@@ -1423,16 +2497,17 @@
         <div class="onboarding-container">
 
           <!-- Progress dots -->
-          <div class="onboarding-progress">
-            <div class="progress-dot active" data-step="1"></div>
-            <div class="progress-dot" data-step="2"></div>
-            <div class="progress-dot" data-step="3"></div>
-            <div class="progress-dot" data-step="4"></div>
+          <div class="onboarding-progress" role="progressbar" aria-valuemin="1" aria-valuemax="4" aria-valuenow="1" aria-label="Onboarding step 1 of 4">
+            <div class="onboarding-line" aria-hidden="true"></div>
+            <span class="progress-dot active" data-step="1" aria-hidden="true"></span>
+            <span class="progress-dot" data-step="2" aria-hidden="true"></span>
+            <span class="progress-dot" data-step="3" aria-hidden="true"></span>
+            <span class="progress-dot" data-step="4" aria-hidden="true"></span>
           </div>
 
           <!-- Step 1: Create Account -->
           <div class="onboarding-step active" data-step="1">
-            <div class="onboarding-heading">Welcome to ALIGN.</div>
+            <div class="onboarding-heading">Welcome to Alīgn Studio</div>
             <div class="onboarding-subtext">Create your account to get started</div>
 
             <div class="input-group">
@@ -1540,12 +2615,12 @@
             <div class="onboarding-heading sm">Liability Waiver</div>
 
             <div class="waiver-card">
-              By signing up to ALIGN. Studio, I acknowledge that I am voluntarily participating in physical exercise activities. I confirm that the information provided in my health questionnaire is accurate and complete. I understand that Pilates, while generally safe, involves physical exertion and carries inherent risks. I agree to inform my instructor of any changes to my health status. I release ALIGN. Studio and its instructors from liability for any injury sustained during classes, except in cases of negligence.
+              By signing up to Alīgn Studio, I acknowledge that I am voluntarily participating in physical exercise activities. I confirm that the information provided in my health questionnaire is accurate and complete. I understand that Pilates, while generally safe, involves physical exertion and carries inherent risks. I agree to inform my instructor of any changes to my health status. I release Alīgn Studio and its instructors from liability for any injury sustained during classes, except in cases of negligence.
             </div>
 
             <div class="checkbox-row" onclick="App.toggleWaiverCheckbox()">
               <div class="custom-checkbox" id="waiver-checkbox"></div>
-              <span style="font-size: 14px; color: var(--stone-dark); line-height: 1.4;">I have read and agree to the terms above</span>
+              <span style="font-size: 14px; color: var(--brown-deep); line-height: 1.4;">I have read and agree to the terms above</span>
             </div>
 
             <div class="spacer"></div>
@@ -1556,30 +2631,7 @@
           <!-- Step 4: Welcome -->
           <div class="onboarding-step" data-step="4">
             <div class="step4-centered">
-              <div class="step4-reformer">
-                <!-- Minimal reformer SVG -->
-                <svg width="140" height="60" viewBox="0 0 140 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <!-- Base frame -->
-                  <rect x="4" y="42" width="132" height="8" rx="4" stroke="#8B9F82" stroke-width="1.8"/>
-                  <!-- Legs -->
-                  <line x1="18" y1="50" x2="18" y2="58" stroke="#8B9F82" stroke-width="1.8" stroke-linecap="round"/>
-                  <line x1="122" y1="50" x2="122" y2="58" stroke="#8B9F82" stroke-width="1.8" stroke-linecap="round"/>
-                  <!-- Wheels -->
-                  <circle cx="18" cy="58" r="3" stroke="#8B9F82" stroke-width="1.8"/>
-                  <circle cx="122" cy="58" r="3" stroke="#8B9F82" stroke-width="1.8"/>
-                  <!-- Carriage -->
-                  <rect x="30" y="34" width="50" height="10" rx="3" stroke="#8B9F82" stroke-width="1.8"/>
-                  <!-- Head rest -->
-                  <rect x="86" y="36" width="22" height="6" rx="3" stroke="#8B9F82" stroke-width="1.4"/>
-                  <!-- Springs (lines) -->
-                  <line x1="82" y1="39" x2="86" y2="39" stroke="#8B9F82" stroke-width="1.4"/>
-                  <!-- Foot bar -->
-                  <line x1="8" y1="30" x2="8" y2="44" stroke="#8B9F82" stroke-width="1.8" stroke-linecap="round"/>
-                  <line x1="4" y1="30" x2="12" y2="30" stroke="#8B9F82" stroke-width="1.8" stroke-linecap="round"/>
-                </svg>
-              </div>
-              <div class="step4-title">You're ready.</div>
-              <div class="step4-sub">Welcome to ALIGN. Your next chapter starts here.</div>
+              <p class="onboarding-citation">"One point at a time.<br>Suddenly, a Line."</p>
               <button class="btn-primary" onclick="App.finishOnboarding()">Book your first class</button>
             </div>
           </div>
@@ -1593,8 +2645,29 @@
 
           <!-- Greeting -->
           <div style="padding-top: 4px;">
-            <h1 style="font-family: var(--font-serif); font-size: 22px; font-weight: 600; color: var(--charcoal); line-height: 1.3;">Good morning, Sarah</h1>
-            <p style="font-size: 13px; color: var(--stone); margin-top: 2px;">Monday, 31 March</p>
+            <h1 id="home-greeting" style="font-family: var(--font-display); font-size: 22px; font-weight: 600; color: var(--brown-deep); line-height: 1.3;">Stay on your Line, Sarah</h1>
+            <p style="font-size: 13px; color: var(--sage-muted); margin-top: 2px;">Monday, 31 March</p>
+          </div>
+
+          <!-- 7-dot week strip (tap → Your Line) -->
+          <button class="week-strip" data-action="open-your-line" type="button" aria-label="View your Line">
+            <span class="week-strip-line" aria-hidden="true"></span>
+            <span class="week-day attended" data-day="Mon"><span class="dot"></span></span>
+            <span class="week-day attended" data-day="Tue"><span class="dot"></span></span>
+            <span class="week-day today" data-day="Wed"><span class="dot"></span></span>
+            <span class="week-day" data-day="Thu"><span class="dot"></span></span>
+            <span class="week-day" data-day="Fri"><span class="dot"></span></span>
+            <span class="week-day" data-day="Sat"><span class="dot"></span></span>
+            <span class="week-day" data-day="Sun"><span class="dot"></span></span>
+          </button>
+
+          <!-- Hero editorial card (image placeholder; real image arrives in Phase 6) -->
+          <div class="hero-editorial">
+            <div class="hero-image" data-img="hero-morning"></div>
+            <div class="hero-overlay">
+              <span class="hero-tag">Today &middot; 18:00</span>
+              <span class="hero-class">Reformer Dynamic</span>
+            </div>
           </div>
 
           <!-- Next Class Card -->
@@ -1602,13 +2675,13 @@
             <div class="next-class-card" onclick="App.showHomeClassDetail()">
               <div>
                 <div style="font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--sage); margin-bottom: 4px;">TODAY</div>
-                <div style="font-size: 16px; font-weight: 600; color: var(--charcoal); font-family: var(--font-sans);">07:00 — 07:50</div>
+                <div style="font-size: 16px; font-weight: 600; color: var(--brown-deep); font-family: var(--font-body);">07:00 — 07:50</div>
               </div>
               <div style="text-align: right; flex: 1; padding-left: 12px;">
-                <div style="font-size: 15px; font-weight: 600; color: var(--charcoal);">Reformer Dynamic</div>
+                <div style="font-size: 15px; font-weight: 600; color: var(--brown-deep);">Reformer Dynamic</div>
                 <div class="caption">Reformer #3 · Katie</div>
               </div>
-              <div style="font-size: 20px; color: var(--stone); margin-left: 12px; line-height: 1;">›</div>
+              <div style="font-size: 20px; color: var(--sage-muted); margin-left: 12px; line-height: 1;">›</div>
             </div>
           </div>
 
@@ -1621,13 +2694,11 @@
           <!-- Katie's Corner -->
           <div class="section-label">Katie's Corner</div>
           <div class="card" style="padding: 0; overflow: hidden;">
-            <div style="height: 120px; background: var(--sage-light); display: flex; align-items: center; justify-content: center;">
-              <span style="font-size: 48px; color: var(--sage-dark); opacity: 0.3; line-height: 1;">&#10077;</span>
-            </div>
+            <div style="height: 120px; background: var(--sage-soft) url('img/founder-katie.webp') center/cover no-repeat;"></div>
             <div style="padding: 16px;">
-              <div style="font-family: var(--font-serif); font-size: 17px; color: var(--charcoal); line-height: 1.35; margin-bottom: 8px;">Why Your Core Is Not What You Think It Is</div>
+              <div style="font-family: var(--font-display); font-size: 17px; color: var(--brown-deep); line-height: 1.35; margin-bottom: 8px;">Why Your Core Is Not What You Think It Is</div>
               <div class="caption" style="margin-bottom: 10px;">By Katie Peckham · 5 min read</div>
-              <div style="font-size: 14px; color: var(--stone-dark); line-height: 1.55; margin-bottom: 12px;">Most people think core strength means visible abs. The truth is far more interesting — and far more useful for your everyday life.</div>
+              <div style="font-size: 14px; color: var(--brown-deep); line-height: 1.55; margin-bottom: 12px;">Most people think core strength means visible abs. The truth is far more interesting — and far more useful for your everyday life.</div>
               <div style="text-align: right;">
                 <span style="font-size: 14px; font-weight: 600; color: var(--sage); cursor: pointer;">Read →</span>
               </div>
@@ -1641,11 +2712,11 @@
             <!-- Breathwork Audio -->
             <div class="scroll-card card" style="margin-bottom: 0;">
               <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
-                <div style="width: 40px; height: 40px; border-radius: 50%; background: var(--sage-light); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                <div style="width: 40px; height: 40px; border-radius: 50%; background: var(--sage-soft); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
                   <span style="font-size: 14px; color: var(--sage);">&#9654;</span>
                 </div>
                 <div style="flex: 1; min-width: 0;">
-                  <div style="font-size: 13px; font-weight: 600; color: var(--charcoal); line-height: 1.3;">5-Min Morning Breathwork</div>
+                  <div style="font-size: 13px; font-weight: 600; color: var(--brown-deep); line-height: 1.3;">5-Min Morning Breathwork</div>
                   <div class="caption">Audio · Free</div>
                 </div>
               </div>
@@ -1655,11 +2726,11 @@
             <!-- Home Workout -->
             <div class="scroll-card card" style="margin-bottom: 0;">
               <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
-                <div style="width: 40px; height: 40px; border-radius: 50%; background: var(--sand); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                  <span style="font-size: 16px; color: var(--stone-dark);">&#9670;</span>
+                <div style="width: 40px; height: 40px; border-radius: 50%; background: var(--sage-soft); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                  <span style="font-size: 16px; color: var(--brown-deep);">&#9670;</span>
                 </div>
                 <div style="flex: 1; min-width: 0;">
-                  <div style="font-size: 13px; font-weight: 600; color: var(--charcoal); line-height: 1.3;">20-Min Mat Flow</div>
+                  <div style="font-size: 13px; font-weight: 600; color: var(--brown-deep); line-height: 1.3;">20-Min Mat Flow</div>
                   <div class="caption">Beginner · Free</div>
                 </div>
               </div>
@@ -1668,11 +2739,11 @@
             <!-- Mindfulness -->
             <div class="scroll-card card" style="margin-bottom: 0;">
               <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
-                <div style="width: 40px; height: 40px; border-radius: 50%; background: var(--sage-light); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                  <span style="font-size: 18px; color: var(--sage-dark);">&#9789;</span>
+                <div style="width: 40px; height: 40px; border-radius: 50%; background: var(--sage-soft); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                  <span style="font-size: 18px; color: var(--sage-muted);">&#9789;</span>
                 </div>
                 <div style="flex: 1; min-width: 0;">
-                  <div style="font-size: 13px; font-weight: 600; color: var(--charcoal); line-height: 1.3;">Evening Wind-Down</div>
+                  <div style="font-size: 13px; font-weight: 600; color: var(--brown-deep); line-height: 1.3;">Evening Wind-Down</div>
                   <div class="caption">10 min · Audio</div>
                 </div>
               </div>
@@ -1688,7 +2759,7 @@
               <span class="month">APR</span>
             </div>
             <div style="flex: 1;">
-              <div style="font-size: 15px; font-weight: 600; color: var(--charcoal); margin-bottom: 2px;">Walk &amp; Talk</div>
+              <div style="font-size: 15px; font-weight: 600; color: var(--brown-deep); margin-bottom: 2px;">Walk &amp; Talk</div>
               <div class="caption" style="margin-bottom: 10px;">Saturday 9:00 AM · Wye Valley Trail</div>
               <button class="btn-rsvp" id="rsvp-btn" onclick="App.toggleRsvp()">RSVP</button>
             </div>
@@ -1704,7 +2775,7 @@
       <div class="screen" data-screen="schedule">
         <div class="screen-content">
 
-          <h1 style="font-family: var(--font-serif); font-size: 22px; font-weight: 600; color: var(--charcoal); margin-bottom: 16px;">Schedule</h1>
+          <h1 style="font-family: var(--font-display); font-size: 22px; font-weight: 600; color: var(--brown-deep); margin-bottom: 16px;">Schedule</h1>
 
           <!-- Filter chips -->
           <div class="filter-row">
@@ -1715,15 +2786,29 @@
             <button class="filter-chip" onclick="App.selectFilter('breathwork', this)">Breathwork</button>
           </div>
 
+          <!-- Day timeline — today's classes plotted on a horizontal line -->
+          <div class="day-timeline" aria-label="Today's classes timeline">
+            <div class="day-timeline-line"></div>
+            <span class="day-timeline-label start">06h</span>
+            <span class="day-timeline-label end">22h</span>
+            <button class="day-timeline-dot" style="left: 8%" data-class="07:00 Reformer Dynamic" aria-label="07:00 Reformer Dynamic"></button>
+            <button class="day-timeline-dot" style="left: 28%" data-class="10:00 Mat Pilates" aria-label="10:00 Mat Pilates"></button>
+            <button class="day-timeline-dot now" style="left: 38%" data-class="now" aria-label="Now"></button>
+            <button class="day-timeline-dot" style="left: 38%" data-class="12:00 Reformer Core" aria-label="12:00 Reformer Core"></button>
+            <button class="day-timeline-dot" style="left: 76%" data-class="18:00 Candlelight" aria-label="18:00 Candlelight"></button>
+            <button class="day-timeline-dot" style="left: 90%" data-class="19:30 Reformer + Breath" aria-label="19:30 Reformer + Breath"></button>
+          </div>
+
           <!-- Week day selector -->
-          <div class="day-selector">
-            <button class="day-btn active" onclick="App.selectDay('mon-31', this)"><span>Mon</span><span>31</span></button>
-            <button class="day-btn" onclick="App.selectDay('tue-1', this)"><span>Tue</span><span>1</span></button>
-            <button class="day-btn" onclick="App.selectDay('wed-2', this)"><span>Wed</span><span>2</span></button>
-            <button class="day-btn" onclick="App.selectDay('thu-3', this)"><span>Thu</span><span>3</span></button>
-            <button class="day-btn" onclick="App.selectDay('fri-4', this)"><span>Fri</span><span>4</span></button>
-            <button class="day-btn" onclick="App.selectDay('sat-5', this)"><span>Sat</span><span>5</span></button>
-            <button class="day-btn" onclick="App.selectDay('sun-6', this)"><span>Sun</span><span>6</span></button>
+          <div class="week-selector">
+            <span class="week-selector-line" aria-hidden="true"></span>
+            <button class="week-day-btn active" data-day="mon-31" aria-pressed="true" onclick="App.selectDay('mon-31', this)"><span class="day-name">Mon</span><span class="day-mark"></span></button>
+            <button class="week-day-btn" data-day="tue-1" aria-pressed="false" onclick="App.selectDay('tue-1', this)"><span class="day-name">Tue</span><span class="day-mark"></span></button>
+            <button class="week-day-btn" data-day="wed-2" aria-pressed="false" onclick="App.selectDay('wed-2', this)"><span class="day-name">Wed</span><span class="day-mark"></span></button>
+            <button class="week-day-btn" data-day="thu-3" aria-pressed="false" onclick="App.selectDay('thu-3', this)"><span class="day-name">Thu</span><span class="day-mark"></span></button>
+            <button class="week-day-btn" data-day="fri-4" aria-pressed="false" onclick="App.selectDay('fri-4', this)"><span class="day-name">Fri</span><span class="day-mark"></span></button>
+            <button class="week-day-btn" data-day="sat-5" aria-pressed="false" onclick="App.selectDay('sat-5', this)"><span class="day-name">Sat</span><span class="day-mark"></span></button>
+            <button class="week-day-btn" data-day="sun-6" aria-pressed="false" onclick="App.selectDay('sun-6', this)"><span class="day-name">Sun</span><span class="day-mark"></span></button>
           </div>
 
           <!-- Class list -->
@@ -1746,109 +2831,11 @@
             <button class="segment-btn" onclick="App.switchBookingTab('past', this)">Past</button>
           </div>
 
-          <!-- Upcoming bookings -->
-          <div id="bookings-upcoming" class="bookings-tab active">
+          <!-- Upcoming bookings — rendered by App.renderUpcomingBookings() -->
+          <div id="bookings-upcoming" class="bookings-tab active"></div>
 
-            <div class="booking-card">
-              <div class="booking-date-header">Monday, 31 March</div>
-              <div class="card" style="border-left: 3px solid var(--sage);">
-                <div style="display:flex; justify-content:space-between; align-items:flex-start;">
-                  <div>
-                    <div style="font-size:15px; font-weight:600; color:var(--charcoal);">Reformer Dynamic</div>
-                    <div class="caption" style="margin-top:4px;">07:00 — 07:50 · Katie</div>
-                    <div class="caption">Reformer #3</div>
-                  </div>
-                  <button class="btn-cancel" onclick="App.cancelBooking(this)">Cancel</button>
-                </div>
-              </div>
-            </div>
-
-            <div class="booking-card">
-              <div class="booking-date-header">Wednesday, 2 April</div>
-              <div class="card" style="border-left: 3px solid var(--sage);">
-                <div style="display:flex; justify-content:space-between; align-items:flex-start;">
-                  <div>
-                    <div style="font-size:15px; font-weight:600; color:var(--charcoal);">Reformer Core</div>
-                    <div class="caption" style="margin-top:4px;">18:00 — 18:50 · Katie</div>
-                    <div class="caption">Reformer #1</div>
-                  </div>
-                  <button class="btn-cancel" onclick="App.cancelBooking(this)">Cancel</button>
-                </div>
-              </div>
-            </div>
-
-            <div class="booking-card">
-              <div class="booking-date-header">Saturday, 5 April</div>
-              <div class="card" style="border-left: 3px solid var(--sage);">
-                <div style="display:flex; justify-content:space-between; align-items:flex-start;">
-                  <div>
-                    <div style="font-size:15px; font-weight:600; color:var(--charcoal);">Outdoor Pilates</div>
-                    <div class="caption" style="margin-top:4px;">09:00 — 10:00 · Katie</div>
-                    <div class="caption">Wye Valley · Weather permitting</div>
-                  </div>
-                  <button class="btn-cancel" onclick="App.cancelBooking(this)">Cancel</button>
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-          <!-- Past bookings -->
-          <div id="bookings-past" class="bookings-tab">
-            <div class="past-booking">
-              <div style="display:flex; justify-content:space-between;">
-                <div>
-                  <div style="font-size:14px; font-weight:500; color:var(--stone-dark);">Reformer Dynamic</div>
-                  <div class="caption">Monday 24 March · 07:00 · Katie</div>
-                </div>
-                <div class="caption" style="text-align:right;">Reformer #3</div>
-              </div>
-            </div>
-            <div class="past-booking">
-              <div style="display:flex; justify-content:space-between;">
-                <div>
-                  <div style="font-size:14px; font-weight:500; color:var(--stone-dark);">Mat Pilates</div>
-                  <div class="caption">Saturday 22 March · 10:00 · Katie</div>
-                </div>
-              </div>
-            </div>
-            <div class="past-booking">
-              <div style="display:flex; justify-content:space-between;">
-                <div>
-                  <div style="font-size:14px; font-weight:500; color:var(--stone-dark);">Reformer + Breathwork</div>
-                  <div class="caption">Thursday 20 March · 19:30 · Katie</div>
-                </div>
-                <div class="caption" style="text-align:right;">Reformer #1</div>
-              </div>
-            </div>
-            <div class="past-booking">
-              <div style="display:flex; justify-content:space-between;">
-                <div>
-                  <div style="font-size:14px; font-weight:500; color:var(--stone-dark);">Reformer Dynamic</div>
-                  <div class="caption">Monday 17 March · 07:00 · Katie</div>
-                </div>
-                <div class="caption" style="text-align:right;">Reformer #3</div>
-              </div>
-            </div>
-            <div class="past-booking">
-              <div style="display:flex; justify-content:space-between;">
-                <div>
-                  <div style="font-size:14px; font-weight:500; color:var(--stone-dark);">Candlelight Pilates</div>
-                  <div class="caption">Wednesday 12 March · 18:00 · Katie</div>
-                </div>
-                <div class="caption" style="text-align:right;">Reformer #4</div>
-              </div>
-            </div>
-            <div class="past-booking">
-              <div style="display:flex; justify-content:space-between;">
-                <div>
-                  <div style="font-size:14px; font-weight:500; color:var(--stone-dark);">Reformer Dynamic</div>
-                  <div class="caption">Monday 10 March · 07:00 · Katie</div>
-                </div>
-                <div class="caption" style="text-align:right;">Reformer #2</div>
-              </div>
-            </div>
-          </div>
+          <!-- Past bookings — rendered by App.renderPastBookings() -->
+          <div id="bookings-past" class="bookings-tab"></div>
 
         </div>
       </div>
@@ -1858,8 +2845,8 @@
         <div class="screen-content">
           <h1 class="heading-lg" style="margin-bottom: 20px;">Explore</h1>
 
-          <!-- Category tabs -->
-          <div class="content-tabs">
+          <!-- Category pill chips -->
+          <div class="content-tabs pill-tabs">
             <button class="content-tab active" onclick="App.switchContentTab('blog', this)">Blog</button>
             <button class="content-tab" onclick="App.switchContentTab('resources', this)">Free Resources</button>
             <button class="content-tab" onclick="App.switchContentTab('events', this)">Events</button>
@@ -1868,36 +2855,32 @@
           <!-- Blog tab -->
           <div id="content-blog" class="content-panel active">
             <!-- Featured article -->
-            <div class="card featured-article" style="padding: 0; overflow: hidden; margin-bottom: 16px;">
-              <div style="height: 160px; background: linear-gradient(135deg, var(--sage-light) 0%, var(--sage) 100%); display: flex; align-items: center; justify-content: center; position: relative;">
-                <span style="font-family: var(--font-serif); font-size: 72px; color: rgba(255,255,255,0.15); position: absolute;">&ldquo;</span>
-                <span style="font-family: var(--font-serif); font-size: 18px; color: var(--white); font-style: italic; padding: 0 32px; text-align: center; position: relative; z-index: 1; line-height: 1.5;">The science behind<br>every movement</span>
+            <article class="featured-article" role="link" tabindex="0">
+              <div class="featured-article-img" aria-hidden="true"></div>
+              <div class="featured-article-mark">Featured Essay</div>
+              <div class="featured-article-overlay">
+                <div class="featured-article-title">Why Your Core Is Not What You Think It Is</div>
+                <div class="featured-article-meta">by Katie · 6 min</div>
               </div>
-              <div style="padding: 20px;">
-                <div class="badge badge-sage" style="margin-bottom: 8px;">Featured</div>
-                <div style="font-family: var(--font-serif); font-size: 18px; font-weight: 600; color: var(--charcoal); margin-bottom: 8px; line-height: 1.3;">Why Your Core Is Not What You Think It Is</div>
-                <div class="caption" style="margin-bottom: 8px;">By Katie Peckham · 5 min read</div>
-                <div style="font-size: 14px; color: var(--stone-dark); line-height: 1.6;">Most people think core strength means visible abs. The truth is far more interesting — and far more useful for your everyday life.</div>
-              </div>
-            </div>
+            </article>
 
             <div class="card article-card" style="cursor: pointer;">
-              <div style="font-family: var(--font-serif); font-size: 16px; font-weight: 600; color: var(--charcoal); margin-bottom: 6px; line-height: 1.3;">The Science Behind Reformer Pilates</div>
+              <div style="font-family: var(--font-display); font-size: 16px; font-weight: 600; color: var(--brown-deep); margin-bottom: 6px; line-height: 1.3;">The Science Behind Reformer Pilates</div>
               <div class="caption">4 min read · Reformer</div>
             </div>
 
             <div class="card article-card" style="cursor: pointer;">
-              <div style="font-family: var(--font-serif); font-size: 16px; font-weight: 600; color: var(--charcoal); margin-bottom: 6px; line-height: 1.3;">Breathwork: Why 5 Minutes Changes Everything</div>
+              <div style="font-family: var(--font-display); font-size: 16px; font-weight: 600; color: var(--brown-deep); margin-bottom: 6px; line-height: 1.3;">Breathwork: Why 5 Minutes Changes Everything</div>
               <div class="caption">3 min read · Wellness</div>
             </div>
 
             <div class="card article-card" style="cursor: pointer;">
-              <div style="font-family: var(--font-serif); font-size: 16px; font-weight: 600; color: var(--charcoal); margin-bottom: 6px; line-height: 1.3;">Pilates for Rugby Players — Yes, Really</div>
+              <div style="font-family: var(--font-display); font-size: 16px; font-weight: 600; color: var(--brown-deep); margin-bottom: 6px; line-height: 1.3;">Pilates for Rugby Players — Yes, Really</div>
               <div class="caption">6 min read · Athletes</div>
             </div>
 
             <div class="card article-card" style="cursor: pointer;">
-              <div style="font-family: var(--font-serif); font-size: 16px; font-weight: 600; color: var(--charcoal); margin-bottom: 6px; line-height: 1.3;">What to Expect at Your First Reformer Class</div>
+              <div style="font-family: var(--font-display); font-size: 16px; font-weight: 600; color: var(--brown-deep); margin-bottom: 6px; line-height: 1.3;">What to Expect at Your First Reformer Class</div>
               <div class="caption">3 min read · Beginners</div>
             </div>
           </div>
@@ -1906,149 +2889,110 @@
           <div id="content-resources" class="content-panel">
             <div class="section-label" style="margin-top: 8px;">Mindfulness &amp; Breathwork</div>
 
-            <div class="card resource-card">
-              <div style="display: flex; gap: 14px; align-items: center;">
-                <div class="play-circle" onclick="App.togglePlay(this)">
-                  <span class="play-icon">&#9654;</span>
-                </div>
-                <div style="flex: 1;">
-                  <div style="font-size: 15px; font-weight: 600; color: var(--charcoal);">5-Min Morning Breathwork</div>
-                  <div class="caption">Audio · 5 min</div>
-                </div>
-                <div class="badge badge-sage">Free</div>
-              </div>
-              <div class="audio-progress" style="display: none;">
-                <div class="progress-bar"><div class="progress-fill"></div></div>
-                <div class="caption" style="margin-top: 4px;">0:00 / 5:00</div>
-              </div>
-            </div>
+            <button type="button" class="audio-card">
+              <span class="audio-play" aria-hidden="true">&#9654;</span>
+              <span class="audio-text">
+                <span class="audio-title">5-Minute Morning Breathwork</span>
+                <span class="audio-duration">5 min</span>
+              </span>
+            </button>
 
-            <div class="card resource-card">
-              <div style="display: flex; gap: 14px; align-items: center;">
-                <div class="play-circle" onclick="App.togglePlay(this)">
-                  <span class="play-icon">&#9654;</span>
-                </div>
-                <div style="flex: 1;">
-                  <div style="font-size: 15px; font-weight: 600; color: var(--charcoal);">Evening Wind-Down</div>
-                  <div class="caption">Audio · 10 min</div>
-                </div>
-                <div class="badge badge-sage">Free</div>
-              </div>
-              <div class="audio-progress" style="display: none;">
-                <div class="progress-bar"><div class="progress-fill"></div></div>
-                <div class="caption" style="margin-top: 4px;">0:00 / 10:00</div>
-              </div>
-            </div>
+            <button type="button" class="audio-card">
+              <span class="audio-play" aria-hidden="true">&#9654;</span>
+              <span class="audio-text">
+                <span class="audio-title">Evening Wind-Down</span>
+                <span class="audio-duration">10 min</span>
+              </span>
+            </button>
 
-            <div class="card resource-card">
-              <div style="display: flex; gap: 14px; align-items: center;">
-                <div class="play-circle" onclick="App.togglePlay(this)">
-                  <span class="play-icon">&#9654;</span>
-                </div>
-                <div style="flex: 1;">
-                  <div style="font-size: 15px; font-weight: 600; color: var(--charcoal);">Body Scan Meditation</div>
-                  <div class="caption">Audio · 8 min</div>
-                </div>
-                <div class="badge badge-sage">Free</div>
-              </div>
-              <div class="audio-progress" style="display: none;">
-                <div class="progress-bar"><div class="progress-fill"></div></div>
-                <div class="caption" style="margin-top: 4px;">0:00 / 8:00</div>
-              </div>
-            </div>
+            <button type="button" class="audio-card">
+              <span class="audio-play" aria-hidden="true">&#9654;</span>
+              <span class="audio-text">
+                <span class="audio-title">Body Scan Meditation</span>
+                <span class="audio-duration">8 min</span>
+              </span>
+            </button>
 
             <div class="section-label">Home Workouts</div>
 
-            <div class="card resource-card" style="cursor: pointer;">
-              <div style="display: flex; gap: 14px; align-items: center;">
-                <div style="width: 44px; height: 44px; border-radius: 10px; background: var(--cream); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                  <span style="font-size: 20px;">&#9672;</span>
-                </div>
-                <div style="flex: 1;">
-                  <div style="font-size: 15px; font-weight: 600; color: var(--charcoal);">20-Min Mat Flow</div>
-                  <div class="caption">Beginner · Full body</div>
-                </div>
-                <div class="badge badge-sage">Free</div>
-              </div>
-            </div>
+            <button type="button" class="workout-card">
+              <span class="workout-thumb" aria-hidden="true"></span>
+              <span class="workout-body">
+                <span class="workout-title">20-Min Mat Flow</span>
+                <span class="workout-meta">Full body &middot; 20 min</span>
+              </span>
+              <span class="workout-level">Beginner</span>
+            </button>
 
-            <div class="card resource-card" style="cursor: pointer;">
-              <div style="display: flex; gap: 14px; align-items: center;">
-                <div style="width: 44px; height: 44px; border-radius: 10px; background: var(--cream); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                  <span style="font-size: 20px;">&#9672;</span>
-                </div>
-                <div style="flex: 1;">
-                  <div style="font-size: 15px; font-weight: 600; color: var(--charcoal);">15-Min Core Blast</div>
-                  <div class="caption">Intermediate · Core focus</div>
-                </div>
-                <div class="badge badge-sage">Free</div>
-              </div>
-            </div>
+            <button type="button" class="workout-card">
+              <span class="workout-thumb" aria-hidden="true"></span>
+              <span class="workout-body">
+                <span class="workout-title">15-Min Core Blast</span>
+                <span class="workout-meta">Core focus &middot; 15 min</span>
+              </span>
+              <span class="workout-level">Intermediate</span>
+            </button>
 
-            <div class="card resource-card" style="cursor: pointer;">
-              <div style="display: flex; gap: 14px; align-items: center;">
-                <div style="width: 44px; height: 44px; border-radius: 10px; background: var(--cream); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                  <span style="font-size: 20px;">&#9672;</span>
-                </div>
-                <div style="flex: 1;">
-                  <div style="font-size: 15px; font-weight: 600; color: var(--charcoal);">10-Min Morning Stretch</div>
-                  <div class="caption">All levels · Flexibility</div>
-                </div>
-                <div class="badge badge-sage">Free</div>
-              </div>
-            </div>
+            <button type="button" class="workout-card">
+              <span class="workout-thumb" aria-hidden="true"></span>
+              <span class="workout-body">
+                <span class="workout-title">10-Min Morning Stretch</span>
+                <span class="workout-meta">Flexibility &middot; 10 min</span>
+              </span>
+              <span class="workout-level">All Levels</span>
+            </button>
           </div>
 
           <!-- Events tab -->
           <div id="content-events" class="content-panel">
 
             <div class="event-card" style="margin-bottom: 12px;">
-              <div class="date-block">
+              <div class="date-block" style="background: var(--brown-deep); color: var(--cream);">
                 <div class="day">5</div>
                 <div class="month">Apr</div>
               </div>
               <div style="flex: 1;">
-                <div style="font-size: 15px; font-weight: 600; color: var(--charcoal);">Walk &amp; Talk</div>
+                <div style="font-size: 15px; font-weight: 600; color: var(--brown-deep);">Walk &amp; Talk</div>
                 <div class="caption" style="margin: 4px 0;">Saturday 9:00 AM · Wye Valley Trail</div>
                 <div class="caption">Free community walk with Katie. All welcome.</div>
-                <button class="btn-rsvp" style="margin-top: 8px;" onclick="App.toggleRsvp(this)">RSVP</button>
+                <button class="btn-rsvp" style="margin-top: 8px; background: var(--brown-deep); color: var(--cream);" onclick="App.toggleRsvp(this)">RSVP</button>
               </div>
             </div>
 
             <div class="event-card" style="margin-bottom: 12px;">
-              <div class="date-block">
+              <div class="date-block" style="background: var(--brown-deep); color: var(--cream);">
                 <div class="day">12</div>
                 <div class="month">Apr</div>
               </div>
               <div style="flex: 1;">
-                <div style="font-size: 15px; font-weight: 600; color: var(--charcoal);">Coffee Morning @ Coffi Lab</div>
+                <div style="font-size: 15px; font-weight: 600; color: var(--brown-deep);">Coffee Morning @ Coffi Lab</div>
                 <div class="caption" style="margin: 4px 0;">Saturday 10:30 AM · First Saturday monthly</div>
-                <div class="caption">Meet other ALIGN. members over great coffee.</div>
-                <button class="btn-rsvp" style="margin-top: 8px;" onclick="App.toggleRsvp(this)">RSVP</button>
+                <div class="caption">Meet other Alīgn members over great coffee.</div>
+                <button class="btn-rsvp" style="margin-top: 8px; background: transparent; color: var(--brown-deep); border: 1px solid var(--brown-deep);" onclick="App.toggleRsvp(this)">RSVP</button>
               </div>
             </div>
 
             <div class="event-card" style="margin-bottom: 12px;">
-              <div class="date-block" style="background: var(--stone);">
+              <div class="date-block" style="background: var(--brown-deep); color: var(--cream); opacity: 0.85;">
                 <div class="day">26</div>
                 <div class="month">Apr</div>
               </div>
               <div style="flex: 1;">
-                <div style="font-size: 15px; font-weight: 600; color: var(--charcoal);">Breathwork Workshop</div>
-                <div class="caption" style="margin: 4px 0;">Saturday 14:00 — 16:00 · ALIGN. Studio</div>
+                <div style="font-size: 15px; font-weight: 600; color: var(--brown-deep);">Breathwork Workshop</div>
+                <div class="caption" style="margin: 4px 0;">Saturday 14:00 — 16:00 · Alīgn Studio</div>
                 <div class="caption">Deep-dive into breathing techniques. Limited to 6 places.</div>
                 <div style="display: flex; gap: 8px; align-items: center; margin-top: 8px;">
-                  <button class="btn-rsvp" onclick="App.toggleRsvp(this)">Book · £25</button>
-                  <span class="caption" style="color: var(--warning);">2 spots left</span>
+                  <button class="btn-rsvp" style="background: var(--brown-deep); color: var(--cream);" onclick="App.toggleRsvp(this)">Book · £25</button>
+                  <span class="caption" style="color: var(--sage-muted);">2 spots left</span>
                 </div>
               </div>
             </div>
 
             <!-- Farm retreat teaser -->
-            <div class="card" style="background: linear-gradient(135deg, var(--sage-light) 0%, var(--sage) 100%); color: var(--white); margin-top: 8px;">
-              <div style="font-family: var(--font-serif); font-size: 18px; margin-bottom: 8px;">Farm Retreat</div>
-              <div style="font-size: 13px; opacity: 0.85; line-height: 1.6; margin-bottom: 12px;">A full-day escape to the Wye Valley. Morning Pilates, guided walks, breathwork, and farm-to-table meals. Coming Autumn 2026.</div>
-              <button class="btn-secondary" style="border-color: rgba(255,255,255,0.6); color: var(--white); width: auto; height: 36px; padding: 0 16px; font-size: 13px;" onclick="this.textContent='Notified \u2713'; this.style.background='rgba(255,255,255,0.15)';">Notify Me</button>
+            <div class="card" style="background: linear-gradient(135deg, var(--sage-soft) 0%, var(--sage) 100%); color: var(--cream); margin-top: 8px;">
+              <div style="font-family: var(--font-display); font-size: 18px; margin-bottom: 8px;">Farm Retreat</div>
+              <div style="font-size: 13px; opacity: 0.92; line-height: 1.6; margin-bottom: 12px;">A full-day escape to the Wye Valley. Morning Pilates, guided walks, breathwork, and farm-to-table meals. Coming Autumn 2026.</div>
+              <button class="btn-secondary" style="border-color: rgba(245,241,232,0.7); color: var(--cream); width: auto; height: 36px; padding: 0 16px; font-size: 13px;" onclick="this.textContent='Notified \u2713'; this.style.background='rgba(245,241,232,0.18)';">Notify Me</button>
             </div>
 
           </div>
@@ -2061,58 +3005,55 @@
         <div class="screen-content">
 
           <!-- Profile header -->
-          <div style="display: flex; flex-direction: column; align-items: center; padding: 8px 0 24px;">
+          <div style="display: flex; flex-direction: column; align-items: center; padding: 8px 0 24px; text-align: center;">
             <div class="profile-avatar">SM</div>
-            <div style="font-family: var(--font-serif); font-size: 20px; font-weight: 600; color: var(--charcoal); margin-top: 12px;">Sarah Mitchell</div>
-            <div class="caption">sarah.mitchell@email.com</div>
+            <div style="font-family: var(--font-display); font-size: 20px; font-weight: 600; color: var(--brown-deep);">Sarah Mitchell</div>
+            <div class="caption" style="margin-top: 4px;">sarah.mitchell@email.com</div>
           </div>
 
-          <!-- Membership card -->
+          <!-- Membership card — sage bg, cream text, 8-dot credits line -->
           <div class="membership-card">
-            <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-              <div>
-                <div style="font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; opacity: 0.8; margin-bottom: 4px;">Current Plan</div>
-                <div style="font-size: 18px; font-weight: 600;">Monthly 8-Class</div>
-              </div>
-              <div class="credits-circle">
-                <svg width="52" height="52" viewBox="0 0 52 52">
-                  <circle cx="26" cy="26" r="22" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="4"/>
-                  <circle cx="26" cy="26" r="22" fill="none" stroke="var(--white)" stroke-width="4"
-                    stroke-dasharray="138" stroke-dashoffset="52" stroke-linecap="round"
-                    transform="rotate(-90 26 26)"/>
-                </svg>
-                <span class="credits-number">5</span>
-              </div>
+            <div class="membership-label">Current Membership</div>
+            <div class="membership-name">Monthly 8-Class</div>
+            <div class="membership-credits-line" aria-label="4 of 8 credits remaining">
+              <span class="streak-dot active" aria-hidden="true"></span>
+              <span class="streak-dot active" aria-hidden="true"></span>
+              <span class="streak-dot active" aria-hidden="true"></span>
+              <span class="streak-dot active" aria-hidden="true"></span>
+              <span class="streak-dot future" aria-hidden="true"></span>
+              <span class="streak-dot future" aria-hidden="true"></span>
+              <span class="streak-dot future" aria-hidden="true"></span>
+              <span class="streak-dot future" aria-hidden="true"></span>
             </div>
-            <div style="display: flex; justify-content: space-between; margin-top: 12px; font-size: 13px; opacity: 0.85;">
-              <span>5 classes remaining</span>
-              <span>Renews 15 Apr</span>
-            </div>
+            <div class="membership-meta">4 of 8 credits remaining · Renews 1 June</div>
           </div>
 
-          <!-- Progress row -->
-          <div class="progress-row">
-            <div class="progress-stat">
-              <span class="progress-number">12</span>
-              <span class="progress-label">Classes attended</span>
+          <!-- Classes attended — taps through to Your Line -->
+          <button class="profile-progress-card" data-action="open-your-line" type="button" aria-label="View your Line">
+            <div class="profile-progress-label">Your progress</div>
+            <div class="profile-progress-stat">12 classes attended</div>
+            <div class="streak-line" aria-hidden="true">
+              <span class="streak-dot"></span>
+              <span class="streak-dot"></span>
+              <span class="streak-dot"></span>
+              <span class="streak-dot"></span>
+              <span class="streak-dot"></span>
+              <span class="streak-dot"></span>
+              <span class="streak-dot"></span>
+              <span class="streak-dot"></span>
+              <span class="streak-dot"></span>
+              <span class="streak-dot active"></span>
+              <span class="streak-dot active"></span>
+              <span class="streak-dot active"></span>
             </div>
-            <div class="progress-divider"></div>
-            <div class="progress-stat">
-              <span class="progress-number">3</span>
-              <span class="progress-label">Week streak</span>
-            </div>
-            <div class="progress-divider"></div>
-            <div class="progress-stat">
-              <span class="progress-number">2</span>
-              <span class="progress-label">Months active</span>
-            </div>
-          </div>
+            <div class="profile-progress-meta">3-week streak →</div>
+          </button>
 
           <!-- Menu sections -->
           <div class="profile-menu">
             <div class="menu-item" onclick="">
               <div style="display: flex; align-items: center; gap: 12px;">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--stone)" stroke-width="1.5" stroke-linecap="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--sage-muted)" stroke-width="1.5" stroke-linecap="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
                 <span>Personal Details</span>
               </div>
               <span class="menu-chevron">›</span>
@@ -2120,7 +3061,7 @@
 
             <div class="menu-item" onclick="">
               <div style="display: flex; align-items: center; gap: 12px;">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--stone)" stroke-width="1.5" stroke-linecap="round"><path d="M9 12h6m-3-3v6m-7 4h14a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2z"/></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--sage-muted)" stroke-width="1.5" stroke-linecap="round"><path d="M9 12h6m-3-3v6m-7 4h14a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2z"/></svg>
                 <span>Medical Form (PAR-Q)</span>
               </div>
               <span class="menu-chevron">›</span>
@@ -2128,7 +3069,7 @@
 
             <div class="menu-item" onclick="">
               <div style="display: flex; align-items: center; gap: 12px;">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--stone)" stroke-width="1.5" stroke-linecap="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--sage-muted)" stroke-width="1.5" stroke-linecap="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
                 <span>Payment Methods</span>
               </div>
               <div style="display: flex; align-items: center; gap: 8px;">
@@ -2139,7 +3080,7 @@
 
             <div class="menu-item" onclick="">
               <div style="display: flex; align-items: center; gap: 12px;">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--stone)" stroke-width="1.5" stroke-linecap="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--sage-muted)" stroke-width="1.5" stroke-linecap="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
                 <span>Payment History</span>
               </div>
               <span class="menu-chevron">›</span>
@@ -2147,7 +3088,7 @@
 
             <div class="menu-item" onclick="">
               <div style="display: flex; align-items: center; gap: 12px;">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--stone)" stroke-width="1.5" stroke-linecap="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--sage-muted)" stroke-width="1.5" stroke-linecap="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
                 <span>Notifications</span>
               </div>
               <span class="menu-chevron">›</span>
@@ -2155,7 +3096,7 @@
 
             <div class="menu-item" onclick="">
               <div style="display: flex; align-items: center; gap: 12px;">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--stone)" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--sage-muted)" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
                 <span>Settings</span>
               </div>
               <span class="menu-chevron">›</span>
@@ -2179,36 +3120,36 @@
               <h1 class="heading-lg" style="margin-bottom: 2px;">Good morning, Katie</h1>
               <div class="caption">Monday, 31 March 2026</div>
             </div>
-            <span class="badge badge-sage" style="font-size: 12px; padding: 5px 12px;">Admin</span>
+            <span class="badge" style="background: var(--brown-deep); color: var(--cream); font-size: 12px; padding: 5px 12px;">Admin</span>
           </div>
 
-          <!-- Revenue -->
+          <!-- Revenue — visual centerpiece, Proza Libre 40px brown-deep -->
           <div class="admin-revenue-card">
-            <div style="font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--stone); margin-bottom: 4px;">Today's Revenue</div>
-            <div style="font-family: var(--font-serif); font-size: 36px; font-weight: 700; color: var(--sage-dark);">£160</div>
-            <div class="caption" style="margin-top: 4px;">14 bookings across 5 classes</div>
+            <div class="admin-revenue-label">Today's Revenue</div>
+            <div class="admin-revenue">£160</div>
+            <div class="admin-revenue-meta">14 bookings across 5 classes</div>
           </div>
 
-          <!-- Alerts -->
-          <div class="admin-alert-card">
-            <div style="display: flex; gap: 10px; align-items: flex-start;">
-              <span style="font-size: 18px;">⚠</span>
-              <div>
-                <div style="font-size: 14px; font-weight: 600; color: var(--charcoal);">New signup: Helen Davies</div>
-                <div class="caption" style="margin-top: 2px;">PAR-Q flag: bone/joint problem</div>
-                <button class="btn-text" style="padding: 4px 0; font-size: 13px; margin-top: 4px;">Review Medical Form →</button>
-              </div>
-            </div>
+          <!-- Alerts — sage-soft bg, brown text, no warning color -->
+          <div class="section-label" style="margin-top: 20px;">Alerts</div>
+          <div class="admin-alert">
+            <div class="admin-alert-title">New signup: Helen Davies</div>
+            <div class="admin-alert-meta">PAR-Q flag: bone/joint problem</div>
+            <button class="admin-alert-action" type="button">Review Medical Form →</button>
           </div>
 
           <!-- Today's Classes -->
           <div class="section-label" style="margin-top: 24px;">Today's Classes</div>
 
           <div class="admin-class-card" onclick="App.toggleRoster(this)">
-            <div style="display: flex; justify-content: space-between; align-items: center;">
-              <div>
-                <div style="font-size: 15px; font-weight: 600; color: var(--charcoal);">07:00 — Reformer Dynamic</div>
-                <div class="caption" style="margin-top: 2px;">50 min · Katie</div>
+            <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px;">
+              <div style="min-width: 0;">
+                <div class="admin-class-row-meta">
+                  <span class="admin-class-time">07:00</span>
+                  <span class="admin-class-name">Reformer Dynamic</span>
+                  <span class="capacity-dots" aria-label="4 of 4 spots booked"><span class="capacity-dot full"></span><span class="capacity-dot full"></span><span class="capacity-dot full"></span><span class="capacity-dot full"></span></span>
+                </div>
+                <div class="caption" style="margin-top: 4px;">50 min · Katie</div>
               </div>
               <span class="admin-spots-badge full">4/4</span>
             </div>
@@ -2223,7 +3164,7 @@
               </div>
               <div class="roster-row">
                 <span class="roster-spot">3</span>
-                <span style="display: flex; align-items: center; gap: 6px;">Helen Davies <span style="color: var(--warning); font-size: 14px;">⚠</span></span>
+                <span style="display: flex; align-items: center; gap: 8px;">Helen Davies <span aria-label="PAR-Q flag" title="PAR-Q flag" style="display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--brown-deep);"></span></span>
               </div>
               <div class="roster-row">
                 <span class="roster-spot">4</span>
@@ -2233,10 +3174,14 @@
           </div>
 
           <div class="admin-class-card" onclick="App.toggleRoster(this)">
-            <div style="display: flex; justify-content: space-between; align-items: center;">
-              <div>
-                <div style="font-size: 15px; font-weight: 600; color: var(--charcoal);">10:00 — Mat Pilates</div>
-                <div class="caption" style="margin-top: 2px;">50 min · Katie</div>
+            <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px;">
+              <div style="min-width: 0;">
+                <div class="admin-class-row-meta">
+                  <span class="admin-class-time">10:00</span>
+                  <span class="admin-class-name">Mat Pilates</span>
+                  <span class="capacity-dots" aria-label="4 of 6 spots booked"><span class="capacity-dot filled"></span><span class="capacity-dot filled"></span><span class="capacity-dot filled"></span><span class="capacity-dot filled"></span><span class="capacity-dot"></span><span class="capacity-dot"></span></span>
+                </div>
+                <div class="caption" style="margin-top: 4px;">50 min · Katie</div>
               </div>
               <span class="admin-spots-badge">4/6</span>
             </div>
@@ -2249,10 +3194,14 @@
           </div>
 
           <div class="admin-class-card" onclick="App.toggleRoster(this)">
-            <div style="display: flex; justify-content: space-between; align-items: center;">
-              <div>
-                <div style="font-size: 15px; font-weight: 600; color: var(--charcoal);">12:00 — Reformer Core</div>
-                <div class="caption" style="margin-top: 2px;">50 min · Katie</div>
+            <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px;">
+              <div style="min-width: 0;">
+                <div class="admin-class-row-meta">
+                  <span class="admin-class-time">12:00</span>
+                  <span class="admin-class-name">Reformer Core</span>
+                  <span class="capacity-dots" aria-label="3 of 4 spots booked"><span class="capacity-dot filled"></span><span class="capacity-dot filled"></span><span class="capacity-dot filled"></span><span class="capacity-dot"></span></span>
+                </div>
+                <div class="caption" style="margin-top: 4px;">50 min · Katie</div>
               </div>
               <span class="admin-spots-badge">3/4</span>
             </div>
@@ -2264,10 +3213,14 @@
           </div>
 
           <div class="admin-class-card" onclick="App.toggleRoster(this)">
-            <div style="display: flex; justify-content: space-between; align-items: center;">
-              <div>
-                <div style="font-size: 15px; font-weight: 600; color: var(--charcoal);">18:00 — Candlelight Pilates</div>
-                <div class="caption" style="margin-top: 2px;">50 min · Katie</div>
+            <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px;">
+              <div style="min-width: 0;">
+                <div class="admin-class-row-meta">
+                  <span class="admin-class-time">18:00</span>
+                  <span class="admin-class-name">Candlelight Pilates</span>
+                  <span class="capacity-dots" aria-label="3 of 4 spots booked"><span class="capacity-dot filled"></span><span class="capacity-dot filled"></span><span class="capacity-dot filled"></span><span class="capacity-dot"></span></span>
+                </div>
+                <div class="caption" style="margin-top: 4px;">50 min · Katie</div>
               </div>
               <span class="admin-spots-badge">3/4</span>
             </div>
@@ -2279,10 +3232,14 @@
           </div>
 
           <div class="admin-class-card" onclick="App.toggleRoster(this)">
-            <div style="display: flex; justify-content: space-between; align-items: center;">
-              <div>
-                <div style="font-size: 15px; font-weight: 600; color: var(--charcoal);">19:30 — Reformer + Breathwork</div>
-                <div class="caption" style="margin-top: 2px;">75 min · Katie</div>
+            <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px;">
+              <div style="min-width: 0;">
+                <div class="admin-class-row-meta">
+                  <span class="admin-class-time">19:30</span>
+                  <span class="admin-class-name">Reformer + Breathwork</span>
+                  <span class="capacity-dots" aria-label="2 of 4 spots booked"><span class="capacity-dot filled"></span><span class="capacity-dot filled"></span><span class="capacity-dot"></span><span class="capacity-dot"></span></span>
+                </div>
+                <div class="caption" style="margin-top: 4px;">75 min · Katie</div>
               </div>
               <span class="admin-spots-badge">2/4</span>
             </div>
@@ -2302,6 +3259,93 @@
           <!-- Switch back -->
           <div style="text-align: center; padding: 16px 0 24px;">
             <button class="btn-text" style="font-size: 14px;" onclick="App.switchToClient()">Switch to Client View →</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Your Line Screen -->
+      <div class="screen" data-screen="your-line">
+        <div class="screen-content your-line-content">
+          <button class="back-btn" type="button" data-action="back" aria-label="Back">←</button>
+          <h1 class="your-line-title">Your Line</h1>
+          <div class="time-toggle" role="group" aria-label="Time range">
+            <button class="toggle-btn" type="button" aria-pressed="false">Week</button>
+            <button class="toggle-btn" type="button" aria-pressed="false">Month</button>
+            <button class="toggle-btn active" type="button" aria-pressed="true">All-time</button>
+          </div>
+          <!-- Hero stat block -->
+          <div class="your-line-hero">
+            <div class="hero-number">12</div>
+            <div class="hero-label">classes attended</div>
+          </div>
+          <!-- The Line -->
+          <div class="your-line-line">
+            <span class="line-track" aria-hidden="true"></span>
+            <button class="line-dot" type="button" aria-label="Tue 8 Apr · Reformer Dynamic"></button>
+            <button class="line-dot" type="button" aria-label="Thu 10 Apr · Mat Pilates"></button>
+            <button class="line-dot" type="button" aria-label="Sat 12 Apr · Reformer Core"></button>
+            <button class="line-dot" type="button" aria-label="Mon 14 Apr · Reformer Dynamic"></button>
+            <button class="line-dot" type="button" aria-label="Wed 16 Apr · Mat Pilates"></button>
+            <button class="line-dot" type="button" aria-label="Fri 18 Apr · Reformer Core"></button>
+            <button class="line-dot" type="button" aria-label="Tue 22 Apr · Reformer Dynamic"></button>
+            <button class="line-dot" type="button" aria-label="Thu 24 Apr · Mat Pilates"></button>
+            <button class="line-dot" type="button" aria-label="Sat 26 Apr · Reformer Core"></button>
+            <button class="line-dot" type="button" aria-label="Mon 28 Apr · Reformer Dynamic"></button>
+            <button class="line-dot" type="button" aria-label="Wed 30 Apr · Mat Pilates"></button>
+            <button class="line-dot last-solid" type="button" aria-label="Fri 2 May · Reformer Core (latest)" aria-current="true"></button>
+            <button class="line-dot future" type="button" aria-label="Mon 5 May · Reformer Dynamic (next booked)"></button>
+            <span class="line-now-label" aria-hidden="true">now</span>
+          </div>
+          <!-- Streak callout + citation + divider -->
+          <p class="streak-callout">3 week streak</p>
+          <p class="line-citation">&ldquo;One point at a time.<br>Suddenly, a Line.&rdquo;</p>
+          <div class="line-divider"></div>
+          <!-- YOUR PATTERNS section -->
+          <div class="patterns-label" aria-hidden="false">YOUR PATTERNS</div>
+
+          <div class="pattern-card">
+            <div class="pattern-thumb pattern-thumb-reformer" aria-hidden="true"></div>
+            <div class="pattern-text">
+              <div class="pattern-label-sm">Most loved</div>
+              <div class="pattern-value">Reformer Dynamic</div>
+              <div class="pattern-meta">6 times</div>
+            </div>
+          </div>
+
+          <div class="pattern-card">
+            <div class="pattern-thumb pattern-thumb-morning" aria-hidden="true"></div>
+            <div class="pattern-text">
+              <div class="pattern-label-sm">Your time</div>
+              <div class="pattern-value">Tuesdays</div>
+              <div class="pattern-meta">7:00 AM</div>
+            </div>
+          </div>
+
+          <div class="pattern-card">
+            <div class="pattern-thumb pattern-thumb-evening" aria-hidden="true"></div>
+            <div class="pattern-text">
+              <div class="pattern-label-sm">Time on your Line</div>
+              <div class="pattern-value">10 hours</div>
+              <div class="pattern-meta">600 minutes of attention</div>
+            </div>
+          </div>
+
+          <div class="line-divider"></div>
+
+          <!-- THE NEXT POINT section -->
+          <div class="patterns-label">THE NEXT POINT</div>
+
+          <div class="next-point">
+            <div class="next-when">Mon 5 May · 7:00 AM</div>
+            <div class="next-class">Reformer Dynamic</div>
+            <div class="next-position">Reformer #3</div>
+            <div class="next-mini-line" aria-label="Your reformer position">
+              <span class="line-track-mini" aria-hidden="true"></span>
+              <span class="next-dot"></span>
+              <span class="next-dot"></span>
+              <span class="next-dot selected"></span>
+              <span class="next-dot"></span>
+            </div>
           </div>
         </div>
       </div>
@@ -2340,51 +3384,48 @@
     <!-- Tab Bar -->
     <nav id="tab-bar" class="hidden">
 
-      <div class="tab-item active" data-tab="home">
-        <svg viewBox="0 0 24 24">
-          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
-          <polyline points="9 22 9 12 15 12 15 22"/>
-        </svg>
-        <span>Home</span>
-      </div>
+      <button type="button" class="tab-item active" data-tab="home" aria-current="page">
+        <span class="tab-mark" aria-hidden="true"></span>
+        <span class="tab-label">Home</span>
+      </button>
 
-      <div class="tab-item" data-tab="schedule">
-        <svg viewBox="0 0 24 24">
-          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
-          <line x1="16" y1="2" x2="16" y2="6"/>
-          <line x1="8" y1="2" x2="8" y2="6"/>
-          <line x1="3" y1="10" x2="21" y2="10"/>
-        </svg>
-        <span>Schedule</span>
-      </div>
+      <button type="button" class="tab-item" data-tab="schedule">
+        <span class="tab-mark" aria-hidden="true"></span>
+        <span class="tab-label">Schedule</span>
+      </button>
 
-      <div class="tab-item" data-tab="bookings">
-        <svg viewBox="0 0 24 24">
-          <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
-        </svg>
-        <span>Bookings</span>
-      </div>
+      <button type="button" class="tab-item" data-tab="bookings">
+        <span class="tab-mark" aria-hidden="true"></span>
+        <span class="tab-label">Bookings</span>
+      </button>
 
-      <div class="tab-item" data-tab="content">
-        <svg viewBox="0 0 24 24">
-          <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
-          <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
-        </svg>
-        <span>Explore</span>
-      </div>
+      <button type="button" class="tab-item" data-tab="content">
+        <span class="tab-mark" aria-hidden="true"></span>
+        <span class="tab-label">Content</span>
+      </button>
 
-      <div class="tab-item" data-tab="profile">
-        <svg viewBox="0 0 24 24">
-          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-          <circle cx="12" cy="7" r="4"/>
-        </svg>
-        <span>Profile</span>
-      </div>
+      <button type="button" class="tab-item" data-tab="profile">
+        <span class="tab-mark" aria-hidden="true"></span>
+        <span class="tab-label">Profile</span>
+      </button>
 
     </nav>
   </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
   <script>
+    // Capacity micro-dots helper — 4 dots, sage when partial, brown when full.
+    function renderCapacityDots(booked, total) {
+      const safeTotal = total > 0 ? total : 4;
+      const ratio = Math.max(0, Math.min(1, booked / safeTotal));
+      const filled = Math.round(ratio * 4);
+      const isFull = booked >= safeTotal;
+      return Array.from({length: 4}, (_, i) => {
+        const cls = isFull ? 'capacity-dot full' : (i < filled ? 'capacity-dot filled' : 'capacity-dot');
+        return `<span class="${cls}"></span>`;
+      }).join('');
+    }
+
     const App = {
       currentScreen: 'splash',
       currentTab: 'home',
@@ -2392,17 +3433,50 @@
       onboardingStep: 1,
       splashTimer: null,
 
+      // Upcoming bookings (drives empty state vs list)
+      // type: 'reformer' | 'mat' — only reformer renders mini-line
+      // spot: 1..4 (1-indexed) selected reformer slot, omitted for mat
+      bookings: [
+        { date: 'Monday, 31 March', name: 'Reformer Dynamic', meta: '07:00 — 07:50 · Katie', sub: 'Reformer #3', type: 'reformer', spot: 3 },
+        { date: 'Wednesday, 2 April', name: 'Reformer Core', meta: '18:00 — 18:50 · Katie', sub: 'Reformer #1', type: 'reformer', spot: 1 },
+        { date: 'Saturday, 5 April', name: 'Outdoor Pilates', meta: '09:00 — 10:00 · Katie', sub: 'Wye Valley · Weather permitting', type: 'mat' }
+      ],
+
+      // Your Line attended state (drives empty-state fallback)
+      hasAttended: true,
+
+      // Past bookings (rendered with streak-dot prefix)
+      pastBookings: [
+        { name: 'Reformer Dynamic', meta: 'Monday 24 March · 07:00 · Katie', right: 'Reformer #3' },
+        { name: 'Mat Pilates', meta: 'Saturday 22 March · 10:00 · Katie', right: '' },
+        { name: 'Reformer + Breathwork', meta: 'Thursday 20 March · 19:30 · Katie', right: 'Reformer #1' },
+        { name: 'Reformer Dynamic', meta: 'Monday 17 March · 07:00 · Katie', right: 'Reformer #3' },
+        { name: 'Candlelight Pilates', meta: 'Wednesday 12 March · 18:00 · Katie', right: 'Reformer #4' },
+        { name: 'Reformer Dynamic', meta: 'Monday 10 March · 07:00 · Katie', right: 'Reformer #2' }
+      ],
+
       init() {
         document.querySelectorAll('.tab-item').forEach(tab => {
           tab.addEventListener('click', () => {
-            const screen = tab.dataset.tab;
-            this.switchTab(screen);
+            const target = tab.dataset.tab;
+            if (target === this.currentTab && this.currentScreen !== 'admin') return;
+
+            const prefersReduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            if (prefersReduce || typeof gsap === 'undefined') {
+              this.switchTab(target);
+              return;
+            }
+
+            this.animateTabSwitch(tab, target);
           });
         });
 
         document.getElementById('tab-bar').classList.add('hidden');
 
+        this.runSplashAnimation();
+
         this.splashTimer = setTimeout(() => {
+          if (this.currentScreen !== 'splash') return;
           this.showScreen('home');
           document.getElementById('tab-bar').classList.remove('hidden');
         }, 4000);
@@ -2413,6 +3487,293 @@
         });
 
         this.renderSchedule();
+        this.renderHomeGreeting('Sarah');
+        this.renderUpcomingBookings();
+        this.renderPastBookings();
+        this.bindYourLineTriggers();
+        if (new URLSearchParams(location.search).get('empty') === 'yourline') {
+          this.renderYourLineEmptyState();
+        }
+
+        // Dev-only sage A/B/C preview (?sage=a|b|c)
+        (function setSageVariant() {
+          const params = new URLSearchParams(location.search);
+          const v = params.get('sage');
+          const map = { a: '#A4B49B', b: '#A8B6A0', c: '#9EAE96' };
+          if (v && map[v]) {
+            document.documentElement.style.setProperty('--sage', map[v]);
+          }
+        })();
+
+        // Time-of-day hero photo
+        const heroEl = document.querySelector('.hero-image');
+        if (heroEl) {
+          const hour = new Date().getHours();
+          const slot = (hour >= 5 && hour < 12) ? 'hero-morning' : 'hero-evening';
+          heroEl.style.backgroundImage = `url('img/${slot}.webp')`;
+        }
+      },
+
+      // ── Splash animation ───────────────────────────────────────────────
+      runSplashAnimation() {
+        const splashContent = document.querySelector('.splash-content');
+        const dots = Array.from(document.querySelectorAll('.splash-dots .dot'));
+        const logo = document.querySelector('.splash-logo');
+        const tagline = document.querySelector('.splash-tagline');
+
+        // Reduced motion or GSAP unavailable: restore static state, let setTimeout handle transition
+        const prefersReduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (prefersReduce || typeof gsap === 'undefined') {
+          if (logo) logo.style.opacity = '1';
+          if (tagline) tagline.style.opacity = '1';
+          return;
+        }
+
+        splashContent.classList.add('is-animated');
+
+        const W = window.innerWidth;
+        const H = window.innerHeight;
+
+        // Set initial scattered positions for each dot (transform from center anchor)
+        dots.forEach((dot) => {
+          gsap.set(dot, {
+            x: (Math.random() - 0.5) * W * 0.6,
+            y: (Math.random() - 0.5) * H * 0.4,
+            scale: 0.6,
+            opacity: 0
+          });
+        });
+
+        // Target: 12 dots in a horizontal line at the macron level.
+        // Logo is vertically centered; macron sits ~0.18em above the i-baseline
+        // at 44px font-size = ~8px above logo center. Logo center ≈ screen center.
+        // Add ~12px breathing room so the dots sit visibly above the wordmark.
+        const macronY = -20;
+        const lineSpacing = 14;
+        const lineTotalWidth = 11 * lineSpacing;
+        const lineStartX = -lineTotalWidth / 2;
+
+        // Promote dots to GPU layer for the duration of the animation only
+        gsap.set(dots, { willChange: 'transform, opacity' });
+
+        const tl = gsap.timeline({
+          onComplete: () => {
+            // Free the GPU layers — dots are invisible from here on
+            gsap.set(dots, { willChange: 'auto' });
+            // Race with splashTimer — first one wins via currentScreen guard
+            if (this.currentScreen === 'splash') {
+              this.showScreen('home');
+              document.getElementById('tab-bar').classList.remove('hidden');
+            }
+          }
+        });
+
+        // Beat 1 (0.2s–0.6s): dots fade in at scattered positions
+        tl.to(dots, {
+          opacity: 1,
+          duration: 0.4,
+          stagger: 0.02,
+          ease: 'power2.out'
+        }, 0.2);
+
+        // Beat 2 (0.6s–1.2s): dots converge into horizontal line at macron level
+        tl.to(dots, {
+          x: (i) => lineStartX + i * lineSpacing,
+          y: macronY,
+          scale: 1,
+          duration: 0.6,
+          stagger: 0.03,
+          ease: 'power3.out'
+        }, 0.6);
+
+        // Beat 3 (1.3s–1.6s): dots collapse horizontally into a bar shape (the macron)
+        tl.to(dots, {
+          x: 0,
+          scaleX: 0.4,
+          duration: 0.3,
+          ease: 'power2.inOut'
+        }, 1.3);
+
+        // Beat 4 (1.6s–1.9s): dots fade out as CSS macron in .splash-logo takes over
+        tl.to(dots, {
+          opacity: 0,
+          duration: 0.3,
+          ease: 'power2.in'
+        }, 1.6);
+
+        // Beat 5 (1.7s–2.0s): logo fades in
+        tl.to(logo, {
+          opacity: 1,
+          duration: 0.3,
+          ease: 'power2.out'
+        }, 1.7);
+
+        // Beat 6 (2.2s–2.5s): tagline fades in with slight rise
+        tl.fromTo(tagline,
+          { opacity: 0, y: 8 },
+          { opacity: 1, y: 0, duration: 0.3, ease: 'power2.out' },
+          2.2
+        );
+
+        // Tap anywhere on splash skips to end and transitions
+        splashContent.addEventListener('click', () => {
+          tl.progress(1);
+        }, { once: true });
+      },
+
+      // ── Booking renderers ──────────────────────────────────────────────
+      renderUpcomingBookings() {
+        const host = document.getElementById('bookings-upcoming');
+        if (!host) return;
+
+        if (!this.bookings || this.bookings.length === 0) {
+          host.innerHTML = `
+            <div class="empty-bookings">
+              <div class="empty-grid" aria-hidden="true">
+                <span></span><span></span><span></span><span></span>
+                <span></span><span class="solid"></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span>
+              </div>
+              <p class="empty-citation">&ldquo;One point at a time. Suddenly, a Line.&rdquo;</p>
+              <button class="btn-primary" onclick="App.switchTab('schedule')">Browse Schedule</button>
+            </div>
+          `;
+          return;
+        }
+
+        host.innerHTML = this.bookings.map(b => {
+          const miniLine = b.type === 'reformer'
+            ? this.renderBookingMiniLine(b.spot)
+            : '';
+          return `
+            <div class="booking-card">
+              <div class="booking-date-header">${b.date}</div>
+              <div class="card" style="border-left: 3px solid var(--sage);">
+                <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+                  <div>
+                    <div style="font-size:15px; font-weight:600; color:var(--brown-deep);">${b.name}</div>
+                    <div class="caption" style="margin-top:4px;">${b.meta}</div>
+                    <div class="caption">${b.sub}</div>
+                    ${miniLine}
+                  </div>
+                  <button class="btn-cancel" onclick="App.cancelBooking(this)">Cancel</button>
+                </div>
+              </div>
+            </div>
+          `;
+        }).join('');
+      },
+
+      renderBookingMiniLine(selectedSpot) {
+        const dots = [1, 2, 3, 4].map(i => {
+          const sel = i === selectedSpot ? ' selected' : '';
+          return `<span class="booking-mini-dot${sel}"></span>`;
+        }).join('');
+        return `
+          <div class="booking-mini-line" aria-label="Reformer position">
+            <span class="booking-mini-track" aria-hidden="true"></span>
+            ${dots}
+          </div>
+        `;
+      },
+
+      renderPastBookings() {
+        const host = document.getElementById('bookings-past');
+        if (!host) return;
+        host.innerHTML = this.pastBookings.map(p => {
+          const right = p.right
+            ? `<div class="caption" style="text-align:right;">${p.right}</div>`
+            : '';
+          return `
+            <div class="past-booking">
+              <div class="past-booking-row">
+                <span class="streak-dot active" aria-hidden="true"></span>
+                <div class="past-booking-body">
+                  <div>
+                    <div style="font-size:14px; font-weight:500; color:var(--brown-deep);">${p.name}</div>
+                    <div class="caption">${p.meta}</div>
+                  </div>
+                  ${right}
+                </div>
+              </div>
+            </div>
+          `;
+        }).join('');
+      },
+
+      // Home greeting — single Line-voice copy slot ("Stay on your Line, {name}")
+      renderGreeting(name) {
+        return `Stay on your Line, ${name}`;
+      },
+
+      renderHomeGreeting(name) {
+        const el = document.getElementById('home-greeting');
+        if (el) el.textContent = this.renderGreeting(name);
+      },
+
+      // Your Line — entry triggers (week-strip in Home, streak-line in Profile).
+      bindYourLineTriggers() {
+        document.querySelectorAll('[data-action="open-your-line"]').forEach(el => {
+          el.addEventListener('click', () => {
+            // Remember where we came from so back returns there (not always home).
+            this.yourLineOrigin = this.currentScreen || 'home';
+            this.showScreen('your-line');
+            document.getElementById('tab-bar').classList.add('hidden');
+          });
+        });
+
+        // Back button — scoped to Your Line screen to avoid colliding with overlay close.
+        const yourLineScreen = document.querySelector('[data-screen="your-line"]');
+        if (yourLineScreen) {
+          yourLineScreen.addEventListener('click', (e) => {
+            if (e.target.closest('[data-action="back"]')) {
+              document.getElementById('tab-bar').classList.remove('hidden');
+              this.showScreen(this.yourLineOrigin || 'home');
+              return;
+            }
+            const toggle = e.target.closest('.time-toggle .toggle-btn');
+            if (toggle) {
+              const group = toggle.parentElement;
+              group.querySelectorAll('.toggle-btn').forEach(btn => {
+                btn.classList.remove('active');
+                btn.setAttribute('aria-pressed', 'false');
+              });
+              toggle.classList.add('active');
+              toggle.setAttribute('aria-pressed', 'true');
+            }
+          });
+        }
+      },
+
+      renderYourLineEmptyState() {
+        const screen = document.querySelector('[data-screen="your-line"] .your-line-content');
+        if (!screen) return;
+        const toggle = screen.querySelector('.time-toggle');
+        if (!toggle) return;
+        // Remove all siblings that come after the time-toggle
+        let next = toggle.nextElementSibling;
+        while (next) {
+          const after = next.nextElementSibling;
+          next.remove();
+          next = after;
+        }
+        const emptyHTML = `
+          <div class="your-line-empty">
+            <div class="empty-line-track">
+              <span class="empty-line" aria-hidden="true"></span>
+              <span class="empty-dot-first" aria-hidden="true"></span>
+            </div>
+            <p class="empty-citation">&ldquo;Your first point.<br>Soon, a Line.&rdquo;</p>
+            <button class="btn-primary" type="button" onclick="App.exitYourLineToSchedule()">Book your first class</button>
+          </div>
+        `;
+        toggle.insertAdjacentHTML('afterend', emptyHTML);
+      },
+
+      exitYourLineToSchedule() {
+        document.getElementById('tab-bar').classList.remove('hidden');
+        this.switchTab('schedule');
       },
 
       showScreen(name, direction) {
@@ -2464,9 +3825,62 @@
         this.showScreen(name);
         this.currentTab = name;
 
-        document.querySelectorAll('.tab-item').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.tab-item').forEach(t => {
+          t.classList.remove('active');
+          t.removeAttribute('aria-current');
+        });
         const tabEl = document.querySelector('[data-tab="' + name + '"]');
-        if (tabEl) tabEl.classList.add('active');
+        if (tabEl) {
+          tabEl.classList.add('active');
+          tabEl.setAttribute('aria-current', 'page');
+        }
+      },
+
+      animateTabSwitch(newTabEl, targetName) {
+        const oldMark = document.querySelector('.tab-item.active .tab-mark');
+        const newMark = newTabEl.querySelector('.tab-mark');
+
+        // Guard: if no old active mark or same mark, fall back to plain switch
+        if (!oldMark || !newMark || oldMark === newMark) {
+          this.switchTab(targetName);
+          return;
+        }
+
+        const tl = gsap.timeline();
+
+        // Beat 1 (0–180ms): collapse old dash → dot shape (scaleX 1→0.375, scaleY 1→2)
+        tl.to(oldMark, {
+          scaleX: 0.375,
+          scaleY: 2,
+          duration: 0.18,
+          ease: 'power2.in',
+          onComplete: () => {
+            // After Beat 1 finishes, hand control back to CSS so the inactive
+            // rule's transform value (matches the GSAP end state) governs.
+            gsap.set(oldMark, { clearProps: 'transform' });
+          }
+        }, 0);
+
+        // Mid-beat at 100ms: swap screens + active class. Seed newMark at dot
+        // scale so Beat 2 has a defined start. (oldMark cleanup is on Beat 1's
+        // onComplete — clearing it here would be overwritten by the still-running tween.)
+        tl.call(() => {
+          this.switchTab(targetName);
+          gsap.set(newMark, { scaleX: 0.375, scaleY: 2 });
+        }, [], 0.10);
+
+        // Beat 2 (120–320ms): expand new dot → dash with back overshoot for personality
+        tl.to(newMark, {
+          scaleX: 1,
+          scaleY: 1,
+          duration: 0.20,
+          ease: 'back.out(2)'
+        }, 0.12);
+
+        // Cleanup at 340ms: clear newMark inline transform so CSS .active rule governs
+        tl.call(() => {
+          gsap.set(newMark, { clearProps: 'transform' });
+        }, [], 0.34);
       },
 
       showOverlay(id) {
@@ -2524,6 +3938,11 @@
           if (step === this.onboardingStep) dot.classList.add('active');
           else if (step < this.onboardingStep) dot.classList.add('completed');
         });
+        const progressbar = document.querySelector('.onboarding-progress[role="progressbar"]');
+        if (progressbar) {
+          progressbar.setAttribute('aria-valuenow', this.onboardingStep);
+          progressbar.setAttribute('aria-label', 'Onboarding step ' + this.onboardingStep + ' of 4');
+        }
       },
 
       toggleParq(pill) {
@@ -2579,21 +3998,22 @@
         }
 
         container.innerHTML = filtered.map((cls, i) => {
-          const spotsColor = cls.spots === 0 ? 'var(--error)' : cls.spots <= 2 ? 'var(--warning)' : 'var(--sage)';
-          const spotsText = cls.spots === 0 ? 'Full — Waitlist' : `${cls.spots} spot${cls.spots !== 1 ? 's' : ''} left`;
+          const total = cls.capacity || 4;
+          const booked = Math.max(0, total - cls.spots);
+          const dotsHtml = renderCapacityDots(booked, total);
+          const dotsLabel = booked >= total ? `Full — ${total} of ${total} spots taken` : `${booked} of ${total} spots taken`;
           return `
             <div class="card class-card" onclick="App.showClassDetail(${i})">
               <div style="display:flex; justify-content:space-between; align-items:flex-start;">
                 <div>
-                  <div style="font-size:16px; font-weight:600; color:var(--charcoal);">${cls.time}</div>
+                  <div style="font-size:16px; font-weight:600; color:var(--brown-deep);">${cls.time}</div>
                   <div class="caption">${cls.duration}</div>
                 </div>
                 <div style="text-align:right;">
-                  <div style="font-size:15px; font-weight:600; color:var(--charcoal);">${cls.name}</div>
+                  <div style="font-size:15px; font-weight:600; color:var(--brown-deep);">${cls.name}</div>
                   <div class="caption">${cls.instructor}</div>
-                  <div style="display:flex; align-items:center; justify-content:flex-end; gap:6px; margin-top:4px;">
-                    <span style="width:8px; height:8px; border-radius:50%; background:${spotsColor}; display:inline-block;"></span>
-                    <span style="font-size:12px; font-weight:500; color:${spotsColor};">${spotsText}</span>
+                  <div style="display:flex; align-items:center; justify-content:flex-end; margin-top:6px;">
+                    <span class="capacity-dots" aria-label="${dotsLabel}">${dotsHtml}</span>
                   </div>
                 </div>
               </div>
@@ -2604,8 +4024,12 @@
 
       selectDay(dayKey, el) {
         this.selectedDay = dayKey;
-        document.querySelectorAll('.day-btn').forEach(d => d.classList.remove('active'));
+        document.querySelectorAll('.week-day-btn').forEach(d => {
+          d.classList.remove('active');
+          d.setAttribute('aria-pressed', 'false');
+        });
         el.classList.add('active');
+        el.setAttribute('aria-pressed', 'true');
         this.renderSchedule();
       },
 
@@ -2636,12 +4060,21 @@
 
         const isReformer = cls.type === 'reformer' || cls.type === 'breathwork';
         const takenSpot = 2;
+        const detailTotal = cls.capacity || 4;
+        const detailBooked = Math.max(0, detailTotal - cls.spots);
+        const detailDots = renderCapacityDots(detailBooked, detailTotal);
+        const detailDotsLabel = detailBooked >= detailTotal ? `Full — ${detailTotal} of ${detailTotal} spots taken` : `${detailBooked} of ${detailTotal} spots taken`;
+
+        const typeImg = (cls.type === 'mat' || cls.type === 'sc') ? 'class-mat'
+          : (cls.name && cls.name.toLowerCase().includes('candle')) ? 'class-candlelight'
+          : 'class-reformer';
 
         const content = document.getElementById('class-detail-content');
         content.innerHTML = `
+          <div style="height: 160px; background: var(--sage-soft) url('img/${typeImg}.webp') center/cover no-repeat; border-radius: var(--radius-md); margin-bottom: 16px; flex-shrink: 0;"></div>
           <div class="class-header">
-            <div class="class-name">${cls.name}</div>
-            <span class="badge badge-sage">${cls.level}</span>
+            <div class="class-name heading-lg">${cls.name}</div>
+            <span class="level-badge">${cls.level}</span>
           </div>
 
           <div class="class-meta-row">
@@ -2657,9 +4090,13 @@
               <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
               ${cls.instructor}
             </div>
+            <div class="class-meta-item">
+              <span class="capacity-dots" aria-label="${detailDotsLabel}" style="margin-left:0;">${detailDots}</span>
+              <span style="font-size:12px; color:var(--sage-muted); margin-left:8px;">${detailBooked}/${detailTotal}</span>
+            </div>
           </div>
 
-          <div class="class-description">${CLASS_DESCRIPTIONS[cls.name] || 'A premium Pilates experience at ALIGN. Studio.'}</div>
+          <div class="class-description">${CLASS_DESCRIPTIONS[cls.name] || 'A premium Pilates experience at Alīgn Studio.'}</div>
 
           <div class="instructor-section">
             <div class="instructor-avatar">KP</div>
@@ -2672,16 +4109,21 @@
           ${isReformer ? `
           <div class="spot-selection">
             <div class="spot-selection-label">Choose Your Reformer</div>
-            <div class="studio-layout">
-              <div class="studio-label top">Instructor</div>
-              <div class="reformer-grid" id="reformer-grid">
+            <div class="reformer-picker" id="reformer-picker">
+              <div class="reformer-label-top">Instructor</div>
+              <div class="reformer-line">
                 ${[1,2,3,4].map(n => {
                   const isTaken = n === takenSpot;
-                  const spotCls = isTaken ? 'taken' : 'available';
-                  return `<div class="reformer-spot ${spotCls}" data-spot="${n}" ${isTaken ? '' : `onclick="App.selectSpot(${n})"`}>${n}</div>`;
+                  const dotCls = isTaken ? 'reformer-dot taken' : 'reformer-dot';
+                  const ariaLabel = isTaken ? `Reformer ${n} (taken)` : `Reformer ${n}`;
+                  const handler = isTaken ? '' : `onclick="App.selectSpot(${n})"`;
+                  const disabledAttr = isTaken ? 'disabled' : '';
+                  const ariaPressed = isTaken ? '' : 'aria-pressed="false"';
+                  const ariaDisabled = isTaken ? 'aria-disabled="true"' : '';
+                  return `<button type="button" class="${dotCls}" data-spot="${n}" aria-label="${ariaLabel}" ${ariaPressed} ${ariaDisabled} ${disabledAttr} ${handler}></button>`;
                 }).join('')}
               </div>
-              <div class="studio-label bottom">Entrance &rarr;</div>
+              <div class="reformer-label-bottom">Entrance &rarr;</div>
             </div>
           </div>
           ` : ''}
@@ -2710,9 +4152,12 @@
 
       selectSpot(num) {
         this.selectedSpot = num;
-        document.querySelectorAll('.reformer-spot.available, .reformer-spot.selected').forEach(spot => {
-          const spotNum = parseInt(spot.dataset.spot);
-          spot.className = spotNum === num ? 'reformer-spot selected' : 'reformer-spot available';
+        document.querySelectorAll('.reformer-dot').forEach(dot => {
+          if (dot.classList.contains('taken')) return;
+          const spotNum = parseInt(dot.dataset.spot);
+          const isSelected = spotNum === num;
+          dot.classList.toggle('selected', isSelected);
+          dot.setAttribute('aria-pressed', isSelected ? 'true' : 'false');
         });
       },
 
@@ -2723,13 +4168,33 @@
         const isReformer = cls.type === 'reformer' || cls.type === 'breathwork';
 
         if (isReformer && !this.selectedSpot && cls.spots > 0) {
-          const grid = document.getElementById('reformer-grid');
-          if (grid) {
-            grid.classList.add('shake');
-            setTimeout(() => grid.classList.remove('shake'), 300);
+          const picker = document.getElementById('reformer-picker');
+          if (picker) {
+            picker.classList.add('shake');
+            setTimeout(() => picker.classList.remove('shake'), 300);
           }
           return;
         }
+
+        // Push into App.bookings so My Bookings reflects this reservation
+        const DAY_LABELS = {
+          'mon-31': 'Monday, 31 March', 'tue-1': 'Tuesday, 1 April',
+          'wed-2': 'Wednesday, 2 April', 'thu-3': 'Thursday, 3 April',
+          'fri-4': 'Friday, 4 April', 'sat-5': 'Saturday, 5 April',
+          'sun-6': 'Sunday, 6 April'
+        };
+        const isReformerSpot = cls.type === 'reformer' || cls.type === 'breathwork';
+        const price = cls.type === 'mat' || cls.type === 'sc' ? '£14' : '£20';
+        const spotNum = isReformerSpot && this.selectedSpot ? this.selectedSpot : null;
+        this.bookings.unshift({
+          date: DAY_LABELS[this.selectedDay] || this.selectedDay,
+          name: cls.name,
+          meta: cls.time + ' — ' + cls.instructor,
+          sub: spotNum ? 'Reformer #' + spotNum : (cls.duration + ' · ' + price),
+          type: cls.type === 'breathwork' ? 'reformer' : cls.type,
+          spot: spotNum
+        });
+        this.renderUpcomingBookings();
 
         this.hideOverlay('overlay-class-detail');
         setTimeout(() => {
@@ -2741,61 +4206,190 @@
         const isReformer = cls.type === 'reformer' || cls.type === 'breathwork';
         const content = document.getElementById('booking-confirm-content');
 
+        const total = cls.capacity || 4;
+        // After this booking, total taken = (total - cls.spots) + 1 (the user just claimed one)
+        const takenAfter = Math.min(total, Math.max(0, total - cls.spots) + 1);
+        const settledSpot = isReformer && this.selectedSpot ? this.selectedSpot : null;
+
+        const dotsHtml = Array.from({ length: total }, (_, i) => {
+          const spotNum = i + 1;
+          if (settledSpot && spotNum === settledSpot) {
+            return `<span class="confirmation-dot settled" data-spot="${spotNum}"></span>`;
+          }
+          // Mark first (takenAfter) dots as taken, skipping the settled position
+          // For non-reformer (no selectedSpot), just fill takenAfter dots from the left.
+          if (!settledSpot) {
+            return spotNum <= takenAfter
+              ? `<span class="confirmation-dot taken" data-spot="${spotNum}"></span>`
+              : `<span class="confirmation-dot" data-spot="${spotNum}"></span>`;
+          }
+          // Reformer: count taken excluding the settled position
+          const takenSlotsNeeded = takenAfter - 1; // settled already accounts for one
+          // Count how many "taken" dots have been placed before this one
+          let placedTaken = 0;
+          for (let j = 1; j < spotNum; j++) {
+            if (j === settledSpot) continue;
+            if (placedTaken < takenSlotsNeeded) placedTaken++;
+          }
+          const isTaken = placedTaken < takenSlotsNeeded;
+          return isTaken
+            ? `<span class="confirmation-dot taken" data-spot="${spotNum}"></span>`
+            : `<span class="confirmation-dot" data-spot="${spotNum}"></span>`;
+        }).join('');
+
+        const reformerLine = isReformer && this.selectedSpot
+          ? `<br>${cls.name} · Reformer #${this.selectedSpot}`
+          : `<br>${cls.name} · with ${cls.instructor}`;
+
         content.innerHTML = `
-          <div class="checkmark-circle">
-            <svg class="checkmark-svg" viewBox="0 0 52 52">
-              <circle cx="26" cy="26" r="25"/>
-              <path d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
-            </svg>
+          <div class="confirmation-content">
+            <div class="confirmation-line" id="confirmation-line">
+              <span class="confirmation-line-track" aria-hidden="true"></span>
+              ${dotsHtml}
+            </div>
+            <h2 class="confirmation-heading">Your Line is set.</h2>
+            <p class="confirmation-details">
+              Monday, 31 March · ${cls.time}${reformerLine}
+            </p>
+            <label class="confirmation-recurring">
+              <input type="checkbox"> Book this class every week
+            </label>
+            <button class="btn-secondary" style="width: 100%; margin-bottom: 12px;" onclick="App.addToCalendar(event)">Add to Calendar</button>
+            <button class="btn-primary" style="width: 100%;" onclick="App.closeBookingConfirmation()">Done</button>
           </div>
-
-          <div class="confirm-title">You're booked!</div>
-
-          <div class="confirm-details">
-            <div class="confirm-detail-row">
-              <span class="confirm-detail-label">Class</span>
-              <span class="confirm-detail-value">${cls.name}</span>
-            </div>
-            <div class="confirm-detail-row">
-              <span class="confirm-detail-label">Date</span>
-              <span class="confirm-detail-value">Monday, 31 March</span>
-            </div>
-            <div class="confirm-detail-row">
-              <span class="confirm-detail-label">Time</span>
-              <span class="confirm-detail-value">${cls.time}</span>
-            </div>
-            ${isReformer && this.selectedSpot ? `
-            <div class="confirm-detail-row">
-              <span class="confirm-detail-label">Reformer</span>
-              <span class="confirm-detail-value">#${this.selectedSpot}</span>
-            </div>
-            ` : ''}
-            <div class="confirm-detail-row">
-              <span class="confirm-detail-label">Instructor</span>
-              <span class="confirm-detail-value">${cls.instructor}</span>
-            </div>
-          </div>
-
-          <div class="confirm-weekly">
-            <span class="confirm-weekly-text">Book every week?</span>
-            <div class="toggle-switch" onclick="this.classList.toggle('on')"></div>
-          </div>
-
-          <button class="btn-secondary" style="width: 100%; margin-bottom: 12px;" onclick="App.addToCalendar(event)">Add to Calendar</button>
-          <button class="btn-primary" style="width: 100%;" onclick="App.closeBookingConfirmation()">Done</button>
         `;
 
         this.showOverlay('overlay-booking-confirm');
+        this.runConfirmationAnimation(settledSpot);
+      },
+
+      runConfirmationAnimation(settledSpot) {
+        const line = document.getElementById('confirmation-line');
+        if (!line) return;
+
+        const prefersReduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (prefersReduce || typeof gsap === 'undefined') return;
+
+        // Kill any prior timeline (user re-opened booking before previous finished)
+        if (this._confirmTl) {
+          this._confirmTl.kill();
+          this._confirmTl = null;
+        }
+
+        const heading = document.querySelector('.confirmation-heading');
+        const details = document.querySelector('.confirmation-details');
+        const recurring = document.querySelector('.confirmation-recurring');
+        const buttons = document.querySelectorAll('#booking-confirm-content .btn-primary, #booking-confirm-content .btn-secondary');
+        const allDots = Array.from(line.querySelectorAll('.confirmation-dot'));
+        const settledDot = settledSpot ? line.querySelector('.confirmation-dot.settled') : null;
+
+        // Initial state — hide everything
+        gsap.set(allDots, { opacity: 0 });
+        gsap.set([heading, details, recurring, ...buttons], { opacity: 0 });
+        gsap.set([heading, details, recurring, ...buttons], { y: 8 });
+
+        let flyingDot = null;
+        let settledRing = null;
+        let endX = 0;
+
+        if (settledDot) {
+          // Inject flying dot (absolutely positioned inside the line container)
+          flyingDot = document.createElement('span');
+          flyingDot.className = 'confirmation-flying-dot';
+          line.appendChild(flyingDot);
+
+          // Inject ring element inside settled dot for scale-pulse (avoids animating box-shadow)
+          settledRing = document.createElement('span');
+          settledRing.className = 'confirmation-settled-ring';
+          settledDot.appendChild(settledRing);
+
+          // Measure start (first dot) and end (settled dot) positions relative to line container
+          const lineRect = line.getBoundingClientRect();
+          const firstDot = allDots[0];
+          const startRect = firstDot.getBoundingClientRect();
+          const endRect = settledDot.getBoundingClientRect();
+          const startX = startRect.left - lineRect.left + startRect.width / 2 - 6;
+          endX = endRect.left - lineRect.left + endRect.width / 2 - 6;
+
+          gsap.set(flyingDot, { x: startX, opacity: 0 });
+          gsap.set(settledDot, { opacity: 0 });
+          gsap.set(settledRing, { scale: 0.6, opacity: 0 });
+        }
+
+        const tl = gsap.timeline({
+          onComplete: () => {
+            if (flyingDot && flyingDot.parentNode) flyingDot.remove();
+            if (settledRing && settledRing.parentNode) settledRing.remove();
+            if (settledDot) gsap.set(settledDot, { clearProps: 'opacity' });
+            gsap.set([heading, details, recurring, ...buttons, ...allDots], { clearProps: 'opacity,transform' });
+            this._confirmTl = null;
+          }
+        });
+        this._confirmTl = tl;
+
+        // Beat 1 (0–0.25s): non-settled dots fade in with stagger
+        const nonSettledDots = allDots.filter(d => !d.classList.contains('settled'));
+        tl.to(nonSettledDots, {
+          opacity: 1,
+          duration: 0.25,
+          stagger: 0.04,
+          ease: 'power2.out'
+        }, 0);
+
+        if (settledDot && flyingDot) {
+          // Beat 2 (0.2s): flying dot fades in at first-dot position
+          tl.to(flyingDot, { opacity: 1, duration: 0.2, ease: 'power2.out' }, 0.2);
+
+          // Beat 3 (0.4s–1.1s): flying dot slides to settled spot
+          tl.to(flyingDot, { x: endX, duration: 0.7, ease: 'power3.inOut' }, 0.4);
+
+          // Beat 4 (1.05s): cross-fade flying dot out / settled dot in
+          tl.to(flyingDot, { opacity: 0, duration: 0.2, ease: 'power2.in' }, 1.05);
+          tl.to(settledDot, { opacity: 1, duration: 0.2, ease: 'power2.out' }, 1.05);
+
+          // Beat 4b (1.1s): ring pulse — scale + opacity only, no box-shadow
+          tl.fromTo(settledRing,
+            { scale: 0.6, opacity: 1 },
+            { scale: 1.6, opacity: 0, duration: 0.4, ease: 'expo.out' },
+            1.1
+          );
+        } else if (settledDot) {
+          tl.to(settledDot, { opacity: 1, duration: 0.3, ease: 'power2.out' }, 0.3);
+        }
+
+        // Beat 5 (1.2s): heading fades in with slight y-rise
+        tl.to(heading, { opacity: 1, y: 0, duration: 0.3, ease: 'power2.out' }, 1.2);
+
+        // Beat 6 (1.4s): details + recurring + buttons cascade
+        tl.to([details, recurring, ...buttons], {
+          opacity: 1,
+          y: 0,
+          duration: 0.25,
+          stagger: 0.06,
+          ease: 'power2.out'
+        }, 1.4);
+
+        // Tap-to-skip: fast-forward the timeline on overlay tap (but not on interactive elements)
+        const overlay = document.getElementById('overlay-booking-confirm');
+        const skipHandler = (e) => {
+          if (e.target.closest('button, a, input, label')) return;
+          tl.progress(1);
+        };
+        overlay.addEventListener('click', skipHandler, { once: true });
       },
 
       addToCalendar(e) {
         const btn = e.target;
         btn.textContent = 'Added \u2713';
-        btn.style.borderColor = 'var(--success)';
-        btn.style.color = 'var(--success)';
+        btn.style.borderColor = 'var(--brown-deep)';
+        btn.style.color = 'var(--brown-deep)';
       },
 
       closeBookingConfirmation() {
+        if (this._confirmTl) {
+          this._confirmTl.kill();
+          this._confirmTl = null;
+        }
         this.hideOverlay('overlay-booking-confirm');
         setTimeout(() => {
           this.switchTab('home');
@@ -2838,10 +4432,20 @@
 
       confirmCancel(btn) {
         const bookingCard = btn.closest('.booking-card');
+        // Find the booking by header date (rendered as .booking-date-header)
+        const dateHeader = bookingCard.querySelector('.booking-date-header');
+        const dateLabel = dateHeader ? dateHeader.textContent.trim() : null;
         bookingCard.style.transition = 'opacity 300ms, transform 300ms';
         bookingCard.style.opacity = '0';
         bookingCard.style.transform = 'translateX(-20px)';
-        setTimeout(() => bookingCard.remove(), 300);
+        setTimeout(() => {
+          if (dateLabel && this.bookings) {
+            const idx = this.bookings.findIndex(b => b.date === dateLabel);
+            if (idx >= 0) this.bookings.splice(idx, 1);
+          }
+          // Re-render so empty state appears when list becomes empty
+          this.renderUpcomingBookings();
+        }, 300);
       },
 
       switchContentTab(tab, el) {
