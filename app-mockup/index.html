@@ -3479,7 +3479,7 @@
           if (this.currentScreen !== 'splash') return;
           this.showScreen('home');
           document.getElementById('tab-bar').classList.remove('hidden');
-        }, 4000);
+        }, 6800);
 
         document.getElementById('overlay-backdrop').addEventListener('click', () => {
           this.hideOverlay('overlay-class-detail');
@@ -3568,52 +3568,55 @@
           }
         });
 
-        // Beat 1 (0.2s–0.6s): dots fade in at scattered positions
+        // Beat 1 (0.4s–1.4s): dots fade in at scattered positions, paced like a held breath
         tl.to(dots, {
           opacity: 1,
-          duration: 0.4,
-          stagger: 0.02,
-          ease: 'power2.out'
-        }, 0.2);
+          duration: 1.0,
+          stagger: 0.05,
+          ease: 'sine.out'
+        }, 0.4);
 
-        // Beat 2 (0.6s–1.2s): dots converge into horizontal line at macron level
+        // Beat 2 (1.4s–3.0s): dots converge into a horizontal line — slow, deliberate, sine in/out
         tl.to(dots, {
           x: (i) => lineStartX + i * lineSpacing,
           y: macronY,
           scale: 1,
-          duration: 0.6,
-          stagger: 0.03,
-          ease: 'power3.out'
-        }, 0.6);
+          duration: 1.6,
+          stagger: 0.05,
+          ease: 'sine.inOut'
+        }, 1.4);
 
-        // Beat 3 (1.3s–1.6s): dots collapse horizontally into a bar shape (the macron)
+        // Beat 3 (3.0s–3.7s): dots collapse horizontally into a bar shape (the macron)
         tl.to(dots, {
           x: 0,
           scaleX: 0.4,
-          duration: 0.3,
-          ease: 'power2.inOut'
-        }, 1.3);
+          duration: 0.7,
+          ease: 'sine.inOut'
+        }, 3.0);
 
-        // Beat 4 (1.6s–1.9s): dots fade out as CSS macron in .splash-logo takes over
+        // Beat 4 (3.5s–4.1s): dots fade out as CSS macron in .splash-logo takes over
         tl.to(dots, {
           opacity: 0,
-          duration: 0.3,
-          ease: 'power2.in'
-        }, 1.6);
+          duration: 0.6,
+          ease: 'sine.in'
+        }, 3.5);
 
-        // Beat 5 (1.7s–2.0s): logo fades in
+        // Beat 5 (3.7s–4.5s): logo fades in slowly
         tl.to(logo, {
           opacity: 1,
-          duration: 0.3,
-          ease: 'power2.out'
-        }, 1.7);
+          duration: 0.8,
+          ease: 'sine.out'
+        }, 3.7);
 
-        // Beat 6 (2.2s–2.5s): tagline fades in with slight rise
+        // Beat 6 (4.7s–5.5s): tagline rises in with calm
         tl.fromTo(tagline,
-          { opacity: 0, y: 8 },
-          { opacity: 1, y: 0, duration: 0.3, ease: 'power2.out' },
-          2.2
+          { opacity: 0, y: 10 },
+          { opacity: 1, y: 0, duration: 0.8, ease: 'sine.out' },
+          4.7
         );
+
+        // Beat 7 (5.5s–6.5s): silent hold — let the wordmark + tagline breathe before transition
+        tl.to({}, { duration: 1.0 }, 5.5);
 
         // Tap anywhere on splash skips to end and transitions
         splashContent.addEventListener('click', () => {
